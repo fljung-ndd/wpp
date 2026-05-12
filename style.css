@@ -1,0 +1,14 @@
+/*
+Theme Name: Waldkätzchen Child
+Theme URI: https://waldkaetzchen.waldkaetzchen.de/
+Description: Child Theme für Waldkätzchen auf Basis von Astra.
+Author: Felix Jung
+Template: astra
+Version: 1.0.0
+Text Domain: waldkaetzchen-child
+*/
+
+/* Waldkätzchen Basis-Styling */
+body {
+  background: #f7f1e7;
+}
