@@ -1,241 +1,685 @@
 /* ==========================================
-   WALDKÄTZCHEN DESIGN SYSTEM
+   WALDKÄTZCHEN WEBSITE DESIGN SYSTEM
+   Öffentliche Website = Waldwelt, Artikel, Vertrauen, Begleitung
 ========================================== */
 
 :root {
-  --wk-forest: #5f6f52;
-  --wk-moss: #7a8f6a;
-  --wk-sage: #a4b494;
-  --wk-sand: #f6f1e8;
-  --wk-bark: #6a4c38;
-  --wk-fog: rgba(255,255,255,0.72);
-  --wk-shadow: rgba(60, 40, 20, 0.12);
-  --wk-radius: 24px;
-  --wk-radius-small: 18px;
-  --wk-transition: all 0.25s ease;
+  --wk-ink: #183f39;
+  --wk-ink-soft: #31554e;
+  --wk-forest-deep: #17453d;
+  --wk-forest: #2d6759;
+  --wk-moss: #6f8a63;
+  --wk-sage: #9fb28d;
+  --wk-leaf: #d7e0c7;
+  --wk-sand: #f7f1e7;
+  --wk-cream: #fffaf2;
+  --wk-paper: rgba(255, 251, 244, 0.88);
+  --wk-paper-strong: rgba(255, 252, 247, 0.96);
+  --wk-fog: rgba(255, 255, 255, 0.7);
+  --wk-bark: #6b4b38;
+  --wk-earth: #8b6850;
+  --wk-gold: #d8b459;
+  --wk-rose: #d98390;
+  --wk-teal: #24a8aa;
+  --wk-blue: #7c9dc7;
+  --wk-orange: #df9154;
+  --wk-shadow: rgba(37, 39, 26, 0.14);
+  --wk-shadow-soft: rgba(37, 39, 26, 0.08);
+  --wk-border: rgba(52, 72, 57, 0.13);
+  --wk-radius-xl: 42px;
+  --wk-radius-lg: 30px;
+  --wk-radius-md: 22px;
+  --wk-radius-sm: 16px;
+  --wk-shell: min(1180px, calc(100vw - 48px));
+  --wk-transition: 220ms ease;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body.wk-site {
+  color: var(--wk-ink);
   background:
-    radial-gradient(circle at top, rgba(255,255,255,0.55), transparent 40%),
-    linear-gradient(to bottom, #f8f4eb 0%, #f3ecdf 100%);
-  color: #3c352d;
-  font-family: 'Nunito', sans-serif;
+    radial-gradient(circle at 10% 8%, rgba(255, 255, 255, 0.92), transparent 32rem),
+    radial-gradient(circle at 92% 16%, rgba(215, 224, 199, 0.62), transparent 30rem),
+    radial-gradient(circle at 50% 115%, rgba(167, 188, 150, 0.42), transparent 44rem),
+    linear-gradient(180deg, #fbf7ef 0%, #f4eddf 54%, #f7f1e7 100%);
+  font-family: "Nunito", "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.65;
+  overflow-x: clip;
+}
+
+body.wk-site::before,
+body.wk-site::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(20px);
+  opacity: 0.72;
+}
+
+body.wk-site::before {
+  top: 7rem;
+  left: -12rem;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 999px;
+  background: rgba(223, 231, 213, 0.72);
+}
+
+body.wk-site::after {
+  right: -11rem;
+  bottom: 4rem;
+  width: 38rem;
+  height: 38rem;
+  border-radius: 999px;
+  background: rgba(218, 227, 203, 0.58);
 }
 
 .site,
 .site-content,
-.ast-container {
+.ast-container,
+#page {
   background: transparent !important;
 }
 
-/* ==========================================
-   GLASS / WALD KARTEN
-========================================== */
-
-.wk-card,
-.elementor-widget-wrap,
-.ast-container article,
-.elementor-section-boxed > .elementor-container {
-  background: var(--wk-fog);
-  backdrop-filter: blur(12px);
-  border-radius: var(--wk-radius);
-  box-shadow: 0 12px 30px var(--wk-shadow);
+.ast-container,
+.elementor-section.elementor-section-boxed > .elementor-container,
+.elementor-container {
+  width: var(--wk-shell);
+  max-width: var(--wk-shell);
 }
 
 /* ==========================================
-   TYPOGRAFIE
+   HEADER / NAVIGATION
+========================================== */
+
+.site-header,
+.ast-primary-header-bar,
+.main-header-bar {
+  background: rgba(255, 250, 242, 0.78) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--wk-border) !important;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.ast-builder-grid-row,
+.main-header-bar .ast-container {
+  min-height: 92px;
+}
+
+.site-branding img,
+.custom-logo-link img {
+  filter: drop-shadow(0 8px 18px rgba(29, 67, 58, 0.08));
+}
+
+.site-title a,
+.ast-site-title-wrap a {
+  color: var(--wk-forest-deep) !important;
+}
+
+.main-header-menu > .menu-item > a,
+.ast-builder-menu-1 .menu-item > .menu-link {
+  color: var(--wk-ink-soft) !important;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  padding-inline: 16px !important;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  transition: background var(--wk-transition), color var(--wk-transition), transform var(--wk-transition);
+}
+
+.main-header-menu > .menu-item > a:hover,
+.main-header-menu > .current-menu-item > a,
+.ast-builder-menu-1 .menu-item:hover > .menu-link,
+.ast-builder-menu-1 .current-menu-item > .menu-link {
+  background: rgba(45, 103, 89, 0.11) !important;
+  color: var(--wk-forest-deep) !important;
+  transform: translateY(-1px);
+}
+
+.ast-header-button-1 .ast-custom-button,
+.ast-builder-button-wrap .ast-custom-button,
+.site-header .button {
+  background: linear-gradient(135deg, var(--wk-forest-deep), var(--wk-forest)) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 15px 26px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 14px 28px rgba(24, 63, 57, 0.18);
+}
+
+.ast-header-button-1 .ast-custom-button:hover,
+.ast-builder-button-wrap .ast-custom-button:hover,
+.site-header .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(24, 63, 57, 0.24);
+}
+
+/* ==========================================
+   PAGE FRAME / CLEANUP
+========================================== */
+
+.site-content {
+  padding-block: 44px 96px;
+}
+
+body:not(.home) .site-content {
+  padding-top: 52px;
+}
+
+.entry-header,
+.ast-single-entry-banner,
+.page .entry-title {
+  color: var(--wk-forest-deep);
+}
+
+.page .entry-header,
+.page-title,
+.ast-single-entry-banner {
+  width: var(--wk-shell);
+  margin-inline: auto;
+}
+
+.page .entry-title,
+.ast-single-entry-banner .entry-title {
+  margin: 0 0 24px;
+  font-weight: 1000;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  font-size: clamp(2.4rem, 5vw, 4.7rem);
+}
+
+.entry-content > * {
+  scroll-margin-top: 132px;
+}
+
+.elementor-section,
+.e-con {
+  margin-bottom: 30px;
+}
+
+.elementor-section:last-child,
+.e-con:last-child {
+  margin-bottom: 0;
+}
+
+/* General Elementor sections become soft page modules, but not every inner wrapper. */
+.elementor-section.elementor-section-boxed > .elementor-container,
+.elementor > .e-con:not(.e-con-full),
+.entry-content > .wp-block-group.is-layout-constrained,
+.entry-content > .wp-block-columns {
+  background: var(--wk-paper);
+  border: 1px solid var(--wk-border);
+  border-radius: var(--wk-radius-xl);
+  box-shadow: 0 26px 70px var(--wk-shadow-soft);
+  overflow: hidden;
+}
+
+.elementor-section.elementor-section-boxed > .elementor-container {
+  padding: clamp(26px, 4vw, 54px);
+}
+
+.elementor-widget-wrap,
+.elementor-column-wrap,
+.elementor-widget-container {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Prevent legacy Astra pages from looking like raw templates. */
+.ast-separate-container .ast-article-single,
+.ast-separate-container .ast-article-post,
+.ast-separate-container .comment-respond,
+.ast-separate-container .ast-comment-list li.depth-1 {
+  background: var(--wk-paper);
+  border: 1px solid var(--wk-border);
+  border-radius: var(--wk-radius-xl);
+  box-shadow: 0 26px 70px var(--wk-shadow-soft);
+}
+
+/* ==========================================
+   TYPOGRAPHY
 ========================================== */
 
 h1,
 h2,
 h3,
-h4 {
-  color: var(--wk-bark);
-  letter-spacing: -0.02em;
+h4,
+h5,
+h6,
+.entry-title,
+.elementor-heading-title {
+  color: var(--wk-forest-deep);
+  letter-spacing: -0.035em;
+  font-weight: 1000;
+  line-height: 1.06;
 }
 
-.wk-lead {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  max-width: 720px;
+h2,
+.elementor-widget-heading h2.elementor-heading-title {
+  font-size: clamp(1.9rem, 3.6vw, 3.3rem);
+  margin-bottom: 0.7em;
+}
+
+h3,
+.elementor-widget-heading h3.elementor-heading-title {
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
+}
+
+p,
+.elementor-widget-text-editor,
+.entry-content {
+  color: var(--wk-ink-soft);
+  font-size: clamp(1rem, 1.2vw, 1.11rem);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  color: var(--wk-ink);
+}
+
+ul,
+ol {
+  color: var(--wk-ink-soft);
+}
+
+blockquote,
+.wp-block-quote {
+  position: relative;
+  margin: 34px 0;
+  padding: 26px 28px 26px 34px;
+  border-left: 0;
+  border-radius: var(--wk-radius-md);
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(45, 103, 89, 0.12);
+  color: var(--wk-forest-deep);
+  box-shadow: 0 18px 38px rgba(37, 39, 26, 0.07);
+}
+
+blockquote::before,
+.wp-block-quote::before {
+  content: "“";
+  position: absolute;
+  left: 14px;
+  top: -2px;
+  font-size: 4rem;
+  color: rgba(45, 103, 89, 0.22);
+  font-weight: 1000;
 }
 
 /* ==========================================
-   BUTTONS
+   BUTTONS / LINKS
 ========================================== */
 
+a {
+  color: var(--wk-forest);
+}
+
+.entry-content a:not(.elementor-button):not(.wp-element-button):not(.wk-button) {
+  text-decoration-color: rgba(45, 103, 89, 0.38);
+  text-underline-offset: 0.18em;
+}
+
 button,
+input[type="button"],
+input[type="submit"],
 .wp-element-button,
 .elementor-button,
 .wk-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 24px;
+  gap: 9px;
+  min-height: 52px;
+  padding: 14px 26px !important;
   border-radius: 999px !important;
-  background: linear-gradient(
-    135deg,
-    var(--wk-forest),
-    var(--wk-moss)
-  ) !important;
-  color: white !important;
-  border: none !important;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(95,111,82,0.22);
-  transition: var(--wk-transition);
-}
-
-.wk-button--ghost {
-  background: rgba(255,255,255,0.6) !important;
-  color: var(--wk-bark) !important;
+  border: 0 !important;
+  background: linear-gradient(135deg, var(--wk-forest-deep), var(--wk-forest)) !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.01em;
+  text-decoration: none !important;
+  box-shadow: 0 16px 30px rgba(24, 63, 57, 0.18);
+  transition: transform var(--wk-transition), box-shadow var(--wk-transition), filter var(--wk-transition);
 }
 
 button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
 .wp-element-button:hover,
 .elementor-button:hover,
 .wk-button:hover {
   transform: translateY(-2px);
-  filter: brightness(1.05);
+  box-shadow: 0 20px 38px rgba(24, 63, 57, 0.24);
+  filter: brightness(1.02);
+}
+
+.wk-button--ghost,
+.elementor-button.elementor-size-sm.wk-button--ghost {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: var(--wk-forest-deep) !important;
+  border: 1px solid rgba(45, 103, 89, 0.16) !important;
+  box-shadow: 0 14px 28px rgba(37, 39, 26, 0.09);
 }
 
 /* ==========================================
-   NAVIGATION
+   IMAGES / MEDIA
 ========================================== */
 
-.main-header-menu a {
-  border-radius: 999px;
-  transition: var(--wk-transition);
+.entry-content img,
+.elementor-widget-image img,
+.wp-post-image {
+  border-radius: var(--wk-radius-lg);
 }
 
-.main-header-menu a:hover {
-  background: rgba(95,111,82,0.12);
+.elementor-widget-image img,
+.wp-post-image {
+  box-shadow: 0 24px 54px rgba(37, 39, 26, 0.14);
+}
+
+figure,
+.wp-caption {
+  margin: 0;
 }
 
 /* ==========================================
-   WELCOME SCREEN
+   HERO / HOMEPAGE SUPPORT
 ========================================== */
+
+body.home .site-content,
+body.wk-front-page .site-content {
+  padding-top: 24px;
+}
+
+body.home .page .entry-title,
+body.wk-front-page .page .entry-title {
+  display: none;
+}
 
 .wk-welcome {
   position: relative;
-  min-height: 88vh;
-  padding: 80px 28px;
+  min-height: min(820px, calc(100vh - 136px));
+  width: var(--wk-shell);
+  margin: 0 auto 38px;
+  padding: clamp(32px, 6vw, 74px);
   display: flex;
   align-items: center;
   overflow: hidden;
+  border: 1px solid rgba(45, 103, 89, 0.13);
+  border-radius: clamp(34px, 6vw, 64px);
   background:
-    radial-gradient(circle at top, rgba(255,255,255,0.35), transparent 40%),
-    linear-gradient(180deg, #7a8f6a 0%, #5f6f52 100%);
-  color: white;
+    radial-gradient(circle at 82% 18%, rgba(255, 240, 186, 0.52), transparent 15rem),
+    radial-gradient(circle at 20% 88%, rgba(255, 255, 255, 0.28), transparent 22rem),
+    linear-gradient(135deg, #1a473f 0%, #47715f 52%, #94aa7b 100%);
+  color: #fff;
+  box-shadow: 0 42px 90px rgba(25, 52, 45, 0.24);
 }
 
-.wk-welcome__content {
-  position: relative;
-  z-index: 2;
-  max-width: 720px;
+.wk-welcome::before,
+.wk-welcome::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
 }
 
-.wk-kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  opacity: 0.8;
+.wk-welcome::before {
+  inset: 0;
+  background:
+    radial-gradient(circle at 35% 20%, rgba(255, 255, 255, 0.22), transparent 18rem),
+    radial-gradient(circle at 62% 85%, rgba(255, 255, 255, 0.15), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(11, 37, 32, 0.16));
 }
 
-.wk-welcome h1 {
-  color: white;
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: 0.95;
-}
-
-.wk-action-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 28px;
+.wk-welcome::after {
+  right: -2rem;
+  bottom: -1rem;
+  width: min(52vw, 520px);
+  height: min(52vw, 520px);
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 65%);
+  filter: blur(4px);
 }
 
 .wk-welcome__mist {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top, rgba(255,255,255,0.22), transparent 30%),
-    radial-gradient(circle at bottom, rgba(255,255,255,0.12), transparent 40%);
+    radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.22), transparent 16rem),
+    radial-gradient(circle at 68% 64%, rgba(255, 255, 255, 0.18), transparent 20rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.14));
+  opacity: 0.92;
+}
+
+.wk-welcome__content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.wk-kicker {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.82);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.84rem;
+  font-weight: 1000;
+}
+
+.wk-welcome h1 {
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 6.3rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  margin-bottom: 24px;
+}
+
+.wk-welcome .wk-lead,
+.wk-welcome p {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1.12rem, 2vw, 1.42rem);
+  max-width: 680px;
+}
+
+.wk-action-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 34px;
 }
 
 /* ==========================================
-   THEMENWELTEN
+   CLEAN PAGE HERO FOR SUBPAGES
 ========================================== */
 
-.wk-worlds {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin: 48px 0;
-}
-
-.wk-world-card {
-  padding: 28px;
-  transition: var(--wk-transition);
-}
-
-.wk-world-card:hover {
-  transform: translateY(-6px);
-}
-
-.wk-world-card__icon {
-  font-size: 2rem;
-  margin-bottom: 18px;
-}
-
-.wk-world-card--mind {
-  border-top: 6px solid #7999d6;
-}
-
-.wk-world-card--heart {
-  border-top: 6px solid #d889a8;
-}
-
-.wk-world-card--spark {
-  border-top: 6px solid #d9a15f;
-}
-
-.wk-world-card--calm {
-  border-top: 6px solid #7a8f6a;
+body:not(.home) .entry-header:not(:empty),
+body:not(.wk-front-page) .entry-header:not(:empty) {
+  position: relative;
+  margin-bottom: 32px;
+  padding: clamp(26px, 4vw, 44px);
+  border: 1px solid var(--wk-border);
+  border-radius: var(--wk-radius-xl);
+  background:
+    radial-gradient(circle at 88% 18%, rgba(215, 224, 199, 0.62), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 252, 247, 0.98), rgba(245, 239, 227, 0.92));
+  box-shadow: 0 24px 60px var(--wk-shadow-soft);
 }
 
 /* ==========================================
-   MOBILE APP FEELING
+   BLOG / IMPULSE
 ========================================== */
+
+.blog-layout-1,
+.ast-article-post,
+.ast-row .ast-article-post,
+.ast-blog-layout-4-grid .ast-article-post {
+  border: 1px solid var(--wk-border) !important;
+  border-radius: var(--wk-radius-lg) !important;
+  background: var(--wk-paper) !important;
+  box-shadow: 0 22px 52px var(--wk-shadow-soft);
+  overflow: hidden;
+  transition: transform var(--wk-transition), box-shadow var(--wk-transition);
+}
+
+.ast-article-post:hover,
+.blog-layout-1:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 64px rgba(37, 39, 26, 0.12);
+}
+
+.ast-blog-featured-section,
+.post-thumb,
+.ast-article-post .post-thumb-img-content {
+  border-radius: 0 !important;
+}
+
+.entry-meta,
+.entry-meta * {
+  color: rgba(49, 85, 78, 0.72) !important;
+  font-weight: 800;
+}
+
+.read-more a,
+.ast-button,
+.ast-excerpt-container + .read-more a {
+  font-weight: 1000;
+  color: var(--wk-forest-deep) !important;
+}
+
+/* ==========================================
+   FORMS / CONTACT
+========================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  border-radius: 18px !important;
+  border: 1px solid rgba(45, 103, 89, 0.18) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: var(--wk-ink) !important;
+  min-height: 52px;
+  box-shadow: inset 0 1px 1px rgba(37, 39, 26, 0.02);
+}
+
+textarea {
+  min-height: 160px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer,
+.site-primary-footer-wrap,
+.site-below-footer-wrap,
+.ast-footer-overlay {
+  background: linear-gradient(180deg, rgba(245, 239, 227, 0.18), rgba(221, 229, 207, 0.92)) !important;
+  border-top: 1px solid var(--wk-border);
+}
+
+.site-footer {
+  margin-top: 42px;
+}
+
+.site-footer a,
+.footer-widget-area a {
+  color: var(--wk-forest-deep) !important;
+  font-weight: 800;
+}
+
+/* ==========================================
+   MOBILE APP NAV: nur dann zeigen, wenn vorhanden/nötig
+========================================== */
+
+.wk-mobile-nav {
+  display: none;
+}
+
+@media (max-width: 921px) {
+  .ast-builder-menu-mobile .main-navigation .menu-item > .menu-link,
+  .ast-header-break-point .main-navigation ul .menu-item .menu-link {
+    border-radius: 16px;
+    margin-block: 2px;
+  }
+}
 
 @media (max-width: 768px) {
+  :root {
+    --wk-shell: min(100vw - 28px, 100%);
+  }
+
+  body.wk-site {
+    background:
+      radial-gradient(circle at 50% 4%, rgba(255, 255, 255, 0.95), transparent 18rem),
+      radial-gradient(circle at 94% 20%, rgba(215, 224, 199, 0.52), transparent 17rem),
+      linear-gradient(180deg, #fbf7ef 0%, #f4eddf 68%, #f7f1e7 100%);
+  }
 
   .site-content {
-    padding-bottom: 110px;
+    padding-block: 22px 74px;
   }
 
-  .wk-mobile-nav {
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    bottom: 18px;
-    background: rgba(255,255,255,0.78);
-    backdrop-filter: blur(18px);
-    border-radius: 999px;
-    padding: 12px;
-    display: flex;
-    justify-content: space-around;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    z-index: 9999;
+  .ast-builder-grid-row,
+  .main-header-bar .ast-container {
+    min-height: 76px;
   }
 
-  .wk-mobile-nav a {
-    display: flex;
+  .elementor-section.elementor-section-boxed > .elementor-container,
+  .elementor > .e-con:not(.e-con-full),
+  .entry-content > .wp-block-group.is-layout-constrained,
+  .entry-content > .wp-block-columns,
+  body:not(.home) .entry-header:not(:empty),
+  body:not(.wk-front-page) .entry-header:not(:empty) {
+    border-radius: 28px;
+  }
+
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    padding: 22px 18px;
+  }
+
+  .page .entry-title,
+  .ast-single-entry-banner .entry-title {
+    font-size: clamp(2.1rem, 11vw, 3.6rem);
+  }
+
+  .wk-welcome {
+    width: var(--wk-shell);
+    min-height: 72vh;
+    padding: 30px 20px 36px;
+    border-radius: 34px;
+  }
+
+  .wk-welcome h1 {
+    font-size: clamp(2.7rem, 13vw, 4.3rem);
+  }
+
+  .wk-action-row {
     flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-decoration: none;
-    color: var(--wk-bark);
-    font-size: 0.8rem;
+    align-items: stretch;
+  }
+
+  .wk-action-row .wk-button {
+    width: 100%;
   }
 }
