@@ -10,14 +10,8 @@
 
 <header class="wk-header">
     <div class="wk-header__inner">
-        <a class="wk-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <?php
-            if ( has_custom_logo() ) {
-                the_custom_logo();
-            } else {
-                bloginfo( 'name' );
-            }
-            ?>
+        <a class="wk-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php bloginfo( 'name' ); ?> Startseite">
+            <span class="wk-logo__text">Waldkätzchen <span aria-hidden="true">🌿</span></span>
         </a>
 
         <nav class="wk-nav" aria-label="Hauptnavigation">
@@ -34,7 +28,7 @@
         </nav>
 
         <a class="wk-header__cta" href="/lichtung">
-            Lichtung / App
+            Zur App
         </a>
     </div>
 </header>
