@@ -113,7 +113,7 @@ body.wk-site::after {
 
 .ast-builder-grid-row,
 .main-header-bar .ast-container {
-  min-height: 92px;
+  min-height: 84px;
 }
 
 .site-branding img,
@@ -126,16 +126,52 @@ body.wk-site::after {
   color: var(--wk-forest-deep) !important;
 }
 
+.ast-builder-grid-row {
+  align-items: center;
+}
+
+.ast-builder-grid-row-container-inner {
+  min-width: 0;
+}
+
+.site-header-primary-section-left,
+.site-header-primary-section-center,
+.site-header-primary-section-right {
+  min-width: 0;
+}
+
+.ast-builder-menu-1,
+.ast-builder-menu-1 .main-navigation,
+.ast-builder-menu-1 .main-header-menu {
+  min-width: 0;
+}
+
+.main-header-menu,
+.ast-builder-menu-1 .main-header-menu {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap !important;
+  gap: clamp(4px, 0.7vw, 12px);
+}
+
+.main-header-menu > .menu-item,
+.ast-builder-menu-1 .main-header-menu > .menu-item {
+  flex: 0 0 auto;
+}
+
 .main-header-menu > .menu-item > a,
 .ast-builder-menu-1 .menu-item > .menu-link {
   color: var(--wk-ink-soft) !important;
   font-weight: 800;
   letter-spacing: 0.01em;
   border-radius: 999px;
-  padding-inline: 16px !important;
-  min-height: 48px;
+  padding-inline: clamp(8px, 0.9vw, 14px) !important;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
+  font-size: clamp(0.9rem, 0.95vw, 1rem);
   transition: background var(--wk-transition), color var(--wk-transition), transform var(--wk-transition);
 }
 
@@ -155,9 +191,11 @@ body.wk-site::after {
   color: #fff !important;
   border: 0 !important;
   border-radius: 999px !important;
-  padding: 15px 26px !important;
+  padding: 13px 22px !important;
   font-weight: 900 !important;
-  box-shadow: 0 14px 28px rgba(24, 63, 57, 0.18);
+  box-shadow: 0 12px 24px rgba(24, 63, 57, 0.18);
+  white-space: nowrap;
+  font-size: 0.92rem !important;
 }
 
 .ast-header-button-1 .ast-custom-button:hover,
@@ -175,7 +213,7 @@ body.wk-site::after {
   padding-block: 44px 96px;
 }
 
-body:not(.home) .site-content {
+body:not(.home):not(.wk-front-page) .site-content {
   padding-top: 52px;
 }
 
@@ -399,12 +437,13 @@ figure,
 }
 
 /* ==========================================
-   HERO / HOMEPAGE SUPPORT
+   HOME: EXISTIERENDEN GANZSEITIGEN HERO NICHT KAPUTT STYLEN
 ========================================== */
 
 body.home .site-content,
 body.wk-front-page .site-content {
-  padding-top: 24px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 body.home .page .entry-title,
@@ -412,6 +451,62 @@ body.wk-front-page .page .entry-title {
   display: none;
 }
 
+body.home .ast-container,
+body.wk-front-page .ast-container,
+body.home .elementor-container,
+body.wk-front-page .elementor-container,
+body.home .elementor-section.elementor-section-boxed > .elementor-container,
+body.wk-front-page .elementor-section.elementor-section-boxed > .elementor-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.home .elementor-section,
+body.wk-front-page .elementor-section,
+body.home .e-con,
+body.wk-front-page .e-con {
+  margin-bottom: 0 !important;
+}
+
+body.home .elementor-section.elementor-section-boxed > .elementor-container,
+body.wk-front-page .elementor-section.elementor-section-boxed > .elementor-container,
+body.home .elementor > .e-con:not(.e-con-full),
+body.wk-front-page .elementor > .e-con:not(.e-con-full),
+body.home .entry-content > .wp-block-group.is-layout-constrained,
+body.wk-front-page .entry-content > .wp-block-group.is-layout-constrained,
+body.home .entry-content > .wp-block-columns,
+body.wk-front-page .entry-content > .wp-block-columns {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+body.home .elementor-section.elementor-section-boxed > .elementor-container,
+body.wk-front-page .elementor-section.elementor-section-boxed > .elementor-container {
+  padding: 0 !important;
+}
+
+body.home .entry-content,
+body.wk-front-page .entry-content {
+  margin: 0 !important;
+}
+
+body.home .entry-content > *:first-child,
+body.wk-front-page .entry-content > *:first-child {
+  margin-top: 0 !important;
+}
+
+body.home .entry-content img,
+body.wk-front-page .entry-content img,
+body.home .elementor-widget-image img,
+body.wk-front-page .elementor-widget-image img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Keep shortcode-based Welcome available for later pages, without affecting existing home hero. */
 .wk-welcome {
   position: relative;
   min-height: min(820px, calc(100vh - 136px));
@@ -507,8 +602,7 @@ body.wk-front-page .page .entry-title {
    CLEAN PAGE HERO FOR SUBPAGES
 ========================================== */
 
-body:not(.home) .entry-header:not(:empty),
-body:not(.wk-front-page) .entry-header:not(:empty) {
+body:not(.home):not(.wk-front-page) .entry-header:not(:empty) {
   position: relative;
   margin-bottom: 32px;
   padding: clamp(26px, 4vw, 44px);
@@ -616,6 +710,25 @@ textarea {
   display: none;
 }
 
+@media (max-width: 1130px) and (min-width: 922px) {
+  .site-header .custom-logo-link img {
+    max-width: 96px;
+    height: auto;
+  }
+
+  .site-title,
+  .ast-site-title-wrap .site-title {
+    font-size: 1.55rem !important;
+  }
+
+  .ast-header-button-1 .ast-custom-button,
+  .ast-builder-button-wrap .ast-custom-button,
+  .site-header .button {
+    padding: 12px 18px !important;
+    font-size: 0.86rem !important;
+  }
+}
+
 @media (max-width: 921px) {
   .ast-builder-menu-mobile .main-navigation .menu-item > .menu-link,
   .ast-header-break-point .main-navigation ul .menu-item .menu-link {
@@ -640,6 +753,11 @@ textarea {
     padding-block: 22px 74px;
   }
 
+  body.home .site-content,
+  body.wk-front-page .site-content {
+    padding-block: 0 !important;
+  }
+
   .ast-builder-grid-row,
   .main-header-bar .ast-container {
     min-height: 76px;
@@ -649,13 +767,17 @@ textarea {
   .elementor > .e-con:not(.e-con-full),
   .entry-content > .wp-block-group.is-layout-constrained,
   .entry-content > .wp-block-columns,
-  body:not(.home) .entry-header:not(:empty),
-  body:not(.wk-front-page) .entry-header:not(:empty) {
+  body:not(.home):not(.wk-front-page) .entry-header:not(:empty) {
     border-radius: 28px;
   }
 
   .elementor-section.elementor-section-boxed > .elementor-container {
     padding: 22px 18px;
+  }
+
+  body.home .elementor-section.elementor-section-boxed > .elementor-container,
+  body.wk-front-page .elementor-section.elementor-section-boxed > .elementor-container {
+    padding: 0 !important;
   }
 
   .page .entry-title,
