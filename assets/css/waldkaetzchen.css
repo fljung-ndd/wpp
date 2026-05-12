@@ -1,1 +1,138 @@
-*css
+/* ==========================================
+   WALDKÄTZCHEN DESIGN SYSTEM
+========================================== */
+
+:root {
+  --wk-forest: #5f6f52;
+  --wk-moss: #7a8f6a;
+  --wk-sage: #a4b494;
+  --wk-sand: #f6f1e8;
+  --wk-bark: #6a4c38;
+  --wk-fog: rgba(255,255,255,0.72);
+  --wk-shadow: rgba(60, 40, 20, 0.12);
+  --wk-radius: 24px;
+  --wk-radius-small: 18px;
+  --wk-transition: all 0.25s ease;
+}
+
+body.wk-site {
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.55), transparent 40%),
+    linear-gradient(to bottom, #f8f4eb 0%, #f3ecdf 100%);
+  color: #3c352d;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ==========================================
+   GLASS / WALD KARTEN
+========================================== */
+
+.wk-card,
+.elementor-widget-wrap,
+.ast-container article {
+  background: var(--wk-fog);
+  backdrop-filter: blur(12px);
+  border-radius: var(--wk-radius);
+  box-shadow: 0 12px 30px var(--wk-shadow);
+}
+
+/* ==========================================
+   POLAROID STIL
+========================================== */
+
+.wk-polaroid {
+  background: #fffdf9;
+  border-radius: 16px;
+  padding: 14px 14px 28px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  transform: rotate(-1deg);
+  transition: var(--wk-transition);
+}
+
+.wk-polaroid:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button,
+.wp-element-button,
+.elementor-button {
+  border-radius: 999px !important;
+  background: linear-gradient(
+    135deg,
+    var(--wk-forest),
+    var(--wk-moss)
+  ) !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(95,111,82,0.22);
+  transition: var(--wk-transition);
+}
+
+button:hover,
+.wp-element-button:hover,
+.elementor-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.main-header-menu a {
+  border-radius: 999px;
+  transition: var(--wk-transition);
+}
+
+.main-header-menu a:hover {
+  background: rgba(95,111,82,0.12);
+}
+
+/* ==========================================
+   MOBILE APP FEELING
+========================================== */
+
+@media (max-width: 768px) {
+
+  .site-content {
+    padding-bottom: 110px;
+  }
+
+  .wk-mobile-nav {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 18px;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(18px);
+    border-radius: 999px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    z-index: 9999;
+  }
+}
+
+/* ==========================================
+   HERO / WELCOME ATMOSPHÄRE
+========================================== */
+
+.wk-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+}
+
+.wk-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.45), transparent 40%),
+    linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.25));
+  pointer-events: none;
+}
