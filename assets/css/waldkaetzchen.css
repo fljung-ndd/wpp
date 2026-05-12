@@ -1,6 +1,7 @@
 /* ==========================================
    WALDKÄTZCHEN WEBSITE DESIGN SYSTEM
-   Öffentliche Website = Waldwelt, Artikel, Vertrauen, Begleitung
+   Website = öffentliche Waldwelt, Artikel, Vertrauen, Begleitung
+   App-Anmutung = organische Räume, weiche Layer, feine Status-Farben
 ========================================== */
 
 :root {
@@ -15,6 +16,8 @@
   --wk-cream: #fffaf2;
   --wk-paper: rgba(255, 251, 244, 0.88);
   --wk-paper-strong: rgba(255, 252, 247, 0.96);
+  --wk-glass: rgba(255, 255, 255, 0.62);
+  --wk-glass-strong: rgba(255, 255, 255, 0.78);
   --wk-fog: rgba(255, 255, 255, 0.7);
   --wk-bark: #6b4b38;
   --wk-earth: #8b6850;
@@ -25,13 +28,17 @@
   --wk-orange: #df9154;
   --wk-shadow: rgba(37, 39, 26, 0.14);
   --wk-shadow-soft: rgba(37, 39, 26, 0.08);
+  --wk-shadow-card: 0 24px 64px rgba(37, 39, 26, 0.12);
   --wk-border: rgba(52, 72, 57, 0.13);
+  --wk-border-soft: rgba(52, 72, 57, 0.09);
   --wk-radius-xl: 42px;
   --wk-radius-lg: 30px;
   --wk-radius-md: 22px;
   --wk-radius-sm: 16px;
   --wk-shell: min(1180px, calc(100vw - 48px));
+  --wk-full-shell: min(1440px, 100vw);
   --wk-transition: 220ms ease;
+  --wk-header-h: 84px;
 }
 
 html {
@@ -113,7 +120,7 @@ body.wk-site::after {
 
 .ast-builder-grid-row,
 .main-header-bar .ast-container {
-  min-height: 84px;
+  min-height: var(--wk-header-h);
 }
 
 .site-branding img,
@@ -205,6 +212,80 @@ body.wk-site::after {
   box-shadow: 0 18px 32px rgba(24, 63, 57, 0.24);
 }
 
+/* Homepage: Hero-Menü wieder transparent über dem Fullscreen-Hero */
+body.home .site-header,
+body.home .ast-primary-header-bar,
+body.home .main-header-bar,
+body.wk-front-page .site-header,
+body.wk-front-page .ast-primary-header-bar,
+body.wk-front-page .main-header-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: linear-gradient(180deg, rgba(12, 31, 27, 0.46), rgba(12, 31, 27, 0.06)) !important;
+  border-bottom: 0 !important;
+  backdrop-filter: none;
+}
+
+body.home .site-header,
+body.wk-front-page .site-header {
+  position: absolute;
+}
+
+body.home .main-header-menu > .menu-item > a,
+body.home .ast-builder-menu-1 .menu-item > .menu-link,
+body.home .site-title a,
+body.home .ast-site-title-wrap a,
+body.wk-front-page .main-header-menu > .menu-item > a,
+body.wk-front-page .ast-builder-menu-1 .menu-item > .menu-link,
+body.wk-front-page .site-title a,
+body.wk-front-page .ast-site-title-wrap a {
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.32);
+}
+
+body.home .main-header-menu > .menu-item > a:hover,
+body.home .main-header-menu > .current-menu-item > a,
+body.home .ast-builder-menu-1 .menu-item:hover > .menu-link,
+body.home .ast-builder-menu-1 .current-menu-item > .menu-link,
+body.wk-front-page .main-header-menu > .menu-item > a:hover,
+body.wk-front-page .main-header-menu > .current-menu-item > a,
+body.wk-front-page .ast-builder-menu-1 .menu-item:hover > .menu-link,
+body.wk-front-page .ast-builder-menu-1 .current-menu-item > .menu-link {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #fff !important;
+}
+
+body.home .site-branding img,
+body.home .custom-logo-link img,
+body.wk-front-page .site-branding img,
+body.wk-front-page .custom-logo-link img {
+  filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.38));
+}
+
+body.home .ast-header-button-1 .ast-custom-button,
+body.home .ast-builder-button-wrap .ast-custom-button,
+body.home .site-header .button,
+body.wk-front-page .ast-header-button-1 .ast-custom-button,
+body.wk-front-page .ast-builder-button-wrap .ast-custom-button,
+body.wk-front-page .site-header .button {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.34) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+body.home .ast-header-button-1 .ast-custom-button:hover,
+body.home .ast-builder-button-wrap .ast-custom-button:hover,
+body.home .site-header .button:hover,
+body.wk-front-page .ast-header-button-1 .ast-custom-button:hover,
+body.wk-front-page .ast-builder-button-wrap .ast-custom-button:hover,
+body.wk-front-page .site-header .button:hover {
+  background: rgba(255, 255, 255, 0.26) !important;
+}
+
 /* ==========================================
    PAGE FRAME / CLEANUP
 ========================================== */
@@ -214,7 +295,7 @@ body.wk-site::after {
 }
 
 body:not(.home):not(.wk-front-page) .site-content {
-  padding-top: 52px;
+  padding-top: 34px;
 }
 
 .entry-header,
@@ -253,20 +334,37 @@ body:not(.home):not(.wk-front-page) .site-content {
   margin-bottom: 0;
 }
 
-/* General Elementor sections become soft page modules, but not every inner wrapper. */
-.elementor-section.elementor-section-boxed > .elementor-container,
-.elementor > .e-con:not(.e-con-full),
-.entry-content > .wp-block-group.is-layout-constrained,
-.entry-content > .wp-block-columns {
-  background: var(--wk-paper);
+/* Subpages: vollbreite Page-Screens statt kleiner Innenkarten */
+body:not(.home):not(.wk-front-page) .site-content .ast-container,
+body:not(.home):not(.wk-front-page) .site-content .elementor-container,
+body:not(.home):not(.wk-front-page) .site-content .elementor-section.elementor-section-boxed > .elementor-container {
+  width: min(1440px, 100vw) !important;
+  max-width: min(1440px, 100vw) !important;
+}
+
+body:not(.home):not(.wk-front-page) .site-content .elementor-section.elementor-section-boxed > .elementor-container,
+body:not(.home):not(.wk-front-page) .site-content .elementor > .e-con:not(.e-con-full),
+body:not(.home):not(.wk-front-page) .site-content .entry-content > .wp-block-group.is-layout-constrained,
+body:not(.home):not(.wk-front-page) .site-content .entry-content > .wp-block-columns {
+  min-height: min(860px, calc(100svh - var(--wk-header-h) - 68px));
+  padding: clamp(28px, 5vw, 72px);
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 14% 16%, rgba(255, 255, 255, 0.82), transparent 19rem),
+    radial-gradient(circle at 88% 20%, rgba(215, 224, 199, 0.58), transparent 22rem),
+    linear-gradient(135deg, rgba(255, 252, 247, 0.96), rgba(242, 236, 224, 0.92));
   border: 1px solid var(--wk-border);
-  border-radius: var(--wk-radius-xl);
-  box-shadow: 0 26px 70px var(--wk-shadow-soft);
+  border-radius: clamp(28px, 4vw, 52px);
+  box-shadow: 0 30px 86px rgba(37, 39, 26, 0.12);
   overflow: hidden;
 }
 
-.elementor-section.elementor-section-boxed > .elementor-container {
-  padding: clamp(26px, 4vw, 54px);
+body:not(.home):not(.wk-front-page) .site-content .elementor-section.elementor-section-boxed > .elementor-container > .elementor-column,
+body:not(.home):not(.wk-front-page) .site-content .elementor > .e-con:not(.e-con-full) > *,
+body:not(.home):not(.wk-front-page) .site-content .entry-content > .wp-block-group.is-layout-constrained > *,
+body:not(.home):not(.wk-front-page) .site-content .entry-content > .wp-block-columns > * {
+  width: 100%;
 }
 
 .elementor-widget-wrap,
@@ -417,6 +515,64 @@ input[type="submit"]:hover,
 }
 
 /* ==========================================
+   APP-INSPIRIERTE SURFACES / KARTEN
+========================================== */
+
+.wk-app-card,
+.elementor-widget-wrap .elementor-widget-container > .wk-card,
+.entry-content .wp-block-group.wk-card {
+  background: var(--wk-glass);
+  border: 1px solid var(--wk-border-soft);
+  border-radius: var(--wk-radius-lg);
+  box-shadow: var(--wk-shadow-card);
+  backdrop-filter: blur(18px);
+}
+
+.wk-app-chip,
+.wk-chip,
+.entry-content .tag-cloud-link,
+.ast-terms-link a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(45, 103, 89, 0.14);
+  color: var(--wk-forest-deep) !important;
+  text-decoration: none !important;
+  font-weight: 900;
+  box-shadow: 0 12px 24px rgba(37, 39, 26, 0.07);
+}
+
+.wk-world-lichtung {
+  --wk-world-accent: var(--wk-moss);
+}
+
+.wk-world-verstehen {
+  --wk-world-accent: var(--wk-blue);
+}
+
+.wk-world-verbinden {
+  --wk-world-accent: var(--wk-rose);
+}
+
+.wk-world-veraendern {
+  --wk-world-accent: var(--wk-orange);
+}
+
+.wk-app-card::before,
+.wk-world-card::before {
+  content: "";
+  display: block;
+  width: 68px;
+  height: 5px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--wk-world-accent, var(--wk-moss));
+}
+
+/* ==========================================
    IMAGES / MEDIA
 ========================================== */
 
@@ -476,16 +632,14 @@ body.home .entry-content > .wp-block-group.is-layout-constrained,
 body.wk-front-page .entry-content > .wp-block-group.is-layout-constrained,
 body.home .entry-content > .wp-block-columns,
 body.wk-front-page .entry-content > .wp-block-columns {
+  min-height: 0 !important;
+  padding: 0 !important;
+  display: block !important;
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   overflow: visible !important;
-}
-
-body.home .elementor-section.elementor-section-boxed > .elementor-container,
-body.wk-front-page .elementor-section.elementor-section-boxed > .elementor-container {
-  padding: 0 !important;
 }
 
 body.home .entry-content,
@@ -604,14 +758,20 @@ body.wk-front-page .elementor-widget-image img {
 
 body:not(.home):not(.wk-front-page) .entry-header:not(:empty) {
   position: relative;
-  margin-bottom: 32px;
-  padding: clamp(26px, 4vw, 44px);
+  width: min(1440px, 100vw);
+  max-width: min(1440px, 100vw);
+  min-height: min(440px, 44svh);
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 26px;
+  padding: clamp(28px, 5vw, 72px);
   border: 1px solid var(--wk-border);
-  border-radius: var(--wk-radius-xl);
+  border-radius: clamp(28px, 4vw, 52px);
   background:
-    radial-gradient(circle at 88% 18%, rgba(215, 224, 199, 0.62), transparent 18rem),
-    linear-gradient(135deg, rgba(255, 252, 247, 0.98), rgba(245, 239, 227, 0.92));
-  box-shadow: 0 24px 60px var(--wk-shadow-soft);
+    radial-gradient(circle at 84% 14%, rgba(215, 224, 199, 0.66), transparent 21rem),
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.88), transparent 16rem),
+    linear-gradient(135deg, rgba(255, 252, 247, 0.98), rgba(242, 236, 224, 0.92));
+  box-shadow: 0 30px 86px rgba(37, 39, 26, 0.12);
 }
 
 /* ==========================================
@@ -730,10 +890,23 @@ textarea {
 }
 
 @media (max-width: 921px) {
+  :root {
+    --wk-header-h: 76px;
+  }
+
   .ast-builder-menu-mobile .main-navigation .menu-item > .menu-link,
   .ast-header-break-point .main-navigation ul .menu-item .menu-link {
     border-radius: 16px;
     margin-block: 2px;
+  }
+
+  body.home .site-header,
+  body.home .ast-primary-header-bar,
+  body.home .main-header-bar,
+  body.wk-front-page .site-header,
+  body.wk-front-page .ast-primary-header-bar,
+  body.wk-front-page .main-header-bar {
+    background: linear-gradient(180deg, rgba(12, 31, 27, 0.58), rgba(12, 31, 27, 0.08)) !important;
   }
 }
 
@@ -763,21 +936,18 @@ textarea {
     min-height: 76px;
   }
 
-  .elementor-section.elementor-section-boxed > .elementor-container,
-  .elementor > .e-con:not(.e-con-full),
-  .entry-content > .wp-block-group.is-layout-constrained,
-  .entry-content > .wp-block-columns,
+  body:not(.home):not(.wk-front-page) .site-content .elementor-section.elementor-section-boxed > .elementor-container,
+  body:not(.home):not(.wk-front-page) .site-content .elementor > .e-con:not(.e-con-full),
+  body:not(.home):not(.wk-front-page) .site-content .entry-content > .wp-block-group.is-layout-constrained,
+  body:not(.home):not(.wk-front-page) .site-content .entry-content > .wp-block-columns,
   body:not(.home):not(.wk-front-page) .entry-header:not(:empty) {
-    border-radius: 28px;
-  }
-
-  .elementor-section.elementor-section-boxed > .elementor-container {
-    padding: 22px 18px;
-  }
-
-  body.home .elementor-section.elementor-section-boxed > .elementor-container,
-  body.wk-front-page .elementor-section.elementor-section-boxed > .elementor-container {
-    padding: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-height: calc(100svh - 92px);
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 28px 20px 34px;
   }
 
   .page .entry-title,
