@@ -276,9 +276,9 @@ body.home .wk-logo img {
   background-image:
     linear-gradient(90deg, rgba(8, 20, 17, 0.76) 0%, rgba(8, 20, 17, 0.58) 34%, rgba(8, 20, 17, 0.24) 66%, rgba(8, 20, 17, 0.18) 100%),
     linear-gradient(180deg, rgba(8, 20, 17, 0.18), rgba(8, 20, 17, 0.28)),
-    url('../images/hero optimized.webp'),
-    url('../images/hero optimized.jpg'),
-    url('../images/hero optimized.png');
+    url('../images/hero_optimized.webp'),
+    url('../images/hero_optimized.jpg'),
+    url('../images/hero_optimized.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
