@@ -23,13 +23,20 @@ body.wk-site {
   font-family: 'Nunito', sans-serif;
 }
 
+.site,
+.site-content,
+.ast-container {
+  background: transparent !important;
+}
+
 /* ==========================================
    GLASS / WALD KARTEN
 ========================================== */
 
 .wk-card,
 .elementor-widget-wrap,
-.ast-container article {
+.ast-container article,
+.elementor-section-boxed > .elementor-container {
   background: var(--wk-fog);
   backdrop-filter: blur(12px);
   border-radius: var(--wk-radius);
@@ -37,20 +44,21 @@ body.wk-site {
 }
 
 /* ==========================================
-   POLAROID STIL
+   TYPOGRAFIE
 ========================================== */
 
-.wk-polaroid {
-  background: #fffdf9;
-  border-radius: 16px;
-  padding: 14px 14px 28px;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-  transform: rotate(-1deg);
-  transition: var(--wk-transition);
+h1,
+h2,
+h3,
+h4 {
+  color: var(--wk-bark);
+  letter-spacing: -0.02em;
 }
 
-.wk-polaroid:hover {
-  transform: rotate(0deg) translateY(-4px);
+.wk-lead {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 720px;
 }
 
 /* ==========================================
@@ -59,21 +67,35 @@ body.wk-site {
 
 button,
 .wp-element-button,
-.elementor-button {
+.elementor-button,
+.wk-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
   border-radius: 999px !important;
   background: linear-gradient(
     135deg,
     var(--wk-forest),
     var(--wk-moss)
   ) !important;
+  color: white !important;
   border: none !important;
+  text-decoration: none;
   box-shadow: 0 6px 16px rgba(95,111,82,0.22);
   transition: var(--wk-transition);
 }
 
+.wk-button--ghost {
+  background: rgba(255,255,255,0.6) !important;
+  color: var(--wk-bark) !important;
+}
+
 button:hover,
 .wp-element-button:hover,
-.elementor-button:hover {
+.elementor-button:hover,
+.wk-button:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
 }
@@ -89,6 +111,97 @@ button:hover,
 
 .main-header-menu a:hover {
   background: rgba(95,111,82,0.12);
+}
+
+/* ==========================================
+   WELCOME SCREEN
+========================================== */
+
+.wk-welcome {
+  position: relative;
+  min-height: 88vh;
+  padding: 80px 28px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.35), transparent 40%),
+    linear-gradient(180deg, #7a8f6a 0%, #5f6f52 100%);
+  color: white;
+}
+
+.wk-welcome__content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.wk-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.8;
+}
+
+.wk-welcome h1 {
+  color: white;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+}
+
+.wk-action-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.wk-welcome__mist {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.22), transparent 30%),
+    radial-gradient(circle at bottom, rgba(255,255,255,0.12), transparent 40%);
+}
+
+/* ==========================================
+   THEMENWELTEN
+========================================== */
+
+.wk-worlds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+}
+
+.wk-world-card {
+  padding: 28px;
+  transition: var(--wk-transition);
+}
+
+.wk-world-card:hover {
+  transform: translateY(-6px);
+}
+
+.wk-world-card__icon {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.wk-world-card--mind {
+  border-top: 6px solid #7999d6;
+}
+
+.wk-world-card--heart {
+  border-top: 6px solid #d889a8;
+}
+
+.wk-world-card--spark {
+  border-top: 6px solid #d9a15f;
+}
+
+.wk-world-card--calm {
+  border-top: 6px solid #7a8f6a;
 }
 
 /* ==========================================
@@ -115,24 +228,14 @@ button:hover,
     box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     z-index: 9999;
   }
-}
 
-/* ==========================================
-   HERO / WELCOME ATMOSPHÄRE
-========================================== */
-
-.wk-hero {
-  position: relative;
-  overflow: hidden;
-  border-radius: 36px;
-}
-
-.wk-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.45), transparent 40%),
-    linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.25));
-  pointer-events: none;
+  .wk-mobile-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: var(--wk-bark);
+    font-size: 0.8rem;
+  }
 }
