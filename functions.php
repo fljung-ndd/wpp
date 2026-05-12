@@ -65,3 +65,113 @@ function waldkaetzchen_body_classes( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'waldkaetzchen_body_classes' );
+
+/**
+ * Kleine Helper-Funktion für Theme-Shortcodes.
+ */
+function wk_shortcode_attrs( $atts, $defaults = array() ) {
+    return shortcode_atts( $defaults, $atts );
+}
+
+/**
+ * Welcome-Screen als Git-basierter Baustein.
+ * Nutzung in WordPress/Elementor: [wk_welcome]
+ */
+function wk_welcome_shortcode( $atts ) {
+    $atts = wk_shortcode_attrs(
+        $atts,
+        array(
+            'title'    => 'Willkommen bei den Waldkätzchen',
+            'subtitle' => 'Ein ruhiger Ort für Eltern, Kinder und echte Verbindung.',
+            'primary'  => 'Zur Lichtung',
+            'secondary'=> 'Situation verstehen',
+        )
+    );
+
+    ob_start();
+    ?>
+    <section class="wk-welcome wk-hero">
+        <div class="wk-welcome__mist"></div>
+        <div class="wk-welcome__content">
+            <p class="wk-kicker">Waldkätzchen</p>
+            <h1><?php echo esc_html( $atts['title'] ); ?></h1>
+            <p class="wk-lead"><?php echo esc_html( $atts['subtitle'] ); ?></p>
+            <div class="wk-action-row">
+                <a class="wk-button wk-button--primary" href="#lichtung"><?php echo esc_html( $atts['primary'] ); ?></a>
+                <a class="wk-button wk-button--ghost" href="#verstehen"><?php echo esc_html( $atts['secondary'] ); ?></a>
+            </div>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'wk_welcome', 'wk_welcome_shortcode' );
+
+/**
+ * Themenwelten als Git-basierter Baustein.
+ * Nutzung: [wk_themenwelten]
+ */
+function wk_themenwelten_shortcode() {
+    $worlds = array(
+        array(
+            'id'          => 'lichtung',
+            'emoji'       => '🌲',
+            'title'       => 'Lichtung',
+            'description' => 'Ankommen, entdecken, Beiträge lesen und erste Impulse finden.',
+            'tone'        => 'calm',
+        ),
+        array(
+            'id'          => 'verstehen',
+            'emoji'       => '🧠',
+            'title'       => 'Verstehen',
+            'description' => 'Situationen sortieren, Muster erkennen und Bedürfnisse sichtbar machen.',
+            'tone'        => 'mind',
+        ),
+        array(
+            'id'          => 'verbinden',
+            'emoji'       => '💞',
+            'title'       => 'Verbinden',
+            'description' => 'Beziehung stärken, Sprache finden und wieder in Kontakt kommen.',
+            'tone'        => 'heart',
+        ),
+        array(
+            'id'          => 'veraendern',
+            'emoji'       => '🔥',
+            'title'       => 'Verändern',
+            'description' => 'Neue Schritte ausprobieren, Rituale bauen und Alltag leichter machen.',
+            'tone'        => 'spark',
+        ),
+    );
+
+    ob_start();
+    ?>
+    <section class="wk-worlds" aria-label="Waldkätzchen Themenwelten">
+        <?php foreach ( $worlds as $world ) : ?>
+            <article id="<?php echo esc_attr( $world['id'] ); ?>" class="wk-world-card wk-card wk-world-card--<?php echo esc_attr( $world['tone'] ); ?>">
+                <div class="wk-world-card__icon" aria-hidden="true"><?php echo esc_html( $world['emoji'] ); ?></div>
+                <div>
+                    <h2><?php echo esc_html( $world['title'] ); ?></h2>
+                    <p><?php echo esc_html( $world['description'] ); ?></p>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'wk_themenwelten', 'wk_themenwelten_shortcode' );
+
+/**
+ * Mobile Bottom Navigation im App-Stil.
+ */
+function wk_mobile_bottom_nav() {
+    ?>
+    <nav class="wk-mobile-nav" aria-label="Waldkätzchen Navigation">
+        <a href="#lichtung"><span>🌲</span><small>Lichtung</small></a>
+        <a href="#verstehen"><span>🧠</span><small>Verstehen</small></a>
+        <a href="#verbinden"><span>💞</span><small>Verbinden</small></a>
+        <a href="#veraendern"><span>🔥</span><small>Verändern</small></a>
+    </nav>
+    <?php
+}
+add_action( 'wp_footer', 'wk_mobile_bottom_nav' );
