@@ -14,7 +14,12 @@
             <span class="wk-logo__text">Waldkätzchen <span aria-hidden="true">🌿</span></span>
         </a>
 
-        <nav class="wk-nav" aria-label="Hauptnavigation">
+        <button class="wk-nav-toggle" type="button" aria-expanded="false" aria-controls="wk-primary-nav">
+            <span class="screen-reader-text">Menü öffnen</span>
+            <span class="wk-nav-toggle__lines" aria-hidden="true"></span>
+        </button>
+
+        <nav id="wk-primary-nav" class="wk-nav" aria-label="Hauptnavigation">
             <?php
             wp_nav_menu(
                 array(
@@ -25,6 +30,7 @@
                 )
             );
             ?>
+            <a class="wk-nav__app-link" href="/lichtung">Zur App</a>
         </nav>
 
         <a class="wk-header__cta" href="/lichtung">
