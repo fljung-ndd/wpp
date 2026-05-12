@@ -6,7 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.body.classList.add('wk-loaded');
 
-  // Sanfte Hover-Interaktionen für Karten
+  // =========================================
+  // MOBILE APP STYLE NAVIGATION
+  // =========================================
+
+  const navToggle = document.querySelector('.wk-nav-toggle');
+  const nav = document.querySelector('.wk-nav');
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('wk-menu-open', isOpen);
+    });
+
+    document.querySelectorAll('.wk-nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('wk-menu-open');
+      });
+    });
+  }
+
+  // =========================================
+  // POLAROID HOVER
+  // =========================================
+
   document.querySelectorAll('.wk-polaroid').forEach((card) => {
     card.addEventListener('mousemove', (event) => {
       const rect = card.getBoundingClientRect();
@@ -25,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================
-  // WEICHE SCROLL ATMOSPHÄRE
+  // SOFT SCROLL FEELING
   // =========================================
 
   let lastScroll = 0;
