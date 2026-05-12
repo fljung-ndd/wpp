@@ -2,12 +2,16 @@
 /**
  * Front page template.
  *
- * Die Startseite ist bewusst als Marken- und Einstiegsseite aufgebaut.
- * Textliche Feinheiten können später weiter geschärft werden.
+ * Temporärer Debug-Marker: Wenn dieser Balken auf der Website sichtbar ist,
+ * rendert WordPress tatsächlich dieses front-page.php-Template.
  */
 
 get_header();
 ?>
+
+<div style="position:relative;z-index:99999;background:#ff00b8;color:#fff;padding:24px;text-align:center;font-size:32px;font-weight:900;letter-spacing:0.04em;">
+    DEBUG: FRONT-PAGE.PHP IST AKTIV
+</div>
 
 <section class="wk-home-hero" aria-labelledby="wk-home-title">
     <div class="wk-home-hero__veil" aria-hidden="true"></div>
