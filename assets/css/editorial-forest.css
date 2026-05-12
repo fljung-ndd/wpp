@@ -1,0 +1,410 @@
+/* =========================================================
+   Waldkätzchen – Editorial Forest Refinement
+   Ziel: Herzenssache-artige Designlogik auf bestehendes WPP übertragen,
+   ohne Hero-Bild oder Waldkätzchen-Struktur zu verändern.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --wk-display-font: "Fraunces", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --wk-body-font: "Nunito", "Avenir Next", "Segoe UI", sans-serif;
+  --wk-editorial-cream: #fffdf8;
+  --wk-editorial-page: #fcf8f0;
+  --wk-editorial-green: #19463d;
+  --wk-editorial-green-deep: #12352e;
+  --wk-editorial-ink: #183b34;
+  --wk-editorial-muted: #596d63;
+  --wk-editorial-line: rgba(25, 70, 61, .12);
+  --wk-editorial-shadow: 0 28px 72px rgba(30, 46, 35, .12);
+  --wk-editorial-shadow-soft: 0 18px 42px rgba(30, 46, 35, .10);
+}
+
+body.wk-site {
+  background:
+    radial-gradient(circle at 9% 5%, rgba(255,255,255,.96), transparent 28rem),
+    radial-gradient(circle at 92% 14%, rgba(222,232,211,.52), transparent 32rem),
+    linear-gradient(180deg, var(--wk-editorial-page) 0%, #f8f1e5 100%) !important;
+  font-family: var(--wk-body-font) !important;
+}
+
+/* ---------------------------------------------------------
+   Typografie: ruhiger, größer, hochwertiger
+   --------------------------------------------------------- */
+
+body.wk-site h1,
+body.wk-site h2,
+body.wk-site h3,
+body.wk-site h4,
+body.wk-site .entry-title,
+body.wk-site .elementor-heading-title,
+body.wk-site .wk-logo__text,
+body.wk-site .wk-nav__menu a {
+  font-family: var(--wk-display-font) !important;
+  font-variation-settings: "SOFT" 55, "WONK" 0;
+  font-weight: 560 !important;
+  letter-spacing: -.045em !important;
+}
+
+body.wk-site h1,
+body.wk-site .entry-title {
+  line-height: .94 !important;
+}
+
+body.wk-site h2,
+body.wk-site .elementor-widget-heading h2.elementor-heading-title {
+  font-size: clamp(2.45rem, 4.9vw, 4.7rem) !important;
+  line-height: .96 !important;
+  letter-spacing: -.055em !important;
+  margin-bottom: .42em !important;
+  text-wrap: balance;
+}
+
+body.wk-site h3,
+body.wk-site .elementor-widget-heading h3.elementor-heading-title {
+  font-size: clamp(1.5rem, 2.4vw, 2.35rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.042em !important;
+}
+
+body.wk-site p,
+body.wk-site .elementor-widget-text-editor,
+body.wk-site .entry-content {
+  color: var(--wk-editorial-muted) !important;
+  font-size: clamp(1.02rem, 1.23vw, 1.16rem) !important;
+  line-height: 1.72 !important;
+}
+
+body.wk-site .wk-kicker,
+body.wk-site .section-kicker,
+body.wk-site .wk-eyebrow {
+  font-family: var(--wk-body-font) !important;
+  font-weight: 900 !important;
+  letter-spacing: .17em !important;
+  text-transform: uppercase !important;
+  font-size: .79rem !important;
+}
+
+/* ---------------------------------------------------------
+   Hero: Bild bleibt, Claim wird stärker und passender
+   --------------------------------------------------------- */
+
+.wk-home-hero {
+  /* Das bestehende Hero-Bild bleibt vollständig erhalten. */
+  background-image:
+    linear-gradient(90deg, rgba(10, 18, 12, .70) 0%, rgba(10, 18, 12, .50) 32%, rgba(10, 18, 12, .16) 64%, rgba(10, 18, 12, .18) 100%),
+    linear-gradient(180deg, rgba(9, 18, 13, .06), rgba(9, 18, 13, .28)),
+    url('../images/hero_optimized.webp'),
+    url('../images/hero_optimized.jpg'),
+    url('../images/hero_optimized.png') !important;
+}
+
+.wk-home-hero__inner {
+  grid-template-columns: minmax(340px, 650px) 1fr !important;
+  width: min(1320px, calc(100vw - 48px)) !important;
+  padding-top: 128px !important;
+  padding-bottom: 170px !important;
+}
+
+.wk-home-hero__copy {
+  max-width: 650px !important;
+}
+
+.wk-home-hero h1 {
+  max-width: 700px !important;
+  margin: 0 0 24px !important;
+  font-family: var(--wk-display-font) !important;
+  font-size: clamp(4rem, 7.6vw, 8.3rem) !important;
+  font-weight: 560 !important;
+  font-variation-settings: "SOFT" 62, "WONK" 0;
+  line-height: .86 !important;
+  letter-spacing: -.072em !important;
+  text-shadow: 0 8px 34px rgba(0, 0, 0, .38) !important;
+  text-wrap: balance;
+}
+
+.wk-home-hero__lead {
+  max-width: 570px !important;
+  color: rgba(255,255,255,.96) !important;
+  font-family: var(--wk-body-font) !important;
+  font-size: clamp(1.08rem, 1.45vw, 1.34rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.56 !important;
+}
+
+.wk-home-hero__actions {
+  margin-top: 34px !important;
+  gap: 14px !important;
+}
+
+.wk-home-hero::after {
+  background: var(--wk-editorial-page) !important;
+  height: clamp(106px, 11vw, 164px) !important;
+}
+
+body.wk-front-page .wk-logo__text,
+body.home .wk-logo__text {
+  font-family: var(--wk-display-font) !important;
+  font-weight: 560 !important;
+  font-variation-settings: "SOFT" 60, "WONK" 0;
+  font-size: clamp(1.25rem, 1.55vw, 1.72rem) !important;
+  letter-spacing: -.045em !important;
+}
+
+/* ---------------------------------------------------------
+   Sections: weniger „Kastenlandschaft“, mehr Editorial-Rhythmus
+   --------------------------------------------------------- */
+
+.wk-section,
+.entry-content .wk-section,
+.elementor-widget-container .wk-section {
+  width: min(1220px, calc(100vw - 48px)) !important;
+  margin: clamp(44px, 6.8vw, 108px) auto !important;
+  padding: clamp(32px, 5vw, 72px) !important;
+  border-radius: clamp(32px, 4vw, 56px) !important;
+  background: linear-gradient(135deg, rgba(255,253,248,.98), rgba(249,242,230,.90)) !important;
+  border: 1px solid var(--wk-editorial-line) !important;
+  box-shadow: var(--wk-editorial-shadow) !important;
+}
+
+.wk-section--flat {
+  width: min(1220px, calc(100vw - 48px)) !important;
+  margin-top: clamp(42px, 6vw, 92px) !important;
+  margin-bottom: clamp(42px, 6vw, 92px) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.wk-section--dark {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(231,193,111,.20), transparent 24rem),
+    linear-gradient(135deg, rgba(20,59,50,.98), rgba(44,95,78,.94)) !important;
+}
+
+.wk-home-world {
+  padding-top: clamp(92px, 10vw, 140px) !important;
+}
+
+/* ---------------------------------------------------------
+   Karten: größer, ruhiger, klarere Bild-/Text-Proportionen
+   --------------------------------------------------------- */
+
+.wk-world-grid,
+.wk-offer-grid,
+.wk-card-grid {
+  gap: clamp(18px, 2.4vw, 32px) !important;
+}
+
+.wk-world-card,
+.wk-offer-card,
+.wk-content-card {
+  padding: clamp(18px, 2vw, 26px) !important;
+  border-radius: 32px !important;
+  background: rgba(255,253,248,.94) !important;
+  border: 1px solid rgba(25,70,61,.10) !important;
+  box-shadow: var(--wk-editorial-shadow-soft) !important;
+}
+
+.wk-world-card {
+  min-height: 340px !important;
+}
+
+.wk-offer-card {
+  min-height: 220px !important;
+  background: linear-gradient(180deg, #fffdf8, #f7efdf) !important;
+}
+
+.wk-content-card {
+  min-height: 300px !important;
+}
+
+.wk-world-card img,
+.wk-offer-card img,
+.wk-content-card img {
+  border-radius: 24px !important;
+  margin-bottom: 20px !important;
+}
+
+.wk-world-card h3,
+.wk-offer-card h3,
+.wk-content-card h3 {
+  color: var(--wk-editorial-ink) !important;
+  margin-bottom: 10px !important;
+}
+
+.wk-world-card p,
+.wk-offer-card p,
+.wk-content-card p {
+  color: var(--wk-editorial-muted) !important;
+  font-size: 1rem !important;
+  line-height: 1.62 !important;
+}
+
+.wk-world-card:hover,
+.wk-offer-card:hover,
+.wk-content-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 26px 58px rgba(30, 46, 35, .16) !important;
+}
+
+/* Themenwelten: stärkeres Farbgefühl, aber nicht lauter */
+.wk-world-card.wk-world-lichtung,
+.wk-world-lichtung.wk-world-card {
+  background: linear-gradient(180deg, rgba(237,244,229,.98), rgba(255,253,248,.96)) !important;
+}
+
+.wk-world-card.wk-world-verstehen,
+.wk-world-verstehen.wk-world-card {
+  background: linear-gradient(180deg, rgba(231,238,246,.98), rgba(255,253,248,.96)) !important;
+}
+
+.wk-world-card.wk-world-verbinden,
+.wk-world-verbinden.wk-world-card {
+  background: linear-gradient(180deg, rgba(247,232,229,.98), rgba(255,253,248,.96)) !important;
+}
+
+.wk-world-card.wk-world-veraendern,
+.wk-world-veraendern.wk-world-card {
+  background: linear-gradient(180deg, rgba(248,235,216,.98), rgba(255,253,248,.96)) !important;
+}
+
+/* ---------------------------------------------------------
+   App-Banner: mehr Premium-Lichtung, weniger Standard-Teaser
+   --------------------------------------------------------- */
+
+.wk-app-banner {
+  width: min(1220px, calc(100vw - 48px)) !important;
+  margin: clamp(58px, 8vw, 128px) auto !important;
+  padding: clamp(36px, 5.2vw, 78px) !important;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 460px) !important;
+  gap: clamp(34px, 5vw, 78px) !important;
+  border-radius: clamp(36px, 4vw, 58px) !important;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(255,223,148,.24), transparent 24rem),
+    radial-gradient(circle at 8% 88%, rgba(255,255,255,.08), transparent 22rem),
+    linear-gradient(135deg, rgba(20,59,50,.98), rgba(52,107,87,.95)) !important;
+}
+
+.wk-app-banner h2,
+.wk-app-banner h3 {
+  color: #fffaf1 !important;
+}
+
+.wk-app-banner p {
+  color: rgba(255,250,241,.92) !important;
+}
+
+/* ---------------------------------------------------------
+   Polaroids: behalten, aber etwas ruhiger und hochwertiger
+   --------------------------------------------------------- */
+
+.wk-polaroid {
+  flex: 0 0 min(300px, 78vw) !important;
+  padding: 16px 16px 20px !important;
+  border-radius: 20px !important;
+  background: #fffdf8 !important;
+  box-shadow: 0 20px 48px rgba(30,46,35,.13) !important;
+}
+
+.wk-polaroid h3 {
+  font-family: var(--wk-display-font) !important;
+  font-size: 1.34rem !important;
+  font-weight: 560 !important;
+  letter-spacing: -.035em !important;
+}
+
+/* ---------------------------------------------------------
+   Buttons: klarer, wertiger, nicht kleiner machen
+   --------------------------------------------------------- */
+
+button,
+input[type="button"],
+input[type="submit"],
+.wp-element-button,
+.elementor-button,
+.wk-button,
+.wk-nav__app-link {
+  min-height: 56px !important;
+  padding: 15px 28px !important;
+  font-family: var(--wk-body-font) !important;
+  font-size: .98rem !important;
+  font-weight: 900 !important;
+}
+
+/* ---------------------------------------------------------
+   Footer: kräftiger, ruhiger, klarer Abschluss
+   --------------------------------------------------------- */
+
+.site-footer,
+.site-primary-footer-wrap,
+.site-below-footer-wrap {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(233,182,90,.16), transparent 20rem),
+    linear-gradient(135deg, #12352e, #214f42) !important;
+}
+
+/* ---------------------------------------------------------
+   Responsive Feinschliff
+   --------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .wk-home-hero__inner {
+    width: calc(100vw - 36px) !important;
+    grid-template-columns: 1fr !important;
+    padding-top: 118px !important;
+    padding-bottom: 150px !important;
+  }
+
+  .wk-home-hero__copy {
+    max-width: 590px !important;
+  }
+
+  .wk-app-banner {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .wk-home-hero {
+    background-position: 57% center !important;
+  }
+
+  .wk-home-hero__inner {
+    width: calc(100vw - 28px) !important;
+    padding-top: 98px !important;
+    padding-bottom: 122px !important;
+  }
+
+  .wk-home-hero h1 {
+    max-width: 360px !important;
+    font-size: clamp(3.2rem, 13.7vw, 5rem) !important;
+    line-height: .86 !important;
+    letter-spacing: -.068em !important;
+  }
+
+  .wk-home-hero__lead {
+    max-width: 340px !important;
+    font-size: 1rem !important;
+    line-height: 1.56 !important;
+  }
+
+  .wk-home-world {
+    padding-top: 88px !important;
+  }
+
+  .wk-section,
+  .entry-content .wk-section,
+  .elementor-widget-container .wk-section,
+  .wk-app-banner {
+    width: min(100vw - 22px, 620px) !important;
+    padding: 26px !important;
+    border-radius: 32px !important;
+  }
+
+  .wk-world-card {
+    min-height: 0 !important;
+  }
+}
