@@ -1,151 +1,186 @@
 /* Waldkätzchen homepage blueprint fixes */
 
-/* Compact header like the blueprint */
+/* Compact cinematic header */
 .wk-header {
-  min-height: 70px;
+  min-height: 58px;
 }
 
 .wk-header__inner {
-  grid-template-columns: minmax(210px, 1fr) auto auto;
-  gap: 22px;
+  width: min(1380px, calc(100vw - 42px));
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
 }
 
-.wk-logo img,
-.wk-logo .custom-logo {
-  max-height: 46px !important;
-  max-width: 210px !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain;
+.wk-logo {
+  text-decoration: none;
+}
+
+.wk-logo__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.96);
+  font-family: Georgia, serif;
+  font-size: clamp(1.05rem, 1vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+}
+
+.wk-nav {
+  min-width: 0;
 }
 
 .wk-nav__menu {
-  gap: clamp(2px, 0.55vw, 10px);
+  justify-content: flex-end;
+  gap: clamp(2px, 0.45vw, 8px);
 }
 
 .wk-nav__menu a {
-  min-height: 38px;
-  padding: 0 10px;
-  font-size: clamp(0.78rem, 0.78vw, 0.9rem);
+  min-height: 32px;
+  padding: 0 8px;
+  font-size: clamp(0.72rem, 0.72vw, 0.84rem);
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .wk-header__cta {
-  min-height: 40px;
-  padding: 0 16px;
-  font-size: 0.8rem;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(34, 79, 67, 0.82) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  color: #fff !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  box-shadow: none;
+}
+
+.wk-header__cta:hover {
+  background: rgba(46, 96, 82, 0.92) !important;
+  transform: translateY(-1px);
 }
 
 body.wk-front-page .wk-header,
 body.home .wk-header {
-  min-height: 62px;
-  background: linear-gradient(180deg, rgba(8, 22, 19, 0.34), rgba(8, 22, 19, 0.02));
+  min-height: 58px;
+  background: linear-gradient(180deg, rgba(8, 22, 19, 0.22), rgba(8, 22, 19, 0));
 }
 
-body.wk-front-page .wk-logo img,
-body.home .wk-logo img {
-  max-height: 42px !important;
-  max-width: 190px !important;
-}
-
-/* Real uploaded hero image */
+/* Hero closer to blueprint */
 .wk-home-hero {
-  min-height: min(860px, 100svh);
+  min-height: min(880px, 100svh);
   background-image:
-    linear-gradient(90deg, rgba(8, 20, 17, 0.62) 0%, rgba(8, 20, 17, 0.40) 32%, rgba(8, 20, 17, 0.12) 62%, rgba(8, 20, 17, 0.06) 100%),
-    linear-gradient(180deg, rgba(8, 20, 17, 0.10), rgba(8, 20, 17, 0.14)),
+    linear-gradient(90deg, rgba(8, 20, 17, 0.66) 0%, rgba(8, 20, 17, 0.46) 34%, rgba(8, 20, 17, 0.12) 64%, rgba(8, 20, 17, 0.08) 100%),
+    linear-gradient(180deg, rgba(8, 20, 17, 0.08), rgba(8, 20, 17, 0.18)),
     url('../images/hero_optimized.webp') !important;
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
 }
 
 .wk-home-hero__inner {
-  min-height: min(860px, 100svh);
-  padding-top: 112px;
-  padding-bottom: 54px;
-  grid-template-columns: minmax(0, 540px) minmax(250px, 1fr);
+  width: min(1380px, calc(100vw - 42px));
+  min-height: min(880px, 100svh);
+  padding-top: 88px;
+  padding-bottom: 42px;
+  grid-template-columns: minmax(0, 520px) minmax(220px, 1fr);
 }
 
 .wk-home-hero__copy {
-  max-width: 540px;
+  max-width: 500px;
 }
 
 .wk-home-hero h1 {
-  max-width: 540px;
-  font-size: clamp(3.3rem, 5.1vw, 5rem);
-  line-height: 0.96;
-  margin-bottom: 20px;
+  max-width: 500px;
+  font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+  line-height: 0.92;
+  margin-bottom: 18px;
 }
 
 .wk-home-hero__lead {
-  max-width: 430px;
-  font-size: clamp(1rem, 1.25vw, 1.14rem);
-  line-height: 1.58;
+  max-width: 420px;
+  font-size: clamp(0.96rem, 1vw, 1.08rem);
+  line-height: 1.6;
+  font-weight: 600;
 }
 
 .wk-home-hero__actions {
-  margin-top: 26px;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 22px;
 }
 
 .wk-home-hero__actions .wk-button {
-  min-height: 40px;
-  padding: 0 18px;
-  font-size: 0.84rem;
+  min-height: 38px;
+  padding: 0 16px;
+  font-size: 0.76rem;
+  font-weight: 800;
 }
 
 .wk-home-hero__note {
-  max-width: 300px;
-  margin-top: 86px;
-  padding: 19px 24px;
+  max-width: 260px;
+  margin-top: 72px;
+  padding: 16px 18px;
+  border-radius: 18px;
 }
 
 .wk-home-hero__note p {
-  font-size: clamp(0.98rem, 1.16vw, 1.14rem);
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
-/* Softer transition into first section */
-.wk-home-world {
-  margin-top: -28px;
-  border-radius: 36px 36px 0 0;
-  padding-top: clamp(58px, 7vw, 90px);
+.wk-home-hero__heart {
+  font-size: 2rem;
 }
 
-@media (max-width: 1180px) {
-  .wk-header__inner {
-    grid-template-columns: minmax(140px, 1fr) auto auto;
-    gap: 14px;
-  }
+@media (max-width: 1200px) {
   .wk-nav__menu a {
-    padding: 0 8px;
-    font-size: 0.78rem;
+    font-size: 0.7rem;
+    padding: 0 6px;
   }
+
   .wk-header__cta {
-    padding: 0 14px;
-    font-size: 0.78rem;
+    font-size: 0.68rem;
+    padding: 0 10px;
   }
 }
 
 @media (max-width: 980px) {
-  .wk-home-hero {
-    background-position: 58% center;
+  .wk-header {
+    padding-top: 8px;
   }
+
+  .wk-header__inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .wk-nav__menu {
+    justify-content: flex-start;
+  }
+
   .wk-home-hero__inner {
     grid-template-columns: 1fr;
-    min-height: 100svh;
-    padding-top: 166px;
+    padding-top: 150px;
   }
+
   .wk-home-hero__note {
     justify-self: start;
-    margin-top: 14px;
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 720px) {
-  .wk-home-hero__inner {
-    padding-top: 220px;
-  }
   .wk-home-hero h1 {
-    font-size: clamp(2.8rem, 12vw, 4.4rem);
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .wk-home-hero__lead {
+    font-size: 0.95rem;
+  }
+
+  .wk-home-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
