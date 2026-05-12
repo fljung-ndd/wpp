@@ -11,12 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Theme Assets.
  */
 function waldkaetzchen_enqueue_assets() {
-    $theme_version   = wp_get_theme()->get( 'Version' );
-    $css_file        = get_template_directory() . '/assets/css/waldkaetzchen.css';
-    $blueprint_file  = get_template_directory() . '/assets/css/blueprint.css';
-    $standalone_file = get_template_directory() . '/assets/css/standalone.css';
-    $home_fixes_file = get_template_directory() . '/assets/css/home-fixes.css';
-    $js_file         = get_template_directory() . '/assets/js/waldkaetzchen.js';
+    $theme_version             = wp_get_theme()->get( 'Version' );
+    $css_file                  = get_template_directory() . '/assets/css/waldkaetzchen.css';
+    $blueprint_file            = get_template_directory() . '/assets/css/blueprint.css';
+    $standalone_file           = get_template_directory() . '/assets/css/standalone.css';
+    $home_fixes_file           = get_template_directory() . '/assets/css/home-fixes.css';
+    $fullscreen_hero_menu_file = get_template_directory() . '/assets/css/fullscreen-hero-menu.css';
+    $js_file                   = get_template_directory() . '/assets/js/waldkaetzchen.js';
 
     wp_enqueue_style(
         'waldkaetzchen-style',
@@ -51,6 +52,13 @@ function waldkaetzchen_enqueue_assets() {
         get_template_directory_uri() . '/assets/css/home-fixes.css',
         array( 'waldkaetzchen-standalone' ),
         file_exists( $home_fixes_file ) ? filemtime( $home_fixes_file ) : $theme_version
+    );
+
+    wp_enqueue_style(
+        'waldkaetzchen-fullscreen-hero-menu',
+        get_template_directory_uri() . '/assets/css/fullscreen-hero-menu.css',
+        array( 'waldkaetzchen-home-fixes' ),
+        file_exists( $fullscreen_hero_menu_file ) ? filemtime( $fullscreen_hero_menu_file ) : $theme_version
     );
 
     wp_enqueue_script(
