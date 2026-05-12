@@ -17,6 +17,7 @@ function waldkaetzchen_enqueue_assets() {
     $standalone_file           = get_template_directory() . '/assets/css/standalone.css';
     $home_fixes_file           = get_template_directory() . '/assets/css/home-fixes.css';
     $fullscreen_hero_menu_file = get_template_directory() . '/assets/css/fullscreen-hero-menu.css';
+    $editorial_forest_file     = get_template_directory() . '/assets/css/editorial-forest.css';
     $js_file                   = get_template_directory() . '/assets/js/waldkaetzchen.js';
 
     wp_enqueue_style(
@@ -59,6 +60,13 @@ function waldkaetzchen_enqueue_assets() {
         get_template_directory_uri() . '/assets/css/fullscreen-hero-menu.css',
         array( 'waldkaetzchen-home-fixes' ),
         file_exists( $fullscreen_hero_menu_file ) ? filemtime( $fullscreen_hero_menu_file ) : $theme_version
+    );
+
+    wp_enqueue_style(
+        'waldkaetzchen-editorial-forest',
+        get_template_directory_uri() . '/assets/css/editorial-forest.css',
+        array( 'waldkaetzchen-fullscreen-hero-menu' ),
+        file_exists( $editorial_forest_file ) ? filemtime( $editorial_forest_file ) : $theme_version
     );
 
     wp_enqueue_script(
