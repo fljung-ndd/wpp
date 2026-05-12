@@ -1,0 +1,151 @@
+/* Waldkätzchen homepage blueprint fixes */
+
+/* Compact header like the blueprint */
+.wk-header {
+  min-height: 70px;
+}
+
+.wk-header__inner {
+  grid-template-columns: minmax(210px, 1fr) auto auto;
+  gap: 22px;
+}
+
+.wk-logo img,
+.wk-logo .custom-logo {
+  max-height: 46px !important;
+  max-width: 210px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+.wk-nav__menu {
+  gap: clamp(2px, 0.55vw, 10px);
+}
+
+.wk-nav__menu a {
+  min-height: 38px;
+  padding: 0 10px;
+  font-size: clamp(0.78rem, 0.78vw, 0.9rem);
+}
+
+.wk-header__cta {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 0.8rem;
+}
+
+body.wk-front-page .wk-header,
+body.home .wk-header {
+  min-height: 62px;
+  background: linear-gradient(180deg, rgba(8, 22, 19, 0.34), rgba(8, 22, 19, 0.02));
+}
+
+body.wk-front-page .wk-logo img,
+body.home .wk-logo img {
+  max-height: 42px !important;
+  max-width: 190px !important;
+}
+
+/* Real uploaded hero image */
+.wk-home-hero {
+  min-height: min(860px, 100svh);
+  background-image:
+    linear-gradient(90deg, rgba(8, 20, 17, 0.62) 0%, rgba(8, 20, 17, 0.40) 32%, rgba(8, 20, 17, 0.12) 62%, rgba(8, 20, 17, 0.06) 100%),
+    linear-gradient(180deg, rgba(8, 20, 17, 0.10), rgba(8, 20, 17, 0.14)),
+    url('../images/hero_optimized.webp') !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.wk-home-hero__inner {
+  min-height: min(860px, 100svh);
+  padding-top: 112px;
+  padding-bottom: 54px;
+  grid-template-columns: minmax(0, 540px) minmax(250px, 1fr);
+}
+
+.wk-home-hero__copy {
+  max-width: 540px;
+}
+
+.wk-home-hero h1 {
+  max-width: 540px;
+  font-size: clamp(3.3rem, 5.1vw, 5rem);
+  line-height: 0.96;
+  margin-bottom: 20px;
+}
+
+.wk-home-hero__lead {
+  max-width: 430px;
+  font-size: clamp(1rem, 1.25vw, 1.14rem);
+  line-height: 1.58;
+}
+
+.wk-home-hero__actions {
+  margin-top: 26px;
+  gap: 12px;
+}
+
+.wk-home-hero__actions .wk-button {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: 0.84rem;
+}
+
+.wk-home-hero__note {
+  max-width: 300px;
+  margin-top: 86px;
+  padding: 19px 24px;
+}
+
+.wk-home-hero__note p {
+  font-size: clamp(0.98rem, 1.16vw, 1.14rem);
+}
+
+/* Softer transition into first section */
+.wk-home-world {
+  margin-top: -28px;
+  border-radius: 36px 36px 0 0;
+  padding-top: clamp(58px, 7vw, 90px);
+}
+
+@media (max-width: 1180px) {
+  .wk-header__inner {
+    grid-template-columns: minmax(140px, 1fr) auto auto;
+    gap: 14px;
+  }
+  .wk-nav__menu a {
+    padding: 0 8px;
+    font-size: 0.78rem;
+  }
+  .wk-header__cta {
+    padding: 0 14px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .wk-home-hero {
+    background-position: 58% center;
+  }
+  .wk-home-hero__inner {
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+    padding-top: 166px;
+  }
+  .wk-home-hero__note {
+    justify-self: start;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wk-home-hero__inner {
+    padding-top: 220px;
+  }
+  .wk-home-hero h1 {
+    font-size: clamp(2.8rem, 12vw, 4.4rem);
+  }
+}
