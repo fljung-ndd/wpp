@@ -62,6 +62,39 @@ function waldkaetzchen_body_classes( $classes ) {
         $classes[] = 'wk-article-page';
     }
 
+    $page_slug = '';
+    if ( is_page() ) {
+        $page = get_queried_object();
+        if ( $page && ! empty( $page->post_name ) ) {
+            $page_slug = sanitize_html_class( $page->post_name );
+            $classes[] = 'wk-page-' . $page_slug;
+        }
+    }
+
+    if ( in_array( $page_slug, array( 'die-welt', 'welt' ), true ) ) {
+        $classes[] = 'wk-page-world';
+    }
+
+    if ( in_array( $page_slug, array( 'waldkaetzchen', 'die-waldkaetzchen' ), true ) ) {
+        $classes[] = 'wk-page-cats';
+    }
+
+    if ( in_array( $page_slug, array( 'impulse', 'texte-methoden', 'texte-und-methoden' ), true ) ) {
+        $classes[] = 'wk-page-impulses';
+    }
+
+    if ( in_array( $page_slug, array( 'begleitung', 'angebote' ), true ) ) {
+        $classes[] = 'wk-page-offers';
+    }
+
+    if ( in_array( $page_slug, array( 'kontakt' ), true ) ) {
+        $classes[] = 'wk-page-contact';
+    }
+
+    if ( in_array( $page_slug, array( 'ueber-mich', 'ueber-waldkaetzchen', 'infos' ), true ) ) {
+        $classes[] = 'wk-page-about';
+    }
+
     return $classes;
 }
 add_filter( 'body_class', 'waldkaetzchen_body_classes' );
@@ -163,6 +196,7 @@ add_shortcode( 'wk_themenwelten', 'wk_themenwelten_shortcode' );
 
 /**
  * Mobile Bottom Navigation im App-Stil.
+ * Nur auf der Website vorbereiten; per CSS bleibt sie aktuell verborgen.
  */
 function wk_mobile_bottom_nav() {
     ?>
