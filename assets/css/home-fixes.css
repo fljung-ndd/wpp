@@ -1,6 +1,32 @@
 /* Waldkätzchen homepage blueprint fixes */
 
-/* Compact cinematic header */
+:root {
+  --wk-blueprint-green: #154a38;
+  --wk-blueprint-green-2: #216145;
+  --wk-blueprint-cream: #fffaf0;
+  --wk-blueprint-paper: #fbf2e4;
+  --wk-blueprint-card: #fff6e8;
+  --wk-blueprint-card-2: #f8ecd8;
+  --wk-blueprint-text: #183f39;
+  --wk-blueprint-muted: #5d6a55;
+}
+
+html,
+body.wk-site {
+  background: #fffaf0 !important;
+}
+
+body.wk-front-page,
+body.home {
+  background:
+    linear-gradient(180deg, #fffaf0 0%, #fffaf0 38%, #f8efdf 100%) !important;
+}
+
+.wk-main {
+  background: #fffaf0 !important;
+}
+
+/* Compact, richer header */
 .wk-header {
   min-height: 58px;
 }
@@ -20,7 +46,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: rgba(255,255,255,0.96);
+  color: rgba(255,255,255,0.98);
   font-family: Georgia, serif;
   font-size: clamp(1.05rem, 1vw, 1.2rem);
   font-weight: 700;
@@ -45,35 +71,54 @@
   white-space: nowrap;
 }
 
-.wk-header__cta {
+.wk-header__cta,
+.wk-button,
+.wk-newsletter-form button {
   min-height: 34px;
   padding: 0 14px;
   border-radius: 999px;
-  background: rgba(34, 79, 67, 0.82) !important;
+  background: var(--wk-blueprint-green) !important;
   border: 1px solid rgba(255,255,255,0.16) !important;
   color: #fff !important;
   font-size: 0.74rem;
   font-weight: 800;
-  box-shadow: none;
+  box-shadow: 0 10px 22px rgba(21, 74, 56, 0.16) !important;
 }
 
-.wk-header__cta:hover {
-  background: rgba(46, 96, 82, 0.92) !important;
+.wk-header__cta:hover,
+.wk-button:hover,
+.wk-newsletter-form button:hover {
+  background: var(--wk-blueprint-green-2) !important;
   transform: translateY(-1px);
+}
+
+.wk-button--light,
+.wk-button--soft {
+  background: #fff9ef !important;
+  color: var(--wk-blueprint-green) !important;
+  border: 1px solid rgba(21, 74, 56, 0.18) !important;
+  box-shadow: 0 10px 20px rgba(63, 52, 29, 0.08) !important;
+}
+
+.wk-button--glass {
+  background: rgba(255,255,255,0.22) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.42) !important;
+  box-shadow: none !important;
 }
 
 body.wk-front-page .wk-header,
 body.home .wk-header {
   min-height: 58px;
-  background: linear-gradient(180deg, rgba(8, 22, 19, 0.22), rgba(8, 22, 19, 0));
+  background: linear-gradient(180deg, rgba(18, 67, 48, 0.72), rgba(18, 67, 48, 0.08));
 }
 
 /* Hero closer to blueprint */
 .wk-home-hero {
   min-height: min(880px, 100svh);
   background-image:
-    linear-gradient(90deg, rgba(8, 20, 17, 0.66) 0%, rgba(8, 20, 17, 0.46) 34%, rgba(8, 20, 17, 0.12) 64%, rgba(8, 20, 17, 0.08) 100%),
-    linear-gradient(180deg, rgba(8, 20, 17, 0.08), rgba(8, 20, 17, 0.18)),
+    linear-gradient(90deg, rgba(8, 20, 17, 0.58) 0%, rgba(8, 20, 17, 0.34) 34%, rgba(8, 20, 17, 0.04) 64%, rgba(8, 20, 17, 0.02) 100%),
+    linear-gradient(180deg, rgba(8, 20, 17, 0.06), rgba(8, 20, 17, 0.10)),
     url('../images/hero_optimized.webp') !important;
   background-size: cover;
   background-position: center center;
@@ -133,6 +178,239 @@ body.home .wk-header {
   font-size: 2rem;
 }
 
+/* White/pastel homepage body with tighter vertical rhythm */
+.wk-home-section {
+  padding-top: clamp(34px, 4.6vw, 68px) !important;
+  padding-bottom: clamp(34px, 4.6vw, 68px) !important;
+  background: #fffaf0 !important;
+}
+
+.wk-section-heading {
+  margin-bottom: clamp(20px, 3vw, 34px) !important;
+}
+
+.wk-section-heading h2,
+.wk-wave-heading h2,
+.wk-newsletter-card h2 {
+  color: #241f19 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.wk-section-heading p,
+.wk-wave-heading p {
+  color: #3e473c !important;
+}
+
+.wk-home-world,
+.wk-home-offers,
+.wk-home-impulses,
+.wk-home-app,
+.wk-home-newsletter {
+  background:
+    radial-gradient(circle at 8% 16%, rgba(255,255,255,0.9), transparent 18rem),
+    radial-gradient(circle at 88% 24%, rgba(249,236,206,0.62), transparent 24rem),
+    #fffaf0 !important;
+}
+
+/* Gentle wave illusion between blocks */
+.wk-home-world,
+.wk-home-impulses,
+.wk-home-app,
+.wk-home-newsletter {
+  border-radius: 42px 42px 0 0;
+}
+
+/* Pastel image cards */
+.wk-world-card,
+.wk-offer-card {
+  background: linear-gradient(180deg, #fff8eb 0%, #f7ead5 100%) !important;
+  border: 1px solid rgba(70, 72, 46, 0.08) !important;
+  box-shadow: 0 18px 45px rgba(83, 63, 32, 0.08) !important;
+}
+
+.wk-world-card:nth-child(2),
+.wk-offer-card:nth-child(2) {
+  background: linear-gradient(180deg, #fff7ee 0%, #f7e8dc 100%) !important;
+}
+
+.wk-world-card:nth-child(3),
+.wk-offer-card:nth-child(3) {
+  background: linear-gradient(180deg, #fff9e9 0%, #f5ead0 100%) !important;
+}
+
+.wk-world-card:nth-child(4),
+.wk-offer-card:nth-child(4) {
+  background: linear-gradient(180deg, #fff8ea 0%, #ece4cf 100%) !important;
+}
+
+.wk-world-card h3,
+.wk-offer-card h3,
+.wk-post-card h3 {
+  color: #221d17 !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 500 !important;
+}
+
+.wk-world-card p,
+.wk-offer-card p {
+  color: #243d37 !important;
+}
+
+/* Mock image loading from assets/images with graceful fallback to hero */
+.wk-world-card__art,
+.wk-offer-card__image {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  color: transparent !important;
+  overflow: hidden;
+  box-shadow: inset 0 -34px 52px rgba(255, 247, 232, 0.24);
+}
+
+.wk-world-card--verstehen .wk-world-card__art {
+  background-image: url('../images/world-verstehen.webp'), url('../images/verstehen.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-world-card--verbinden .wk-world-card__art {
+  background-image: url('../images/world-verbinden.webp'), url('../images/verbinden.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-world-card--veraendern .wk-world-card__art {
+  background-image: url('../images/world-veraendern.webp'), url('../images/veraendern.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-world-card--lichtung .wk-world-card__art {
+  background-image: url('../images/world-lichtung.webp'), url('../images/lichtung.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-offer-card__image--coaching {
+  background-image: url('../images/offer-coaching.webp'), url('../images/coaching.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-offer-card__image--courses {
+  background-image: url('../images/offer-vhs.webp'), url('../images/vhs.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-offer-card__image--materials {
+  background-image: url('../images/offer-materialien.webp'), url('../images/materialien.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-offer-card__image--book {
+  background-image: url('../images/offer-buch.webp'), url('../images/buch.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-offer-card__image--post {
+  background-image: url('../images/offer-waldpost.webp'), url('../images/waldpost.webp'), url('../images/hero_optimized.webp') !important;
+}
+
+/* Polaroid section: clothesline, pegs and softer paper */
+.wk-home-impulses {
+  position: relative;
+}
+
+.wk-home-impulses::before {
+  content: "";
+  position: absolute;
+  left: 6vw;
+  right: 6vw;
+  top: clamp(150px, 18vw, 245px);
+  height: 2px;
+  background: rgba(105, 77, 45, 0.26);
+  transform: rotate(-1.6deg);
+  z-index: 0;
+}
+
+.wk-home-impulses .wk-section-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.wk-post-card--polaroid {
+  position: relative;
+  background: #fffaf0 !important;
+  border: 1px solid rgba(101, 82, 54, 0.18) !important;
+  box-shadow: 0 14px 28px rgba(85, 65, 38, 0.11) !important;
+}
+
+.wk-post-card--polaroid::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 16px;
+  height: 34px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #c79a5a, #a9783f);
+  border: 1px solid rgba(83, 55, 30, 0.22);
+  box-shadow: 0 4px 8px rgba(62, 45, 27, 0.16);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.wk-post-card__image--placeholder {
+  background-image: url('../images/impuls-1.webp'), url('../images/impuls-1.jpg'), url('../images/hero_optimized.webp') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.wk-post-card--polaroid:nth-child(2) .wk-post-card__image--placeholder {
+  background-image: url('../images/impuls-2.webp'), url('../images/impuls-2.jpg'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-post-card--polaroid:nth-child(3) .wk-post-card__image--placeholder {
+  background-image: url('../images/impuls-3.webp'), url('../images/impuls-3.jpg'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-post-card--polaroid:nth-child(4) .wk-post-card__image--placeholder {
+  background-image: url('../images/impuls-4.webp'), url('../images/impuls-4.jpg'), url('../images/hero_optimized.webp') !important;
+}
+
+.wk-post-card--polaroid:nth-child(5) .wk-post-card__image--placeholder {
+  background-image: url('../images/impuls-5.webp'), url('../images/impuls-5.jpg'), url('../images/hero_optimized.webp') !important;
+}
+
+/* App banner more like warm cream blueprint */
+.wk-app-banner,
+.wk-newsletter-card {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255,255,255,0.75), transparent 17rem),
+    linear-gradient(135deg, #f8ecd6 0%, #f1e2c4 100%) !important;
+  border: 1px solid rgba(70, 72, 46, 0.08) !important;
+  box-shadow: 0 18px 46px rgba(83, 63, 32, 0.10) !important;
+}
+
+.wk-phone {
+  background-image: url('../images/app-waldraum.webp'), url('../images/app.webp'), linear-gradient(180deg, #fff, #edf2df) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+/* Green footer like blueprint */
+.wk-footer {
+  background: linear-gradient(135deg, #0f3c2d 0%, #174f36 58%, #1f5f43 100%) !important;
+  border-top: 0 !important;
+  color: #fff !important;
+  margin-top: 0 !important;
+}
+
+.wk-footer h2,
+.wk-footer p,
+.wk-footer a,
+.wk-footer__bottom {
+  color: rgba(255,255,255,0.94) !important;
+}
+
+.wk-footer__inner {
+  padding-top: 34px !important;
+  padding-bottom: 24px !important;
+}
+
+.wk-footer__bottom {
+  padding-bottom: 24px !important;
+  opacity: 0.78;
+}
+
 @media (max-width: 1200px) {
   .wk-nav__menu a {
     font-size: 0.7rem;
@@ -182,5 +460,9 @@ body.home .wk-header {
   .wk-home-hero__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .wk-home-impulses::before {
+    display: none;
   }
 }
