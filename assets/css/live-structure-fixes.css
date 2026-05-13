@@ -234,6 +234,18 @@ body.wk-site .wk-footer {
     radial-gradient(circle at 18% 86%, rgba(255,255,255,.06), transparent 24rem),
     linear-gradient(135deg, var(--wk-live-footer-green) 0%, #17453d 56%, #215849 100%) !important;
   border-top: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Home-Specific: verhindert verbleibende alte Rundungen aus vorherigen Styles */
+body.home .wk-footer,
+body.wk-front-page .wk-footer,
+body.home .wk-footer::before,
+body.home .wk-footer::after,
+body.wk-front-page .wk-footer::before,
+body.wk-front-page .wk-footer::after {
+  border-radius: 0 !important;
 }
 
 body.wk-site .wk-footer__inner,
@@ -354,6 +366,7 @@ body.wk-site .wk-footer__bottom {
   body.wk-site .wk-footer {
     min-height: 320px !important;
     padding: 54px 0 34px !important;
+    border-radius: 0 !important;
   }
 
   body.wk-site .wk-footer__inner {
