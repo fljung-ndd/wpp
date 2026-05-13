@@ -1,0 +1,393 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "layout": {
+      "contentSize": "1120px",
+      "wideSize": "1280px"
+    },
+    "color": {
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "custom": true,
+      "palette": [
+        {
+          "slug": "wk-green",
+          "name": "Waldgrün",
+          "color": "#084f3f"
+        },
+        {
+          "slug": "wk-green-soft",
+          "name": "Weiches Waldgrün",
+          "color": "#2f5f46"
+        },
+        {
+          "slug": "wk-petrol",
+          "name": "Petrol",
+          "color": "#008c89"
+        },
+        {
+          "slug": "wk-mint",
+          "name": "Minzgrün",
+          "color": "#a8d5c2"
+        },
+        {
+          "slug": "wk-cream",
+          "name": "Creme",
+          "color": "#fff7e6"
+        },
+        {
+          "slug": "wk-paper",
+          "name": "Papierweiß",
+          "color": "#fffdf7"
+        },
+        {
+          "slug": "wk-soft",
+          "name": "Sanftes Creme",
+          "color": "#fdf7ef"
+        },
+        {
+          "slug": "wk-sage",
+          "name": "Salbeigrün",
+          "color": "#ebf0e4"
+        },
+        {
+          "slug": "wk-sand",
+          "name": "Sand",
+          "color": "#f4e7c8"
+        },
+        {
+          "slug": "wk-yellow",
+          "name": "Waldlicht Gelb",
+          "color": "#ffd23f"
+        },
+        {
+          "slug": "wk-orange",
+          "name": "Katzen Orange",
+          "color": "#ff7a1a"
+        },
+        {
+          "slug": "wk-pink",
+          "name": "Katzen Pink",
+          "color": "#ef4f7a"
+        },
+        {
+          "slug": "wk-lavender",
+          "name": "Lavendel",
+          "color": "#c8b4f0"
+        },
+        {
+          "slug": "wk-ink",
+          "name": "Text Dunkel",
+          "color": "#173f38"
+        },
+        {
+          "slug": "wk-muted",
+          "name": "Text Gedämpft",
+          "color": "#61756d"
+        }
+      ]
+    },
+    "typography": {
+      "customFontSize": true,
+      "dropCap": false,
+      "fontFamilies": [
+        {
+          "slug": "wk-display",
+          "name": "Waldkätzchen Headline",
+          "fontFamily": "\"Quicksand\", \"Nunito\", system-ui, sans-serif"
+        },
+        {
+          "slug": "wk-body",
+          "name": "Waldkätzchen Text",
+          "fontFamily": "\"Nunito\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+        },
+        {
+          "slug": "system-serif",
+          "name": "Serif weich",
+          "fontFamily": "Georgia, \"Times New Roman\", serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "xs",
+          "name": "XS",
+          "size": "0.78rem"
+        },
+        {
+          "slug": "small",
+          "name": "Klein",
+          "size": "0.9rem"
+        },
+        {
+          "slug": "medium",
+          "name": "Normal",
+          "size": "1rem"
+        },
+        {
+          "slug": "lead",
+          "name": "Lead",
+          "size": "clamp(1.05rem, 1.2vw, 1.18rem)"
+        },
+        {
+          "slug": "h3",
+          "name": "Überschrift 3",
+          "size": "clamp(1.25rem, 2vw, 1.7rem)"
+        },
+        {
+          "slug": "h2",
+          "name": "Überschrift 2",
+          "size": "clamp(2rem, 4vw, 3.25rem)"
+        },
+        {
+          "slug": "hero",
+          "name": "Hero",
+          "size": "clamp(2.7rem, 5.8vw, 5.2rem)"
+        }
+      ]
+    },
+    "spacing": {
+      "customSpacingSize": true,
+      "units": [
+        "px",
+        "rem",
+        "em",
+        "%",
+        "vw",
+        "vh"
+      ],
+      "spacingScale": {
+        "operator": "*",
+        "increment": 1.5,
+        "steps": 7,
+        "mediumStep": 1.5,
+        "unit": "rem"
+      },
+      "spacingSizes": [
+        {
+          "slug": "10",
+          "name": "XXS",
+          "size": "0.5rem"
+        },
+        {
+          "slug": "20",
+          "name": "XS",
+          "size": "0.75rem"
+        },
+        {
+          "slug": "30",
+          "name": "S",
+          "size": "1rem"
+        },
+        {
+          "slug": "40",
+          "name": "M",
+          "size": "1.5rem"
+        },
+        {
+          "slug": "50",
+          "name": "L",
+          "size": "2rem"
+        },
+        {
+          "slug": "60",
+          "name": "XL",
+          "size": "3rem"
+        },
+        {
+          "slug": "70",
+          "name": "Section",
+          "size": "clamp(2.2rem, 5vw, 4rem)"
+        }
+      ]
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "shadow": {
+      "defaultPresets": false,
+      "presets": [
+        {
+          "slug": "wk-soft",
+          "name": "Waldkätzchen weich",
+          "shadow": "0 8px 24px rgba(23, 63, 56, 0.09)"
+        },
+        {
+          "slug": "wk-card",
+          "name": "Karte weich",
+          "shadow": "0 5px 18px rgba(33, 66, 50, 0.09)"
+        }
+      ]
+    },
+    "blocks": {
+      "core/group": {
+        "spacing": {
+          "padding": true,
+          "margin": true
+        }
+      },
+      "core/cover": {
+        "color": {
+          "customDuotone": false
+        },
+        "dimensions": {
+          "minHeight": true
+        }
+      },
+      "core/button": {
+        "border": {
+          "radius": true
+        }
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--wk-paper)",
+      "text": "var(--wp--preset--color--wk-ink)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--wk-body)",
+      "fontSize": "var(--wp--preset--font-size--medium)",
+      "lineHeight": "1.5"
+    },
+    "spacing": {
+      "blockGap": "1.5rem",
+      "padding": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--wk-display)",
+          "fontWeight": "700",
+          "lineHeight": "1.06",
+          "letterSpacing": "-0.035em"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--wk-green)"
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--hero)"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--h2)"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--h3)"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--wk-green)"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--wk-petrol)"
+          }
+        }
+      },
+      "button": {
+        "border": {
+          "radius": "999px"
+        },
+        "color": {
+          "background": "var(--wp--preset--color--wk-green)",
+          "text": "var(--wp--preset--color--wk-paper)"
+        },
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--wk-body)",
+          "fontWeight": "900",
+          "fontSize": "0.9rem",
+          "lineHeight": "1"
+        },
+        "spacing": {
+          "padding": {
+            "top": "0.85rem",
+            "right": "1.3rem",
+            "bottom": "0.85rem",
+            "left": "1.3rem"
+          }
+        },
+        ":hover": {
+          "color": {
+            "background": "var(--wp--preset--color--wk-petrol)",
+            "text": "var(--wp--preset--color--wk-paper)"
+          }
+        }
+      }
+    },
+    "blocks": {
+      "core/group": {
+        "spacing": {
+          "blockGap": "1.5rem"
+        }
+      },
+      "core/columns": {
+        "spacing": {
+          "blockGap": "1.5rem"
+        }
+      },
+      "core/column": {
+        "spacing": {
+          "blockGap": "1rem"
+        }
+      },
+      "core/paragraph": {
+        "typography": {
+          "lineHeight": "1.55"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--wk-muted)"
+        }
+      },
+      "core/button": {
+        "border": {
+          "radius": "999px"
+        }
+      },
+      "core/image": {
+        "border": {
+          "radius": "16px"
+        }
+      }
+    }
+  },
+  "customTemplates": [
+    {
+      "name": "waldkaetzchen-startseite",
+      "title": "Waldkätzchen Startseite",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ]
+}
