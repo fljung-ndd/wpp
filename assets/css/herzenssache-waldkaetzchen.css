@@ -1,0 +1,615 @@
+/* =========================================================
+   Waldkätzchen – Herzenssache-inspired Brand Skin
+   Ziel: sehr nahe Designwirkung der Referenzseite, aber eigenständig:
+   Full-Width-Bänder, starke Editorial-Typografie, weiche große Cards,
+   Waldkätzchen-Hero, tiefes Grün und Katzenfarben:
+   Orange, Blau, Petrol, Pink, Gelb.
+   Wird als letzte CSS-Datei geladen.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..850,0..100,0..1&family=Nunito:wght@500;600;700;800;900&display=swap');
+
+:root {
+  --hswk-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --hswk-font-body: "Nunito", "Segoe UI", sans-serif;
+
+  --hswk-green-900: #0e2f28;
+  --hswk-green-800: #143f35;
+  --hswk-green-700: #1f5947;
+  --hswk-green-600: #2f7358;
+  --hswk-cream: #fff8ea;
+  --hswk-paper: #fffdf5;
+  --hswk-sand: #f6ead2;
+  --hswk-sage: #e5eedc;
+  --hswk-ink: #1d2f29;
+  --hswk-muted: #59695f;
+
+  --cat-orange: #ef8b3e;
+  --cat-blue: #5f91d9;
+  --cat-petrol: #1f8a8a;
+  --cat-pink: #e77aa6;
+  --cat-yellow: #f2c84b;
+
+  --hswk-shell: min(1180px, calc(100vw - 48px));
+  --hswk-wide: min(1320px, calc(100vw - 48px));
+  --hswk-mobile: calc(100vw - 28px);
+  --hswk-radius-xl: 42px;
+  --hswk-radius-lg: 30px;
+  --hswk-shadow: 0 24px 70px rgba(20, 48, 37, .15);
+  --hswk-card-shadow: 0 18px 46px rgba(20, 48, 37, .12);
+}
+
+html,
+body.wk-site,
+body.home,
+body.wk-front-page,
+.wk-main {
+  margin: 0 !important;
+  background: var(--hswk-cream) !important;
+  color: var(--hswk-ink) !important;
+  font-family: var(--hswk-font-body) !important;
+  overflow-x: clip !important;
+}
+
+/* ---------------------------------------------------------
+   Header: App-CTA neben Hamburger, mobile stabil
+   --------------------------------------------------------- */
+body.home .wk-header,
+body.wk-front-page .wk-header {
+  position: absolute !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 1000 !important;
+  min-height: 82px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: linear-gradient(180deg, rgba(8, 25, 20, .62), rgba(8, 25, 20, .12), transparent) !important;
+  backdrop-filter: none !important;
+}
+
+.wk-header__inner,
+body.home .wk-header__inner,
+body.wk-front-page .wk-header__inner {
+  width: var(--hswk-wide) !important;
+  min-height: 82px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr auto auto !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.wk-logo__text {
+  font-family: var(--hswk-font-display) !important;
+  font-weight: 650 !important;
+  letter-spacing: -.055em !important;
+  font-size: clamp(1.55rem, 2vw, 2.25rem) !important;
+  color: #fffaf1 !important;
+  text-shadow: 0 3px 22px rgba(0,0,0,.42) !important;
+  white-space: nowrap !important;
+}
+
+body.home .wk-header__cta,
+body.wk-front-page .wk-header__cta {
+  display: inline-flex !important;
+  grid-column: 3 !important;
+  min-height: 52px !important;
+  padding: 0 26px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #367f46, #1f6032) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.24) !important;
+  box-shadow: 0 14px 32px rgba(0,0,0,.22) !important;
+  font-family: var(--hswk-font-body) !important;
+  font-weight: 900 !important;
+  font-size: .98rem !important;
+}
+
+body.home .wk-nav-toggle,
+body.wk-front-page .wk-nav-toggle {
+  grid-column: 4 !important;
+}
+
+/* ---------------------------------------------------------
+   Hero: eigenes Waldkätzchen-Bild bleibt, aber große Referenzwirkung
+   --------------------------------------------------------- */
+body.home .wk-home-hero,
+body.wk-front-page .wk-home-hero {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  min-height: 100svh !important;
+  margin: 0 calc(50% - 50vw) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  background-image:
+    linear-gradient(90deg, rgba(5, 19, 15, .72) 0%, rgba(5, 19, 15, .52) 35%, rgba(5, 19, 15, .14) 68%, rgba(5, 19, 15, .12) 100%),
+    linear-gradient(180deg, rgba(5,19,15,.05), rgba(5,19,15,.28)),
+    url('../images/hero_optimized.webp'),
+    url('../images/hero_optimized.jpg'),
+    url('../images/hero_optimized.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+body.home .wk-home-hero__inner,
+body.wk-front-page .wk-home-hero__inner {
+  width: var(--hswk-wide) !important;
+  min-height: 100svh !important;
+  margin: 0 auto !important;
+  padding: 126px 0 116px !important;
+  display: grid !important;
+  grid-template-columns: minmax(320px, 720px) 1fr !important;
+  align-items: center !important;
+}
+
+.wk-home-hero__copy {
+  max-width: 720px !important;
+}
+
+.wk-home-hero .wk-eyebrow {
+  display: inline-flex !important;
+  margin: 0 0 18px !important;
+  padding: 9px 16px !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.14) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  color: rgba(255,250,241,.92) !important;
+  font-family: var(--hswk-font-body) !important;
+  font-weight: 900 !important;
+  font-size: .78rem !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.wk-home-hero h1 {
+  max-width: 760px !important;
+  margin: 0 0 28px !important;
+  color: #fffaf1 !important;
+  font-family: var(--hswk-font-display) !important;
+  font-weight: 680 !important;
+  font-variation-settings: "SOFT" 65, "WONK" 0;
+  font-size: clamp(4.4rem, 9vw, 9.4rem) !important;
+  line-height: .82 !important;
+  letter-spacing: -.082em !important;
+  text-shadow: 0 10px 40px rgba(0,0,0,.42) !important;
+  text-wrap: balance !important;
+}
+
+.wk-home-hero__lead {
+  max-width: 620px !important;
+  color: rgba(255,250,241,.97) !important;
+  font-size: clamp(1.14rem, 1.55vw, 1.42rem) !important;
+  line-height: 1.58 !important;
+  font-weight: 800 !important;
+  text-shadow: 0 3px 18px rgba(0,0,0,.36) !important;
+}
+
+.wk-home-hero__note {
+  display: none !important;
+}
+
+.wk-home-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1px !important;
+  z-index: 5 !important;
+  height: 32px !important;
+  background: var(--hswk-cream) !important;
+  border-radius: 0 !important;
+  transform: none !important;
+}
+
+/* ---------------------------------------------------------
+   Fullwidth-Abschnitte: klare Farbbänder wie Referenz
+   --------------------------------------------------------- */
+body.home .wk-home-section,
+body.wk-front-page .wk-home-section {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 calc(50% - 50vw) !important;
+  padding: clamp(86px, 9vw, 148px) 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+.wk-section-shell,
+body.home .wk-home-section > .wk-section-shell,
+body.wk-front-page .wk-home-section > .wk-section-shell {
+  width: var(--hswk-shell) !important;
+  max-width: var(--hswk-shell) !important;
+  margin: 0 auto !important;
+}
+
+body.home .wk-home-world,
+body.wk-front-page .wk-home-world {
+  background: var(--hswk-cream) !important;
+}
+
+body.home .wk-home-offers,
+body.wk-front-page .wk-home-offers {
+  background: linear-gradient(135deg, var(--hswk-sage), #f4f0e6) !important;
+}
+
+body.home .wk-home-app,
+body.wk-front-page .wk-home-app {
+  background:
+    radial-gradient(circle at 84% 14%, rgba(242,200,75,.20), transparent 24rem),
+    linear-gradient(135deg, var(--hswk-green-900), var(--hswk-green-700)) !important;
+}
+
+body.home .wk-home-impulses,
+body.wk-front-page .wk-home-impulses {
+  background: linear-gradient(180deg, var(--hswk-paper), var(--hswk-sand)) !important;
+}
+
+body.home .wk-home-newsletter,
+body.wk-front-page .wk-home-newsletter {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.08), transparent 22rem),
+    linear-gradient(135deg, var(--hswk-green-800), var(--hswk-green-900)) !important;
+  min-height: clamp(560px, 60vw, 820px) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* ---------------------------------------------------------
+   Typografie der Abschnitte
+   --------------------------------------------------------- */
+.wk-section-heading {
+  max-width: 920px !important;
+  margin-bottom: clamp(38px, 5vw, 72px) !important;
+}
+
+.wk-section-heading--center {
+  text-align: center !important;
+}
+
+.wk-section-heading h2,
+.wk-wave-heading h2,
+.wk-app-banner h2,
+.wk-newsletter-card h2,
+.wk-footer h2 {
+  color: var(--hswk-ink) !important;
+  font-family: var(--hswk-font-display) !important;
+  font-weight: 680 !important;
+  font-variation-settings: "SOFT" 62, "WONK" 0;
+  font-size: clamp(3rem, 6vw, 6.5rem) !important;
+  line-height: .88 !important;
+  letter-spacing: -.075em !important;
+  text-wrap: balance !important;
+}
+
+.wk-section-heading p,
+.wk-wave-heading p,
+.wk-home-section p {
+  color: var(--hswk-muted) !important;
+  font-size: clamp(1.06rem, 1.35vw, 1.26rem) !important;
+  line-height: 1.62 !important;
+  font-weight: 700 !important;
+}
+
+.wk-home-app h2,
+.wk-home-app h3,
+.wk-home-app p,
+.wk-home-newsletter h2,
+.wk-home-newsletter p {
+  color: #fffaf1 !important;
+}
+
+/* ---------------------------------------------------------
+   Katzenfarben: Orange, Blau, Petrol, Pink, Gelb
+   --------------------------------------------------------- */
+.wk-world-card,
+.wk-offer-card,
+.wk-post-card--polaroid {
+  position: relative !important;
+}
+
+.wk-world-card::after,
+.wk-offer-card::after {
+  content: "🐱" !important;
+  position: absolute !important;
+  top: 18px !important;
+  right: 18px !important;
+  width: 54px !important;
+  height: 54px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  font-size: 1.42rem !important;
+  box-shadow: 0 12px 26px rgba(0,0,0,.16) !important;
+}
+
+.wk-world-card--verstehen::after,
+.wk-offer-card:nth-child(1)::after { background: var(--cat-orange) !important; }
+.wk-world-card--verbinden::after,
+.wk-offer-card:nth-child(2)::after { background: var(--cat-blue) !important; }
+.wk-world-card--veraendern::after,
+.wk-offer-card:nth-child(3)::after { background: var(--cat-petrol) !important; }
+.wk-world-card--lichtung::after,
+.wk-offer-card:nth-child(4)::after { background: var(--cat-pink) !important; }
+.wk-offer-card:nth-child(5)::after { background: var(--cat-yellow) !important; color: #17352d !important; }
+
+.wk-world-card--verstehen { --card-accent: var(--cat-orange); }
+.wk-world-card--verbinden { --card-accent: var(--cat-blue); }
+.wk-world-card--veraendern { --card-accent: var(--cat-petrol); }
+.wk-world-card--lichtung { --card-accent: var(--cat-pink); }
+.wk-offer-card:nth-child(5) { --card-accent: var(--cat-yellow); }
+
+/* ---------------------------------------------------------
+   Cards: groß, weich, hell, klare visuelle Hierarchie
+   --------------------------------------------------------- */
+.wk-world-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(20px, 2vw, 30px) !important;
+}
+
+.wk-offer-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 1.7vw, 24px) !important;
+}
+
+.wk-world-card,
+.wk-offer-card {
+  min-height: 440px !important;
+  padding: 18px 18px 28px !important;
+  border-radius: var(--hswk-radius-xl) !important;
+  background: rgba(255,253,245,.96) !important;
+  border: 1px solid rgba(20,63,53,.10) !important;
+  box-shadow: var(--hswk-card-shadow) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.wk-world-card__art,
+.wk-offer-card__image,
+.wk-post-card__image {
+  border-radius: 28px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  filter: saturate(1.08) contrast(1.03) !important;
+}
+
+.wk-world-card__art {
+  aspect-ratio: 1.15 / 1 !important;
+  margin-bottom: 22px !important;
+  color: transparent !important;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.10)),
+    url('../images/hero_optimized.webp') !important;
+}
+
+.wk-offer-card__image {
+  aspect-ratio: 1.2 / 1 !important;
+  margin-bottom: 22px !important;
+}
+
+.wk-world-card h3,
+.wk-offer-card h3,
+.wk-post-card h3 {
+  color: var(--hswk-ink) !important;
+  font-family: var(--hswk-font-display) !important;
+  font-weight: 680 !important;
+  font-size: clamp(1.55rem, 2.2vw, 2.25rem) !important;
+  line-height: .98 !important;
+  letter-spacing: -.055em !important;
+  margin: 0 0 14px !important;
+}
+
+.wk-world-card p,
+.wk-offer-card p {
+  color: var(--hswk-muted) !important;
+  font-size: 1rem !important;
+  line-height: 1.56 !important;
+  flex: 1 !important;
+}
+
+.wk-text-link {
+  color: var(--hswk-green-800) !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+}
+
+/* ---------------------------------------------------------
+   App-Bereich: dunkles Premium-Band, aber klare Card
+   --------------------------------------------------------- */
+.wk-home-app .wk-app-banner {
+  width: var(--hswk-shell) !important;
+  max-width: var(--hswk-shell) !important;
+  margin: 0 auto !important;
+  padding: clamp(42px, 5vw, 72px) !important;
+  border-radius: var(--hswk-radius-xl) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 460px) !important;
+  gap: clamp(30px, 4vw, 70px) !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  box-shadow: 0 24px 68px rgba(0,0,0,.22) !important;
+}
+
+.wk-home-app .wk-button--soft {
+  background: #fffaf1 !important;
+  color: var(--hswk-green-900) !important;
+}
+
+.wk-phone {
+  border-color: #111f1a !important;
+  border-radius: 32px !important;
+}
+
+.wk-phone--one { box-shadow: 0 0 0 8px rgba(239,139,62,.14), 0 26px 50px rgba(0,0,0,.28) !important; }
+.wk-phone--two { box-shadow: 0 0 0 8px rgba(31,138,138,.15), 0 26px 50px rgba(0,0,0,.28) !important; }
+.wk-phone--three { box-shadow: 0 0 0 8px rgba(231,122,166,.14), 0 26px 50px rgba(0,0,0,.28) !important; }
+
+/* ---------------------------------------------------------
+   Impulse: Polaroid-Wäscheleine
+   --------------------------------------------------------- */
+.wk-home-impulses::before {
+  content: "" !important;
+  position: absolute !important;
+  left: max(5vw, calc((100vw - 1320px) / 2)) !important;
+  right: max(5vw, calc((100vw - 1320px) / 2)) !important;
+  top: clamp(220px, 22vw, 320px) !important;
+  height: 3px !important;
+  background: rgba(87,66,39,.28) !important;
+  transform: rotate(-1.2deg) !important;
+}
+
+.wk-post-grid--polaroid {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+}
+
+.wk-post-card--polaroid {
+  min-height: 390px !important;
+  padding: 14px !important;
+  border-radius: 16px !important;
+  background: #fffdf5 !important;
+  border: 1px solid rgba(90,69,38,.15) !important;
+  box-shadow: 0 18px 38px rgba(69,51,29,.14) !important;
+}
+
+/* ---------------------------------------------------------
+   Newsletter und Footer: keine Rundung außen, eigene Sektionen
+   --------------------------------------------------------- */
+.wk-home-newsletter .wk-newsletter-card {
+  width: min(100%, 1060px) !important;
+  margin: 0 auto !important;
+  padding: clamp(34px, 5vw, 66px) !important;
+  border-radius: var(--hswk-radius-xl) !important;
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(255,255,255,.17) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.20) !important;
+}
+
+.wk-newsletter-form input {
+  min-height: 62px !important;
+  border-radius: 999px !important;
+  font-size: 1rem !important;
+}
+
+.wk-newsletter-form button {
+  min-height: 62px !important;
+  border-radius: 999px !important;
+}
+
+.wk-footer,
+body.wk-site .wk-footer {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 calc(50% - 50vw) !important;
+  padding: clamp(70px, 8vw, 116px) 0 clamp(34px, 4vw, 54px) !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 84% 14%, rgba(242,200,75,.20), transparent 24rem),
+    linear-gradient(135deg, #082821, var(--hswk-green-900)) !important;
+  color: #fffaf1 !important;
+  border: 0 !important;
+}
+
+.wk-footer::before,
+.wk-footer::after {
+  border-radius: 0 !important;
+  display: none !important;
+}
+
+.wk-footer__inner,
+.wk-footer__bottom {
+  width: var(--hswk-shell) !important;
+  max-width: var(--hswk-shell) !important;
+  margin: 0 auto !important;
+  color: rgba(255,250,241,.92) !important;
+}
+
+.wk-footer h2,
+.wk-footer p,
+.wk-footer a,
+.wk-footer__bottom {
+  color: rgba(255,250,241,.95) !important;
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .wk-world-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .wk-offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .wk-post-grid--polaroid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+@media (max-width: 980px) {
+  body.home .wk-header__inner,
+  body.wk-front-page .wk-header__inner {
+    width: var(--hswk-mobile) !important;
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    gap: 10px !important;
+  }
+
+  body.home .wk-logo,
+  body.wk-front-page .wk-logo { grid-column: 1 !important; }
+  body.home .wk-header__cta,
+  body.wk-front-page .wk-header__cta { grid-column: 2 !important; min-height: 44px !important; padding: 0 16px !important; font-size: .8rem !important; }
+  body.home .wk-nav-toggle,
+  body.wk-front-page .wk-nav-toggle { grid-column: 3 !important; }
+  body.home .wk-nav,
+  body.wk-front-page .wk-nav { grid-column: 1 / -1 !important; }
+
+  .wk-logo__text { font-size: clamp(1.18rem, 5vw, 1.65rem) !important; }
+
+  body.home .wk-home-hero__inner,
+  body.wk-front-page .wk-home-hero__inner {
+    width: var(--hswk-mobile) !important;
+    grid-template-columns: 1fr !important;
+    align-items: end !important;
+    padding: 112px 0 92px !important;
+  }
+
+  .wk-home-hero h1 {
+    font-size: clamp(3.6rem, 15vw, 5.5rem) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --hswk-shell: var(--hswk-mobile);
+    --hswk-wide: var(--hswk-mobile);
+  }
+
+  body.home .wk-home-section,
+  body.wk-front-page .wk-home-section {
+    padding: clamp(64px, 15vw, 92px) 0 !important;
+  }
+
+  .wk-world-grid,
+  .wk-offer-grid,
+  .wk-post-grid--polaroid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .wk-world-card,
+  .wk-offer-card {
+    min-height: 0 !important;
+  }
+
+  .wk-home-app .wk-app-banner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .wk-newsletter-form {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .wk-footer__inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
