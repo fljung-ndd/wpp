@@ -11,13 +11,9 @@
 <header class="wk-header">
     <div class="wk-header__inner">
         <a class="wk-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php bloginfo( 'name' ); ?> Startseite">
-            <span class="wk-logo__text">Waldkätzchen <span aria-hidden="true">🌿</span></span>
+            <span class="wk-logo__leaf" aria-hidden="true">🌿</span>
+            <span class="wk-logo__text">Waldkätzchen</span>
         </a>
-
-        <button class="wk-nav-toggle" type="button" aria-expanded="false" aria-controls="wk-primary-nav">
-            <span class="screen-reader-text">Menü öffnen</span>
-            <span class="wk-nav-toggle__lines" aria-hidden="true"></span>
-        </button>
 
         <nav id="wk-primary-nav" class="wk-nav" aria-label="Hauptnavigation">
             <?php
@@ -30,12 +26,15 @@
                 )
             );
             ?>
-            <a class="wk-nav__app-link" href="/lichtung">Zur App</a>
+            <a class="wk-nav__app-link" href="/lichtung">App öffnen</a>
         </nav>
 
-        <a class="wk-header__cta" href="/lichtung">
-            Zur App
-        </a>
+        <a class="wk-header__cta" href="/lichtung">App</a>
+
+        <button class="wk-nav-toggle" type="button" aria-expanded="false" aria-controls="wk-primary-nav">
+            <span class="screen-reader-text">Menü öffnen</span>
+            <span class="wk-nav-toggle__lines" aria-hidden="true"></span>
+        </button>
     </div>
 </header>
 
