@@ -1,55 +1,24 @@
 <?php
 /**
  * Waldkätzchen Theme functions.
+ *
+ * Neutralisiert, damit Blocksy + Starter Templates sauber genutzt werden können.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-/**
- * Theme Assets.
- */
 function waldkaetzchen_enqueue_assets() {
-    $theme_version = wp_get_theme()->get( 'Version' );
-    $flat_css_file = get_template_directory() . '/assets/css/waldkaetzchen-flat.css';
-    $blueprint_css = get_template_directory() . '/assets/css/waldkaetzchen-blueprint.css';
-    $js_file       = get_template_directory() . '/assets/js/waldkaetzchen.js';
-
     wp_enqueue_style(
         'waldkaetzchen-style',
         get_stylesheet_uri(),
         array(),
-        $theme_version
-    );
-
-    wp_enqueue_style(
-        'waldkaetzchen-flat',
-        get_template_directory_uri() . '/assets/css/waldkaetzchen-flat.css',
-        array( 'waldkaetzchen-style' ),
-        file_exists( $flat_css_file ) ? filemtime( $flat_css_file ) : $theme_version
-    );
-
-    wp_enqueue_style(
-        'waldkaetzchen-blueprint',
-        get_template_directory_uri() . '/assets/css/waldkaetzchen-blueprint.css',
-        array( 'waldkaetzchen-flat' ),
-        file_exists( $blueprint_css ) ? filemtime( $blueprint_css ) : $theme_version
-    );
-
-    wp_enqueue_script(
-        'waldkaetzchen-interactions',
-        get_template_directory_uri() . '/assets/js/waldkaetzchen.js',
-        array(),
-        file_exists( $js_file ) ? filemtime( $js_file ) : $theme_version,
-        true
+        wp_get_theme()->get( 'Version' )
     );
 }
 add_action( 'wp_enqueue_scripts', 'waldkaetzchen_enqueue_assets' );
 
-/**
- * Theme setup.
- */
 function waldkaetzchen_theme_setup() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
@@ -63,17 +32,3 @@ function waldkaetzchen_theme_setup() {
     );
 }
 add_action( 'after_setup_theme', 'waldkaetzchen_theme_setup' );
-
-/**
- * Body classes.
- */
-function waldkaetzchen_body_classes( $classes ) {
-    $classes[] = 'wk-site';
-
-    if ( is_front_page() ) {
-        $classes[] = 'wk-front-page';
-    }
-
-    return $classes;
-}
-add_filter( 'body_class', 'waldkaetzchen_body_classes' );
