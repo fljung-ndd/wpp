@@ -17,28 +17,28 @@ const TIER_CARDS = [
     name:"Luis", role:"Mut · Entdecken", accent:"#FF7A1A",
     bgColor:"rgba(255,122,26,.08)",
     desc:"Neugierig, manchmal impulsiv, immer mit offenem Herzen.",
-    quote:"„Wenn alles zu viel wird, wird es laut."",
+    quote:'„Wenn alles zu viel wird, wird es laut.“',
     tags:["Bewegung","Wachstum","Impuls"]
   },{
     img: WK+'katze-kissen-ruhe.png',
     name:"Yella", role:"Wärme · Verbindung", accent:"#FFD23F",
     bgColor:"rgba(255,210,63,.08)",
     desc:"Sie spürt schnell, wie es anderen geht. Nähe entsteht durch Zuhören.",
-    quote:"„Manchmal reicht es, einfach da zu sein."",
+    quote:'„Manchmal reicht es, einfach da zu sein.“',
     tags:["Empathie","Ruhe","Fürsorge"]
   },{
     img: WK+'themen2.png',
     name:"Elfriede", role:"Beobachtung · Reflexion", accent:"#008C89",
     bgColor:"rgba(0,140,137,.08)",
     desc:"Auch leise Gefühle haben Bedeutung — nicht alles muss sofort laut sein.",
-    quote:"„Ich schaue hin, bevor ich urteile."",
+    quote:'„Ich schaue hin, bevor ich urteile.“',
     tags:["Achtsamkeit","Muster","Stille"]
   },{
     img: WK+'helferNetzwerk.png',
     name:"Der Pinguin", role:"Anderssein · Leichtigkeit", accent:"#A8D5C2",
     bgColor:"rgba(168,213,194,.08)",
     desc:"Man muss nicht hineinpassen, um wertvoll zu sein.",
-    quote:"„Anders sein ist keine Schwäche."",
+    quote:'„Anders sein ist keine Schwäche.“',
     tags:["Mut","Selbstannahme","Einzigartigkeit"]
   },
 ];
@@ -105,15 +105,16 @@ function setWeather(w){
   });
 }
 function setMood(m){
+  const moodOverlay = document.getElementById('mood-overlay');
   if(currentMood===m){
     currentMood=null;
-    document.getElementById('mood-overlay').style.background='transparent';
+    if(moodOverlay) moodOverlay.style.background='transparent';
     document.documentElement.style.setProperty('--mood-accent','#EF4F7A');
     document.querySelectorAll('[data-mood]').forEach(b=>{b.style.background='transparent';b.style.color='';});
   } else {
     currentMood=m;
     const acc=MOODS[m].accent;
-    document.getElementById('mood-overlay').style.background=acc+'18';
+    if(moodOverlay) moodOverlay.style.background=acc+'18';
     document.documentElement.style.setProperty('--mood-accent',acc);
     document.querySelectorAll('[data-mood]').forEach(b=>{
       const a=b.dataset.mood===m;
@@ -122,20 +123,31 @@ function setMood(m){
     });
   }
 }
-function toggleControls(){controlsOpen=!controlsOpen;document.getElementById('controls-panel').classList.toggle('open',controlsOpen);}
+function toggleControls(){
+  controlsOpen=!controlsOpen;
+  const panel = document.getElementById('controls-panel');
+  if(panel) panel.classList.toggle('open',controlsOpen);
+}
 function toggleMenu(){
   menuOpen=!menuOpen;
-  document.getElementById('mobile-menu').classList.toggle('open',menuOpen);
-  document.getElementById('hbg1').style.transform=menuOpen?'translateY(7px) rotate(45deg)':'none';
-  document.getElementById('hbg2').style.opacity=menuOpen?'0':'1';
-  document.getElementById('hbg3').style.transform=menuOpen?'translateY(-7px) rotate(-45deg)':'none';
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hbg1 = document.getElementById('hbg1');
+  const hbg2 = document.getElementById('hbg2');
+  const hbg3 = document.getElementById('hbg3');
+  if(mobileMenu) mobileMenu.classList.toggle('open',menuOpen);
+  if(hbg1) hbg1.style.transform=menuOpen?'translateY(7px) rotate(45deg)':'none';
+  if(hbg2) hbg2.style.opacity=menuOpen?'0':'1';
+  if(hbg3) hbg3.style.transform=menuOpen?'translateY(-7px) rotate(-45deg)':'none';
 }
 function closeMenu(){
   menuOpen=false;
-  document.getElementById('mobile-menu').classList.remove('open');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if(mobileMenu) mobileMenu.classList.remove('open');
   ['hbg1','hbg2','hbg3'].forEach(id=>{
-    document.getElementById(id).style.transform='none';
-    document.getElementById(id).style.opacity='1';
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.style.transform='none';
+    el.style.opacity='1';
   });
 }
 
@@ -212,22 +224,30 @@ function buildAccordion(containerId, data){
 const _openAcc = {};
 function toggleAcc(i, cid){
   const k = cid;
+  const body = document.getElementById(`acc-body-${k}-${i}`);
+  const icon = document.getElementById(`acc-icon-${k}-${i}`);
+  if(!body || !icon) return;
   if(_openAcc[k]===i){
-    document.getElementById(`acc-body-${k}-${i}`).classList.remove('open');
-    document.getElementById(`acc-icon-${k}-${i}`).classList.remove('open');
+    body.classList.remove('open');
+    icon.classList.remove('open');
     _openAcc[k]=null;
   } else {
     if(_openAcc[k]!=null){
-      document.getElementById(`acc-body-${k}-${_openAcc[k]}`).classList.remove('open');
-      document.getElementById(`acc-icon-${k}-${_openAcc[k]}`).classList.remove('open');
+      const openBody = document.getElementById(`acc-body-${k}-${_openAcc[k]}`);
+      const openIcon = document.getElementById(`acc-icon-${k}-${_openAcc[k]}`);
+      if(openBody) openBody.classList.remove('open');
+      if(openIcon) openIcon.classList.remove('open');
     }
-    document.getElementById(`acc-body-${k}-${i}`).classList.add('open');
-    document.getElementById(`acc-icon-${k}-${i}`).classList.add('open');
+    body.classList.add('open');
+    icon.classList.add('open');
     _openAcc[k]=i;
   }
 }
 
-function scrollSlider(id,dir){document.getElementById(id).scrollBy({left:dir*300,behavior:'smooth'});}
+function scrollSlider(id,dir){
+  const slider = document.getElementById(id);
+  if(slider) slider.scrollBy({left:dir*300,behavior:'smooth'});
+}
 
 // ── REVEAL ────────────────────────────────────────────────────────
 function initReveal(){
@@ -392,16 +412,14 @@ function renderFooter(){
     </div>
   </div>
   <div class="footer-bottom">
-    <p style="font-size:.75rem;color:rgba(255,255,255,.28)">© 2025 Waldkätzchen — Wild und verbunden.</p>
-    <div style="font-family:'Quicksand',sans-serif;font-size:.75rem;font-style:italic;color:rgba(255,255,255,.32)">Verstehen · Verbinden · Verändern</div>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.28)">© 2026 Waldkätzchen. Alle Rechte vorbehalten.</p>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.28)">Wild und verbunden.</p>
   </div>
 </footer>`;
 }
 
-// ── INIT ON LOAD ──────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', ()=>{
   setTheme(currentTheme);
-  setWeather(currentWeather);
   initReveal();
   initHeroCanvas();
 });
