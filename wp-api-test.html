@@ -50,6 +50,8 @@
 <script>
 const API='https://waldkaetzchen.waldkaetzchen.de/wp-json/wp/v2';
 const FALLBACK_IMAGE='https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png';
+const CACHE_TTL=5*60*1000;
+const MAX_POSTS=9;
 let categoriesById={};
 let activeCategory='all';
 
@@ -65,10 +67,42 @@ function stripHtml(html){
   return div.textContent||div.innerText||'';
 }
 
+function getCache(key){
+  try{
+    const raw=sessionStorage.getItem(key);
+    if(!raw) return null;
+    const parsed=JSON.parse(raw);
+    if(Date.now()-parsed.ts>CACHE_TTL){
+      sessionStorage.removeItem(key);
+      return null;
+    }
+    return parsed.data;
+  }catch(error){
+    return null;
+  }
+}
+
+function setCache(key,data){
+  try{
+    sessionStorage.setItem(key,JSON.stringify({ts:Date.now(),data}));
+  }catch(error){
+    // Caching ist optional.
+  }
+}
+
+async function fetchJson(url,cacheKey){
+  const cached=getCache(cacheKey);
+  if(cached) return cached;
+  const res=await fetch(url);
+  if(!res.ok) throw new Error('Daten konnten nicht geladen werden');
+  const data=await res.json();
+  setCache(cacheKey,data);
+  return data;
+}
+
 async function fetchCategories(){
-  const res=await fetch(`${API}/categories?per_page=100&hide_empty=true`);
-  if(!res.ok) throw new Error('Kategorien konnten nicht geladen werden');
-  const categories=await res.json();
+  const url=`${API}/categories?per_page=100&hide_empty=true&_fields=id,name,count`;
+  const categories=await fetchJson(url,'wk_categories_v2');
   categoriesById=Object.fromEntries(categories.map(category=>[category.id,category]));
   renderCategoryFilters(categories);
 }
@@ -102,41 +136,49 @@ function buildCategoryBadges(post){
   return `<div class="wp-post-badges">${postCategories.map(category=>`<span class="wp-post-badge">${decodeHtml(category.name)}</span>`).join('')}</div>`;
 }
 
+function getEmbeddedImage(post){
+  return post._embedded?.['wp:featuredmedia']?.[0]?.source_url||FALLBACK_IMAGE;
+}
+
+function renderPosts(posts){
+  const el=document.getElementById('posts');
+
+  if(!posts.length){
+    el.innerHTML='<div class="wp-post-status">Zu dieser Kategorie gibt es noch keine veröffentlichten Beiträge.</div>';
+    return;
+  }
+
+  el.innerHTML='<div class="grid-3" id="post-grid"></div>';
+  const grid=document.getElementById('post-grid');
+
+  posts.forEach(post=>{
+    const image=getEmbeddedImage(post);
+    const title=decodeHtml(post.title?.rendered||'Ohne Titel');
+    const excerpt=post.excerpt?.rendered||'';
+    const date=new Date(post.date).toLocaleDateString('de-DE',{year:'numeric',month:'long',day:'numeric'});
+    const card=document.createElement('article');
+    card.className='ang-card';
+    card.innerHTML=`
+      <div class="ang-card-img"><img src="${image}" alt="" loading="lazy" decoding="async"></div>
+      <div class="ang-card-body">
+        <div class="wp-post-meta">${date}</div>
+        ${buildCategoryBadges(post)}
+        <h3 class="wp-post-card-title">${title}</h3>
+        <div class="wp-post-excerpt">${excerpt}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
 async function loadPosts(category='all'){
   const el=document.getElementById('posts');
   el.innerHTML='<div class="wp-post-status">🌿 Beiträge werden geladen …</div>';
 
   try{
     const categoryParam=category!=='all'?`&categories=${encodeURIComponent(category)}`:'';
-    const res=await fetch(`${API}/posts?_embed=1&per_page=12${categoryParam}`);
-    if(!res.ok) throw new Error('Beiträge konnten nicht geladen werden');
-    const posts=await res.json();
-
-    if(!posts.length){
-      el.innerHTML='<div class="wp-post-status">Zu dieser Kategorie gibt es noch keine veröffentlichten Beiträge.</div>';
-      return;
-    }
-
-    el.innerHTML='<div class="grid-3" id="post-grid"></div>';
-    const grid=document.getElementById('post-grid');
-
-    posts.forEach(post=>{
-      const image=post._embedded?.['wp:featuredmedia']?.[0]?.source_url||FALLBACK_IMAGE;
-      const title=decodeHtml(post.title?.rendered||'Ohne Titel');
-      const excerpt=post.excerpt?.rendered||'';
-      const date=new Date(post.date).toLocaleDateString('de-DE',{year:'numeric',month:'long',day:'numeric'});
-      const card=document.createElement('article');
-      card.className='ang-card';
-      card.innerHTML=`
-        <div class="ang-card-img"><img src="${image}" alt=""></div>
-        <div class="ang-card-body">
-          <div class="wp-post-meta">${date}</div>
-          ${buildCategoryBadges(post)}
-          <h3 class="wp-post-card-title">${title}</h3>
-          <div class="wp-post-excerpt">${excerpt}</div>
-        </div>`;
-      grid.appendChild(card);
-    });
+    const url=`${API}/posts?_embed=wp:featuredmedia&per_page=${MAX_POSTS}${categoryParam}&_fields=id,date,slug,title,excerpt,categories,_embedded`;
+    const posts=await fetchJson(url,`wk_posts_${category}_v2`);
+    renderPosts(posts);
   }catch(error){
     el.innerHTML=`<div class="wp-post-status">⚠️ Fehler beim Laden der WordPress API.<br>${stripHtml(error.message)}</div>`;
   }
@@ -145,8 +187,7 @@ async function loadPosts(category='all'){
 async function initWpApiTest(){
   const el=document.getElementById('posts');
   try{
-    await fetchCategories();
-    await loadPosts();
+    await Promise.all([fetchCategories(),loadPosts()]);
   }catch(error){
     el.innerHTML=`<div class="wp-post-status">⚠️ ${stripHtml(error.message)}</div>`;
   }
