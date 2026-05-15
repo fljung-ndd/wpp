@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen – Wild und verbunden</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --p1:#084F3F;--p2:#008C89;--p3:#EF4F7A;
+    --s1:#FFD23F;--s2:#FF7A1A;--s3:#A8D5C2;
+    --s4:#FFF7E6;--s5:#7D6F61;--sage:#F3F8E9;
+    --text:#0d2b22;--textMid:#3d5a4f;--textSoft:#7a9a8a;
+    --mood-accent:#EF4F7A;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',sans-serif;color:var(--text);overflow-x:hidden;background:var(--s4)}
+  h1,h2,h3,h4{font-family:'Quicksand',sans-serif;font-weight:700;line-height:1.25}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  ::-webkit-scrollbar{display:none}
+  button{cursor:pointer}
+
+  /* DARK MODE */
+  body.dark{background:#0a1a2e;color:#c0e8d0}
+  body.dark .dk-card{background:rgba(20,50,35,.8)!important;border-color:rgba(168,213,194,.1)!important}
+  body.dark .dk-bg{background:#0a1a15!important}
+  body.dark .dk-h{color:#c0e8d0!important}
+  body.dark .dk-mid{color:rgba(180,220,200,.8)!important}
+  body.dark .dk-soft{color:rgba(168,213,194,.6)!important}
+  body.dark .accordion-item{background:rgba(20,50,35,.6)!important}
+  body.dark .accordion-q{color:rgba(200,240,220,.9)!important}
+  body.dark .accordion-a{color:rgba(180,220,200,.8)!important}
+  body.dark .tab-btn:not(.active){color:rgba(200,240,220,.7)!important}
+  body.dark .nav-link{color:rgba(200,240,220,.85)!important}
+  body.dark .section-h2{color:#c0e8d0!important}
+  body.dark .impulse-title{color:#c0e8d0!important}
+  body.dark .impulse-text{color:rgba(180,220,200,.7)!important}
+  body.dark .btn-outline{border-color:rgba(200,240,220,.4)!important;color:rgba(200,240,220,.8)!important}
+  body.dark .mobile-nav-link{color:rgba(200,240,220,.9);background:rgba(20,50,35,.6)}
+  body.dark .prob-card{background:rgba(20,50,35,.8)!important}
+  body.dark .fw-card{background:rgba(20,50,35,.8)!important}
+  body.dark .ang-card{background:rgba(20,50,35,.8)!important}
+  body.dark .grow-item{border-color:rgba(168,213,194,.1)!important;color:rgba(180,220,200,.8)!important}
+  body.dark .hp-tag{background:rgba(20,50,35,.7)!important;color:rgba(200,240,220,.85)!important;border-color:rgba(168,213,194,.2)!important}
+  body.dark .figur-tag{background:rgba(20,50,35,.7)!important;color:rgba(200,240,220,.8)!important}
+  body.dark .hero-icon-bar{background:rgba(20,50,35,.6)!important;border-color:rgba(168,213,194,.08)!important}
+  body.dark .hero-icon-label{color:rgba(200,240,220,.85)!important}
+  body.dark .quote-box{background:rgba(20,50,35,.7)!important}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+  /* FIXED BG */
+  #night-bg{position:fixed;inset:0;z-index:-1;display:none;pointer-events:none}
+  body.dark #night-bg{display:block}
+  body.night #night-bg{background:linear-gradient(180deg,#040d1a 0%,#0a1a2e 40%,#0d2b22 100%)}
+  body.dusk  #night-bg{background:linear-gradient(180deg,#1a0d04,#2e1a0a)}
+  #mood-overlay{position:fixed;inset:0;z-index:8;pointer-events:none;transition:background 1.5s;background:transparent}
+
+  /* HERO CANVAS — inside hero only */
+  #hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+
+  /* CONTROLS */
+  #controls{position:fixed;bottom:1.5rem;left:1.5rem;z-index:300}
+  #controls-btn{background:rgba(255,247,230,.97);backdrop-filter:blur(12px);border-radius:999px;
+    padding:8px 16px;display:flex;align-items:center;gap:6px;border:1px solid rgba(8,79,63,.2);
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:.75rem;color:var(--p1)}
+  body.dark #controls-btn{background:rgba(4,13,30,.95);color:rgba(200,240,220,.9);border-color:rgba(168,213,194,.3)}
+  #controls-panel{display:none;position:absolute;bottom:calc(100% + 8px);left:0;
+    background:rgba(255,247,230,.97);backdrop-filter:blur(16px);border-radius:18px;
+    padding:1rem;min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,.2);border:1px solid rgba(8,79,63,.1)}
+  body.dark #controls-panel{background:rgba(4,13,30,.95);border-color:rgba(168,213,194,.2)}
+  #controls-panel.open{display:block;animation:slideIn .2s ease}
+  .ctrl-label{font-size:.63rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--textSoft);margin-bottom:.5rem;font-family:'Quicksand',sans-serif}
+  body.dark .ctrl-label{color:rgba(168,213,194,.6)}
+  .ctrl-grid{display:grid;gap:4px;margin-bottom:1rem}
+  .ctrl-grid-4{grid-template-columns:repeat(4,1fr)}
+  .ctrl-grid-3{grid-template-columns:repeat(3,1fr)}
+  .ctrl-btn{padding:6px 4px;border-radius:8px;border:none;background:transparent;
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:.68rem;
+    display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--p1)}
+  body.dark .ctrl-btn{color:rgba(200,240,220,.9)}
+  .ctrl-btn .ic{font-size:1rem}
+  .ctrl-btn .lb{text-transform:capitalize;font-size:.6rem}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:200;background:rgba(255,247,230,.97);
+    border-bottom:1px solid rgba(8,79,63,.1);backdrop-filter:blur(14px)}
+  body.dark header{background:rgba(4,13,30,.96)}
+  .header-inner{max-width:1120px;margin:0 auto;padding:0 1.5rem;height:66px;
+    display:flex;align-items:center;justify-content:space-between}
+  nav a{font-size:.82rem;font-weight:600;color:var(--textMid);font-family:'Quicksand',sans-serif}
+  .nav-cta{background:var(--mood-accent);color:#fff!important;padding:9px 22px;
+    border-radius:999px;font-weight:700!important;font-size:.82rem!important;transition:background 1s}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--p1);border-radius:2px;transition:all .3s}
+  body.dark .hamburger span{background:rgba(200,240,220,.9)}
+  #mobile-menu{display:none;position:fixed;top:66px;left:0;right:0;bottom:0;
+    background:rgba(255,247,230,.97);backdrop-filter:blur(16px);z-index:199;
+    padding:2rem;flex-direction:column;gap:8px;animation:slideIn .2s ease;overflow-y:auto}
+  body.dark #mobile-menu{background:rgba(4,13,30,.96)}
+  #mobile-menu.open{display:flex}
+  .mobile-nav-link{font-size:1.1rem;font-weight:700;color:var(--text);font-family:'Quicksand',sans-serif;
+    padding:1rem 1.25rem;border-radius:18px;border:1px solid rgba(8,79,63,.1);background:#fff}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+  .hero-overlay{position:absolute;inset:0;transition:background 2s}
+  .hero-content{position:relative;z-index:3;max-width:1120px;margin:0 auto;padding:0 2rem;width:100%}
+  .hero-inner{max-width:580px}
+  .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;
+    display:flex;flex-direction:column;align-items:center;gap:8px;animation:float 2s ease-in-out infinite}
+
+  /* HERO ICON BAR */
+  .hero-icon-bar{background:#fff;border-bottom:1px solid rgba(8,79,63,.07);padding:1.1rem 0;
+    box-shadow:0 4px 20px rgba(8,79,63,.05)}
+  .hero-icon-bar-inner{max-width:1120px;margin:0 auto;padding:0 2rem;
+    display:flex;gap:2.5rem;overflow-x:auto;scrollbar-width:none;justify-content:center;flex-wrap:wrap}
+  .hero-icon-item{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+  .hero-icon-img{width:34px;height:34px;object-fit:contain;opacity:.8}
+  .hero-icon-label{font-size:.78rem;font-weight:700;color:var(--p1);font-family:'Quicksand',sans-serif;white-space:nowrap}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* SECTIONS */
+  section{padding:5rem 0}
+  .container{max-width:1120px;margin:0 auto;padding:0 2rem}
+  .section-tag{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--p2);font-family:'Quicksand',sans-serif;margin-bottom:.6rem}
+  .section-h2{font-size:clamp(1.5rem,3vw,2.4rem);margin-bottom:2rem;color:var(--p1)}
+
+  /* GRIDS */
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+
+  /* BASE CARD */
+  .card{background:var(--s4);border-radius:20px;padding:1.8rem 1.4rem;text-align:center;
+    border:1px solid rgba(8,79,63,.08);box-shadow:0 4px 24px rgba(8,79,63,.09);transition:transform .25s}
+  .card:hover{transform:translateY(-6px)}
+  .card-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;overflow:hidden;background:var(--sage)}
+
+  /* PROBLEM CARDS */
+  .prob-card{background:#fff;border-radius:20px;padding:1.8rem;border:1px solid rgba(8,79,63,.08);
+    box-shadow:0 4px 24px rgba(8,79,63,.07);transition:transform .25s}
+  .prob-card:hover{transform:translateY(-4px)}
+  .prob-icon{width:56px;height:56px;border-radius:16px;background:var(--sage);
+    display:flex;align-items:center;justify-content:center;margin-bottom:1rem;overflow:hidden}
+  .prob-icon img{width:36px;height:36px;object-fit:contain;opacity:.85}
+
+  /* GROW LIST */
+  .grow-item{display:flex;align-items:center;gap:.8rem;padding:.6rem 0;
+    border-bottom:1px solid rgba(8,79,63,.07);font-size:.88rem;color:var(--textMid)}
+
+  /* HEILPÄD TAGS */
+  .hp-tag{display:inline-block;padding:7px 16px;border-radius:999px;font-size:.8rem;
+    font-weight:700;font-family:'Quicksand',sans-serif;margin:.25rem;
+    background:var(--sage);color:var(--p1);border:1px solid rgba(8,79,63,.12);transition:all .2s}
+  .hp-tag:hover{background:var(--p1);color:#fff}
+
+  /* FOR-WHOM CARDS */
+  .fw-card{background:#fff;border-radius:24px;padding:2rem;border:1px solid rgba(8,79,63,.08);
+    box-shadow:0 4px 24px rgba(8,79,63,.07);position:relative;overflow:hidden;transition:transform .25s}
+  .fw-card:hover{transform:translateY(-5px)}
+  .fw-card-accent{position:absolute;top:0;left:0;right:0;height:4px}
+
+  /* ANGEBOTE CARDS */
+  .ang-card{background:#fff;border-radius:22px;overflow:hidden;border:1px solid rgba(8,79,63,.08);
+    box-shadow:0 4px 24px rgba(8,79,63,.07);transition:transform .25s;display:flex;flex-direction:column}
+  .ang-card:hover{transform:translateY(-5px)}
+  .ang-card-img{height:175px;overflow:hidden}
+  .ang-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .ang-card:hover .ang-card-img img{transform:scale(1.05)}
+  .ang-card-body{padding:1.4rem;flex:1;display:flex;flex-direction:column}
+
+  /* FIGUR TAGS */
+  .figur-tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.7rem;
+    font-weight:700;background:var(--sage);color:var(--p1);border:1px solid rgba(8,79,63,.1);margin:.2rem}
+
+  /* WW CARDS */
+  .ww-num{font-family:'Quicksand',sans-serif;font-size:3.5rem;font-weight:700;color:var(--s3);line-height:1;margin-bottom:.5rem}
+  .ww-card{padding:2rem;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);text-align:center}
+
+  /* TABS */
+  .tab-bar{display:flex;gap:8px;overflow-x:auto;padding-bottom:1rem;scrollbar-width:none}
+  .tab-btn{flex-shrink:0;padding:8px 20px;border-radius:999px;border:1px solid rgba(8,79,63,.15);
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;white-space:nowrap;
+    background:transparent;color:var(--textMid);transition:all .2s}
+  .tab-btn.active{background:var(--p1);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(8,79,63,.2)}
+  .tab-content{display:none;animation:fadeUp .4s ease}
+  .tab-content.active{display:block}
+
+  /* ACCORDION */
+  .accordion-item{border-radius:16px;overflow:hidden;border:1px solid rgba(8,79,63,.1);
+    background:#fff;transition:border-color .2s;margin-bottom:8px}
+  .accordion-btn{width:100%;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;
+    align-items:center;background:transparent;border:none;gap:1rem;text-align:left}
+  .accordion-q{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.95rem;color:var(--p1)}
+  .accordion-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(8,79,63,.08);
+    display:flex;align-items:center;justify-content:center;color:var(--p1);font-size:1rem;font-weight:700;transition:all .25s}
+  .accordion-icon.open{transform:rotate(45deg);background:var(--p1);color:#fff}
+  .accordion-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+  .accordion-body.open{max-height:500px}
+  .accordion-a{padding:0 1.4rem 1.2rem;font-size:.88rem;color:var(--textMid);line-height:1.75}
+
+  /* CARD SLIDER */
+  .card-slider{position:relative}
+  .card-slider-track{display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem;
+    scrollbar-width:none;scroll-snap-type:x mandatory}
+  .slider-arrow{position:absolute;top:40%;width:32px;height:32px;border-radius:50%;
+    border:none;box-shadow:0 2px 12px rgba(8,79,63,.15);color:var(--p1);
+    display:flex;align-items:center;justify-content:center;background:rgba(255,247,230,.95)}
+  .slider-arrow-l{left:-16px}
+  .slider-arrow-r{right:-16px}
+  body.dark .slider-arrow{background:rgba(20,50,35,.95)}
+
+  /* BADGE */
+  .badge{padding:4px 14px;border-radius:999px;font-size:.78rem;font-weight:700;
+    background:var(--sage);color:var(--p1);border:1px solid rgba(8,79,63,.15)}
+
+  /* BUTTONS */
+  .btn-primary{background:var(--mood-accent);color:#fff;padding:12px 28px;border-radius:999px;
+    font-family:'Quicksand',sans-serif;font-weight:700;font-size:.88rem;
+    display:inline-flex;align-items:center;gap:8px;transition:background 1s;border:none}
+  .btn-ghost{background:rgba(255,255,255,.1);color:#fff;padding:12px 28px;border-radius:999px;
+    border:2px solid rgba(255,255,255,.4);font-family:'Quicksand',sans-serif;font-weight:700;font-size:.88rem}
+  .btn-outline{background:transparent;padding:10px 24px;border-radius:999px;
+    border:2px solid var(--p1);color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:700;font-size:.85rem;display:inline-block}
+
+  /* IMPULSE */
+  .impulse-img{height:130px;border-radius:12px;overflow:hidden;margin-bottom:1rem;background:var(--sage)}
+  .impulse-img img{width:100%;height:100%;object-fit:cover}
+  .impulse-cat{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--p2);font-weight:700;margin-bottom:.4rem}
+  .impulse-title{font-size:.95rem;color:var(--p1);line-height:1.35;margin-bottom:.5rem;font-family:'Quicksand',sans-serif}
+  .impulse-text{font-size:.82rem;color:var(--textSoft);line-height:1.6}
+
+  /* NEWSLETTER */
+  .nl-input{padding:14px 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.1);color:#fff;font-family:'Nunito',sans-serif;font-size:.9rem;width:100%}
+  .nl-input::placeholder{color:rgba(255,255,255,.4)}
+  .nl-input:focus{outline:none}
+
+  /* FOOTER */
+  footer{background:#051f18;padding:4rem 2rem 2rem;color:rgba(255,255,255,.72)}
+  .footer-grid{max-width:1120px;margin:0 auto;display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;
+    border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:2rem}
+  .footer-bottom{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  .footer-h{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.32);margin-bottom:1rem;font-family:'Quicksand',sans-serif;font-weight:800}
+  .footer-link{display:block;color:rgba(255,255,255,.62);font-size:.83rem;margin-bottom:.55rem}
+  .social-btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.88rem}
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    nav.desktop-nav{display:none!important}
+    .hamburger{display:flex!important}
+    .hide-mobile{display:none!important}
+    .grid-2{grid-template-columns:1fr!important;gap:2rem!important}
+    .grid-3{grid-template-columns:1fr 1fr!important}
+    .grid-4{grid-template-columns:1fr 1fr!important}
+    .footer-grid{grid-template-columns:1fr 1fr!important}
+    .hero-icon-bar-inner{justify-content:flex-start}
+  }
+  @media(max-width:480px){
+    .grid-3{grid-template-columns:1fr!important}
+    .grid-4{grid-template-columns:1fr!important}
+    .footer-grid{grid-template-columns:1fr!important}
+  }
+</style>
+</head>
+<body>
+
+<div id="night-bg"></div>
+<div id="mood-overlay"></div>
+
+<!-- CONTROLS -->
+<div id="controls">
+  <button id="controls-btn" onclick="toggleControls()">🌿 Stimmung</button>
+  <div id="controls-panel">
+    <div class="ctrl-label">Tageszeit</div>
+    <div class="ctrl-grid ctrl-grid-4">
+      <button class="ctrl-btn" data-theme="morning" onclick="setTheme('morning')"><span class="ic">🌅</span><span class="lb">Morning</span></button>
+      <button class="ctrl-btn" data-theme="day"     onclick="setTheme('day')">    <span class="ic">☀️</span><span class="lb">Day</span></button>
+      <button class="ctrl-btn" data-theme="dusk"    onclick="setTheme('dusk')">   <span class="ic">🌇</span><span class="lb">Dusk</span></button>
+      <button class="ctrl-btn" data-theme="night"   onclick="setTheme('night')">  <span class="ic">🌙</span><span class="lb">Night</span></button>
+    </div>
+    <div class="ctrl-label">Wetter</div>
+    <div class="ctrl-grid ctrl-grid-3">
+      <button class="ctrl-btn" data-weather="clear" onclick="setWeather('clear')"><span class="ic">☀️</span><span class="lb">Klar</span></button>
+      <button class="ctrl-btn" data-weather="rain"  onclick="setWeather('rain')"> <span class="ic">🌧</span><span class="lb">Regen</span></button>
+      <button class="ctrl-btn" data-weather="mist"  onclick="setWeather('mist')"> <span class="ic">🌫</span><span class="lb">Nebel</span></button>
+    </div>
+    <div class="ctrl-label">Stimmung</div>
+    <div class="ctrl-grid ctrl-grid-3">
+      <button class="ctrl-btn" data-mood="verbunden" onclick="setMood('verbunden')"><span class="ic">🤝</span><span class="lb">Verbunden</span></button>
+      <button class="ctrl-btn" data-mood="ruhig"     onclick="setMood('ruhig')">    <span class="ic">🌿</span><span class="lb">Ruhig</span></button>
+      <button class="ctrl-btn" data-mood="neugierig" onclick="setMood('neugierig')"><span class="ic">🦋</span><span class="lb">Neugierig</span></button>
+      <button class="ctrl-btn" data-mood="mutig"     onclick="setMood('mutig')">    <span class="ic">🔥</span><span class="lb">Mutig</span></button>
+      <button class="ctrl-btn" data-mood="wild"      onclick="setMood('wild')">     <span class="ic">🐾</span><span class="lb">Wild</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="Waldkätzchen" style="height:42px">
+    <nav class="desktop-nav" style="display:flex;gap:1.2rem;align-items:center">
+      <a href="#" class="nav-link">Der Wald</a>
+      <a href="#" class="nav-link">Heilpädagogik</a>
+      <a href="#" class="nav-link">Angebote</a>
+      <a href="#" class="nav-link">Väter</a>
+      <a href="#" class="nav-link">Blog</a>
+      <a href="#" class="nav-cta">🌿 App</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span id="hbg1"></span><span id="hbg2"></span><span id="hbg3"></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <a href="#" class="mobile-nav-link" onclick="closeMenu()">Der Wald</a>
+    <a href="#" class="mobile-nav-link" onclick="closeMenu()">Heilpädagogik</a>
+    <a href="#" class="mobile-nav-link" onclick="closeMenu()">Angebote</a>
+    <a href="#" class="mobile-nav-link" onclick="closeMenu()">Väter</a>
+    <a href="#" class="mobile-nav-link" onclick="closeMenu()">Blog</a>
+    <a href="#" onclick="closeMenu()" style="background:var(--mood-accent);color:#fff;padding:1rem 1.25rem;border-radius:18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.1rem;display:block;margin-top:8px;transition:background 1s">🌿 App</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/hero_optimized.webp" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="reveal" style="transition-delay:.1s">
+        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">🌿 Das Waldkätzchen-Konzept</div>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:.6rem;color:#fff;line-height:1.1">
+          Manchmal braucht es<br>einen anderen <span style="color:var(--s1)">Blick,</span><br>um neue Wege zu sehen.
+        </h1>
+      </div>
+      <div class="reveal" style="transition-delay:.3s">
+        <p style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.1rem;color:var(--s3);margin-bottom:1.1rem">Verbindung, die bleibt.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.35s">
+        <div style="display:flex;gap:.5rem;align-items:center;font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.6rem;font-family:'Quicksand',sans-serif">
+          Verstehen <span style="color:var(--p3)">·</span> Verbinden <span style="color:var(--p3)">·</span> Verändern
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.4s">
+        <p style="font-size:.95rem;color:rgba(255,255,255,.8);max-width:460px;margin-bottom:2.2rem;line-height:1.85">
+          Waldkätzchen begleitet dich, dein Kind und deine Familie mit Herz, Verständnis und innerer Wildnis — heilpädagogisch fundiert, alltagsnah und voller Verbindung.
+        </p>
+      </div>
+      <div class="reveal" style="transition-delay:.5s">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="#" class="btn-primary" style="animation:float 3s ease-in-out infinite">🌿 Die Welt entdecken</a>
+          <a href="#" class="btn-ghost">Zum Angebot</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;animation:float 2s ease-in-out infinite">
+    <span style="font-size:.62rem;color:rgba(255,255,255,.45);font-family:'Quicksand',sans-serif;letter-spacing:.15em;text-transform:uppercase">Scroll</span>
+    <div style="width:1px;height:36px;background:rgba(255,255,255,.25)"></div>
+  </div>
+</section>
+
+<!-- HERO ICON BAR -->
+<div class="hero-icon-bar">
+  <div class="hero-icon-bar-inner">
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Heilpäd. fundiert</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Emotional begleitend</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Alltagsnah</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Mit Geschichten</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png" class="hero-icon-img" alt=""><span class="hero-icon-label">App & Materialien</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Für Verbindung</span></div>
+  </div>
+</div>
+
+<!-- KENNST DU DAS GEFÜHL -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Der Anfang</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Kennst du<br>das Gefühl?</h2></div>
+    <div class="grid-4" style="margin-bottom:2.5rem">
+      <div class="reveal prob-card" style="transition-delay:.0s">
+        <div class="prob-icon"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Der Nebel im Kopf</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Du verstehst nicht, warum dein Kind gerade so reagiert — alles dreht sich im Kreis.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.08s">
+        <div class="prob-icon"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Die alten Stimmen</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">„Stell dich nicht so an." Du kennst diese Sätze — und willst es eigentlich anders machen.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.16s">
+        <div class="prob-icon"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Als Vater da sein</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Du bist da — aber niemand hat dir gezeigt, wie. Du willst Verbindung, findest aber keinen Weg.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.24s">
+        <div class="prob-icon"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Die Höhle als Rückzug</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Dein Kind zieht sich zurück oder tobt. Du weißt: da steckt mehr dahinter.</p>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.32s">
+      <div style="background:var(--sage);border-radius:20px;padding:1.8rem 2.2rem;max-width:680px;border-left:4px solid var(--p2)" class="quote-box">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.7" class="dk-h">
+          „Du musst nicht alles sofort verstehen. Aber du kannst anfangen, hinzuschauen."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WALDWELT / DAS KONZEPT -->
+<section style="background:var(--p1);padding:5rem 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png');background-size:cover;background-position:center;opacity:.1"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Das Konzept</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:1rem">Die <span style="color:var(--s3)">Waldkätzchen-Welt</span></h2></div>
+    <div class="reveal" style="transition-delay:.15s"><p style="font-size:.94rem;color:rgba(255,255,255,.7);max-width:600px;line-height:1.8;margin-bottom:2.5rem">Keine Methode. Keine schnellen Lösungen. Eine Welt, die hilft, Gefühle und Verhalten zu verstehen — durch Figuren, Geschichten und sanfte Reflexion.</p></div>
+    <div class="grid-3" style="margin-bottom:3rem">
+      <div class="reveal ww-card"><div class="ww-num">1</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verstehen</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Warum reagiert mein Kind so? Was steckt hinter dem Verhalten? Wir schauen hin — ohne zu bewerten.</p></div>
+      <div class="reveal ww-card" style="transition-delay:.1s"><div class="ww-num">2</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verbinden</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Gefühle sichtbar machen. Nähe schaffen. Gemeinsam einen Weg durch den Wald finden.</p></div>
+      <div class="reveal ww-card" style="transition-delay:.2s"><div class="ww-num">3</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verändern</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Kleine Impulse. Neue Wege. Nicht perfekt — aber fühlend, lernend, verbunden.</p></div>
+    </div>
+    <div class="reveal" style="transition-delay:.25s">
+      <div class="card-slider">
+        <div class="card-slider-track" id="metaphern-track"></div>
+        <button class="slider-arrow slider-arrow-l" onclick="scrollSlider('metaphern-track',-1)">‹</button>
+        <button class="slider-arrow slider-arrow-r" onclick="scrollSlider('metaphern-track',1)">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MITWACHSEN -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Mitwachsen</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Wachsen, wenn du es brauchst</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:.8rem" class="dk-mid">Waldkätzchen ist kein Programm mit festem Plan. Es ist ein Begleiter — der sich deinem Tempo anpasst, deine Situation versteht und dir kleine Impulse gibt, wenn du bereit bist.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Ob du gerade mittendrin steckst oder neu anfängst: Die Waldwelt ist immer da.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div style="margin-bottom:2rem">
+          <div class="grow-item"><span style="color:var(--p2)">🌱</span> In deinem Tempo</div>
+          <div class="grow-item"><span style="color:var(--p2)">🌿</span> Für jede Lebensphase</div>
+          <div class="grow-item"><span style="color:var(--p2)">🦊</span> Mit Figuren &amp; Geschichten</div>
+          <div class="grow-item"><span style="color:var(--p2)">🍃</span> Reflexion ohne Druck</div>
+          <div class="grow-item"><span style="color:var(--p2)">☀️</span> Alltagstauglich</div>
+          <div class="grow-item" style="border:none"><span style="color:var(--p2)">👨‍👩‍👧</span> Für die ganze Familie</div>
+        </div>
+        <a href="#" class="btn-primary">Den eigenen Weg finden</a>
+      </div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="position:relative;width:100%;max-width:420px">
+        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/hero_optimized.webp" alt="" style="width:100%;border-radius:24px;object-fit:cover;height:460px">
+        <div style="position:absolute;inset:0;border-radius:24px;background:linear-gradient(to top,rgba(8,79,63,.55) 0%,transparent 60%)"></div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border-radius:14px;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.2)">
+          <p style="font-size:.82rem;font-style:italic;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.5">„Wild und verbunden — für Familien, Väter und Kinder."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEILPÄDAGOGISCH FUNDIERT -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png" alt="" style="width:100%;max-width:380px;border-radius:20px;object-fit:contain">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Das Fundament</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Heilpädagogisch fundiert.<br>Menschlich begleitet.</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Waldkätzchen basiert auf heilpädagogischen Grundlagen — einem tiefen Verständnis davon, wie Kinder fühlen, lernen und sich entwickeln. Nicht als Therapie, sondern als vertrauensvoller Begleiter.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Die Methode verbindet systemisches Denken, Narrative Arbeit mit Figuren, innere Anteile und lösungsorientierte Impulse zu einer einzigartigen Erfahrungswelt.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s;margin-bottom:1.8rem">
+        <span class="hp-tag">Heilpädagogik</span><span class="hp-tag">Systemisches Denken</span>
+        <span class="hp-tag">Narrative Arbeit</span><span class="hp-tag">Innere Anteile</span>
+        <span class="hp-tag">Lösungsorientiert</span><span class="hp-tag">Bindungsorientiert</span>
+        <span class="hp-tag">Empathie</span><span class="hp-tag">Resilienz</span>
+      </div>
+      <div class="reveal" style="transition-delay:.25s"><a href="#" class="btn-outline">Mehr über den Ansatz</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIE FIGUREN -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Die Figuren</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="margin-bottom:.6rem">Die Waldkätzchen</h2></div>
+    <div class="reveal" style="transition-delay:.15s;margin-bottom:2.5rem">
+      <p style="font-size:.93rem;color:var(--textMid);max-width:600px;line-height:1.8" class="dk-mid">Sie sind keine Maskottchen. Sie stehen für Gefühle, Perspektiven und innere Stimmen.<br><em>„Luis war heute wütend." — Manchmal ist es leichter, das über eine Figur zu sagen als über sich selbst.</em></p>
+    </div>
+    <div class="grid-4" id="tier-grid"></div>
+  </div>
+</section>
+
+<!-- APP SEKTION -->
+<section style="background:var(--sage);padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Die App</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Begleiter im Alltag</h2></div>
+      <div class="reveal" style="transition-delay:.15s"><p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1.8rem" class="dk-mid">Ein ruhiger, warmer Raum, der dich an den schwierigen Momenten des Alltags begleitet — mit den Figuren, die du bereits kennst.</p></div>
+      <div class="reveal" style="transition-delay:.2s;margin-bottom:2rem">
+        <div class="grow-item"><span style="color:var(--p2)">✦</span> Situationen reflektieren</div>
+        <div class="grow-item"><span style="color:var(--p2)">✦</span> Gefühle sichtbar machen</div>
+        <div class="grow-item"><span style="color:var(--p2)">✦</span> Kleine Impulse erhalten</div>
+        <div class="grow-item" style="border:none"><span style="color:var(--p2)">✦</span> Offline verfügbar</div>
+      </div>
+      <div class="reveal" style="transition-delay:.25s">
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem">
+          <a href="#" style="background:#0d2b22;color:#fff;padding:10px 18px;border-radius:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:8px">🍎 Laden im <strong>App Store</strong></a>
+          <a href="#" style="background:#0d2b22;color:#fff;padding:10px 18px;border-radius:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:8px">▶ Laden bei <strong>Google Play</strong></a>
+        </div>
+        <a href="#" style="font-size:.85rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr über die App →</a>
+      </div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="background:var(--p1);border-radius:32px;padding:2rem;box-shadow:0 24px 60px rgba(8,79,63,.25);max-width:260px;width:100%">
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="height:30px;filter:brightness(0) invert(1)">
+          <span style="color:rgba(255,255,255,.55);font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:700">waldkätzchen</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.55rem">
+          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem">
+            <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)">
+            <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Reflexion</span>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem">
+            <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)">
+            <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Gefühle</span>
+          </div>
+          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem">
+            <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)">
+            <span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Impulse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Für wen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für Familien. Für Väter. Für Kinder.</h2></div>
+    <div class="grid-3">
+      <div class="reveal fw-card" style="transition-delay:.0s">
+        <div class="fw-card-accent" style="background:var(--p2)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85">
+        </div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Familien</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du möchtest verstehen, warum dein Kind so reagiert — und wieder echte Verbindung spüren.</p>
+      </div>
+      <div class="reveal fw-card" style="transition-delay:.08s;position:relative">
+        <div class="fw-card-accent" style="background:var(--p3)"></div>
+        <div style="position:absolute;top:1rem;right:1rem;background:var(--s1);color:var(--text);padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:800;font-family:'Quicksand',sans-serif">Vaterperspektive</div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85">
+        </div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Väter</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du bist da — aber vielleicht hat dir niemand gezeigt, wie. Ehrlich, alltagsnah, ohne Klischees.</p>
+      </div>
+      <div class="reveal fw-card" style="transition-delay:.16s">
+        <div class="fw-card-accent" style="background:var(--s2)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85">
+        </div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Fachkräfte</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Heilpädagogisch fundiert, spielerisch anwendbar — als emotionale Brücke in der Arbeit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGEBOTE CARDS + TABS -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Angebote</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Weg in den Wald</h2></div>
+    <div class="grid-3" style="margin-bottom:3rem">
+      <div class="reveal ang-card" style="transition-delay:.0s">
+        <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="Begleitung"></div>
+        <div class="ang-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Coaching &amp; Begleitung</h3>
+          <p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Einzelbegleitung für Eltern, Väter und Familien — ohne Bewertung, mit echtem Interesse.</p>
+        </div>
+      </div>
+      <div class="reveal ang-card" style="transition-delay:.08s">
+        <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png" alt="Waldabenteuer"></div>
+        <div class="ang-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">HandsOn Waldabenteuer</h3>
+          <p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Echte Begegnungen im Wald. Mit Figuren, Geschichten und Natur als Spiegel.</p>
+        </div>
+      </div>
+      <div class="reveal ang-card" style="transition-delay:.16s">
+        <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png" alt="Kurse"></div>
+        <div class="ang-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Kurse &amp; Aufstellungen</h3>
+          <p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Heilpädagogisch fundierte Workshops und Aufstellungen mit den Waldkätzchen.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.2s">
+      <div class="tab-bar" id="tab-bar"></div>
+      <div id="tab-contents"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WALDABENTEUER BANNER -->
+<section style="position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;padding:5rem 0">
+  <div style="position:absolute;inset:0"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-erfassen-quer.png" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div style="position:absolute;inset:0;background:rgba(8,79,63,.86)"></div>
+  <div class="container grid-2" style="position:relative;z-index:2;width:100%">
+    <div>
+      <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Besonders</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:1rem">Im Wald passiert etwas</h2></div>
+      <div class="reveal" style="transition-delay:.15s"><p style="color:rgba(255,255,255,.75);font-size:.93rem;line-height:1.8;margin-bottom:1.5rem">Die HandsOn Waldabenteuer sind mehr als Ausflüge — Erfahrungsräume, in denen Familien mit allen Sinnen verstehen lernen.</p></div>
+      <ul style="list-style:none;margin-bottom:2rem">
+        <li class="reveal" style="padding:.55rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.2s"><span>🌿</span>Figuren und Geschichten als emotionale Brücke</li>
+        <li class="reveal" style="padding:.55rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.27s"><span>🌿</span>Der Wald als natürlicher Spiegel des Innenlebens</li>
+        <li class="reveal" style="padding:.55rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.34s"><span>🌿</span>Für Kinder, Familien, Gruppen und Fachkräfte</li>
+        <li class="reveal" style="padding:.55rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.41s"><span>🌿</span>Kein Kurs — ein echtes Erlebnis</li>
+      </ul>
+      <div class="reveal" style="transition-delay:.55s"><a href="#" class="btn-primary">Abenteuer entdecken</a></div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="width:100%;max-width:260px;border-radius:50%;border:4px solid rgba(255,255,255,.15);animation:breathe 4s ease-in-out infinite">
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER MICH -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="position:relative">
+        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="Über mich" style="width:100%;max-width:360px;border-radius:24px;border:4px solid var(--sage);object-fit:contain">
+        <div style="position:absolute;bottom:-12px;right:-12px;background:var(--p1);color:#fff;padding:.7rem 1.1rem;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.78rem;line-height:1.5;text-align:center">
+          Heilpädagog.<br>fundiert<br>🌿 persönlich
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Über mich</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Ich sehe, was hinter dem Verhalten steckt.</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Ich bin Heilpädagoge, Coach und Vater — und ich weiß, wie es sich anfühlt, wenn man da sein will, aber nicht weiß, wie. Genau deshalb habe ich Waldkätzchen entwickelt.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:2rem" class="dk-soft">Mein Ansatz verbindet heilpädagogisches Fachwissen mit echter Lebensnähe. Keine Theorie ohne Alltag. Keine Methode ohne Herz.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s"><a href="#" class="btn-outline">Mehr über mich erfahren</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPULSE -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Impulse &amp; Gedanken</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Aus dem Waldtagebuch</h2></div>
+    <div class="reveal" style="transition-delay:.15s">
+      <div class="card-slider">
+        <div class="card-slider-track" id="impulse-track"></div>
+        <button class="slider-arrow slider-arrow-l" onclick="scrollSlider('impulse-track',-1)">‹</button>
+        <button class="slider-arrow slider-arrow-r" onclick="scrollSlider('impulse-track',1)">›</button>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem"><a href="#" class="btn-outline">Alle Impulse lesen</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff;padding:5rem 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 2rem">
+    <div class="reveal"><div class="section-tag">Häufige Fragen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Was du wissen möchtest</h2></div>
+    <div class="reveal" style="transition-delay:.15s" id="accordion"></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="background:var(--p1);padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Waldpost</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:.9rem;line-height:1.3">Kleine Briefe<br>aus dem Wald</h2></div>
+      <div class="reveal" style="transition-delay:.15s"><p style="color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.8;margin-bottom:1.5rem">Unregelmäßig, dafür ehrlich: Impulse, Geschichten und Gedanken — direkt in deinen Posteingang.</p></div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div style="display:flex;flex-direction:column;gap:.75rem">
+          <input type="email" placeholder="Deine E-Mail-Adresse" class="nl-input">
+          <button class="btn-primary" style="width:100%;justify-content:center">🌿 Dabei sein</button>
+          <p style="font-size:.72rem;color:rgba(255,255,255,.4)">🔒 Kein Spam. Jederzeit abmeldbar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="" style="width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.25));animation:breathe 4s ease-in-out infinite">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:.6rem">
+        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="height:42px;filter:brightness(0) invert(1) opacity(.85)">
+      </div>
+      <div style="font-size:.7rem;opacity:.4;letter-spacing:.07em;font-family:'Quicksand',sans-serif;text-transform:uppercase;margin-bottom:.6rem">Wild und verbunden.</div>
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;text-transform:uppercase">Verstehen · Verbinden · Verändern</div>
+      <div style="display:flex;gap:.7rem">
+        <a href="#" class="social-btn">📷</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">💬</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="footer-h">Der Wald</h4>
+      <a href="#" class="footer-link">Das Konzept</a><a href="#" class="footer-link">Die Tiere</a>
+      <a href="#" class="footer-link">Die Metaphern</a><a href="#" class="footer-link">Heilpädagogik</a>
+    </div>
+    <div>
+      <h4 class="footer-h">Angebote</h4>
+      <a href="#" class="footer-link">Begleitung</a><a href="#" class="footer-link">Waldabenteuer</a>
+      <a href="#" class="footer-link">Kurse</a><a href="#" class="footer-link">Die App</a>
+    </div>
+    <div>
+      <h4 class="footer-h">Mehr</h4>
+      <a href="#" class="footer-link">Über mich</a><a href="#" class="footer-link">Blog &amp; Impulse</a>
+      <a href="#" class="footer-link">Kontakt</a><a href="#" class="footer-link">Impressum</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p style="font-size:.75rem;color:rgba(255,255,255,.28)">© 2025 Waldkätzchen — Wild und verbunden.</p>
+    <div style="font-family:'Quicksand',sans-serif;font-size:.75rem;font-style:italic;color:rgba(255,255,255,.32)">Verstehen · Verbinden · Verändern</div>
+  </div>
+</footer>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────
+const IMGS = {
+  bg1:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png",
+  bgQ:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-erfassen-quer.png",
+  katze:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png",
+  luis:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/8635fe4c-40e7-4e5f-8a9f-33530784ac43-removebg-preview.png",
+  ref:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png",
+  netz:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png",
+  besp:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png",
+  inh:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png",
+  ue:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png",
+  th:"https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png",
+};
+const MOODS = {
+  verbunden:{accent:"#008C89"}, ruhig:{accent:"#084F3F"},
+  neugierig:{accent:"#FFD23F"}, mutig:{accent:"#FF7A1A"}, wild:{accent:"#EF4F7A"},
+};
+const tierCards = [
+  {img:IMGS.luis,  name:"Luis",       role:"Mut · Entdecken",          desc:"Neugierig, manchmal impulsiv, immer mit offenem Herzen.",           accent:"#FF7A1A", tags:["Bewegung","Wachstum"]},
+  {img:IMGS.katze, name:"Yella",      role:"Wärme · Verbindung",       desc:"Sie spürt schnell, wie es anderen geht. Nähe entsteht durch Zuhören.", accent:"#FFD23F", tags:["Empathie","Ruhe"]},
+  {img:IMGS.th,    name:"Elfriede",   role:"Beobachtung · Reflexion",  desc:"Auch leise Gefühle haben Bedeutung — nicht alles muss sofort laut sein.", accent:"#008C89", tags:["Achtsamkeit","Muster"]},
+  {img:IMGS.netz,  name:"Der Pinguin",role:"Anderssein · Leichtigkeit", desc:"Man muss nicht hineinpassen, um wertvoll zu sein.",                  accent:"#A8D5C2", tags:["Mut","Selbstannahme"]},
+];
+const impulsCards = [
+  {cat:"Vätersein",    title:"Wenn Väter schweigen — und was dahintersteckt", text:"Nicht Gleichgültigkeit, sondern Unsicherheit.", img:IMGS.bg1},
+  {cat:"Gefühle",      title:"Luis war heute wütend. Und das ist okay.",       text:"Wie Figuren helfen, über Wut zu sprechen.",   img:IMGS.katze},
+  {cat:"Verbindung",   title:"Die Höhle ist kein schlechter Ort",              text:"Warum Rückzug bei Kindern manchmal das Klügste ist.", img:IMGS.bgQ},
+  {cat:"Heilpädagogik",title:"Was hinter dem Verhalten steckt",                text:"Kein Kind verhält sich schwierig ohne Grund.", img:IMGS.bg1},
+];
+const faq = [
+  {q:"Für wen ist Waldkätzchen geeignet?",             a:"Für Familien, Väter, Kinder und Fachkräfte, die heilpädagogisch fundierte Begleitung suchen — ohne Therapie, aber mit Tiefe."},
+  {q:"Was ist der Unterschied zu klassischem Coaching?",a:"Waldkätzchen arbeitet mit Figuren, Geschichten und Waldmetaphern. Das schafft spielerischen Zugang und emotionale Sicherheit."},
+  {q:"Wie läuft eine Begleitung ab?",                  a:"Wir starten mit einem kostenlosen Erstgespräch. Danach gestalten wir den Weg gemeinsam — je nach Bedarf Einzel-, Familien- oder Gruppenformat."},
+  {q:"Was kostet die App?",                            a:"Die Basis-App ist kostenlos. Erweiterte Inhalte und Reflexionsräume sind im Abo verfügbar."},
+  {q:"Gibt es Angebote für Schulen und Kitas?",        a:"Ja — Waldkätzchen bietet Fortbildungen und Aufstellungen speziell für Fachkräfte in pädagogischen Einrichtungen."},
+];
+const metaphern = [
+  {img:IMGS.ref,  t:"Nebel",     d:"Unsicherheit · noch nicht klare Gefühle"},
+  {img:IMGS.ue,   t:"Steine",    d:"Hindernisse · starre Regeln"},
+  {img:IMGS.besp, t:"Alte Bäume",d:"Glaubenssätze · innere Stimmen"},
+  {img:IMGS.inh,  t:"Laterne",   d:"Orientierung · nächster Schritt"},
+  {img:IMGS.netz, t:"Höhle",     d:"Schutzraum · Sicherheit"},
+];
+
+// ── STATE ─────────────────────────────────────────────────────────
+let currentTheme = autoTheme(), currentWeather = 'clear', currentMood = null;
+let menuOpen = false, controlsOpen = false;
+
+function autoTheme(){const h=new Date().getHours();if(h>=6&&h<10)return'morning';if(h>=10&&h<17)return'day';if(h>=17&&h<20)return'dusk';return'night';}
+
+// ── INIT ──────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  buildTierCards(); buildTabs(); buildMetaphern(); buildImpulse(); buildAccordion();
+  setTheme(currentTheme); setWeather(currentWeather);
+  initReveal(); initHeroCanvas();
+});
+
+// ── TIER CARDS ────────────────────────────────────────────────────
+function buildTierCards() {
+  const grid = document.getElementById('tier-grid');
+  tierCards.forEach((t, i) => {
+    const d = document.createElement('div');
+    d.className = 'card reveal';
+    d.style.transitionDelay = (i*.08)+'s';
+    d.innerHTML = `<div class="card-avatar" style="border:3px solid ${t.accent}"><img src="${t.img}" alt="${t.name}" style="width:100%;height:100%;object-fit:cover"></div>
+      <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.2rem" class="dk-h">${t.name}</h3>
+      <div style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:${t.accent};margin-bottom:.7rem;font-weight:700">${t.role}</div>
+      <p style="font-size:.82rem;color:var(--textMid);line-height:1.65" class="dk-mid">${t.desc}</p>
+      <div style="margin-top:.8rem;display:flex;flex-wrap:wrap;justify-content:center;gap:4px">${t.tags.map(tg=>`<span class="figur-tag">${tg}</span>`).join('')}</div>`;
+    grid.appendChild(d);
+  });
+}
+
+// ── TABS ──────────────────────────────────────────────────────────
+function buildTabs() {
+  const bar = document.getElementById('tab-bar'), cnt = document.getElementById('tab-contents');
+  const tabs = [{label:"🌿 Begleitung"},{label:"🌲 Waldabenteuer"},{label:"📖 Kurse"},{label:"📱 App"}];
+  tabs.forEach((t,i) => {
+    const btn = document.createElement('button');
+    btn.className='tab-btn'+(i===0?' active':''); btn.textContent=t.label; btn.onclick=()=>activateTab(i);
+    bar.appendChild(btn);
+    const div=document.createElement('div');
+    div.className='tab-content'+(i===0?' active':'');
+    div.innerHTML=getTabContent(i); cnt.appendChild(div);
+  });
+}
+function getTabContent(i){
+  const d=[
+    {h:"Coaching & Begleitung",p:"Einzelbegleitung für Eltern, Väter und Familien — ohne Bewertung, mit echtem Interesse an dem, was hinter dem Verhalten steckt.",tags:["Erstgespräch kostenlos","Einzel & Gruppen","Online & Präsenz","Heilpäd. fundiert"],btn:"Termin buchen →",bc:"var(--p1)"},
+    {h:"HandsOn Waldabenteuer",p:"Echte Begegnungen im Wald. Mit Figuren, Geschichten und Natur als Spiegel.",tags:["Für alle Altersgruppen","Mai–Oktober","Max. 12 Personen","Süddeutschland"],btn:"Abenteuer entdecken →",bc:"var(--p3)"},
+    {h:"Kurse & Aufstellungen",p:"Heilpädagogisch fundierte Workshops und Aufstellungen mit den Waldkätzchen.",tags:["Präsenz & Online","Zertifiziert","Für Fachkräfte","Für Eltern"],btn:"Kursübersicht →",bc:"var(--p2)"},
+    {h:"Die Waldkätzchen App",p:"Dein Begleiter im Alltag. Situationen reflektieren, Gefühle sichtbar machen, kleine Impulse erhalten.",tags:["iOS & Android","Offline verfügbar","Kostenlos starten","Mit den Figuren"],app:true},
+  ][i];
+  return`<div style="padding:1rem 0"><h3 style="color:var(--p1);margin-bottom:.7rem;font-size:1.3rem" class="dk-h">${d.h}</h3>
+    <p style="color:var(--textMid);font-size:.93rem;line-height:1.8;margin-bottom:1.2rem" class="dk-mid">${d.p}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.2rem">${d.tags.map(t=>`<span class="badge">${t}</span>`).join('')}</div>
+    ${d.app?`<div style="display:flex;gap:.8rem;flex-wrap:wrap"><a href="#" style="background:#0d2b22;color:#fff;padding:10px 18px;border-radius:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:8px">🍎 App Store</a><a href="#" style="background:#0d2b22;color:#fff;padding:10px 18px;border-radius:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:8px">▶ Google Play</a></div>`:`<a href="#" style="background:${d.bc};color:#fff;padding:10px 24px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.85rem;display:inline-block">${d.btn}</a>`}
+  </div>`;
+}
+function activateTab(idx){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.querySelectorAll('.tab-content').forEach((c,i)=>c.classList.toggle('active',i===idx));
+}
+
+// ── SLIDERS ───────────────────────────────────────────────────────
+function buildMetaphern(){
+  const t=document.getElementById('metaphern-track');
+  metaphern.forEach(m=>{
+    const d=document.createElement('div');
+    d.style.cssText='flex-shrink:0;width:200px;scroll-snap-align:start;border-radius:20px;padding:1.5rem;background:rgba(20,50,35,.8);border:1px solid rgba(255,255,255,.08);text-align:center';
+    d.innerHTML=`<div style="width:56px;height:56px;margin:0 auto .8rem;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center"><img src="${m.img}" alt="${m.t}" style="width:100%;height:100%;object-fit:contain;padding:8px;filter:brightness(0) invert(1) opacity(.8)"></div><h4 style="font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.3rem">${m.t}</h4><p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.5">${m.d}</p>`;
+    t.appendChild(d);
+  });
+}
+function buildImpulse(){
+  const t=document.getElementById('impulse-track');
+  impulsCards.forEach(c=>{
+    const d=document.createElement('div');
+    d.style.cssText='flex-shrink:0;width:280px;scroll-snap-align:start;border-radius:20px;padding:1.5rem;border:1px solid rgba(8,79,63,.08);box-shadow:0 4px 24px rgba(8,79,63,.09);background:var(--s4)';
+    d.innerHTML=`<div style="height:130px;border-radius:12px;overflow:hidden;margin-bottom:1rem;background:var(--sage)"><img src="${c.img}" alt="" style="width:100%;height:100%;object-fit:cover"></div><div style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--p2);font-weight:700;margin-bottom:.4rem">${c.cat}</div><h4 class="impulse-title">${c.title}</h4><p class="impulse-text">${c.text}</p>`;
+    t.appendChild(d);
+  });
+}
+function scrollSlider(id,dir){document.getElementById(id).scrollBy({left:dir*300,behavior:'smooth'});}
+
+// ── ACCORDION ─────────────────────────────────────────────────────
+function buildAccordion(){
+  const el=document.getElementById('accordion');
+  faq.forEach((item,i)=>{
+    const d=document.createElement('div'); d.className='accordion-item';
+    d.innerHTML=`<button class="accordion-btn" onclick="toggleAccordion(${i})"><span class="accordion-q">${item.q}</span><span class="accordion-icon" id="acc-icon-${i}">+</span></button><div class="accordion-body" id="acc-body-${i}"><div class="accordion-a">${item.a}</div></div>`;
+    el.appendChild(d);
+  });
+}
+let openAcc=null;
+function toggleAccordion(i){
+  if(openAcc===i){document.getElementById('acc-body-'+i).classList.remove('open');document.getElementById('acc-icon-'+i).classList.remove('open');openAcc=null;}
+  else{if(openAcc!==null){document.getElementById('acc-body-'+openAcc).classList.remove('open');document.getElementById('acc-icon-'+openAcc).classList.remove('open');}
+    document.getElementById('acc-body-'+i).classList.add('open');document.getElementById('acc-icon-'+i).classList.add('open');openAcc=i;}
+}
+
+// ── THEME / WEATHER / MOOD ────────────────────────────────────────
+function setTheme(t){
+  currentTheme=t;
+  ['morning','day','dusk','night','dark'].forEach(c=>document.body.classList.remove(c));
+  if(t==='night'||t==='dusk')document.body.classList.add('dark');
+  document.body.classList.add(t);
+  const overlays={morning:'rgba(140,80,20,.58)',day:'rgba(8,79,63,.7)',dusk:'rgba(100,40,10,.73)',night:'rgba(4,13,30,.8)'};
+  document.getElementById('hero-overlay').style.background=overlays[t];
+  document.querySelectorAll('[data-theme]').forEach(b=>{const a=b.dataset.theme===t;b.style.background=a?'#084F3F':'transparent';b.style.color=a?'#fff':'';});
+}
+function setWeather(w){
+  currentWeather=w;
+  document.querySelectorAll('[data-weather]').forEach(b=>{const a=b.dataset.weather===w;b.style.background=a?'#008C89':'transparent';b.style.color=a?'#fff':'';});
+}
+function setMood(m){
+  if(currentMood===m){currentMood=null;document.getElementById('mood-overlay').style.background='transparent';document.documentElement.style.setProperty('--mood-accent','#EF4F7A');document.querySelectorAll('[data-mood]').forEach(b=>{b.style.background='transparent';b.style.color='';});}
+  else{currentMood=m;const acc=MOODS[m].accent;document.getElementById('mood-overlay').style.background=acc+'18';document.documentElement.style.setProperty('--mood-accent',acc);document.querySelectorAll('[data-mood]').forEach(b=>{const a=b.dataset.mood===m;b.style.background=a?MOODS[b.dataset.mood].accent:'transparent';b.style.color=a?'#fff':'';});}
+}
+function toggleControls(){controlsOpen=!controlsOpen;document.getElementById('controls-panel').classList.toggle('open',controlsOpen);}
+function toggleMenu(){menuOpen=!menuOpen;document.getElementById('mobile-menu').classList.toggle('open',menuOpen);document.getElementById('hbg1').style.transform=menuOpen?'translateY(7px) rotate(45deg)':'none';document.getElementById('hbg2').style.opacity=menuOpen?'0':'1';document.getElementById('hbg3').style.transform=menuOpen?'translateY(-7px) rotate(-45deg)':'none';}
+function closeMenu(){menuOpen=false;document.getElementById('mobile-menu').classList.remove('open');['hbg1','hbg2','hbg3'].forEach(id=>{document.getElementById(id).style.transform='none';document.getElementById(id).style.opacity='1';});}
+
+// ── REVEAL ────────────────────────────────────────────────────────
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+// ── HERO CANVAS — Schmetterlinge/Sterne/Sonnenstrahlen/Regen/Nebel NUR im Hero ──
+function initHeroCanvas(){
+  const c=document.getElementById('hero-canvas'); if(!c)return;
+  const ctx=c.getContext('2d');
+  let W=c.width=c.offsetWidth, H=c.height=c.offsetHeight;
+  const ro=new ResizeObserver(()=>{W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;}); ro.observe(c);
+
+  const stars=Array.from({length:130},()=>({x:Math.random()*W,y:Math.random()*H*.7,r:Math.random()*1.5+.3,a:Math.random(),da:(Math.random()-.5)*.015,hue:200+Math.random()*60}));
+  const rays=Array.from({length:7},(_,i)=>({angle:(i/7)*Math.PI*.7-Math.PI*.35,w:50+Math.random()*70,a:.025+Math.random()*.03,t:Math.random()*Math.PI*2,sp:.0008+Math.random()*.0006}));
+  const butterflies=Array.from({length:6},()=>({x:Math.random()*600,y:100+Math.random()*300,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*.8,wt:0,ws:.08+Math.random()*.06,sz:6+Math.random()*8,hue:Math.random()*360,t:Math.random()*Math.PI*2}));
+  const rain=Array.from({length:120},()=>({x:Math.random()*1400,y:Math.random()*800,len:8+Math.random()*12,spd:8+Math.random()*6,a:.3+Math.random()*.4}));
+  const mist=Array.from({length:10},()=>({x:Math.random()*1400,y:100+Math.random()*400,r:80+Math.random()*140,a:0,ta:.05+Math.random()*.08,vx:(Math.random()-.5)*.25,t:Math.random()*Math.PI*2}));
+
+  function drawButterfly(x,y,sz,wt,hue){
+    const f=Math.sin(wt); ctx.save();
+    [[-1],[1]].forEach(([sx])=>{
+      ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x+f*sz*.9*sx,y-sz*.6,x+f*sz*.9*sx+sx*sz*.4,y+sz*.4,x,y+sz*.3);ctx.fillStyle=`hsla(${hue},80%,65%,.8)`;ctx.fill();
+      ctx.beginPath();ctx.moveTo(x,y);ctx.bezierCurveTo(x+f*sz*1.1*sx,y-sz*1.2,x+f*sz*1.3*sx+sx*sz*.3,y-sz*.5,x,y);ctx.fillStyle=`hsla(${hue},70%,72%,.7)`;ctx.fill();
+    });
+    ctx.fillStyle=`hsla(${hue},50%,30%,.9)`;ctx.beginPath();ctx.ellipse(x,y+sz*.15,sz*.1,sz*.4,0,0,Math.PI*2);ctx.fill();ctx.restore();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const isDay=currentTheme==='day'||currentTheme==='morning';
+    const isNight=currentTheme==='night'||currentTheme==='dusk';
+    const isRain=currentWeather==='rain';
+    const isMist=currentWeather==='mist';
+
+    // Stars
+    if(isNight&&!isRain){
+      stars.forEach(s=>{
+        s.a+=s.da;if(s.a>1||s.a<0)s.da*=-1;
+        ctx.save();ctx.globalAlpha=Math.max(0,s.a*.85);ctx.fillStyle=`hsl(${s.hue},80%,92%)`;
+        ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();
+        if(s.r>1.1){ctx.strokeStyle=`hsl(${s.hue},80%,96%)`;ctx.lineWidth=.5;ctx.globalAlpha=s.a*.4;ctx.beginPath();ctx.moveTo(s.x-s.r*2.5,s.y);ctx.lineTo(s.x+s.r*2.5,s.y);ctx.moveTo(s.x,s.y-s.r*2.5);ctx.lineTo(s.x,s.y+s.r*2.5);ctx.stroke();}
+        ctx.restore();
+      });
+    }
+
+    // Sun rays + butterflies
+    if(isDay&&!isRain){
+      const sx=W*.75,sy=-H*.08;
+      rays.forEach(r=>{
+        r.t+=r.sp;const a0=r.angle+Math.sin(r.t)*.03;
+        const col=currentTheme==='morning'?'rgba(255,200,100,':'rgba(255,240,180,';
+        const g=ctx.createLinearGradient(sx,sy,sx+Math.cos(a0)*H*1.6,sy+Math.sin(a0)*H*1.6);
+        g.addColorStop(0,col+(r.a*1.5)+')');g.addColorStop(.5,col+r.a+')');g.addColorStop(1,col+'0)');
+        ctx.save();ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx+Math.cos(a0-r.w*.0007)*H*1.7,sy+Math.sin(a0-r.w*.0007)*H*1.7);ctx.lineTo(sx+Math.cos(a0+r.w*.0007)*H*1.7,sy+Math.sin(a0+r.w*.0007)*H*1.7);ctx.fillStyle=g;ctx.fill();ctx.restore();
+      });
+      butterflies.forEach(b=>{
+        b.wt+=b.ws;b.t+=.012;b.x+=b.vx+Math.sin(b.t)*.6;b.y+=b.vy+Math.cos(b.t*.7)*.4;
+        if(b.x<-50)b.x=W+50;if(b.x>W+50)b.x=-50;if(b.y<H*.05||b.y>H*.95)b.vy*=-1;
+        drawButterfly(b.x,b.y,b.sz,b.wt,b.hue);
+      });
+    }
+
+    // Rain
+    if(isRain){
+      ctx.save();ctx.strokeStyle='rgba(180,210,255,.45)';ctx.lineWidth=1;
+      rain.forEach(r=>{r.y+=r.spd;if(r.y>H+20){r.y=-20;r.x=Math.random()*W;}ctx.save();ctx.globalAlpha=r.a;ctx.beginPath();ctx.moveTo(r.x,r.y);ctx.lineTo(r.x-2,r.y+r.len);ctx.stroke();ctx.restore();});
+      ctx.restore();
+    }
+
+    // Mist
+    if(isMist){
+      mist.forEach(m=>{
+        m.t+=.005;m.x+=m.vx+Math.sin(m.t)*.2;
+        if(m.x<-m.r*2)m.x=W+m.r;if(m.x>W+m.r*2)m.x=-m.r;
+        m.a=.03+Math.abs(Math.sin(m.t))*m.ta;
+        const g=ctx.createRadialGradient(m.x,m.y,0,m.x,m.y,m.r);
+        g.addColorStop(0,`rgba(220,235,220,${m.a})`);g.addColorStop(1,'rgba(220,235,220,0)');
+        ctx.beginPath();ctx.arc(m.x,m.y,m.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+      });
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+</script>
+</body>
+</html>
