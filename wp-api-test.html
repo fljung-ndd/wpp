@@ -18,6 +18,8 @@
   .wp-post-card-title{margin-bottom:.7rem;color:var(--p1)}
   .wp-post-excerpt{font-size:.9rem;line-height:1.7;color:var(--textMid)}
   .wp-category-note{font-size:.84rem;color:var(--textSoft);margin-top:-1.4rem;margin-bottom:2rem}
+  .wp-post-link{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit}
+  .wp-post-readmore{margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif}
   body.dark .category-filter{background:rgba(20,50,35,.85);color:rgba(200,240,220,.9);border-color:rgba(168,213,194,.22)}
   body.dark .category-filter:hover,body.dark .category-filter.active{background:var(--p2);color:#fff;border-color:var(--p2)}
   body.dark .wp-post-badge{background:rgba(20,50,35,.85);color:rgba(200,240,220,.9);border-color:rgba(168,213,194,.22)}
@@ -119,6 +121,7 @@ function renderCategoryFilters(categories){
       filterContainer.querySelectorAll('.category-filter').forEach(btn=>btn.classList.remove('active'));
       button.classList.add('active');
       activeCategory=button.dataset.category;
+      sessionStorage.setItem('wk_test_active_category',activeCategory);
       await loadPosts(activeCategory);
     });
   });
@@ -140,6 +143,11 @@ function getEmbeddedImage(post){
   return post._embedded?.['wp:featuredmedia']?.[0]?.source_url||FALLBACK_IMAGE;
 }
 
+function articleUrl(post){
+  const returnCategory=encodeURIComponent(activeCategory||'all');
+  return `wp-api-artikel.html?slug=${encodeURIComponent(post.slug)}&returnCategory=${returnCategory}`;
+}
+
 function renderPosts(posts){
   const el=document.getElementById('posts');
 
@@ -159,13 +167,16 @@ function renderPosts(posts){
     const card=document.createElement('article');
     card.className='ang-card';
     card.innerHTML=`
-      <div class="ang-card-img"><img src="${image}" alt="" loading="lazy" decoding="async"></div>
-      <div class="ang-card-body">
-        <div class="wp-post-meta">${date}</div>
-        ${buildCategoryBadges(post)}
-        <h3 class="wp-post-card-title">${title}</h3>
-        <div class="wp-post-excerpt">${excerpt}</div>
-      </div>`;
+      <a class="wp-post-link" href="${articleUrl(post)}">
+        <div class="ang-card-img"><img src="${image}" alt="" loading="lazy" decoding="async"></div>
+        <div class="ang-card-body">
+          <div class="wp-post-meta">${date}</div>
+          ${buildCategoryBadges(post)}
+          <h3 class="wp-post-card-title">${title}</h3>
+          <div class="wp-post-excerpt">${excerpt}</div>
+          <div class="wp-post-readmore">Beitrag lesen →</div>
+        </div>
+      </a>`;
     grid.appendChild(card);
   });
 }
@@ -187,7 +198,20 @@ async function loadPosts(category='all'){
 async function initWpApiTest(){
   const el=document.getElementById('posts');
   try{
-    await Promise.all([fetchCategories(),loadPosts()]);
+    const params=new URLSearchParams(window.location.search);
+    const categoryFromUrl=params.get('category');
+    const categoryFromStorage=sessionStorage.getItem('wk_test_active_category');
+    activeCategory=categoryFromUrl||categoryFromStorage||'all';
+
+    await fetchCategories();
+
+    const activeButton=document.querySelector(`.category-filter[data-category="${CSS.escape(activeCategory)}"]`)||document.querySelector('.category-filter[data-category="all"]');
+    if(activeButton){
+      document.querySelectorAll('.category-filter').forEach(btn=>btn.classList.remove('active'));
+      activeButton.classList.add('active');
+    }
+
+    await loadPosts(activeCategory);
   }catch(error){
     el.innerHTML=`<div class="wp-post-status">⚠️ ${stripHtml(error.message)}</div>`;
   }
