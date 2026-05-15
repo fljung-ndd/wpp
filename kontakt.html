@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+  .contact-input{
+    padding:14px 20px;border-radius:14px;border:1.5px solid rgba(8,79,63,.18);
+    background:#fff;color:var(--text);font-family:'Nunito',sans-serif;font-size:.9rem;
+    width:100%;transition:border-color .2s
+  }
+  .contact-input:focus{outline:none;border-color:var(--p2)}
+  body.dark .contact-input{background:rgba(20,50,35,.7)!important;border-color:rgba(168,213,194,.25)!important;color:#c0e8d0!important}
+  body.dark .contact-input::placeholder{color:rgba(168,213,194,.45)!important}
+  .contact-card{background:#fff;border-radius:20px;padding:2rem;border:1px solid rgba(8,79,63,.08);box-shadow:0 4px 24px rgba(8,79,63,.07)}
+  body.dark .contact-card{background:rgba(20,50,35,.85)!important}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('kontakt.html'));</script>
+
+<!-- HERO -->
+<section class="hero hero-sub" style="min-height:40vh">
+  <img class="hero-img" src="background-verbinden-quer.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="padding-top:5rem">
+    <div class="hero-inner">
+      <div class="breadcrumb"><a href="index.html">Start</a><span>›</span><span>Kontakt</span></div>
+      <h1 style="font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Schreib mir.<br><span style="color:var(--s1)">Ich höre zu.</span></h1>
+      <p style="color:rgba(255,255,255,.85);font-size:1rem;max-width:420px;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Kein langer Fragenkatalog. Nur eine kurze Nachricht — und ich melde mich persönlich.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section style="padding:5rem 0">
+  <div class="container grid-2" style="gap:3rem;align-items:flex-start">
+
+    <!-- FORMULAR -->
+    <div class="reveal contact-card">
+      <h2 style="font-size:1.4rem;color:var(--p1);margin-bottom:.4rem;font-family:'Quicksand',sans-serif" class="dk-h">Erstgespräch anfragen</h2>
+      <p style="font-size:.85rem;color:var(--textSoft);margin-bottom:2rem;line-height:1.6" class="dk-soft">Das erste Gespräch ist kostenlos und unverbindlich.</p>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:var(--textMid);font-family:'Quicksand',sans-serif;display:block;margin-bottom:.4rem" class="dk-mid">Dein Name *</label>
+          <input type="text" placeholder="Vorname Nachname" class="contact-input">
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:var(--textMid);font-family:'Quicksand',sans-serif;display:block;margin-bottom:.4rem" class="dk-mid">E-Mail-Adresse *</label>
+          <input type="email" placeholder="deine@email.de" class="contact-input">
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:var(--textMid);font-family:'Quicksand',sans-serif;display:block;margin-bottom:.4rem" class="dk-mid">Worum geht es?</label>
+          <select class="contact-input" style="cursor:pointer">
+            <option value="">Bitte wählen…</option>
+            <option>Coaching &amp; Einzelbegleitung</option>
+            <option>Familienbegleitung</option>
+            <option>Für Väter</option>
+            <option>Fachkräfte-Coaching</option>
+            <option>Waldabenteuer</option>
+            <option>Kurs / Fortbildung</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:.78rem;font-weight:700;color:var(--textMid);font-family:'Quicksand',sans-serif;display:block;margin-bottom:.4rem" class="dk-mid">Deine Nachricht (optional)</label>
+          <textarea placeholder="Was beschäftigt dich gerade? Wo stehst du?" class="contact-input" style="min-height:120px;resize:vertical"></textarea>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:.6rem">
+          <input type="checkbox" id="dsgvo" style="margin-top:2px;width:auto;flex-shrink:0">
+          <label for="dsgvo" style="font-size:.78rem;color:var(--textSoft);line-height:1.6" class="dk-soft">Ich habe die <a href="impressum.html" style="color:var(--p2)">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *</label>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="sendContact()">🌿 Nachricht senden</button>
+        <p style="font-size:.72rem;color:var(--textSoft);text-align:center" class="dk-soft">🔒 Vertraulich. Antwort innerhalb von 24 Stunden.</p>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div>
+      <div class="reveal">
+        <h2 style="font-size:1.3rem;color:var(--p1);margin-bottom:1.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Oder direkt melden</h2>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem">
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--sage);border-radius:14px" class="quote-box">
+            <span style="font-size:1.4rem">📧</span>
+            <div><p style="font-size:.78rem;font-weight:700;color:var(--textSoft);font-family:'Quicksand',sans-serif;margin-bottom:.1rem" class="dk-soft">E-Mail</p><p style="font-size:.88rem;color:var(--p1);font-weight:700" class="dk-h">hallo@waldkaetzchen.de</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--sage);border-radius:14px" class="quote-box">
+            <span style="font-size:1.4rem">📷</span>
+            <div><p style="font-size:.78rem;font-weight:700;color:var(--textSoft);font-family:'Quicksand',sans-serif;margin-bottom:.1rem" class="dk-soft">Instagram</p><p style="font-size:.88rem;color:var(--p1);font-weight:700" class="dk-h">@waldkaetzchen</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--sage);border-radius:14px" class="quote-box">
+            <span style="font-size:1.4rem">📍</span>
+            <div><p style="font-size:.78rem;font-weight:700;color:var(--textSoft);font-family:'Quicksand',sans-serif;margin-bottom:.1rem" class="dk-soft">Ort</p><p style="font-size:.88rem;color:var(--p1);font-weight:700" class="dk-h">Bayern &amp; Online</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <div style="background:var(--p1);border-radius:20px;padding:2rem;color:#fff">
+          <h3 style="font-size:1rem;color:var(--s3);margin-bottom:.8rem;font-family:'Quicksand',sans-serif">Das erste Gespräch</h3>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:.8rem">30 Minuten. Kostenlos. Unverbindlich.</p>
+          <p style="font-size:.83rem;color:rgba(255,255,255,.65);line-height:1.7">Kein Druck, keine Verpflichtung. Wir schauen gemeinsam, ob Waldkätzchen das Richtige für dich ist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+<script>
+function sendContact(){
+  alert('Vielen Dank! In der finalen Version wird deine Nachricht hier versendet. 🌿');
+}
+</script>
+</body>
+</html>

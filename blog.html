@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Impulse – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+  .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+  .blog-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(8,79,63,.08);box-shadow:0 4px 24px rgba(8,79,63,.07);transition:transform .25s;display:flex;flex-direction:column}
+  .blog-card:hover{transform:translateY(-4px)}
+  body.dark .blog-card{background:rgba(20,50,35,.85)!important}
+  .blog-img{height:200px;overflow:hidden}
+  .blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .blog-card:hover .blog-img img{transform:scale(1.04)}
+  .blog-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+  .blog-cat{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--p2);font-weight:700;margin-bottom:.4rem}
+  .blog-title{font-size:1rem;color:var(--p1);line-height:1.4;margin-bottom:.5rem;font-family:'Quicksand',sans-serif;font-weight:700}
+  .blog-text{font-size:.82rem;color:var(--textSoft);line-height:1.65;flex:1}
+  .blog-date{font-size:.72rem;color:var(--textSoft);margin-top:.8rem}
+  body.dark .blog-cat{color:#4DD9D4!important}
+  body.dark .blog-title{color:#c0e8d0!important}
+  body.dark .blog-text{color:rgba(180,220,200,.7)!important}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('blog.html'));</script>
+
+<section class="hero hero-sub" style="min-height:42vh">
+  <img class="hero-img" src="background1.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="padding-top:5rem">
+    <div class="hero-inner">
+      <div class="breadcrumb"><a href="index.html">Start</a><span>›</span><span>Blog</span></div>
+      <h1 style="font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Impulse &amp;<br><span style="color:var(--s1)">Gedanken</span></h1>
+      <p style="color:rgba(255,255,255,.82);font-size:1rem;max-width:420px;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Aus dem Waldtagebuch — Ehrliches, Alltägliches, Hilfreiches.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER -->
+<section style="padding:3rem 0 0">
+  <div class="container">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2.5rem">
+      <button class="tab-btn active" onclick="filterBlog('all',this)">Alle</button>
+      <button class="tab-btn" onclick="filterBlog('Vätersein',this)">Vätersein</button>
+      <button class="tab-btn" onclick="filterBlog('Gefühle',this)">Gefühle</button>
+      <button class="tab-btn" onclick="filterBlog('Verbindung',this)">Verbindung</button>
+      <button class="tab-btn" onclick="filterBlog('Heilpädagogik',this)">Heilpädagogik</button>
+      <button class="tab-btn" onclick="filterBlog('Alltag',this)">Alltag</button>
+      <button class="tab-btn" onclick="filterBlog('Reflexion',this)">Reflexion</button>
+    </div>
+    <div class="blog-grid" id="blog-grid"></div>
+    <div style="text-align:center;padding:3rem 0"><button class="btn-outline" onclick="loadMoreBlog()">Mehr laden</button></div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+<script>
+const BLOG_POSTS = [
+  {cat:"Vätersein",    title:"Wenn Väter schweigen — und was dahintersteckt",          text:"Nicht Gleichgültigkeit, sondern Unsicherheit und der echte Wunsch nach Nähe.", img:WK+'background1.png',          date:"12. Mai 2025"},
+  {cat:"Gefühle",      title:"Luis war heute wütend. Und das ist okay.",               text:"Wie tierische Figuren helfen, über schwierige Gefühle zu sprechen.",           img:WK+'katze-kissen-ruhe.png',    date:"8. Mai 2025"},
+  {cat:"Verbindung",   title:"Die Höhle ist kein schlechter Ort",                      text:"Warum Rückzug bei Kindern manchmal das Klügste ist.",                          img:WK+'background-erfassen-quer.png', date:"4. Mai 2025"},
+  {cat:"Heilpädagogik",title:"Was hinter dem Verhalten steckt",                        text:"Kein Kind verhält sich schwierig ohne Grund — wir schauen hin.",               img:WK+'background1.png',          date:"28. Apr. 2025"},
+  {cat:"Alltag",       title:"Drei Atemzüge — eine Übung für schwierige Momente",     text:"Klein. Einfach. Wirksam. Für den Moment, wenn es zu viel wird.",               img:WK+'reflexion.png',            date:"22. Apr. 2025"},
+  {cat:"Reflexion",    title:"Abendritual für ruhige Gedanken",                        text:"Wie ein einfaches Ritual die Verbindung zur Familie stärkt.",                   img:WK+'besprechungen.png',        date:"15. Apr. 2025"},
+  {cat:"Vätersein",    title:"Warum Väter oft keine Hilfe suchen — und was hilft",     text:"Über Scham, Stärke und den Mut, hinzuschauen.",                                 img:WK+'helferNetzwerk.png',       date:"10. Apr. 2025"},
+  {cat:"Gefühle",      title:"Dein Lichtglas für schwere Tage",                        text:"Eine kleine Übung, die Licht in dunkle Momente bringt.",                        img:WK+'inhalte.png',              date:"5. Apr. 2025"},
+  {cat:"Reflexion",    title:"Warum kleine Schritte groß wirken",                      text:"Veränderung braucht keine Revolution — manchmal reicht ein einziger Schritt.",   img:WK+'uebersicht.png',           date:"1. Apr. 2025"},
+];
+
+function renderBlog(posts){
+  const g = document.getElementById('blog-grid'); g.innerHTML='';
+  posts.forEach(p=>{
+    g.innerHTML += `<article class="blog-card reveal">
+      <div class="blog-img"><img src="${p.img}" alt="${p.title}"></div>
+      <div class="blog-body">
+        <div class="blog-cat">${p.cat}</div>
+        <h2 class="blog-title">${p.title}</h2>
+        <p class="blog-text">${p.text}</p>
+        <div class="blog-date">${p.date}</div>
+      </div>
+    </article>`;
+  });
+  document.querySelectorAll('.blog-card.reveal').forEach(el=>{
+    new IntersectionObserver(e=>{if(e[0].isIntersecting)e[0].target.classList.add('visible');}).observe(el);
+  });
+}
+
+function filterBlog(cat, btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBlog(cat==='all'?BLOG_POSTS:BLOG_POSTS.filter(p=>p.cat===cat));
+}
+function loadMoreBlog(){ alert('In einer echten Implementierung würden hier weitere Posts geladen.'); }
+renderBlog(BLOG_POSTS);
+</script>
+</body>
+</html>

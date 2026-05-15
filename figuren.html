@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Figuren – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+  .figur-hero-ring{width:200px;height:200px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.3);margin:0 auto}
+  .figur-detail{padding:5rem 0;scroll-margin-top:80px}
+  .figur-detail:nth-child(even){background:var(--sage)}
+  body.dark .figur-detail:nth-child(even){background:rgba(20,50,35,.3)!important}
+  .figur-detail-img{border-radius:24px;overflow:hidden;background:var(--sage);display:flex;align-items:flex-end;justify-content:center;min-height:400px;position:relative}
+  .figur-detail-img img{max-height:380px;object-fit:contain;padding:1.5rem 1.5rem 0}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('figuren.html'));</script>
+
+<section class="hero hero-sub" style="min-height:48vh">
+  <img class="hero-img" src="background-lichtung-quer.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="text-align:center;padding-top:5rem">
+    <div class="breadcrumb" style="justify-content:center"><a href="index.html">Start</a><span>›</span><a href="welt.html">Die Welt</a><span>›</span><span>Figuren</span></div>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Die Waldkätzchen</h1>
+    <p style="color:rgba(255,255,255,.82);font-size:1rem;max-width:520px;margin:0 auto;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Keine Maskottchen. Sie stehen für Gefühle, Perspektiven und innere Stimmen.</p>
+  </div>
+</section>
+
+<!-- FIGUREN GRID OVERVIEW -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><p style="font-size:.93rem;color:var(--textMid);max-width:680px;line-height:1.8;margin-bottom:3rem;font-style:italic;border-left:4px solid var(--p2);padding-left:1rem" class="dk-mid">„Luis war heute wütend." — Manchmal ist es leichter, das über eine Figur zu sagen als über sich selbst. Genau das ist der Kern der Waldkätzchen-Figuren.</p></div>
+    <div class="grid-4" id="tier-grid"></div>
+  </div>
+</section>
+
+<!-- LUIS DETAIL -->
+<div class="figur-detail" id="luis">
+  <div class="container grid-2">
+    <div class="figur-detail-img reveal" style="background:rgba(255,122,26,.08)">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/8635fe4c-40e7-4e5f-8a9f-33530784ac43-removebg-preview.png" alt="Luis">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Figur 1</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="color:var(--p1)">Luis</h2><p style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FF7A1A;margin-bottom:1rem">Mut · Entdecken · Lautstärke</p></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Luis ist der, der laut wird, wenn es zu viel wird. Nicht aus böser Absicht — sondern weil er gerade keinen anderen Weg findet, sich auszudrücken.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.2rem" class="dk-soft">Er zeigt, was viele Kinder nicht in Worte fassen können: Überwältigung, Impulsivität, den echten Wunsch nach Verbindung — versteckt hinter lautem Verhalten.</p>
+        <div style="background:rgba(255,122,26,.08);border-left:3px solid #FF7A1A;border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin-bottom:1.5rem">
+          <p style="font-size:.9rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600" class="dk-h">„Wenn alles zu viel wird, wird es laut."</p>
+        </div>
+        <div style="margin-bottom:1.5rem"><span class="figur-tag">Bewegung</span><span class="figur-tag">Wachstum</span><span class="figur-tag">Impuls</span><span class="figur-tag">Lautstärke</span></div>
+        <a href="coaching.html" class="btn-outline">Begleitung für mein Kind</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YELLA DETAIL -->
+<div class="figur-detail" id="yella">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Figur 2</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="color:var(--p1)">Yella</h2><p style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#FFD23F;margin-bottom:1rem">Wärme · Verbindung · Fürsorge</p></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Yella spürt, wie es anderen geht — oft bevor jemand etwas sagt. Sie ist die, die da ist, auch wenn Worte fehlen.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.2rem" class="dk-soft">Ihre Wärme und ihr Zuhören zeigen: Verbindung entsteht nicht durch Ratschläge, sondern durch echte Präsenz.</p>
+        <div style="background:rgba(255,210,63,.1);border-left:3px solid #FFD23F;border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin-bottom:1.5rem">
+          <p style="font-size:.9rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600" class="dk-h">„Manchmal reicht es, einfach da zu sein."</p>
+        </div>
+        <div style="margin-bottom:1.5rem"><span class="figur-tag">Empathie</span><span class="figur-tag">Ruhe</span><span class="figur-tag">Fürsorge</span></div>
+        <a href="vaeter.html" class="btn-outline">Verbindung stärken</a>
+      </div>
+    </div>
+    <div class="figur-detail-img hide-mobile reveal" style="background:rgba(255,210,63,.08)">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="Yella">
+    </div>
+  </div>
+</div>
+
+<!-- ELFRIEDE DETAIL -->
+<div class="figur-detail" id="elfriede">
+  <div class="container grid-2">
+    <div class="figur-detail-img hide-mobile reveal" style="background:rgba(0,140,137,.08)">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" alt="Elfriede">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Figur 3</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="color:var(--p1)">Elfriede</h2><p style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#008C89;margin-bottom:1rem">Beobachtung · Reflexion · Stille</p></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Elfriede schaut hin — ruhig, geduldig, ohne sofort zu urteilen. Auch leise Gefühle sind ihr wichtig. Nicht alles muss laut sein, um gehört zu werden.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.2rem" class="dk-soft">Sie steht für die Kraft der Beobachtung — und dafür, dass Muster erkennbar werden, wenn man einen Schritt zurücktritt.</p>
+        <div style="background:rgba(0,140,137,.08);border-left:3px solid #008C89;border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin-bottom:1.5rem">
+          <p style="font-size:.9rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600" class="dk-h">„Ich schaue hin, bevor ich urteile."</p>
+        </div>
+        <div style="margin-bottom:1.5rem"><span class="figur-tag">Achtsamkeit</span><span class="figur-tag">Muster</span><span class="figur-tag">Stille</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PINGUIN DETAIL -->
+<div class="figur-detail" id="pinguin">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Figur 4</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="color:var(--p1)">Der Pinguin</h2><p style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#A8D5C2;margin-bottom:1rem">Anderssein · Leichtigkeit · Selbstannahme</p></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Der Pinguin weiß, dass er anders ist — und er hat gelernt, dass das kein Fehler ist. Er zeigt: Andersartig sein bedeutet nicht, weniger wert zu sein.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.2rem" class="dk-soft">Für alle Kinder (und Erwachsenen), die sich nie ganz dazugehörig gefühlt haben — er zeigt den Weg zur Selbstannahme.</p>
+        <div style="background:rgba(168,213,194,.15);border-left:3px solid #A8D5C2;border-radius:0 12px 12px 0;padding:1rem 1.2rem;margin-bottom:1.5rem">
+          <p style="font-size:.9rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600" class="dk-h">„Anders sein ist keine Schwäche."</p>
+        </div>
+        <div style="margin-bottom:1.5rem"><span class="figur-tag">Mut</span><span class="figur-tag">Selbstannahme</span><span class="figur-tag">Einzigartigkeit</span></div>
+      </div>
+    </div>
+    <div class="figur-detail-img hide-mobile reveal" style="background:rgba(168,213,194,.12)">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" alt="Der Pinguin">
+    </div>
+  </div>
+</div>
+
+<script>document.write(renderFooter());</script>
+<script>buildFigurCards('tier-grid');</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaching & Begleitung – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('coaching.html'));</script>
+
+<section class="hero hero-sub" style="min-height:50vh">
+  <img class="hero-img" src="background-verbinden-quer.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="padding-top:6rem">
+    <div class="hero-inner">
+      <div class="breadcrumb"><a href="index.html">Start</a><span>›</span><span>Coaching</span></div>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Coaching &amp;<br><span style="color:var(--s1)">Begleitung</span></h1>
+      <p style="color:rgba(255,255,255,.85);font-size:1rem;max-width:460px;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Manchmal tut es gut, jemanden an der Seite zu haben, der wirklich zuhört und versteht.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Der Ansatz</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Nicht beraten — begleiten</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Waldkätzchen-Coaching ist kein klassisches Coaching mit festen Zielen und Techniken. Es ist ein Beziehungsraum — wo du ankommst, ohne sofort etwas leisten oder verändern zu müssen.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:2rem" class="dk-soft">Ich begleite Menschen, die verstehen wollen, was gerade passiert — mit sich, mit ihrem Kind, mit ihrer Familie. Nicht um es sofort zu lösen, sondern um wieder einen klaren Blick zu bekommen.</p>
+        <a href="#kontakt-form" class="btn-primary">Kostenloses Erstgespräch</a>
+      </div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="background:var(--sage);border-radius:24px;padding:2.5rem;max-width:360px;text-align:center">
+        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="" style="width:140px;height:140px;object-fit:contain;margin:0 auto 1.2rem;animation:breathe 4s ease-in-out infinite">
+        <p style="font-size:.9rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.65" class="dk-h">„Manchmal tut es gut, jemanden an der Seite zu haben, der wirklich zuhört."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANGEBOTE -->
+<section style="background:var(--sage);padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Angebote</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für dich. Für euch. Für alle.</h2></div>
+    <div class="grid-3">
+      <div class="reveal fw-card" style="transition-delay:.0s">
+        <div class="fw-card-accent" style="background:var(--p2)"></div>
+        <div style="font-size:2rem;margin-bottom:.8rem">🌿</div>
+        <h3 style="font-size:1.15rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Einzelbegleitung</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7;margin-bottom:1.2rem" class="dk-mid">Für Eltern, Väter und Jugendliche — individuell, in deinem Tempo.</p>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem">
+          <span class="badge">Online &amp; Präsenz</span>
+          <span class="badge">60–90 Min.</span>
+          <span class="badge">Erstgespräch kostenlos</span>
+        </div>
+      </div>
+      <div class="reveal fw-card" style="transition-delay:.08s">
+        <div class="fw-card-accent" style="background:var(--p3)"></div>
+        <div style="font-size:2rem;margin-bottom:.8rem">👨‍👩‍👧</div>
+        <h3 style="font-size:1.15rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Eltern- &amp; Familienbegleitung</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7;margin-bottom:1.2rem" class="dk-mid">Gemeinsam mehr Verständnis entwickeln — für euch als Familie.</p>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem">
+          <span class="badge">Für 2–5 Personen</span>
+          <span class="badge">Systemisch orientiert</span>
+          <span class="badge">Lösungsorientiert</span>
+        </div>
+      </div>
+      <div class="reveal fw-card" id="fachkraefte" style="transition-delay:.16s">
+        <div class="fw-card-accent" style="background:var(--s2)"></div>
+        <div style="font-size:2rem;margin-bottom:.8rem">🎓</div>
+        <h3 style="font-size:1.15rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Coaching für Fachkräfte</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7;margin-bottom:1.2rem" class="dk-mid">Für Pädagog:innen, die klareren Blick, mehr Leichtigkeit und neue Impulse suchen.</p>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem">
+          <span class="badge">Supervision möglich</span>
+          <span class="badge">Team-Formate</span>
+          <span class="badge">Zertifiziert</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal"><a href="#kontakt-form" class="btn-primary">Erstgespräch vereinbaren</a></div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">So läuft es ab</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Weg in die Begleitung</h2></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem">
+      <div class="reveal prob-card" style="transition-delay:.0s">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--p1);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:1rem">1</div>
+        <h4 style="font-size:.95rem;color:var(--p1);margin-bottom:.4rem;font-family:'Quicksand',sans-serif" class="dk-h">Kostenlos schreiben</h4>
+        <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Kurze Nachricht — wo stehst du gerade? Was beschäftigt dich?</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.08s">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--p2);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:1rem">2</div>
+        <h4 style="font-size:.95rem;color:var(--p1);margin-bottom:.4rem;font-family:'Quicksand',sans-serif" class="dk-h">Erstgespräch (kostenlos)</h4>
+        <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">30 Min. kennenlernen — ohne Verpflichtung und ohne Druck.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.16s">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--p3);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:1rem">3</div>
+        <h4 style="font-size:.95rem;color:var(--p1);margin-bottom:.4rem;font-family:'Quicksand',sans-serif" class="dk-h">Gemeinsamer Weg</h4>
+        <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Wir gestalten die Begleitung nach deinen Bedürfnissen — flexibel und individuell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT FORMULAR -->
+<section id="kontakt-form" style="background:var(--p1);padding:5rem 0">
+  <div style="max-width:640px;margin:0 auto;padding:0 2rem">
+    <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Kontakt</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:.8rem">Erstgespräch vereinbaren</h2></div>
+    <div class="reveal" style="transition-delay:.15s"><p style="color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.8;margin-bottom:2rem">Schreib mir kurz — ich melde mich innerhalb von 24 Stunden.</p></div>
+    <div class="reveal" style="transition-delay:.2s">
+      <div style="display:flex;flex-direction:column;gap:.8rem">
+        <input type="text" placeholder="Dein Name" style="padding:14px 22px;border-radius:14px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-family:'Nunito',sans-serif;font-size:.9rem;width:100%">
+        <input type="email" placeholder="Deine E-Mail" class="nl-input" style="border-radius:14px">
+        <textarea placeholder="Was beschäftigt dich gerade? (optional)" style="padding:14px 22px;border-radius:14px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-family:'Nunito',sans-serif;font-size:.9rem;width:100%;min-height:120px;resize:vertical"></textarea>
+        <button class="btn-primary" style="width:100%;justify-content:center">🌿 Nachricht senden</button>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.4)">🔒 Vertraulich. Ich melde mich persönlich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff;padding:5rem 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 2rem">
+    <div class="reveal"><div class="section-tag">Fragen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Häufig gefragt</h2></div>
+    <div class="reveal" style="transition-delay:.15s" id="faq-coaching"></div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+<script>
+buildAccordion('faq-coaching', [
+  {q:"Ist das eine Therapie?", a:"Nein. Waldkätzchen ist heilpädagogische Begleitung — kein Ersatz für Therapie, aber eine sinnvolle Ergänzung. Bei klinischen Diagnosen empfehle ich zusätzlich therapeutische Fachbegleitung."},
+  {q:"Wie oft treffen wir uns?", a:"Das entscheiden wir gemeinsam. Viele starten mit alle 2–4 Wochen. Intensivphasen und Einzelsitzungen sind genauso möglich."},
+  {q:"Online oder Präsenz?", a:"Beides ist möglich. Online per Video-Call, Präsenz je nach Wohnort. Im Erstgespräch klären wir, was für dich am besten passt."},
+  {q:"Was kostet eine Sitzung?", a:"Die Preise besprechen wir im Erstgespräch, das für dich kostenlos ist. Eine transparente Preisübersicht findest du nach dem Erstkontakt."},
+]);
+</script>
+</body>
+</html>

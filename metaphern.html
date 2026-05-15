@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Metaphern – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+  .meta-detail{padding:5rem 0;scroll-margin-top:80px}
+  .meta-detail:nth-child(even){background:var(--sage)}
+  body.dark .meta-detail:nth-child(even){background:rgba(20,50,35,.3)!important}
+  .meta-img-wrap{display:flex;align-items:center;justify-content:center;min-height:320px;border-radius:24px;overflow:hidden;background:var(--sage)}
+  .meta-img-wrap img{max-height:280px;object-fit:contain;padding:2rem;width:100%}
+  .meta-quote{font-size:1.1rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:700;line-height:1.55;border-left:4px solid var(--p2);padding-left:1rem;margin-bottom:1.5rem}
+  body.dark .meta-quote{color:#c0e8d0!important;border-color:#4DD9D4!important}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('metaphern.html'));</script>
+
+<!-- HERO -->
+<section class="hero hero-sub" style="min-height:48vh">
+  <img class="hero-img" src="background-lichtung-quer.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="padding-top:5rem;text-align:center">
+    <div class="breadcrumb" style="justify-content:center"><a href="index.html">Start</a><span>›</span><a href="welt.html">Die Welt</a><span>›</span><span>Metaphern</span></div>
+    <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Die Sprache<br><span style="color:var(--s1)">des Waldes</span></h1>
+    <p style="color:rgba(255,255,255,.82);font-size:1rem;max-width:520px;margin:0 auto;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Manchmal ist es leichter, über den Nebel zu sprechen als über die Angst. Der Wald hat eine Sprache dafür.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section style="padding:5rem 0">
+  <div class="container" style="max-width:780px">
+    <div class="reveal"><div class="section-tag">Warum Metaphern?</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Bilder, die helfen zu benennen</h2></div>
+    <div class="reveal" style="transition-delay:.15s">
+      <p style="font-size:.95rem;color:var(--textMid);line-height:1.9;margin-bottom:1.2rem" class="dk-mid">Wenn Worte fehlen — oder zu schwer sind — hilft ein Bild. Waldkätzchen arbeitet mit Waldmetaphern, weil sie einen sicheren Abstand schaffen. Nicht „ich bin wütend", sondern „Luis ist heute laut". Nicht „ich fühle mich verloren", sondern „ich steh gerade im Nebel".</p>
+      <p style="font-size:.88rem;color:var(--textSoft);line-height:1.85" class="dk-soft">Dieser kleine sprachliche Schritt macht einen großen Unterschied — besonders für Kinder, die noch keine Worte für ihre Innenwelt haben.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DER NEBEL -->
+<div class="meta-detail" id="nebel">
+  <div class="container grid-2">
+    <div class="meta-img-wrap reveal">
+      <img src="nebel.png" alt="Der Nebel">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Metapher 1</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Der Nebel</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="meta-quote">"Ich denke und denke und komme nicht weiter."</div>
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Der Nebel steht für Gedankenkarussell, Sorgen und Zweifel. Wenn man vor lauter Gedanken den Weg nicht mehr sieht.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.5rem" class="dk-soft">Im Waldkätzchen-Ansatz ist der Nebel kein Feind — er ist ein Zeichen, dass gerade viel los ist. Statt dagegen anzukämpfen: innehalten, warten, langsam weitergehen.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge">Gedankenkarussell</span><span class="badge">Überforderung</span><span class="badge">Unklarheit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIE ECHOS -->
+<div class="meta-detail" id="echos">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Metapher 2</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Die Echos</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="meta-quote">"Du musst stärker sein!" — "Reiß dich zusammen!"</div>
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Alte Stimmen, die nachhallen. Aus Kindheit, Familie oder Gesellschaft — sie haben sich tief eingeprägt und melden sich oft ungefragt zu Wort.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.5rem" class="dk-soft">Die Echos meinen es manchmal gut — aber sie passen oft nicht mehr zur heutigen Zeit oder zur aktuellen Situation. Im Waldkätzchen-Ansatz lernen wir, sie zu erkennen, ohne von ihnen regiert zu werden.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge">Alte Glaubenssätze</span><span class="badge">Innere Stimmen</span><span class="badge">Überzeugungen</span>
+        </div>
+      </div>
+    </div>
+    <div class="meta-img-wrap hide-mobile reveal">
+      <img src="echos.png" alt="Die Echos">
+    </div>
+  </div>
+</div>
+
+<!-- DIE HÖHLE -->
+<div class="meta-detail" id="hoehle">
+  <div class="container grid-2">
+    <div class="meta-img-wrap reveal">
+      <img src="hoehle.png" alt="Die Höhle">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Metapher 3</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Die Höhle</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="meta-quote">"Ich ziehe mich zurück."</div>
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Ein Schutzraum, in den man flüchtet, wenn alles zu viel wird. Rückzug ist kein Fehler — er ist oft ein Zeichen, dass jemand gerade Schutz braucht.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.5rem" class="dk-soft">Die Höhle hilft, sich zu sammeln. Problematisch wird sie nur, wenn sie zur Dauerlösung wird. Waldkätzchen hilft, den Unterschied zu erkennen — und wieder einen Schritt nach draußen zu wagen.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge">Rückzug</span><span class="badge">Schutzraum</span><span class="badge">Sicherheit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIE FELSEN -->
+<div class="meta-detail" id="felsen">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Metapher 4</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Die Felsen</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="meta-quote">"Muss so sein." — "So geht das nicht."</div>
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Blockaden und starre Regeln. Sie liegen auf dem Weg und machen ihn eng. Manchmal sind sie real — oft sind es nur alte Annahmen, die sich als unveränderliche Wahrheiten verkleidet haben.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.5rem" class="dk-soft">Im Waldkätzchen-Ansatz schauen wir gemeinsam hin: Was ist ein echtes Hindernis? Was kann umgangen, verschoben oder neu bewertet werden?</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge">Blockaden</span><span class="badge">Starre Regeln</span><span class="badge">Hindernisse</span>
+        </div>
+      </div>
+    </div>
+    <div class="meta-img-wrap hide-mobile reveal">
+      <img src="steine.png" alt="Die Felsen">
+    </div>
+  </div>
+</div>
+
+<!-- DIE LATERNE -->
+<div class="meta-detail" id="laterne">
+  <div class="container grid-2">
+    <div class="meta-img-wrap reveal">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="Die Laterne">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Metapher 5</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Die Laterne</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="meta-quote">"Sie zeigt nicht das Ziel — nur den nächsten Schritt."</div>
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Die Laterne steht für Orientierung und den nächsten möglichen Schritt. Nicht der große Plan — der eine kleine, machbare Schritt nach vorne.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.5rem" class="dk-soft">Oft brauchen wir keine vollständige Landkarte. Wir brauchen nur genug Licht für den nächsten Meter. Das reicht.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="badge">Orientierung</span><span class="badge">Nächster Schritt</span><span class="badge">Hoffnung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="background:var(--p1);padding:4rem 0">
+  <div style="max-width:640px;margin:0 auto;padding:0 2rem;text-align:center">
+    <div class="reveal"><h2 style="color:#fff;font-size:clamp(1.3rem,3vw,1.9rem);margin-bottom:.8rem">Mit diesen Metaphern arbeiten</h2></div>
+    <div class="reveal" style="transition-delay:.1s"><p style="color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.8;margin-bottom:1.8rem">Im Coaching, in der Begleitung und in der App nutzen wir diese Sprache täglich.</p></div>
+    <div class="reveal" style="transition-delay:.15s;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="coaching.html" class="btn-primary">Begleitung anfragen</a>
+      <a href="konzept.html" class="btn-ghost">Das Konzept</a>
+    </div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+</body>
+</html>

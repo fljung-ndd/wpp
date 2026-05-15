@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die App – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+  .app-screen{background:var(--p1);border-radius:32px;padding:1.8rem;box-shadow:0 28px 80px rgba(8,79,63,.35);max-width:280px;width:100%}
+  .app-screen-header{display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem}
+  .app-row{background:rgba(255,255,255,.1);border-radius:14px;padding:.8rem 1rem;display:flex;align-items:center;gap:.8rem;margin-bottom:.55rem}
+  .app-row img{width:28px;height:28px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)}
+  .app-row-text{font-size:.82rem;color:rgba(255,255,255,.85);font-family:'Quicksand',sans-serif;font-weight:600}
+  .feature-card{background:#fff;border-radius:20px;padding:1.8rem;border:1px solid rgba(8,79,63,.08);box-shadow:0 4px 24px rgba(8,79,63,.07)}
+  body.dark .feature-card{background:rgba(20,50,35,.85)!important}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('app.html'));</script>
+
+<section class="hero hero-sub" style="min-height:56vh">
+  <img class="hero-img" src="background-lichtung-quer.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="padding-top:6rem">
+    <div class="hero-inner">
+      <div class="breadcrumb"><a href="index.html">Start</a><span>›</span><span>Die App</span></div>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Dein persönlicher<br><span style="color:var(--s1)">Waldraum — immer dabei</span></h1>
+      <p style="color:rgba(255,255,255,.85);font-size:1rem;max-width:480px;line-height:1.8;margin-bottom:1.8rem;text-shadow:0 1px 8px rgba(0,0,0,.2)">Die Waldkätzchen-App begleitet dich durch deinen Alltag — mit Impulsen, Reflexionen und einer lebendigen Waldwelt.</p>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="#" class="btn-primary">🍎 App Store</a>
+        <a href="#" class="btn-ghost">▶ Google Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP PREVIEW -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Die Lichtung</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Lichtungsbereich</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1.5rem" class="dk-mid">Ein Ort zum Durchatmen, Fühlen und Sein. Hier kannst du ankommen, entdecken und einfach du selbst sein.</p>
+        <div class="grow-item"><span class="grow-icon">✦</span> Situationen reflektieren</div>
+        <div class="grow-item"><span class="grow-icon">✦</span> Gefühle sichtbar machen</div>
+        <div class="grow-item"><span class="grow-icon">✦</span> Kleine Impulse erhalten</div>
+        <div class="grow-item"><span class="grow-icon">✦</span> Tagebuch führen</div>
+        <div class="grow-item" style="border:none"><span class="grow-icon">✦</span> Offline verfügbar</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center">
+      <div class="app-screen reveal">
+        <div class="app-screen-header">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="height:28px;filter:brightness(0) invert(1)">
+          <span style="color:rgba(255,255,255,.55);font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:700">waldkätzchen</span>
+        </div>
+        <div style="text-align:center;margin-bottom:1.2rem">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="" style="width:80px;height:80px;object-fit:contain;margin:0 auto;animation:breathe 4s ease-in-out infinite">
+          <p style="font-size:.75rem;color:rgba(255,255,255,.7);font-family:'Quicksand',sans-serif;margin-top:.4rem">Willkommen. Schön, dass du da bist.</p>
+        </div>
+        <div class="app-row"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt=""><span class="app-row-text">Ich &amp; meine Gefühle</span></div>
+        <div class="app-row"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" alt=""><span class="app-row-text">Entdecken &amp; Lernen</span></div>
+        <div class="app-row"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt=""><span class="app-row-text">Deine kleine Auszeit</span></div>
+        <div class="app-row"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png" alt=""><span class="app-row-text">Tagebuch</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section style="background:var(--sage);padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Features</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Was die App kann</h2></div>
+    <div class="grid-3">
+      <div class="reveal feature-card" style="transition-delay:.0s">
+        <div style="font-size:2rem;margin-bottom:.8rem">🌿</div>
+        <h3 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Deine Lichtung</h3>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Tägliche Impulse, Reflexionen und ein ruhiger Ort für dich.</p>
+      </div>
+      <div class="reveal feature-card" style="transition-delay:.08s">
+        <div style="font-size:2rem;margin-bottom:.8rem">🦊</div>
+        <h3 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Die Figuren</h3>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Luis, Yella, Elfriede und der Pinguin begleiten dich im Alltag.</p>
+      </div>
+      <div class="reveal feature-card" style="transition-delay:.16s">
+        <div style="font-size:2rem;margin-bottom:.8rem">📖</div>
+        <h3 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Tagebuch</h3>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Deine Gedanken sind wichtig. Halte fest, was dich bewegt.</p>
+      </div>
+      <div class="reveal feature-card" style="transition-delay:.24s">
+        <div style="font-size:2rem;margin-bottom:.8rem">😊</div>
+        <h3 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Gefühlscheck</h3>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Wie fühlst du dich gerade? Ein kurzer täglicher Check-in.</p>
+      </div>
+      <div class="reveal feature-card" style="transition-delay:.32s">
+        <div style="font-size:2rem;margin-bottom:.8rem">🌙</div>
+        <h3 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Abendritual</h3>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Jeden Abend ein kleines Ritual zum Runterkommen und Verbinden.</p>
+      </div>
+      <div class="reveal feature-card" style="transition-delay:.40s">
+        <div style="font-size:2rem;margin-bottom:.8rem">📵</div>
+        <h3 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Offline verfügbar</h3>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Auch im Wald, unterwegs, ohne Netz — die App funktioniert immer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section style="background:var(--p1);padding:5rem 0">
+  <div style="max-width:640px;margin:0 auto;padding:0 2rem;text-align:center">
+    <div class="reveal"><h2 style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:1rem">Jetzt kostenlos starten</h2></div>
+    <div class="reveal" style="transition-delay:.1s"><p style="color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.8;margin-bottom:2rem">Die Basis-App ist kostenlos. Erweiterte Inhalte und Begleitung im Abo.</p></div>
+    <div class="reveal" style="transition-delay:.15s">
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="#" style="background:#fff;color:var(--p1);padding:14px 28px;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:10px">🍎 <span><small style="display:block;font-size:.68rem;opacity:.7;font-weight:400">Laden im</small>App Store</span></a>
+        <a href="#" style="background:#fff;color:var(--p1);padding:14px 28px;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:10px">▶ <span><small style="display:block;font-size:.68rem;opacity:.7;font-weight:400">Laden bei</small>Google Play</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angebote – Waldkätzchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('angebote.html'));</script>
+
+<section class="hero hero-sub" style="min-height:48vh">
+  <img class="hero-img" src="background-lichtung-quer.png" alt="">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content" style="padding-top:6rem">
+    <div class="hero-inner">
+      <div class="breadcrumb"><a href="index.html">Start</a><span>›</span><span>Angebote</span></div>
+      <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Dein Weg<br><span style="color:var(--s1)">in den Wald</span></h1>
+      <p style="color:rgba(255,255,255,.85);font-size:1rem;max-width:460px;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Begleitung, die sich deinem Leben anpasst — nicht umgekehrt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COACHING -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Angebot 1</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Coaching &amp; Begleitung</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Einzelbegleitung für Eltern, Väter und Familien. Heilpädagogisch fundiert, alltagsnah und ohne Bewertung.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem">
+          <span class="badge">Online &amp; Präsenz</span><span class="badge">Erstgespräch kostenlos</span><span class="badge">Einzel &amp; Familien</span>
+        </div>
+        <a href="coaching.html" class="btn-primary">Mehr erfahren</a>
+      </div>
+    </div>
+    <div class="hide-mobile"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="" style="width:100%;border-radius:20px;max-height:340px;object-fit:contain"></div>
+  </div>
+</section>
+
+<!-- WALDABENTEUER -->
+<section id="waldabenteuer" style="position:relative;overflow:hidden;padding:5rem 0">
+  <div style="position:absolute;inset:0"><img src="background-verbinden-quer.png" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div style="position:absolute;inset:0;background:rgba(8,79,63,.88)"></div>
+  <div class="container grid-2" style="position:relative;z-index:2;width:100%">
+    <div>
+      <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Angebot 2</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:1rem">HandsOn Waldabenteuer</h2></div>
+      <div class="reveal" style="transition-delay:.15s"><p style="color:rgba(255,255,255,.8);font-size:.93rem;line-height:1.8;margin-bottom:1.5rem">Echte Begegnungen im Wald — mit Figuren, Geschichten und der Natur als Spiegel. Mehr als ein Ausflug: ein Erfahrungsraum.</p></div>
+      <ul style="list-style:none;margin-bottom:2rem">
+        <li class="reveal" style="padding:.5rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.2s">🌿 Für Familien, Gruppen und Fachkräfte</li>
+        <li class="reveal" style="padding:.5rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.27s">🌿 Mai bis Oktober</li>
+        <li class="reveal" style="padding:.5rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.07);transition-delay:.34s">🌿 Max. 12 Personen pro Gruppe</li>
+        <li class="reveal" style="padding:.5rem 0;display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.82);transition-delay:.41s">🌿 Süddeutschland und Umgebung</li>
+      </ul>
+      <div class="reveal" style="transition-delay:.5s"><a href="coaching.html#kontakt-form" class="btn-primary">Termin anfragen</a></div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="width:100%;max-width:260px;border-radius:50%;border:4px solid rgba(255,255,255,.2);animation:breathe 4s ease-in-out infinite">
+    </div>
+  </div>
+</section>
+
+<!-- KURSE -->
+<section id="kurse" style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Angebot 3</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Kurse &amp; Aufstellungen</h2></div>
+    <div class="grid-3">
+      <div class="reveal ang-card" style="transition-delay:.0s">
+        <div class="ang-card-img"><img src="konzept.png" alt="Kurse"></div>
+        <div class="ang-card-body">
+          <h3 style="font-size:1.05rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Einführungskurs Waldkätzchen</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6;flex:1" class="dk-mid">Die Grundlagen des Konzepts kennenlernen — praxisnah und lebendig.</p>
+          <div style="margin-top:.8rem;display:flex;flex-wrap:wrap;gap:5px"><span class="badge">Online</span><span class="badge">4 × 90 Min.</span></div>
+        </div>
+      </div>
+      <div class="reveal ang-card" style="transition-delay:.08s">
+        <div class="ang-card-img"><img src="background1.png" alt="Aufstellungen"></div>
+        <div class="ang-card-body">
+          <h3 style="font-size:1.05rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Systemische Aufstellungen</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6;flex:1" class="dk-mid">Familiesysteme sichtbar machen — mit den Waldkätzchen-Figuren als Medium.</p>
+          <div style="margin-top:.8rem;display:flex;flex-wrap:wrap;gap:5px"><span class="badge">Präsenz</span><span class="badge">Tagesformat</span></div>
+        </div>
+      </div>
+      <div class="reveal ang-card" style="transition-delay:.16s">
+        <div class="ang-card-img"><img src="background-verbinden-quer.png" alt="Fachkräfte"></div>
+        <div class="ang-card-body">
+          <h3 style="font-size:1.05rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Fortbildung für Pädagog:innen</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6;flex:1" class="dk-mid">Waldkätzchen als Werkzeug für die tägliche Arbeit mit Kindern und Familien.</p>
+          <div style="margin-top:.8rem;display:flex;flex-wrap:wrap;gap:5px"><span class="badge">Zertifikat</span><span class="badge">VHS &amp; Inhouse</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem"><a href="coaching.html#kontakt-form" class="btn-outline">Kursanfrage stellen</a></div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+</body>
+</html>

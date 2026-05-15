@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen – Wild und verbunden</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+</head>
+<body>
+
+<script src="wk.js"></script>
+<script>document.write(renderHeader('index.html'));</script>
+
+<!-- ═══ HERO — P1-FIX: Lichtung statt Foto ═══════════════════════ -->
+<section class="hero">
+  <img class="hero-img" src="background-lichtung-quer.png" alt="Die Waldlichtung">
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="reveal" style="transition-delay:.1s">
+        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">🌿 Das Waldkätzchen-Konzept</div>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:.6rem;color:#fff;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.3)">
+          Manchmal braucht es<br>einen anderen <span style="color:var(--s1)">Blick,</span><br>um neue Wege zu sehen.
+        </h1>
+      </div>
+      <div class="reveal" style="transition-delay:.3s">
+        <p style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:1.1rem;color:var(--s3);margin-bottom:1.1rem">Verbindung, die bleibt.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.35s">
+        <div style="display:flex;gap:.5rem;align-items:center;font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1.6rem;font-family:'Quicksand',sans-serif">
+          Verstehen <span style="color:var(--p3)">·</span> Verbinden <span style="color:var(--p3)">·</span> Verändern
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.4s">
+        <p style="font-size:.95rem;color:rgba(255,255,255,.85);max-width:460px;margin-bottom:2.2rem;line-height:1.85;text-shadow:0 1px 8px rgba(0,0,0,.2)">
+          Waldkätzchen begleitet dich, dein Kind und deine Familie mit Herz, Verständnis und innerer Wildnis — heilpädagogisch fundiert, alltagsnah und voller Verbindung.
+        </p>
+      </div>
+      <div class="reveal" style="transition-delay:.5s">
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="welt.html" class="btn-primary" style="animation:float 3s ease-in-out infinite">🌿 Die Welt entdecken</a>
+          <a href="angebote.html" class="btn-ghost">Zum Angebot</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;animation:float 2s ease-in-out infinite">
+    <span style="font-size:.62rem;color:rgba(255,255,255,.45);font-family:'Quicksand',sans-serif;letter-spacing:.15em;text-transform:uppercase">Scroll</span>
+    <div style="width:1px;height:36px;background:rgba(255,255,255,.25)"></div>
+  </div>
+</section>
+
+<!-- ICON BAR -->
+<div class="hero-icon-bar">
+  <div class="hero-icon-bar-inner">
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Heilpäd. fundiert</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Emotional begleitend</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Alltagsnah</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Mit Geschichten</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png" class="hero-icon-img" alt=""><span class="hero-icon-label">App & Materialien</span></div>
+    <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Für Verbindung</span></div>
+  </div>
+</div>
+
+<!-- ═══ KENNST DU DAS GEFÜHL ═════════════════════════════════════ -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Der Anfang</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Kennst du<br>das Gefühl?</h2></div>
+    <div class="grid-4" style="margin-bottom:2.5rem">
+      <div class="reveal prob-card" style="transition-delay:.0s">
+        <div class="prob-icon"><img src="nebel.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Der Nebel im Kopf</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Du verstehst nicht, warum dein Kind gerade so reagiert — alles dreht sich im Kreis.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.08s">
+        <div class="prob-icon"><img src="echos.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Die alten Stimmen</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">„Stell dich nicht so an." Du kennst diese Sätze — und willst es eigentlich anders machen.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.16s">
+        <div class="prob-icon"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Als Vater da sein</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Du bist da — aber niemand hat dir gezeigt, wie. Du willst Verbindung, findest aber keinen Weg.</p>
+      </div>
+      <div class="reveal prob-card" style="transition-delay:.24s">
+        <div class="prob-icon"><img src="hoehle.png" alt=""></div>
+        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Die Höhle als Rückzug</h4>
+        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Dein Kind zieht sich zurück oder tobt. Du weißt: da steckt mehr dahinter.</p>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.32s">
+      <div style="background:var(--sage);border-radius:20px;padding:1.8rem 2.2rem;max-width:680px;border-left:4px solid var(--p2)" class="quote-box">
+        <p style="font-size:1.05rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.7" class="dk-h">
+          „Du musst nicht alles sofort verstehen. Aber du kannst anfangen, hinzuschauen."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ P2: 4 RÄUME ══════════════════════════════════════════════ -->
+<section style="background:var(--sage);padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Die Welt von Waldkätzchen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Vier Räume, die dich begleiten.</h2></div>
+    <div class="reveal" style="transition-delay:.15s;margin-bottom:3rem"><p style="font-size:.93rem;color:var(--textMid);max-width:560px;line-height:1.8" class="dk-mid">Jeder Raum hat eine eigene Energie, einen eigenen Fokus — und alle führen zum selben Ziel: Verstehen, Verbinden, Verändern.</p></div>
+    <div class="grid-4">
+      <a href="welt.html#verstehen" class="raum-card reveal" style="transition-delay:.0s;text-decoration:none">
+        <div class="raum-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt="Verstehen" style="object-fit:contain;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);padding:2rem"></div>
+        <div class="raum-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Verstehen</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Hinschauen, Gefühle, Muster und Zusammenhänge begreifen.</p>
+          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
+        </div>
+      </a>
+      <a href="welt.html#verbinden" class="raum-card reveal" style="transition-delay:.08s;text-decoration:none">
+        <div class="raum-card-img"><img src="background-verbinden-quer.png" alt="Verbinden" style="object-fit:cover"></div>
+        <div class="raum-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Verbinden</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Beziehungen stärken, Halt finden und nicht allein sein.</p>
+          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
+        </div>
+      </a>
+      <a href="welt.html#veraendern" class="raum-card reveal" style="transition-delay:.16s;text-decoration:none">
+        <div class="raum-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png" alt="Verändern" style="object-fit:cover"></div>
+        <div class="raum-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Verändern</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Kleine Schritte, neue Impulse und mutige Entscheidungen.</p>
+          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
+        </div>
+      </a>
+      <a href="app.html" class="raum-card reveal" style="transition-delay:.24s;text-decoration:none">
+        <div class="raum-card-img"><img src="background-lichtung-quer.png" alt="Lichtung" style="object-fit:cover"></div>
+        <div class="raum-card-body">
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Lichtung</h3>
+          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Dein Startpunkt, dein Feed. Täglich neu, persönlich begleitet.</p>
+          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WALDWELT / KONZEPT ════════════════════════════════════════ -->
+<section style="background:var(--p1);padding:5rem 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:url('background1.png');background-size:cover;background-position:center;opacity:.08"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Das Konzept</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:1rem">Die <span style="color:var(--s3)">Waldkätzchen-Welt</span></h2></div>
+    <div class="reveal" style="transition-delay:.15s"><p style="font-size:.94rem;color:rgba(255,255,255,.72);max-width:600px;line-height:1.8;margin-bottom:2.5rem">Keine Methode. Keine schnellen Lösungen. Eine Welt, die hilft, Gefühle und Verhalten zu verstehen — durch Figuren, Geschichten und sanfte Reflexion.</p></div>
+    <div class="grid-3" style="margin-bottom:3rem">
+      <div class="reveal ww-card"><div class="ww-num">1</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verstehen</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Warum reagiert mein Kind so? Was steckt hinter dem Verhalten? Wir schauen hin — ohne zu bewerten.</p></div>
+      <div class="reveal ww-card" style="transition-delay:.1s"><div class="ww-num">2</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verbinden</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Gefühle sichtbar machen. Nähe schaffen. Gemeinsam einen Weg durch den Wald finden.</p></div>
+      <div class="reveal ww-card" style="transition-delay:.2s"><div class="ww-num">3</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verändern</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Kleine Impulse. Neue Wege. Nicht perfekt — aber fühlend, lernend, verbunden.</p></div>
+    </div>
+    <div class="reveal" style="transition-delay:.25s">
+      <div class="card-slider">
+        <div class="card-slider-track" id="metaphern-track"></div>
+        <button class="slider-arrow slider-arrow-l" onclick="scrollSlider('metaphern-track',-1)">‹</button>
+        <button class="slider-arrow slider-arrow-r" onclick="scrollSlider('metaphern-track',1)">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MITWACHSEN ════════════════════════════════════════════════ -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Mitwachsen</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Wachsen, wenn du es brauchst</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:.8rem" class="dk-mid">Waldkätzchen ist kein Programm mit festem Plan. Es ist ein Begleiter — der sich deinem Tempo anpasst.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Ob du gerade mittendrin steckst oder neu anfängst: Die Waldwelt ist immer da.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div style="margin-bottom:2rem">
+          <div class="grow-item"><span class="grow-icon">🌱</span> In deinem Tempo</div>
+          <div class="grow-item"><span class="grow-icon">🌿</span> Für jede Lebensphase</div>
+          <div class="grow-item"><span class="grow-icon">🦊</span> Mit Figuren &amp; Geschichten</div>
+          <div class="grow-item"><span class="grow-icon">🍃</span> Reflexion ohne Druck</div>
+          <div class="grow-item"><span class="grow-icon">☀️</span> Alltagstauglich</div>
+          <div class="grow-item" style="border:none"><span class="grow-icon">👨‍👩‍👧</span> Für die ganze Familie</div>
+        </div>
+        <a href="welt.html" class="btn-primary">Den eigenen Weg finden</a>
+      </div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="position:relative;width:100%;max-width:420px">
+        <img src="background-lichtung-quer.png" alt="" style="width:100%;border-radius:24px;object-fit:cover;height:460px">
+        <div style="position:absolute;inset:0;border-radius:24px;background:linear-gradient(to top,rgba(8,79,63,.6) 0%,transparent 55%)"></div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:14px;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.2)">
+          <p style="font-size:.82rem;font-style:italic;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.5">„Wild und verbunden — für Familien, Väter und Kinder."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HEILPÄDAGOGISCH FUNDIERT ══════════════════════════════════ -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <img src="konzept.png" alt="Das Konzept" style="width:100%;max-width:420px;border-radius:20px;object-fit:contain">
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Das Fundament</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Heilpädagogisch fundiert.<br>Menschlich begleitet.</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Waldkätzchen basiert auf heilpädagogischen Grundlagen — einem tiefen Verständnis davon, wie Kinder fühlen, lernen und sich entwickeln. Nicht als Therapie, sondern als vertrauensvoller Begleiter.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Die Methode verbindet systemisches Denken, Narrative Arbeit mit Figuren, innere Anteile und lösungsorientierte Impulse.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s;margin-bottom:1.8rem">
+        <span class="hp-tag">Heilpädagogik</span><span class="hp-tag">Systemisches Denken</span>
+        <span class="hp-tag">Narrative Arbeit</span><span class="hp-tag">Innere Anteile</span>
+        <span class="hp-tag">Lösungsorientiert</span><span class="hp-tag">Bindungsorientiert</span>
+        <span class="hp-tag">Empathie</span><span class="hp-tag">Resilienz</span>
+      </div>
+      <div class="reveal" style="transition-delay:.25s"><a href="welt.html" class="btn-outline">Mehr über den Ansatz</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ P1-FIX: DIE FIGUREN — groß, mit Zitat ════════════════════ -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Die Figuren</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="margin-bottom:.6rem">Die Waldkätzchen</h2></div>
+    <div class="reveal" style="transition-delay:.15s;margin-bottom:3rem">
+      <p style="font-size:.93rem;color:var(--textMid);max-width:600px;line-height:1.8" class="dk-mid">
+        Sie sind keine Maskottchen. Sie stehen für Gefühle, Perspektiven und innere Stimmen.<br>
+        <em>„Luis war heute wütend." — Manchmal ist es leichter, das über eine Figur zu sagen als über sich selbst.</em>
+      </p>
+    </div>
+    <!-- P1-FIX: grid-4 mit neuen großen figur-cards -->
+    <div class="grid-4" id="tier-grid"></div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal">
+      <a href="figuren.html" class="btn-outline">Alle Figuren kennenlernen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ APP ═══════════════════════════════════════════════════════ -->
+<section style="background:var(--sage);padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div class="section-tag">Die App</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Begleiter im Alltag</h2></div>
+      <div class="reveal" style="transition-delay:.15s"><p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1.8rem" class="dk-mid">Ein ruhiger, warmer Raum, der dich an den schwierigen Momenten des Alltags begleitet — mit den Figuren, die du bereits kennst.</p></div>
+      <div class="reveal" style="transition-delay:.2s;margin-bottom:2rem">
+        <div class="grow-item"><span class="grow-icon">✦</span> Situationen reflektieren</div>
+        <div class="grow-item"><span class="grow-icon">✦</span> Gefühle sichtbar machen</div>
+        <div class="grow-item"><span class="grow-icon">✦</span> Kleine Impulse erhalten</div>
+        <div class="grow-item" style="border:none"><span class="grow-icon">✦</span> Offline verfügbar</div>
+      </div>
+      <div class="reveal" style="transition-delay:.25s">
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem">
+          <a href="app.html" style="background:#0d2b22;color:#fff;padding:10px 18px;border-radius:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:8px">🍎 App Store</a>
+          <a href="app.html" style="background:#0d2b22;color:#fff;padding:10px 18px;border-radius:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;display:inline-flex;align-items:center;gap:8px">▶ Google Play</a>
+        </div>
+        <a href="app.html" style="font-size:.85rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr über die App →</a>
+      </div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="background:var(--p1);border-radius:32px;padding:2rem;box-shadow:0 24px 60px rgba(8,79,63,.25);max-width:260px;width:100%">
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem">
+          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="height:30px;filter:brightness(0) invert(1)">
+          <span style="color:rgba(255,255,255,.55);font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:700">waldkätzchen</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.55rem">
+          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)"><span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Reflexion</span></div>
+          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)"><span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Gefühle</span></div>
+          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)"><span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Impulse</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Für wen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für Familien. Für Väter. Für Kinder.</h2></div>
+    <div class="grid-3">
+      <a href="coaching.html" class="fw-card reveal" style="transition-delay:.0s;text-decoration:none">
+        <div class="fw-card-accent" style="background:var(--p2)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85"></div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Familien</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du möchtest verstehen, warum dein Kind so reagiert — und wieder echte Verbindung spüren.</p>
+      </a>
+      <a href="vaeter.html" class="fw-card reveal" style="transition-delay:.08s;position:relative;text-decoration:none">
+        <div class="fw-card-accent" style="background:var(--p3)"></div>
+        <div style="position:absolute;top:1rem;right:1rem;background:var(--s1);color:var(--text);padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:800;font-family:'Quicksand',sans-serif">Vaterperspektive</div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85"></div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Väter</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du bist da — aber vielleicht hat dir niemand gezeigt, wie. Ehrlich, alltagsnah, ohne Klischees.</p>
+      </a>
+      <a href="coaching.html#fachkraefte" class="fw-card reveal" style="transition-delay:.16s;text-decoration:none">
+        <div class="fw-card-accent" style="background:var(--s2)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85"></div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Fachkräfte</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Heilpädagogisch fundiert, spielerisch anwendbar — als emotionale Brücke in der Arbeit.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ANGEBOTE -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Angebote</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Weg in den Wald</h2></div>
+    <div class="grid-3" style="margin-bottom:3rem">
+      <a href="coaching.html" class="ang-card reveal" style="transition-delay:.0s;text-decoration:none">
+        <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="Begleitung"></div>
+        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Coaching &amp; Begleitung</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Einzelbegleitung für Eltern, Väter und Familien.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+      </a>
+      <a href="angebote.html" class="ang-card reveal" style="transition-delay:.08s;text-decoration:none">
+        <div class="ang-card-img"><img src="background-lichtung-quer.png" alt="Waldabenteuer"></div>
+        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">HandsOn Waldabenteuer</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Echte Begegnungen im Wald.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+      </a>
+      <a href="angebote.html#kurse" class="ang-card reveal" style="transition-delay:.16s;text-decoration:none">
+        <div class="ang-card-img"><img src="konzept.png" alt="Kurse"></div>
+        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Kurse &amp; Aufstellungen</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Heilpäd. fundierte Workshops.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ÜBER MICH -->
+<section style="padding:5rem 0">
+  <div class="container grid-2">
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
+      <div style="position:relative">
+        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="Über mich" style="width:100%;max-width:360px;border-radius:24px;border:4px solid var(--sage);object-fit:contain">
+        <div style="position:absolute;bottom:-12px;right:-12px;background:var(--p1);color:#fff;padding:.7rem 1.1rem;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.78rem;line-height:1.5;text-align:center">Heilpädagog.<br>fundiert 🌿 persönlich</div>
+      </div>
+    </div>
+    <div>
+      <div class="reveal"><div class="section-tag">Über mich</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Ich sehe, was hinter dem Verhalten steckt.</h2></div>
+      <div class="reveal" style="transition-delay:.15s">
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Ich bin Heilpädagoge, Coach und Vater — und ich weiß, wie es sich anfühlt, wenn man da sein will, aber nicht weiß, wie. Genau deshalb habe ich Waldkätzchen entwickelt.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:2rem" class="dk-soft">Mein Ansatz verbindet heilpädagogisches Fachwissen mit echter Lebensnähe. Keine Theorie ohne Alltag. Keine Methode ohne Herz.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s"><a href="ueber-mich.html" class="btn-outline">Mehr über mich erfahren</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- P2-FIX: MEHR IMPULSE (6 statt 3) -->
+<section style="padding:5rem 0">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Impulse &amp; Gedanken</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Aus dem Waldtagebuch</h2></div>
+    <div class="reveal" style="transition-delay:.15s">
+      <div class="card-slider">
+        <div class="card-slider-track" id="impulse-track"></div>
+        <button class="slider-arrow slider-arrow-l" onclick="scrollSlider('impulse-track',-1)">‹</button>
+        <button class="slider-arrow slider-arrow-r" onclick="scrollSlider('impulse-track',1)">›</button>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem"><a href="blog.html" class="btn-outline">Alle Impulse lesen</a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff;padding:5rem 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 2rem">
+    <div class="reveal"><div class="section-tag">Häufige Fragen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Was du wissen möchtest</h2></div>
+    <div class="reveal" style="transition-delay:.15s" id="faq-main"></div>
+  </div>
+</section>
+
+<script>document.write(renderFooter());</script>
+
+<script>
+buildFigurCards('tier-grid');
+buildMetaphern('metaphern-track');
+buildImpulse('impulse-track');
+buildAccordion('faq-main');
+</script>
+</body>
+</html>
