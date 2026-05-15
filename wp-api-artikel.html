@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen – Beitrag</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+.article-wrap{max-width:920px;margin:0 auto}
+.article-back{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:2rem;padding:.8rem 1.1rem;border-radius:999px;background:#fff;border:1px solid rgba(8,79,63,.1);font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:700;color:var(--p1);text-decoration:none;transition:all .2s ease}
+.article-back:hover{transform:translateY(-2px);background:var(--p1);color:#fff}
+.article-image{width:100%;border-radius:28px;overflow:hidden;margin-bottom:2rem;box-shadow:0 16px 50px rgba(8,79,63,.12)}
+.article-image img{width:100%;max-height:520px;object-fit:cover;display:block}
+.article-meta{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif;margin-bottom:1rem}
+.article-title{font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;color:var(--p1);margin-bottom:1.2rem}
+.article-content{font-size:1.02rem;line-height:1.95;color:var(--textMid)}
+.article-content p{margin-bottom:1.4rem}
+.article-status{background:#fff;padding:1.5rem;border-radius:20px;border:1px solid rgba(8,79,63,.08)}
+.article-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.article-badge{display:inline-flex;align-items:center;padding:.35rem .8rem;border-radius:999px;background:var(--sage);font-size:.72rem;font-family:'Quicksand',sans-serif;font-weight:700;color:var(--p1)}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('wp-api-artikel.html'));</script>
+
+<section style="padding:8rem 0 5rem;background:var(--sage)">
+  <div class="container">
+    <div class="article-wrap" id="article-wrap">
+      <div class="article-status">🌿 Beitrag wird geladen …</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const API='https://waldkaetzchen.waldkaetzchen.de/wp-json/wp/v2';
+const FALLBACK_IMAGE='https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png';
+
+function decodeHtml(html){
+  const textarea=document.createElement('textarea');
+  textarea.innerHTML=html||'';
+  return textarea.value;
+}
+
+function buildBackLink(){
+  const params=new URLSearchParams(window.location.search);
+  const returnCategory=params.get('returnCategory')||'all';
+  return `wp-api-test.html?category=${encodeURIComponent(returnCategory)}`;
+}
+
+async function fetchCategories(){
+  const res=await fetch(`${API}/categories?per_page=100&_fields=id,name`);
+  if(!res.ok) return {};
+  const categories=await res.json();
+  return Object.fromEntries(categories.map(category=>[category.id,category]));
+}
+
+async function loadArticle(){
+  const wrap=document.getElementById('article-wrap');
+  const params=new URLSearchParams(window.location.search);
+  const slug=params.get('slug');
+
+  if(!slug){
+    wrap.innerHTML='<div class="article-status">⚠️ Kein Beitrag angegeben.</div>';
+    return;
+  }
+
+  try{
+    const [categoryMap,postResponse]=await Promise.all([
+      fetchCategories(),
+      fetch(`${API}/posts?slug=${encodeURIComponent(slug)}&_embed=wp:featuredmedia`)
+    ]);
+
+    if(!postResponse.ok){
+      throw new Error('Beitrag konnte nicht geladen werden');
+    }
+
+    const posts=await postResponse.json();
+    const post=posts[0];
+
+    if(!post){
+      wrap.innerHTML='<div class="article-status">⚠️ Beitrag nicht gefunden.</div>';
+      return;
+    }
+
+    const image=post._embedded?.['wp:featuredmedia']?.[0]?.source_url||FALLBACK_IMAGE;
+    const date=new Date(post.date).toLocaleDateString('de-DE',{year:'numeric',month:'long',day:'numeric'});
+
+    const badges=(post.categories||[])
+      .map(id=>categoryMap[id])
+      .filter(Boolean)
+      .map(category=>`<span class="article-badge">${decodeHtml(category.name)}</span>`)
+      .join('');
+
+    document.title=`${decodeHtml(post.title.rendered)} – Waldkätzchen`;
+
+    wrap.innerHTML=`
+      <a class="article-back" href="${buildBackLink()}">
+        ← Zurück zu den Beiträgen
+      </a>
+
+      <div class="article-image">
+        <img src="${image}" alt="" loading="eager">
+      </div>
+
+      <div class="article-meta">${date}</div>
+
+      <h1 class="article-title">${decodeHtml(post.title.rendered)}</h1>
+
+      <div class="article-badges">${badges}</div>
+
+      <div class="article-content">
+        ${post.content.rendered}
+      </div>
+    `;
+
+  }catch(error){
+    wrap.innerHTML=`<div class="article-status">⚠️ ${error.message}</div>`;
+  }
+}
+
+loadArticle();
+</script>
+
+<script>document.write(renderFooter());</script>
+</body>
+</html>
