@@ -1,1 +1,160 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>WP API Test</title><link rel="stylesheet" href="wk.css"></head><body><script src="wk.js"></script><script>document.write(renderHeader('wp-api-test.html'));</script><section style="padding:8rem 0;background:var(--sage)"><div class="container"><div class="section-tag">Headless WordPress</div><h1 class="section-h2">WordPress REST API Test</h1><div id="posts">Lade Beiträge...</div></div></section><script>const API='https://waldkaetzchen.waldkaetzchen.de/wp-json/wp/v2';async function loadPosts(){const el=document.getElementById('posts');try{const res=await fetch(`${API}/posts?_embed=1&per_page=6`);if(!res.ok) throw new Error('API Fehler');const posts=await res.json();if(!posts.length){el.innerHTML='<div class="prob-card">Keine Beiträge vorhanden.</div>';return;}el.innerHTML='<div class="grid-3" id="post-grid"></div>';const grid=document.getElementById('post-grid');posts.forEach(post=>{const img=post._embedded?.['wp:featuredmedia']?.[0]?.source_url||'https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png';const card=document.createElement('article');card.className='ang-card';card.innerHTML=`<div class="ang-card-img"><img src="${img}" alt=""></div><div class="ang-card-body"><div style="font-size:.7rem;font-weight:700;color:var(--p2);margin-bottom:.5rem">${new Date(post.date).toLocaleDateString('de-DE')}</div><h3 style="margin-bottom:.7rem">${post.title.rendered}</h3><div style="font-size:.9rem;line-height:1.7;color:var(--textMid)">${post.excerpt.rendered}</div></div>`;grid.appendChild(card);});}catch(e){el.innerHTML=`<div class="prob-card">⚠️ Fehler beim Laden der WordPress API.<br>${e.message}</div>`;}}loadPosts();</script><script>document.write(renderFooter());</script></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen – WordPress API Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<style>
+  .api-test-intro{max-width:760px;font-size:1rem;line-height:1.85;color:var(--textMid);margin-bottom:1.8rem}
+  .category-filters{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.5rem 0 2.5rem}
+  .category-filter{border:1px solid rgba(8,79,63,.16);background:#fff;color:var(--p1);border-radius:999px;padding:.65rem 1rem;font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s ease}
+  .category-filter:hover,.category-filter.active{background:var(--p1);color:#fff;border-color:var(--p1)}
+  .wp-post-badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.8rem}
+  .wp-post-badge{display:inline-flex;align-items:center;padding:.3rem .7rem;background:var(--sage);border:1px solid rgba(8,79,63,.1);border-radius:999px;color:var(--p1);font-family:'Quicksand',sans-serif;font-size:.68rem;font-weight:700}
+  .wp-post-status{background:#fff;border:1px solid rgba(8,79,63,.08);border-radius:20px;padding:1.5rem;font-size:.95rem;color:var(--textMid);line-height:1.75}
+  .wp-post-meta{font-size:.7rem;font-weight:700;color:var(--p2);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em;font-family:'Quicksand',sans-serif}
+  .wp-post-card-title{margin-bottom:.7rem;color:var(--p1)}
+  .wp-post-excerpt{font-size:.9rem;line-height:1.7;color:var(--textMid)}
+  .wp-category-note{font-size:.84rem;color:var(--textSoft);margin-top:-1.4rem;margin-bottom:2rem}
+  body.dark .category-filter{background:rgba(20,50,35,.85);color:rgba(200,240,220,.9);border-color:rgba(168,213,194,.22)}
+  body.dark .category-filter:hover,body.dark .category-filter.active{background:var(--p2);color:#fff;border-color:var(--p2)}
+  body.dark .wp-post-badge{background:rgba(20,50,35,.85);color:rgba(200,240,220,.9);border-color:rgba(168,213,194,.22)}
+  body.dark .wp-post-status{background:rgba(20,50,35,.85);color:rgba(200,240,220,.86);border-color:rgba(168,213,194,.16)}
+</style>
+</head>
+<body>
+<script src="wk.js"></script>
+<script>document.write(renderHeader('wp-api-test.html'));</script>
+
+<section style="padding:8rem 0 5rem;background:var(--sage)">
+  <div class="container">
+    <div class="section-tag">Headless WordPress</div>
+    <h1 class="section-h2 dk-h">WordPress REST API Test</h1>
+    <p class="api-test-intro dk-mid">
+      Diese Testseite lädt veröffentlichte Beiträge direkt aus WordPress. Über die Kategorien-Badges kannst du Beiträge filtern und prüfen, ob deine spätere Bloglogik sauber funktioniert.
+    </p>
+
+    <div id="category-filters" class="category-filters" aria-label="Beiträge nach Kategorie filtern">
+      <button class="category-filter active" data-category="all" type="button">Alle</button>
+    </div>
+    <p class="wp-category-note dk-soft">Es werden nur Kategorien angezeigt, denen bereits veröffentlichte Beiträge zugeordnet sind.</p>
+
+    <div id="posts">
+      <div class="wp-post-status">🌿 Beiträge werden geladen …</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const API='https://waldkaetzchen.waldkaetzchen.de/wp-json/wp/v2';
+const FALLBACK_IMAGE='https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png';
+let categoriesById={};
+let activeCategory='all';
+
+function decodeHtml(html){
+  const textarea=document.createElement('textarea');
+  textarea.innerHTML=html||'';
+  return textarea.value;
+}
+
+function stripHtml(html){
+  const div=document.createElement('div');
+  div.innerHTML=html||'';
+  return div.textContent||div.innerText||'';
+}
+
+async function fetchCategories(){
+  const res=await fetch(`${API}/categories?per_page=100&hide_empty=true`);
+  if(!res.ok) throw new Error('Kategorien konnten nicht geladen werden');
+  const categories=await res.json();
+  categoriesById=Object.fromEntries(categories.map(category=>[category.id,category]));
+  renderCategoryFilters(categories);
+}
+
+function renderCategoryFilters(categories){
+  const filterContainer=document.getElementById('category-filters');
+  filterContainer.innerHTML=`
+    <button class="category-filter active" data-category="all" type="button">Alle</button>
+    ${categories.map(category=>`<button class="category-filter" data-category="${category.id}" type="button">${decodeHtml(category.name)}</button>`).join('')}
+  `;
+
+  filterContainer.querySelectorAll('.category-filter').forEach(button=>{
+    button.addEventListener('click',async()=>{
+      filterContainer.querySelectorAll('.category-filter').forEach(btn=>btn.classList.remove('active'));
+      button.classList.add('active');
+      activeCategory=button.dataset.category;
+      await loadPosts(activeCategory);
+    });
+  });
+}
+
+function getPostCategories(post){
+  return (post.categories||[])
+    .map(categoryId=>categoriesById[categoryId])
+    .filter(Boolean);
+}
+
+function buildCategoryBadges(post){
+  const postCategories=getPostCategories(post);
+  if(!postCategories.length) return '';
+  return `<div class="wp-post-badges">${postCategories.map(category=>`<span class="wp-post-badge">${decodeHtml(category.name)}</span>`).join('')}</div>`;
+}
+
+async function loadPosts(category='all'){
+  const el=document.getElementById('posts');
+  el.innerHTML='<div class="wp-post-status">🌿 Beiträge werden geladen …</div>';
+
+  try{
+    const categoryParam=category!=='all'?`&categories=${encodeURIComponent(category)}`:'';
+    const res=await fetch(`${API}/posts?_embed=1&per_page=12${categoryParam}`);
+    if(!res.ok) throw new Error('Beiträge konnten nicht geladen werden');
+    const posts=await res.json();
+
+    if(!posts.length){
+      el.innerHTML='<div class="wp-post-status">Zu dieser Kategorie gibt es noch keine veröffentlichten Beiträge.</div>';
+      return;
+    }
+
+    el.innerHTML='<div class="grid-3" id="post-grid"></div>';
+    const grid=document.getElementById('post-grid');
+
+    posts.forEach(post=>{
+      const image=post._embedded?.['wp:featuredmedia']?.[0]?.source_url||FALLBACK_IMAGE;
+      const title=decodeHtml(post.title?.rendered||'Ohne Titel');
+      const excerpt=post.excerpt?.rendered||'';
+      const date=new Date(post.date).toLocaleDateString('de-DE',{year:'numeric',month:'long',day:'numeric'});
+      const card=document.createElement('article');
+      card.className='ang-card';
+      card.innerHTML=`
+        <div class="ang-card-img"><img src="${image}" alt=""></div>
+        <div class="ang-card-body">
+          <div class="wp-post-meta">${date}</div>
+          ${buildCategoryBadges(post)}
+          <h3 class="wp-post-card-title">${title}</h3>
+          <div class="wp-post-excerpt">${excerpt}</div>
+        </div>`;
+      grid.appendChild(card);
+    });
+  }catch(error){
+    el.innerHTML=`<div class="wp-post-status">⚠️ Fehler beim Laden der WordPress API.<br>${stripHtml(error.message)}</div>`;
+  }
+}
+
+async function initWpApiTest(){
+  const el=document.getElementById('posts');
+  try{
+    await fetchCategories();
+    await loadPosts();
+  }catch(error){
+    el.innerHTML=`<div class="wp-post-status">⚠️ ${stripHtml(error.message)}</div>`;
+  }
+}
+
+initWpApiTest();
+</script>
+
+<script>document.write(renderFooter());</script>
+</body>
+</html>
