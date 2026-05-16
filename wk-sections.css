@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════
+   WALDKÄTZCHEN — Zusatzsections für Startseite
+   Alter Wald / Echos · Fünf Waldkätzchen · Utility-Ergänzungen
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --wk-section-paper:#FFF7E6;
+  --wk-section-cream:#FBF1DB;
+  --wk-echo-bg:#13241E;
+  --wk-echo-card:rgba(255,255,255,.075);
+  --wk-echo-border:rgba(255,255,255,.12);
+  --wk-echo-text:#F4EEDC;
+  --wk-echo-soft:rgba(244,238,220,.72);
+  --wk-echo-muted:rgba(244,238,220,.52);
+  --beobachter:#9BA8B0;
+  --fuehler:#E8A598;
+  --denker:#8A97C4;
+  --system:#6A9E6A;
+  --macher:#D4895A;
+}
+
+body.menu-lock{overflow:hidden}
+
+/* ── Shared components for new imported sections ─────────────── */
+.c{max-width:1120px;margin:0 auto;padding:0 2rem}
+.eyebrow{font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.17em;margin-bottom:.8rem}
+.h2{font-family:'Quicksand',sans-serif;font-size:clamp(1.8rem,3.7vw,3.25rem);line-height:1.12;font-weight:800;margin-bottom:1rem}
+.h2 em{font-style:normal}
+.lead{font-size:1rem;line-height:1.88;max-width:760px}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rev.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+.noise{position:relative;overflow:hidden}
+.noise::before{content:"";position:absolute;inset:0;opacity:.15;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px);background-size:5px 5px;mix-blend-mode:soft-light}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:12px 24px;border-radius:999px;font-family:'Quicksand',sans-serif;font-size:.86rem;font-weight:800;border:0;text-decoration:none;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-gh{border:1.5px solid rgba(255,255,255,.36);color:#fff;background:rgba(255,255,255,.08)}
+.btn-gh:hover{background:#fff;color:var(--p1);border-color:#fff}
+
+/* ── Alter Wald / Echos ────────────────────────────────────────── */
+.echos-section{background:linear-gradient(135deg,#0E1E19 0%,#173028 50%,#10221C 100%);color:var(--wk-echo-text);padding:6.4rem 0 6.2rem}
+.echos-inner{position:relative;z-index:1}
+.echos-eyebrow{color:#A8D5C2}
+.echos-headline{color:#fff;max-width:820px;margin-bottom:1.1rem}
+.echos-headline em{color:#EF9F27}
+.echos-lead{color:var(--wk-echo-soft);margin-bottom:3rem}
+.echos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:2.4rem}
+.echo-card{position:relative;min-height:300px;border-radius:24px;padding:1.65rem 1.45rem 1.45rem;background:var(--wk-echo-card);border:1px solid var(--wk-echo-border);box-shadow:0 18px 44px rgba(0,0,0,.18);backdrop-filter:blur(10px)}
+.echo-stripe{position:absolute;top:0;left:0;right:0;height:5px;border-radius:24px 24px 0 0}
+.echo-quote{font-family:'Quicksand',sans-serif;font-size:1.08rem;line-height:1.55;font-weight:800;color:#fff;margin:.6rem 0 1rem}
+.echo-label{font-family:'Quicksand',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;margin-bottom:.8rem}
+.echo-response{font-size:.86rem;line-height:1.75;color:var(--wk-echo-soft)}
+.echos-footer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding:1.5rem 1.7rem;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07)}
+.echos-footer-quote{font-family:'Quicksand',sans-serif;font-size:1rem;line-height:1.75;color:#fff;font-style:italic;font-weight:700}
+
+/* ── Die fünf Waldkätzchen ─────────────────────────────────────── */
+.katzen-section{padding:6.3rem 0;background:linear-gradient(180deg,var(--wk-section-paper) 0%,#FFF 100%)}
+.katzen-header{max-width:820px;margin-bottom:3rem}
+.katzen-eyebrow{color:var(--p2)}
+.katzen-h2{color:var(--p1)}
+.katzen-lead{color:var(--textMid)}
+.katzen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.2rem}
+.katze-card{position:relative;min-height:350px;padding:1.35rem 1.2rem 1.25rem;border-radius:24px;background:#fff;border:1px solid rgba(8,79,63,.09);box-shadow:0 12px 34px rgba(8,79,63,.08);transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease;overflow:hidden}
+.katze-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--katze-accent)}
+.katze-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(8,79,63,.14);border-color:rgba(8,79,63,.18)}
+.katze-avatar{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-family:'Quicksand',sans-serif;font-size:1.45rem;font-weight:900;color:var(--p1);margin:.25rem 0 1rem}
+.katze-name{font-family:'Quicksand',sans-serif;font-size:1.18rem;line-height:1.25;color:var(--p1);margin-bottom:.36rem}
+.katze-role{font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;line-height:1.5;margin-bottom:.95rem}
+.katze-voice{font-family:'Quicksand',sans-serif;font-size:.88rem;line-height:1.65;font-weight:800;color:var(--text);font-style:italic;margin-bottom:.95rem}
+.katze-says{font-size:.84rem;line-height:1.72;color:var(--textMid)}
+.katzen-zusammen{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:2rem;align-items:center;background:var(--p1);border-radius:30px;padding:2.1rem 2.2rem;box-shadow:0 18px 48px rgba(8,79,63,.18)}
+.kz-title{font-family:'Quicksand',sans-serif;font-size:1.55rem;line-height:1.28;color:#fff;margin-bottom:.7rem}
+.kz-text{font-size:.94rem;line-height:1.82;color:rgba(255,255,255,.76)}
+.kz-seq{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:flex-end}
+.kz-step{padding:.62rem .86rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.10);font-family:'Quicksand',sans-serif;font-size:.74rem;font-weight:800;color:#fff}
+
+/* ── Index usability refinements ──────────────────────────────── */
+#begleitung,#echos,#katzen{scroll-margin-top:98px}
+.home-hero-refresh .btn-ghost{white-space:nowrap}
+.home-hero-glass-mark{color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.24)}
+.home-hero-badge{line-height:1.45}
+.raum-card{background:#fff}
+
+/* ── Dark mode ─────────────────────────────────────────────────── */
+body.dark .katzen-section{background:linear-gradient(180deg,#0A1A2E 0%,#0E231E 100%)}
+body.dark .katzen-h2{color:#C0E8D0}
+body.dark .katzen-lead{color:rgba(180,220,200,.82)}
+body.dark .katze-card{background:rgba(20,50,35,.84);border-color:rgba(168,213,194,.14)}
+body.dark .katze-name,body.dark .katze-voice{color:#C0E8D0}
+body.dark .katze-says{color:rgba(180,220,200,.82)}
+body.dark .katze-avatar{color:#C0E8D0}
+body.dark .kz-step{border-color:rgba(168,213,194,.22)}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .echos-grid{grid-template-columns:repeat(2,1fr)}
+  .katzen-grid{grid-template-columns:repeat(3,1fr)}
+  .katzen-zusammen{grid-template-columns:1fr}
+  .kz-seq{justify-content:flex-start}
+}
+@media(max-width:768px){
+  .c{padding:0 1.25rem}
+  .echos-section,.katzen-section{padding:4.6rem 0}
+  .echos-grid{grid-template-columns:1fr}
+  .echo-card{min-height:auto;padding:1.45rem 1.25rem}
+  .echos-footer{grid-template-columns:1fr;padding:1.3rem}
+  .echos-footer .btn{width:100%}
+  .katzen-grid{grid-template-columns:1fr}
+  .katze-card{min-height:auto;padding:1.35rem}
+  .katzen-zusammen{padding:1.55rem 1.35rem;border-radius:24px}
+  .kz-title{font-size:1.3rem}
+  .home-hero-badge{position:static;margin-top:.65rem;max-width:none}
+  .home-hero-glass-mark{display:flex;flex-direction:column;gap:.35rem;padding:1rem;min-height:unset;font-size:3.6rem}
+}
