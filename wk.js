@@ -188,6 +188,77 @@ const FAQ = [
   {q:'Wie unterscheidet sich Waldkätzchen von Therapie?', a:'Waldkätzchen ist keine Therapie und ersetzt keine. Es ist ein pädagogisch fundierter Begleitansatz, der Familien im Alltag stärkt — präventiv und ressourcenorientiert.'}
 ];
 
+const ECHOS = [
+  {
+    quote:'"Reiß dich zusammen. Andere haben es schwerer."',
+    label:'Echo: Stärke zeigen',
+    color:'#639922', labelColor:'#97C459',
+    response:'Dahinter steckt: Ich darf nicht verletzlich sein. Dieses Muster formt, wie wir heute mit Schwäche — bei uns und unseren Kindern — umgehen.',
+  },
+  {
+    quote:'"Sei nicht so empfindlich. Das ist doch nichts."',
+    label:'Echo: Gefühle kleinmachen',
+    color:'#7F77DD', labelColor:'#AFA9EC',
+    response:'Wenn Gefühle früh nicht gehört wurden, lernen wir: Fühlen ist gefährlich. Oder übertrieben. Oder falsch.',
+  },
+  {
+    quote:'"Ich sage das doch nur zu deinem Besten."',
+    label:'Echo: Kontrolle als Fürsorge',
+    color:'#D85A30', labelColor:'#F0997B',
+    response:'Gut gemeint — aber manchmal lässt dieses Muster wenig Raum für eigene Wahrnehmung und Entscheidungen.',
+  },
+  {
+    quote:'"Stell dich nicht so an. Früher war das normal."',
+    label:'Echo: Vergleich als Maßstab',
+    color:'#BA7517', labelColor:'#EF9F27',
+    response:'Dieser Satz macht es schwer, die eigene Erfahrung ernst zu nehmen — und die des eigenen Kindes.',
+  },
+  {
+    quote:'"Entweder du funktionierst — oder du bist das Problem."',
+    label:'Echo: Leistung als Liebe',
+    color:'#1D9E75', labelColor:'#5DCAA5',
+    response:'Wenn Zuneigung an Leistung geknüpft war, suchen wir sie auch später darin — und geben dieses Muster weiter.',
+  },
+];
+
+const WELTEN = [
+  {
+    id:'hoehle', icon:'🌑', name:'Die Höhle',
+    bg:'#1E1C18', text:'#C8C4BC', sub:'#888480', tagBg:'#3a3832',
+    kw:'Rückzug · Sicherheit', tag:'zu viel gerade',
+    desc:'Manchmal braucht es den Rückzug. Die Höhle ist kein Versagen — sie ist Schutz.',
+    tiere:['Etana'], angebote:['Einzelbegleitung','App: Ruhemodus'],
+  },
+  {
+    id:'nebel', icon:'🌫️', name:'Der Nebel',
+    bg:'#DCE9F5', text:'#1A3650', sub:'#3A6080', tagBg:'#B4CCE4',
+    kw:'Unklarheit · Verwirrung', tag:'alles verschwimmt',
+    desc:'Wenn Gedanken kreisen und keine Klarheit entsteht. Der Nebel hat einen Sinn.',
+    tiere:['Elfriede'], angebote:['Erstgespräch','App: Gefühlscheck'],
+  },
+  {
+    id:'felsen', icon:'🪨', name:'Das Felsenmeer',
+    bg:'#D6D2CA', text:'#2A2820', sub:'#5a5650', tagBg:'#B8B4AC',
+    kw:'Blockiert · Festgehalten', tag:'geht nicht weiter',
+    desc:'Blockaden, die nicht weichen. Altes, das sich festgesetzt hat.',
+    tiere:['Kata-rina','Der Pinguin'], angebote:['Systemische Aufstellung','Familienbegleitung'],
+  },
+  {
+    id:'altwald', icon:'🌲', name:'Der alte Wald',
+    bg:'#E6F0DC', text:'#1A3008', sub:'#3A6018', tagBg:'#B8D898',
+    kw:'Echos · Alte Muster', tag:'alte Stimmen',
+    desc:'Was nachhall aus der Kindheit. Muster, die sich wiederholen.',
+    tiere:['Elfriede','Wada'], angebote:['Väter-Begleitung','Kurs: Echos'],
+  },
+  {
+    id:'lichtung', icon:'☀️', name:'Die Lichtung',
+    bg:'#FEF3E2', text:'#3E2208', sub:'#7A4810', tagBg:'#FAC775',
+    kw:'Heimat · Ankommen', tag:'die Figuren',
+    desc:'Wo die Figuren leben. Hier ist Raum zum Durchatmen, Fühlen und Verbinden.',
+    tiere:['Luis','Yella','Tigi'], angebote:['App: Lichtungsbereich','Waldabenteuer'],
+  },
+];
+
 const WORLD_ITEMS = [
   {key:'hoehle', icon:'🌑', name:'Die Höhle', desc:'Rückzug & Sicherheit', tag:'Sicherheit', bg:'var(--hoehle-bg)', text:'var(--hoehle-text)', sub:'var(--hoehle-sub)', tagBg:'var(--hoehle-tag-bg)'},
   {key:'nebel', icon:'🌫️', name:'Der Nebel', desc:'Wenn alles verschwimmt', tag:'Orientierung', bg:'var(--nebel-bg)', text:'var(--nebel-text)', sub:'var(--nebel-sub)', tagBg:'var(--nebel-tag-bg)'},
@@ -273,7 +344,7 @@ function buildFigurCards(containerId, limit){
   const cards = typeof limit==='number' ? TIER_CARDS.slice(0,limit) : TIER_CARDS.slice(0,4);
   cards.forEach((t,i)=>{
     const a=document.createElement('a');
-    a.href='wk-tiere.html#'+t.id;
+    a.href='tiere.html#'+t.id;
     a.className='figur-card reveal';
     a.style.transitionDelay=(i*.1)+'s';
     a.innerHTML=`
@@ -344,6 +415,46 @@ function buildAccordion(containerId, data){
       <div class="accordion-body" id="acc-body-${containerId}-${i}">
         <div class="accordion-a">${item.a}</div>
       </div>`;
+    el.appendChild(d);
+  });
+}
+
+function buildEchos(containerId){
+  const el=document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML='';
+  ECHOS.forEach((e,i)=>{
+    const d=document.createElement('article');
+    d.className='reveal';
+    d.style.transitionDelay=(i*.08)+'s';
+    d.style.cssText+='background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:1.4rem 1.4rem 1.4rem calc(1.4rem + 3px);position:relative;overflow:hidden;transition:background .2s';
+    d.onmouseover=()=>d.style.background='rgba(255,255,255,.07)';
+    d.onmouseout=()=>d.style.background='rgba(255,255,255,.04)';
+    d.innerHTML=`
+      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:${e.color}"></div>
+      <blockquote style="font-family:'Quicksand',sans-serif;font-size:.92rem;font-style:italic;color:#d4d0c6;line-height:1.65;margin-bottom:.9rem">${e.quote}</blockquote>
+      <p style="font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:${e.labelColor};margin-bottom:.5rem">${e.label}</p>
+      <p style="font-size:.8rem;color:#888680;line-height:1.6;padding-top:.7rem;border-top:1px solid rgba(255,255,255,.06)">${e.response}</p>`;
+    el.appendChild(d);
+  });
+  refreshReveal(el);
+}
+
+function buildWeltenStrip(containerId){
+  const el=document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML='';
+  WELTEN.forEach(w=>{
+    const d=document.createElement('a');
+    d.href=`welt.html#${w.id}`;
+    d.style.cssText=`background:${w.bg};padding:1.2rem;display:flex;flex-direction:column;gap:.3rem;cursor:pointer;transition:opacity .2s;text-decoration:none`;
+    d.onmouseover=()=>d.style.opacity='.82';
+    d.onmouseout=()=>d.style.opacity='1';
+    d.innerHTML=`
+      <div style="font-size:1.4rem;line-height:1;margin-bottom:.3rem">${w.icon}</div>
+      <div style="font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:700;color:${w.text}">${w.name}</div>
+      <div style="font-size:.68rem;color:${w.sub};line-height:1.4">${w.kw}</div>
+      <span style="display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;margin-top:.4rem;background:${w.tagBg};color:${w.sub}">${w.tag}</span>`;
     el.appendChild(d);
   });
 }
@@ -648,7 +759,7 @@ function renderFooter(){
 <footer>
   <div class="footer-grid">
     <div><a href="index.html" style="display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-family:'Quicksand',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:.6rem"><span aria-hidden="true">🌿</span>waldkätzchen</a><div style="font-size:.7rem;opacity:.4;letter-spacing:.07em;font-family:'Quicksand',sans-serif;text-transform:uppercase;margin-bottom:.6rem">Wild und verbunden.</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;text-transform:uppercase">Verstehen · Verbinden · Verändern</div><div style="display:flex;gap:.7rem"><a href="#" class="social-btn">📷</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">💬</a></div></div>
-    <div><h4 class="footer-h">Der Wald</h4><a href="welt.html" class="footer-link">Die Welt</a><a href="index.html#echos" class="footer-link">Der alte Wald</a><a href="wk-tiere.html" class="footer-link">Die Figuren</a><a href="metaphern.html" class="footer-link">Die Metaphern</a></div>
+    <div><h4 class="footer-h">Der Wald</h4><a href="welt.html" class="footer-link">Die Welt</a><a href="index.html#die-echos" class="footer-link">Der alte Wald</a><a href="tiere.html" class="footer-link">Die Figuren</a><a href="metaphern.html" class="footer-link">Die Metaphern</a></div>
     <div><h4 class="footer-h">Angebote</h4><a href="coaching.html" class="footer-link">Coaching</a><a href="angebote.html" class="footer-link">Waldabenteuer</a><a href="angebote.html#kurse" class="footer-link">Kurse</a><a href="app.html" class="footer-link">Die App</a></div>
     <div><h4 class="footer-h">Mehr</h4><a href="vaeter.html" class="footer-link">Für Väter</a><a href="blog.html" class="footer-link">Impulse</a><a href="ueber-mich.html" class="footer-link">Über mich</a><a href="kontakt.html" class="footer-link">Kontakt</a></div>
   </div>
