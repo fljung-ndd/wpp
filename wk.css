@@ -20,7 +20,14 @@ img{display:block;max-width:100%}
 button{cursor:pointer}
 
 /* ── DARK / DUSK / NIGHT ────────────────────────────────── */
-body.dark{background:#0a1a2e;color:#c0e8d0}
+body.dark{
+  background:#0a1a2e;
+  color:#c0e8d0;
+  /* CSS-Variablen überschreiben → alle var(--sage)/var(--s4)-Elemente
+     werden automatisch dunkel, ohne jede Klasse einzeln zu targeten */
+  --sage:rgba(14,38,26,.9);
+  --s4:rgba(8,18,38,.92);
+}
 
 /* Fixed BG for night modes */
 #night-bg{position:fixed;inset:0;z-index:-1;display:none;pointer-events:none}
@@ -92,6 +99,18 @@ body.dark .btn-outline{border-color:rgba(200,240,220,.42)!important;color:rgba(2
 
 /* Subpage inner text on white bg sections */
 body.dark .bg-white-sec{background:rgba(20,50,35,.5)!important}
+
+/* Explizite weiße Sektionshintergründe in dark mode abdunkeln */
+body.dark section[style*="background:#fff"],
+body.dark section[style*='background:#ffffff']{
+  background:rgba(8,18,38,.92)!important;
+}
+
+/* Impulse-Karten: Schrift + Hintergrund im Dark-Mode */
+body.dark .card-slider-track > div{
+  background:rgba(14,38,26,.88)!important;
+  border-color:rgba(168,213,194,.1)!important;
+}
 
 /* ── ANIMATIONS ─────────────────────────────────────────── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
