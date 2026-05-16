@@ -1,77 +1,179 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Für Väter – Waldkätzchen</title>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="wk.css">
+<link rel="stylesheet" href="wk-sections.css">
+<style>
+  .father-hero{min-height:min(82vh,840px)}
+  .father-hero .hero-overlay{background:linear-gradient(90deg,rgba(4,31,24,.84) 0%,rgba(4,31,24,.68) 48%,rgba(4,31,24,.38) 100%)}
+  .father-hero .hero-content{padding:5.8rem 2rem 4rem}
+  .father-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,410px);gap:3.4rem;align-items:center}
+  .father-hero-copy{max-width:720px}
+  .father-pill-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
+  .father-pill{display:inline-flex;align-items:center;padding:.42rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.14);color:#fff;font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:800;backdrop-filter:blur(10px)}
+  .father-glass{width:min(100%,390px);border-radius:32px;padding:1.35rem;background:rgba(255,247,230,.16);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);box-shadow:0 18px 48px rgba(4,31,24,.18)}
+  .father-glass-panel{border-radius:26px;padding:1.35rem;background:rgba(255,255,255,.93);color:var(--p1)}
+  .father-glass-kicker{font-family:'Quicksand',sans-serif;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--p3);margin-bottom:.7rem}
+  .father-glass-quote{font-family:'Quicksand',sans-serif;font-size:1.2rem;line-height:1.55;font-weight:800;margin-bottom:1rem}
+  .father-glass-list{display:grid;gap:.6rem}
+  .father-glass-item{display:flex;gap:.6rem;align-items:flex-start;font-size:.84rem;line-height:1.6;color:var(--textMid)}
+  .father-glass-item span{flex-shrink:0;color:var(--p3)}
+  .father-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .father-question-band{background:var(--p1);border-radius:32px;padding:2.4rem;color:#fff;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr);gap:2rem;align-items:center;box-shadow:0 18px 48px rgba(8,79,63,.18)}
+  .father-question-band h2{font-family:'Quicksand',sans-serif;font-size:clamp(1.55rem,3vw,2.35rem);line-height:1.2;margin-bottom:.8rem}
+  .father-question-band p{font-size:.96rem;line-height:1.84;color:rgba(255,255,255,.78)}
+  .father-question-list{display:grid;gap:.7rem}
+  .father-question-item{padding:.85rem 1rem;border-radius:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);font-family:'Quicksand',sans-serif;font-size:.86rem;font-weight:800;line-height:1.55}
+  .father-echo{background:linear-gradient(135deg,#15352D,#0F241E);color:#fff;border-radius:30px;padding:2.2rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:2rem;align-items:center}
+  .father-echo h2{font-family:'Quicksand',sans-serif;font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.22;margin-bottom:.8rem}
+  .father-echo p{font-size:.95rem;line-height:1.84;color:rgba(255,255,255,.78)}
+  .father-echo-cards{display:grid;gap:.8rem}
+  .father-echo-card{padding:1rem 1.1rem;border-radius:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14)}
+  .father-echo-card strong{display:block;font-family:'Quicksand',sans-serif;font-size:.9rem;margin-bottom:.35rem;color:#FFD23F}
+  .father-echo-card span{font-size:.84rem;line-height:1.65;color:rgba(255,255,255,.82)}
+  .father-process{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .father-process-card{background:#fff;border-radius:24px;padding:1.6rem;border:1px solid rgba(8,79,63,.08);box-shadow:0 8px 28px rgba(8,79,63,.08)}
+  .father-process-num{font-family:'Quicksand',sans-serif;font-size:2.3rem;font-weight:900;line-height:1;color:var(--p3);margin-bottom:.8rem}
+  .father-process-card h3{font-size:1.08rem;color:var(--p1);margin-bottom:.5rem}
+  .father-process-card p{font-size:.87rem;line-height:1.72;color:var(--textMid)}
+  .father-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);gap:3rem;align-items:start}
+  .father-aside{background:var(--sage);border-radius:28px;padding:2rem;border:1px solid rgba(8,79,63,.08)}
+  .father-aside h3{font-family:'Quicksand',sans-serif;font-size:1.25rem;color:var(--p1);margin-bottom:.8rem}
+  .father-aside p{font-size:.9rem;line-height:1.8;color:var(--textMid);margin-bottom:1.2rem}
+  .father-aside-list{display:grid;gap:.65rem}
+  .father-aside-item{display:flex;gap:.65rem;align-items:flex-start;font-size:.87rem;line-height:1.7;color:var(--textMid)}
+  .father-aside-item span{color:var(--p2);font-weight:900}
+  body.dark .father-glass-panel{background:rgba(20,50,35,.92);color:#C0E8D0}
+  body.dark .father-glass-item{color:rgba(180,220,200,.84)}
+  body.dark .father-process-card{background:rgba(20,50,35,.84);border-color:rgba(168,213,194,.14)}
+  body.dark .father-process-card h3{color:#C0E8D0}
+  body.dark .father-process-card p{color:rgba(180,220,200,.84)}
+  body.dark .father-aside{background:rgba(20,50,35,.78);border-color:rgba(168,213,194,.14)}
+  body.dark .father-aside h3{color:#C0E8D0}
+  body.dark .father-aside p,body.dark .father-aside-item{color:rgba(180,220,200,.84)}
+  @media(max-width:980px){.father-hero-grid,.father-question-band,.father-echo,.father-split{grid-template-columns:1fr}.father-hero-visual{display:none}.father-card-grid,.father-process{grid-template-columns:1fr 1fr}}
+  @media(max-width:768px){.father-hero{min-height:calc(100vh - 68px)}.father-hero .hero-content{padding:3.6rem 1.25rem 4rem}.father-card-grid,.father-process{grid-template-columns:1fr}.father-question-band,.father-echo{padding:1.5rem;border-radius:24px}.father-glass-panel{padding:1.15rem}}
+</style>
 </head>
 <body>
 <script src="wk.js"></script>
 <script>document.write(renderHeader('vaeter.html'));</script>
 
-<section class="hero hero-sub" style="min-height:50vh">
-  <img class="hero-img" src="background-verbinden-quer.png" alt="">
+<section class="hero father-hero">
+  <img class="hero-img" src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-verbinden-quer.png" alt="Waldkätzchen-Begleitung für Väter">
   <div class="hero-overlay" id="hero-overlay"></div>
   <canvas id="hero-canvas"></canvas>
-  <div class="hero-content" style="padding-top:6rem">
-    <div class="hero-inner">
-      <div class="breadcrumb"><a href="index.html">Start</a><span>›</span><span>Für Väter</span></div>
-      <h1 style="font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:.8rem;text-shadow:0 2px 20px rgba(0,0,0,.3)">Für Väter.<br><span style="color:var(--s1)">Ehrlich. Alltagsnah.</span></h1>
-      <p style="color:rgba(255,255,255,.85);font-size:1rem;max-width:480px;line-height:1.8;text-shadow:0 1px 8px rgba(0,0,0,.2)">Du bist da — aber vielleicht hat dir niemand gezeigt, wie. Das ändert sich hier.</p>
+  <div class="hero-content">
+    <div class="father-hero-grid">
+      <div class="father-hero-copy">
+        <div class="breadcrumb reveal"><a href="index.html">Start</a><span>›</span><span>Für Väter</span></div>
+        <p class="home-hero-eyebrow reveal" style="transition-delay:.05s">Väter &amp; Verbindung</p>
+        <h1 class="home-hero-title reveal" style="transition-delay:.12s">Du bist da.<br><em>Und trotzdem fragst du dich manchmal: Wie?</em></h1>
+        <p class="home-hero-lead reveal" style="transition-delay:.2s">Waldkätzchen ist ein ehrlicher Raum für Väter, die nicht härter werden wollen, sondern verstehender. Für mehr Verbindung mit dem eigenen Kind — und mit sich selbst.</p>
+        <div class="home-hero-actions reveal" style="transition-delay:.28s">
+          <a href="kontakt.html" class="btn-primary">🌿 Erstgespräch anfragen</a>
+          <a href="#vater-echos" class="btn-ghost">Alte Stimmen verstehen</a>
+        </div>
+        <div class="father-pill-row reveal" style="transition-delay:.36s">
+          <span class="father-pill">Ohne Klischees</span>
+          <span class="father-pill">Alltagsnah</span>
+          <span class="father-pill">Heilpädagogisch fundiert</span>
+          <span class="father-pill">Mit Blick auf alte Muster</span>
+        </div>
+      </div>
+      <div class="father-hero-visual reveal" style="transition-delay:.24s">
+        <div class="father-glass">
+          <div class="father-glass-panel">
+            <div class="father-glass-kicker">Typische Vaterfrage</div>
+            <div class="father-glass-quote">„Ich will anders reagieren. Aber in dem Moment bin ich schon zu laut.“</div>
+            <div class="father-glass-list">
+              <div class="father-glass-item"><span>✦</span><p>Was springt da in mir an?</p></div>
+              <div class="father-glass-item"><span>✦</span><p>Was braucht mein Kind wirklich?</p></div>
+              <div class="father-glass-item"><span>✦</span><p>Wie finde ich den nächsten machbaren Schritt?</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="padding:5rem 0">
-  <div class="container grid-2">
+<section style="padding:5.4rem 0;background:#fff">
+  <div class="container father-split">
     <div>
       <div class="reveal"><div class="section-tag">Für Väter</div></div>
-      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Du musst das nicht alleine herausfinden</h2></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Du musst das nicht alleine herausfinden.</h2></div>
       <div class="reveal" style="transition-delay:.15s">
-        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Viele Väter wollen mehr sein — präsenter, verständnisvoller, verbundener. Aber niemand hat ihnen gezeigt, wie das geht. Waldkätzchen gibt dir eine Sprache und einen Raum dafür.</p>
-        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Ohne Klischees. Ohne „Mach es so wie damals". Mit ehrlichem Blick auf das, was gerade wirklich passiert — in dir und in deiner Familie.</p>
-        <a href="coaching.html" class="btn-primary">Begleitung für Väter</a>
+        <p style="font-size:.98rem;color:var(--textMid);line-height:1.9;margin-bottom:1rem" class="dk-mid">Viele Väter wollen mehr sein — präsenter, verständnisvoller, verbundener. Aber ihnen fehlen oft Sprache, Vorbilder oder Räume, in denen sie ehrlich über Unsicherheit sprechen können.</p>
+        <p style="font-size:.92rem;color:var(--textSoft);line-height:1.85;margin-bottom:1.9rem" class="dk-soft">Waldkätzchen beginnt nicht mit Schuld. Es beginnt mit Hinschauen: auf dein Kind, auf dich, auf das, was zwischen euch passiert.</p>
+        <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+          <a href="kontakt.html" class="btn-primary">Begleitung für Väter</a>
+          <a href="#vater-wege" class="btn-outline">Wie das abläuft</a>
+        </div>
       </div>
     </div>
-    <div class="hide-mobile">
-      <div style="background:var(--sage);border-radius:24px;padding:2rem">
-        <div class="grow-item"><span class="grow-icon">🌿</span> Du fragst dich: Was steckt hinter dem Trotz?</div>
-        <div class="grow-item"><span class="grow-icon">🌱</span> Du willst da sein — aber weißt nicht wie</div>
-        <div class="grow-item"><span class="grow-icon">🦊</span> Alte Muster wollen sich wiederholen</div>
-        <div class="grow-item"><span class="grow-icon">🔥</span> Manchmal wirst du laut — und bereust es</div>
-        <div class="grow-item" style="border:none"><span class="grow-icon">💡</span> Du willst Verbindung — echte Verbindung</div>
+    <aside class="father-aside reveal" style="transition-delay:.18s">
+      <h3>Vielleicht kennst du das:</h3>
+      <p>Diese Fragen tauchen selten in einem ruhigen Moment auf. Meistens mitten im Familienalltag.</p>
+      <div class="father-aside-list">
+        <div class="father-aside-item"><span>01</span><div>Du willst ruhig bleiben — und wirst doch laut.</div></div>
+        <div class="father-aside-item"><span>02</span><div>Du liebst dein Kind, aber manche Reaktionen überfordern dich.</div></div>
+        <div class="father-aside-item"><span>03</span><div>Du merkst, dass alte Sätze aus der eigenen Kindheit wieder auftauchen.</div></div>
+        <div class="father-aside-item"><span>04</span><div>Du willst Verbindung, nicht bloß Funktionieren.</div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section style="padding:5rem 0;background:var(--sage)">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Was dich erwartet</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Kein Väterklischee. Ein ehrlicher Begleitweg.</h2></div>
+    <div class="father-card-grid">
+      <article class="reveal prob-card"><div class="prob-icon" style="background:rgba(8,79,63,.1)"><span style="font-size:1.5rem">🔍</span></div><h3 class="dk-h" style="font-size:1rem;color:var(--p1);margin-bottom:.5rem">Verstehen ohne Bewertung</h3><p class="dk-mid" style="font-size:.85rem;color:var(--textMid);line-height:1.72">Was steckt hinter dem Verhalten deines Kindes — und hinter deinen eigenen Reaktionen?</p></article>
+      <article class="reveal prob-card" style="transition-delay:.08s"><div class="prob-icon" style="background:rgba(8,79,63,.1)"><span style="font-size:1.5rem">🌲</span></div><h3 class="dk-h" style="font-size:1rem;color:var(--p1);margin-bottom:.5rem">Alte Muster erkennen</h3><p class="dk-mid" style="font-size:.85rem;color:var(--textMid);line-height:1.72">Wie wurde mit Gefühlen in deiner Kindheit umgegangen — und was davon wirkt heute weiter?</p></article>
+      <article class="reveal prob-card" style="transition-delay:.16s"><div class="prob-icon" style="background:rgba(8,79,63,.1)"><span style="font-size:1.5rem">🤝</span></div><h3 class="dk-h" style="font-size:1rem;color:var(--p1);margin-bottom:.5rem">Verbindung aufbauen</h3><p class="dk-mid" style="font-size:.85rem;color:var(--textMid);line-height:1.72">Kleine, alltägliche Wege, die echte Verbindung entstehen lassen — ohne große Gesten.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="vater-echos" style="padding:5.4rem 0;background:#fff">
+  <div class="container">
+    <div class="father-echo reveal">
+      <div>
+        <div class="section-tag" style="color:var(--s3)">Der alte Wald</div>
+        <h2>Manche Väter tragen Stimmen weiter, die sie nie behalten wollten.</h2>
+        <p>„Reiß dich zusammen.“ „Stell dich nicht so an.“ „Sei doch mal ein Mann.“ Solche Echos prägen, wie wir heute mit Nähe, Hilflosigkeit und starken Gefühlen umgehen. Waldkätzchen hilft, sie zu erkennen — ohne in Schuld stecken zu bleiben.</p>
+        <div style="margin-top:1.4rem"><a href="index.html#echos" class="btn btn-gh">Zum alten Wald →</a></div>
+      </div>
+      <div class="father-echo-cards">
+        <div class="father-echo-card"><strong>Echo: Härte</strong><span>„Ich darf keine Unsicherheit zeigen.“</span></div>
+        <div class="father-echo-card"><strong>Echo: Kontrolle</strong><span>„Wenn ich es im Griff habe, ist alles gut.“</span></div>
+        <div class="father-echo-card"><strong>Echo: Rückzug</strong><span>„Lieber still sein, als etwas Falsches sagen.“</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--sage);padding:5rem 0">
+<section id="vater-wege" style="padding:5rem 0;background:var(--sage)">
   <div class="container">
-    <div class="reveal"><div class="section-tag">Was dich erwartet</div></div>
-    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Kein Kurs. Ein echter Begleiter.</h2></div>
-    <div class="grid-3">
-      <div class="reveal prob-card" style="transition-delay:.0s">
-        <div class="prob-icon" style="background:rgba(8,79,63,.1)"><span style="font-size:1.5rem">🔍</span></div>
-        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Verstehen ohne Bewertung</h4>
-        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Was steckt hinter dem Verhalten deines Kindes — und hinter deinen eigenen Reaktionen?</p>
-      </div>
-      <div class="reveal prob-card" style="transition-delay:.08s">
-        <div class="prob-icon" style="background:rgba(8,79,63,.1)"><span style="font-size:1.5rem">🌊</span></div>
-        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Alte Muster erkennen</h4>
-        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Wie wurde mit Gefühlen in deiner Kindheit umgegangen — und was willst du anders machen?</p>
-      </div>
-      <div class="reveal prob-card" style="transition-delay:.16s">
-        <div class="prob-icon" style="background:rgba(8,79,63,.1)"><span style="font-size:1.5rem">🤝</span></div>
-        <h4 style="font-size:1rem;color:var(--p1);margin-bottom:.5rem;font-family:'Quicksand',sans-serif" class="dk-h">Verbindung aufbauen</h4>
-        <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Kleine, alltägliche Wege, die echte Verbindung entstehen lassen — ohne große Gesten.</p>
-      </div>
+    <div class="reveal"><div class="section-tag">So kann Begleitung aussehen</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Drei Schritte, die nicht perfekt sein müssen.</h2></div>
+    <div class="father-process">
+      <article class="father-process-card reveal"><div class="father-process-num">01</div><h3>Sortieren</h3><p>Was passiert konkret? Wo kippen Situationen? Welche Gefühle, Erwartungen und Echos wirken mit?</p></article>
+      <article class="father-process-card reveal" style="transition-delay:.08s"><div class="father-process-num">02</div><h3>Verstehen</h3><p>Wir schauen nicht nur auf Verhalten, sondern auch auf Bedürfnisse, Beziehung und das, was dich selbst triggert.</p></article>
+      <article class="father-process-card reveal" style="transition-delay:.16s"><div class="father-process-num">03</div><h3>Anders handeln</h3><p>Nicht alles auf einmal. Ein machbarer nächster Schritt, der im Alltag wirklich eine Chance hat.</p></article>
     </div>
+    <div class="reveal" style="text-align:center;margin-top:2.4rem"><a href="kontakt.html" class="btn-primary">🌿 Erstgespräch anfragen</a></div>
   </div>
 </section>
 
 <section style="padding:5rem 0">
-  <div style="max-width:800px;margin:0 auto;padding:0 2rem">
+  <div style="max-width:920px;margin:0 auto;padding:0 2rem">
     <div class="reveal"><div class="section-tag">Impulse für Väter</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Aus dem Waldtagebuch</h2></div>
     <div class="reveal" style="transition-delay:.15s">
@@ -86,6 +188,6 @@
 </section>
 
 <script>document.write(renderFooter());</script>
-<script>buildImpulse('impulse-vaeter', 4);</script>
+<script>buildImpulse('impulse-vaeter',4);</script>
 </body>
 </html>
