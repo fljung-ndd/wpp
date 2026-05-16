@@ -49,6 +49,15 @@
 }
 @media(max-width:860px){#welten-strip-container{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:520px){#welten-strip-container{grid-template-columns:repeat(2,1fr);}}
+
+/* ── HERO ANPASSUNGEN ─────────────────────────────────── */
+/* Verhindert, dass CTAs auf kleinen Viewports abgeschnitten werden */
+.hero{align-items:flex-start}
+.hero .hero-content{padding-top:min(16vh,6rem);padding-bottom:4rem}
+@media(max-width:768px){
+  .hero .hero-content{padding-top:4.5rem!important;padding-bottom:3rem!important}
+  .hero .hero-inner{max-width:100%}
+}
 </style>
 </head>
 <body>
@@ -67,7 +76,7 @@
         <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">🌿 Das Waldkätzchen-Konzept</div>
       </div>
       <div class="reveal" style="transition-delay:.2s">
-        <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:.6rem;color:#fff;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.3)">
+        <h1 style="font-size:clamp(2rem,5vw,3.8rem);margin-bottom:.7rem;color:#fff;line-height:1.08;text-shadow:0 3px 28px rgba(0,0,0,.4);font-weight:800;letter-spacing:-.025em;font-family:'Quicksand',sans-serif">
           Manchmal braucht es<br>einen anderen <span style="color:var(--s1)">Blick,</span><br>um neue Wege zu sehen.
         </h1>
       </div>

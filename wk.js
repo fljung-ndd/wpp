@@ -91,74 +91,74 @@ const TIER_CARDS = [
   {
     id:'luis',
     img: WK_ASSETS+'8635fe4c-40e7-4e5f-8a9f-33530784ac43-removebg-preview.png',
-    name:'Luis', role:'Mut · Entdecken · Lautstärke', accent:'#FF7A1A',
+    name:'Luis', role:'Chaos · Impuls · Überreizung', accent:'#FF7A1A',
     bgColor:'rgba(255,122,26,.08)', welt:'Lichtung',
-    desc:'Neugierig, manchmal impulsiv, immer mit offenem Herzen. Luis zeigt, wie laut Überforderung werden kann.',
-    quote:'„Wenn alles zu viel wird, wird es laut.“',
-    tags:['Bewegung','Wachstum','Impuls']
+    desc:'Luis platzt raus, wenn es zu viel wird. Nicht aus böser Absicht — er ist schlicht überwältigt. Er zeigt, wie Innen-Chaos nach außen dringt.',
+    quote:'„Wenn alles zu viel wird, platzt es raus.”',
+    tags:['Chaos','Impuls','Überreizung']
   },
   {
-    id:'yella',
+    id:'iella',
     img: WK_ASSETS+'katze-kissen-ruhe.png',
-    name:'Yella', role:'Wärme · Verbindung · Fürsorge', accent:'#FFD23F',
+    name:'Iella', role:'Stabilität · Klarheit · Selbstwert', accent:'#FFD23F',
     bgColor:'rgba(255,210,63,.08)', welt:'Lichtung',
-    desc:'Sie spürt schnell, wie es anderen geht. Nähe entsteht durch Zuhören und echte Präsenz.',
-    quote:'„Manchmal reicht es, einfach da zu sein.“',
-    tags:['Empathie','Ruhe','Fürsorge']
+    desc:'Iella weiß, wer sie ist — und das gibt ihr Halt. Ihr Selbstwert hängt nicht von anderen ab. Ihre Klarheit macht ihr Umfeld sicherer.',
+    quote:'„Ich weiß, wer ich bin. Das reicht.”',
+    tags:['Stabilität','Klarheit','Selbstwert']
   },
   {
     id:'etana',
     img: WK_ASSETS+'etanaLogo.png',
-    name:'Etana', role:'Stille · Rückzug · Tiefe', accent:'#6BA5CC',
+    name:'Etana', role:'Rückzug · Schutz · Verschwinden', accent:'#6BA5CC',
     bgColor:'rgba(107,165,204,.10)', welt:'Höhle',
-    desc:'Etana zieht sich zurück, wenn die Welt zu laut wird. Rückzug ist nicht falsch, sondern manchmal Schutz.',
-    quote:'„Im Stillen findet man am meisten.“',
+    desc:'Etana zieht sich zurück, wenn die Welt zu viel wird. Nicht aus Gleichgültigkeit — sondern weil Verschwinden ihr einziger bekannter Schutz ist.',
+    quote:'„Wenn ich nicht da bin, kann mich nichts treffen.”',
     tags:['Rückzug','Schutz','Höhle']
   },
   {
     id:'elfriede',
     img: WK_ASSETS+'themen2.png',
-    name:'Elfriede', role:'Beobachtung · Reflexion · Muster', accent:'#008C89',
+    name:'Elfriede', role:'Anpassung · Spannung · Gefallenwollen', accent:'#008C89',
     bgColor:'rgba(0,140,137,.08)', welt:'Alter Wald',
-    desc:'Elfriede schaut hin, bevor sie urteilt. Sie hilft dabei, alte Muster und leise Signale zu erkennen.',
-    quote:'„Ich schaue hin, bevor ich urteile.“',
-    tags:['Achtsamkeit','Muster','Klarheit']
+    desc:'Elfriede passt sich an — immer. Sie spürt, was andere brauchen, und stellt sich darauf ein. Die innere Spannung wächst, während die äußere Harmonie bleibt.',
+    quote:'„Hauptsache, alle sind zufrieden.”',
+    tags:['Anpassung','Spannung','Gefallenwollen']
   },
   {
-    id:'pinguin',
+    id:'niko',
     img: WK_ASSETS+'helferNetzwerk.png',
-    name:'Der Pinguin', role:'Anderssein · Leichtigkeit · Selbstannahme', accent:'#A8D5C2',
-    bgColor:'rgba(168,213,194,.12)', welt:'Felsenmeer',
-    desc:'Der Pinguin zeigt: Anderssein ist keine Schwäche. Man muss nicht hineinpassen, um wertvoll zu sein.',
-    quote:'„Anders sein ist keine Schwäche.“',
-    tags:['Mut','Selbstannahme','Einzigartigkeit']
+    name:'Niko', role:'Autonomie · Freiheit · Eigenweg', accent:'#A8D5C2',
+    bgColor:'rgba(168,213,194,.12)', welt:'Lichtung',
+    desc:'Niko geht seinen eigenen Weg — auch wenn andere das nicht verstehen. Er zeigt: Wer sich selbst treu bleibt, braucht keine Erlaubnis.',
+    quote:'„Ich muss nicht in eine Schublade passen.”',
+    tags:['Autonomie','Freiheit','Eigenweg']
   },
   {
     id:'tigi',
     img: WK_ASSETS+'reflexion.png',
-    name:'Tigi', role:'Neugier · Energie · Lebendigkeit', accent:'#EF4F7A',
-    bgColor:'rgba(239,79,122,.08)', welt:'Lichtung',
-    desc:'Tigi bringt Bewegung hinein. Manchmal braucht es nicht die perfekte Lösung, sondern den nächsten Schritt.',
-    quote:'„Los geht\'s — der Rest kommt von selbst.“',
-    tags:['Energie','Neugier','Mut']
+    name:'Tigi', role:'Kontrolle · Macht · harte Grenze', accent:'#EF4F7A',
+    bgColor:'rgba(239,79,122,.08)', welt:'Felsenmeer',
+    desc:'Tigi setzt klare Grenzen — manchmal zu klar. Kontrolle gibt ihr Sicherheit, Macht gibt ihr Halt. Was dahinter steckt, lässt sie selten zeigen.',
+    quote:'„Ich bestimme, was hier passiert.”',
+    tags:['Kontrolle','Macht','Grenze']
   },
   {
     id:'katarina',
     img: WK_ASSETS+'besprechungen.png',
-    name:'Kata-rina', role:'Ordnung · Struktur · Sicherheit', accent:'#9B88C8',
-    bgColor:'rgba(155,136,200,.08)', welt:'Felsenmeer',
-    desc:'Kata-rina findet Halt in Struktur. Routinen sind nicht eng — manchmal sind sie Schutz.',
-    quote:'„Wenn ich weiß, wo ich stehe, kann ich mich bewegen.“',
-    tags:['Struktur','Ordnung','Sicherheit']
+    name:'Kata-Rina', role:'Nähe · Klammern · Bindungsangst', accent:'#9B88C8',
+    bgColor:'rgba(155,136,200,.08)', welt:'Nebel',
+    desc:'Kata-Rina sehnt sich nach Nähe — und hat gleichzeitig Angst davor, sie zu verlieren. Das Klammern ist kein Mangel, es ist ein Hilferuf.',
+    quote:'„Bitte geh nicht weg. Bitte bleib nicht zu nah.”',
+    tags:['Nähe','Klammern','Bindungsangst']
   },
   {
-    id:'wada',
+    id:'wadda',
     img: WK_ASSETS+'uebersicht.png',
-    name:'Wada', role:'Weisheit · Verbindung · Weitblick', accent:'#7A9A4A',
+    name:'Wadda', role:'Reduktion · Sprachlosigkeit · Rückzug', accent:'#7A9A4A',
     bgColor:'rgba(122,154,74,.08)', welt:'Alter Wald',
-    desc:'Wada sieht Zusammenhänge. Sie verbindet Figuren, Geschichten, Menschen und den ganzen Wald.',
-    quote:'„Alles hängt zusammen. Alles hat seinen Grund.“',
-    tags:['Weisheit','Überblick','Verbindung']
+    desc:'Wadda hat gelernt, weniger zu sein. Weniger laut, weniger sichtbar, weniger fordernd. Sprachlosigkeit ist ihre Form des Rückzugs aus Verbindung.',
+    quote:'„Ich mach mich einfach kleiner.”',
+    tags:['Reduktion','Stille','Rückzug']
   }
 ];
 
@@ -234,28 +234,28 @@ const WELTEN = [
     bg:'#DCE9F5', text:'#1A3650', sub:'#3A6080', tagBg:'#B4CCE4',
     kw:'Unklarheit · Verwirrung', tag:'alles verschwimmt',
     desc:'Wenn Gedanken kreisen und keine Klarheit entsteht. Der Nebel hat einen Sinn.',
-    tiere:['Elfriede'], angebote:['Erstgespräch','App: Gefühlscheck'],
+    tiere:['Kata-Rina'], angebote:['Erstgespräch','App: Gefühlscheck'],
   },
   {
     id:'felsen', icon:'🪨', name:'Das Felsenmeer',
     bg:'#D6D2CA', text:'#2A2820', sub:'#5a5650', tagBg:'#B8B4AC',
     kw:'Blockiert · Festgehalten', tag:'geht nicht weiter',
     desc:'Blockaden, die nicht weichen. Altes, das sich festgesetzt hat.',
-    tiere:['Kata-rina','Der Pinguin'], angebote:['Systemische Aufstellung','Familienbegleitung'],
+    tiere:['Kata-Rina','Tigi'], angebote:['Systemische Aufstellung','Familienbegleitung'],
   },
   {
     id:'altwald', icon:'🌲', name:'Der alte Wald',
     bg:'#E6F0DC', text:'#1A3008', sub:'#3A6018', tagBg:'#B8D898',
     kw:'Echos · Alte Muster', tag:'alte Stimmen',
     desc:'Was nachhall aus der Kindheit. Muster, die sich wiederholen.',
-    tiere:['Elfriede','Wada'], angebote:['Väter-Begleitung','Kurs: Echos'],
+    tiere:['Elfriede','Wadda'], angebote:['Väter-Begleitung','Kurs: Echos'],
   },
   {
     id:'lichtung', icon:'☀️', name:'Die Lichtung',
     bg:'#FEF3E2', text:'#3E2208', sub:'#7A4810', tagBg:'#FAC775',
     kw:'Heimat · Ankommen', tag:'die Figuren',
     desc:'Wo die Figuren leben. Hier ist Raum zum Durchatmen, Fühlen und Verbinden.',
-    tiere:['Luis','Yella','Tigi'], angebote:['App: Lichtungsbereich','Waldabenteuer'],
+    tiere:['Luis','Iella','Niko'], angebote:['App: Lichtungsbereich','Waldabenteuer'],
   },
 ];
 
