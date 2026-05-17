@@ -44,6 +44,131 @@
 @media(max-width:1000px){#katzen-werkzeuge-grid{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:640px){#katzen-werkzeuge-grid{grid-template-columns:repeat(2,1fr);}}
 
+/* ── ISSUE 36: Wärmere Waldpanels & erweiterte Startseitenbereiche ── */
+:root{
+  --wk-deep-panel:linear-gradient(145deg,var(--fuehlerin-dark),var(--lichtung-dark));
+  --wk-deep-panel-soft:linear-gradient(145deg,rgba(18,72,64,.95),rgba(26,64,24,.90));
+  --wk-deep-panel-edge:rgba(192,232,224,.18);
+  --wk-deep-panel-copy:rgba(232,245,239,.84);
+  --wk-deep-panel-muted:rgba(212,235,225,.70);
+  --wk-panel-card:rgba(255,255,255,.105);
+  --wk-panel-card-border:rgba(255,255,255,.16);
+}
+
+.wk-deep-panel,
+.wk-panel-frame{
+  background:var(--wk-deep-panel)!important;
+  border-color:var(--wk-deep-panel-edge)!important;
+  box-shadow:0 24px 72px rgba(18,72,64,.18)!important;
+}
+.wk-deep-panel-inner,
+.wk-panel-glass,
+.wk-deep-card{
+  background:var(--wk-panel-card)!important;
+  border-color:var(--wk-panel-card-border)!important;
+}
+.wk-deep-panel h3,
+.wk-deep-title{color:#F7FCFA!important}
+.wk-deep-panel p,
+.wk-deep-copy{color:var(--wk-deep-panel-copy)!important}
+.wk-deep-panel em,
+.wk-deep-muted{color:var(--wk-deep-panel-muted)!important}
+
+/* Storypanel */
+#warum-waldkaetzchen aside > div:first-child{background:var(--wk-deep-panel)!important;border-color:var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.18)!important}
+#warum-waldkaetzchen aside > div:first-child > div{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.18)!important}
+#warum-waldkaetzchen aside > div:first-child div[style*="rgba(255,255,255,.05)"]{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.16)!important}
+#warum-waldkaetzchen aside strong{color:#F7FCFA!important}
+#warum-waldkaetzchen aside span[style*="#b8b4ac"]{color:rgba(232,245,239,.80)!important}
+
+/* Waldwelt */
+#waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child{background:var(--wk-deep-panel)!important;border-color:var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.18)!important}
+#waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child > div{background-image:linear-gradient(180deg,rgba(18,72,64,.18),rgba(18,72,64,.78)),url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png')!important}
+#waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child > div > div{background:rgba(18,72,64,.84)!important;border-color:rgba(255,255,255,.18)!important}
+.wk-world-bridge{background:var(--wk-deep-panel)!important;border:1px solid var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.14)!important}
+.wk-world-bridge p{color:var(--wk-deep-panel-copy)!important}
+
+/* 5 Waldkätzchen */
+#fuenf-waldkaetzchen aside > div:first-child{background:linear-gradient(145deg,var(--beobachterin-dark),var(--fuehlerin-dark))!important;border-color:rgba(212,242,246,.20)!important;box-shadow:0 24px 72px rgba(26,106,120,.16)!important}
+#fuenf-waldkaetzchen aside > div:first-child > div{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.18)!important}
+.wk-cats-glance,
+.wk-cats-example-steps > div{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.16)!important}
+.wk-cats-glance strong,.wk-cats-example-steps strong{color:#F7FCFA!important}
+.wk-cats-glance em,.wk-cats-example-steps em{color:rgba(232,245,239,.80)!important}
+.wk-cats-example{background:linear-gradient(145deg,var(--beobachterin-dark),var(--fuehlerin-dark))!important;border:1px solid rgba(212,242,246,.20)!important;box-shadow:0 24px 72px rgba(26,106,120,.14)!important}
+.wk-cats-example p{color:var(--wk-deep-panel-copy)!important}
+
+/* Tiere */
+#waldtiere aside > div:first-child{background:linear-gradient(145deg,var(--lichtung-dark),var(--fuehlerin-dark))!important;border-color:var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.16)!important}
+#waldtiere aside > div:first-child > div{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.18)!important}
+.wk-animal-purpose{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.16)!important}
+.wk-animal-purpose strong{color:#F7FCFA!important}
+.wk-animal-purpose em{color:rgba(232,245,239,.80)!important}
+.wk-animal-bridge{background:linear-gradient(145deg,var(--lichtung-dark),var(--fuehlerin-dark))!important;border:1px solid var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.14)!important}
+.wk-animal-bridge p{color:var(--wk-deep-panel-copy)!important}
+
+/* Situationen */
+#situationen-aus-dem-wald{background:linear-gradient(145deg,var(--fuehlerin-dark),var(--nebel-dark))!important}
+.wk-situation-head-note,
+.wk-situation-cats,
+.wk-situation-footer{background:rgba(255,255,255,.13)!important;border-color:rgba(255,255,255,.18)!important}
+.wk-cat-look{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.16)!important}
+.wk-situation-head-note em,
+.wk-situation-footer span,
+.wk-cat-look p{color:rgba(232,245,239,.82)!important}
+.wk-situation-arrow{background:rgba(18,72,64,.94)!important;border-color:rgba(212,242,246,.24)!important}
+
+/* Mitwachsen */
+#mitwachsen aside > div:first-child{background:linear-gradient(145deg,var(--fuehlerin-dark),var(--lichtung-dark))!important;border-color:var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.16)!important}
+#mitwachsen aside > div:first-child > div{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.18)!important}
+.wk-grow-step{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.16)!important}
+.wk-grow-step strong{color:#F7FCFA!important}
+.wk-grow-step span{color:rgba(232,245,239,.80)!important}
+
+/* Dark Mode bleibt stimmig und gut lesbar */
+body.dark .wk-situation-head-note,
+body.dark .wk-situation-cats,
+body.dark .wk-situation-footer,
+body.dark .wk-cat-look,
+body.dark .wk-grow-step,
+body.dark .wk-animal-purpose,
+body.dark .wk-cats-glance,
+body.dark .wk-cats-example-steps > div{
+  background:rgba(255,255,255,.10)!important;
+  border-color:rgba(255,255,255,.15)!important;
+}
+body.dark .wk-grow-point{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.12)!important}
+body.dark .wk-grow-point strong{color:#EAF8F3!important}
+
+/* Für wen / Angebote ausbauen */
+.audience-intro,.offers-intro{max-width:880px;margin-bottom:2rem;color:var(--textMid);font-size:1rem;line-height:1.9}
+.fw-card{display:flex;flex-direction:column;min-height:360px}
+.fw-card-kicker,.offer-meta-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;font-family:'Quicksand',sans-serif;color:var(--fuehlerin);margin-bottom:.45rem}
+.fw-card-copy{font-size:.85rem;color:var(--textMid);line-height:1.72;margin-bottom:.85rem}
+.fw-card-why{margin-top:auto;padding:.85rem .9rem;border-radius:16px;background:var(--lichtung-bg);border:1px solid rgba(8,79,63,.08);font-size:.8rem;line-height:1.65;color:var(--p1);font-weight:700;font-family:'Quicksand',sans-serif}
+body.dark .fw-card-why{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#EAF8F3}
+.offer-card-expanded{min-height:520px}
+.offer-pills{display:flex;flex-wrap:wrap;gap:.45rem;margin:.75rem 0 .95rem}
+.offer-pill{display:inline-flex;align-items:center;gap:.3rem;padding:.36rem .62rem;border-radius:999px;background:var(--lichtung-bg);border:1px solid rgba(8,79,63,.10);font-family:'Quicksand',sans-serif;font-size:.69rem;font-weight:800;color:var(--p1)}
+body.dark .offer-pill{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12);color:#EAF8F3}
+.offer-meta{display:grid;gap:.8rem;margin-top:.75rem}
+.offer-meta-block{padding:.85rem .9rem;border-radius:16px;background:#fff;border:1px solid rgba(8,79,63,.08)}
+body.dark .offer-meta-block{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+.offer-meta-block p{font-size:.8rem;color:var(--textMid);line-height:1.65;margin:0}
+body.dark .offer-meta-block p{color:rgba(232,245,239,.82)}
+.offer-cta{margin-top:auto;padding-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:800;font-family:'Quicksand',sans-serif}
+.offer-support-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.25rem;margin-top:1.5rem}
+.offer-support-box{border-radius:24px;padding:1.4rem 1.45rem;border:1px solid rgba(8,79,63,.08);background:#fff;box-shadow:0 16px 40px rgba(17,29,18,.05)}
+.offer-support-box--app{background:var(--beobachterin-bg)}
+.offer-support-box--materials{background:var(--macherin-bg)}
+.offer-support-box h3{font-size:1.15rem;color:var(--p1);margin-bottom:.55rem}
+.offer-support-box p{font-size:.87rem;line-height:1.75;color:var(--textMid);margin-bottom:.8rem}
+.offer-support-box a{font-family:'Quicksand',sans-serif;font-weight:800;font-size:.84rem;color:var(--p1)}
+body.dark .offer-support-box{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)}
+body.dark .offer-support-box h3{color:#EAF8F3}
+body.dark .offer-support-box p{color:rgba(232,245,239,.82)}
+body.dark .offer-support-box a{color:#FDF3C0}
+@media(max-width:1020px){.offer-support-grid{grid-template-columns:1fr}.offer-card-expanded{min-height:auto}.fw-card{min-height:auto}}
 
 /* ── NEUE STARTSEITEN-SEKTIONEN / ISSUES 27, 28, 29, 30, 31, 32 ── */
 
@@ -57,7 +182,6 @@
   #warum-waldkaetzchen aside > div > div{padding:1.1rem!important}
   #warum-waldkaetzchen aside > div + div{position:static!important;display:inline-block;margin-top:1rem}
 }
-
 
 .wk-world-grid{
   display:grid;
@@ -107,7 +231,6 @@
   #waldwelt-landkarte .wk-world-intro-grid > div:last-child > div > div{min-height:340px!important}
   #waldwelt-landkarte .wk-world-intro-grid > div:last-child > div + div{position:static!important;display:inline-block;margin-top:1rem}
 }
-
 
 .wk-cats-intro-chip{
   display:inline-flex;
@@ -213,7 +336,6 @@
   #fuenf-waldkaetzchen aside > div + div{position:static!important;display:inline-block;margin-top:1rem}
 }
 
-
 .wk-animal-purpose{
   display:flex;
   gap:.85rem;
@@ -281,7 +403,6 @@
   #waldtiere aside > div > div{padding:1.15rem!important;min-height:auto!important}
   #waldtiere aside > div + div{position:static!important;display:inline-block;margin-top:1rem}
 }
-
 
 .wk-situation-head{
   display:grid;
@@ -471,7 +592,6 @@
   .wk-situation-footer{padding:1rem}
 }
 
-
 .wk-grow-points{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -614,23 +734,23 @@
 </div>
 
 <!-- ═══ KERN-AUSSAGE ════════════════════════════════════════════════ -->
-<section style="background:#0d1a0f;padding:4rem 0;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(74,184,200,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(232,192,48,.05) 0%,transparent 60%);pointer-events:none"></div>
+<section style="background:linear-gradient(145deg,var(--fuehlerin-dark),var(--lichtung-dark));padding:4rem 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(74,184,200,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(232,192,48,.10) 0%,transparent 60%);pointer-events:none"></div>
   <div class="container" style="position:relative;z-index:1;max-width:760px;text-align:center">
     <div class="reveal">
-      <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1.05rem,2.2vw,1.5rem);font-weight:700;line-height:2;color:#e8e4db">
+      <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1.05rem,2.2vw,1.5rem);font-weight:700;line-height:2;color:#F7FCFA">
         Verhalten ist kein Feind.<br>
-        <span style="color:var(--denker)">Verhalten ist eine Sprache.</span><br>
+        <span style="color:var(--denker-light)">Verhalten ist eine Sprache.</span><br>
         Die Figuren zeigen, was sichtbar ist.<br>
         Der Wald zeigt, was mitwirkt.<br>
         Die Waldkätzchen helfen, hinzusehen.
       </p>
     </div>
     <div class="reveal" style="transition-delay:.15s">
-      <p style="font-size:.85rem;color:rgba(255,255,255,.35);font-family:'Quicksand',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:1.6rem">Veränderung beginnt nicht mit Druck — sondern mit Verstehen.</p>
+      <p style="font-size:.85rem;color:rgba(232,245,239,.72);font-family:'Quicksand',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:1.6rem">Veränderung beginnt nicht mit Druck — sondern mit Verstehen.</p>
     </div>
     <div class="reveal" style="transition-delay:.25s;margin-top:2rem">
-      <a href="konzept.html" style="font-size:.85rem;color:var(--denker);font-weight:700;font-family:'Quicksand',sans-serif;border-bottom:1px solid rgba(232,192,48,.35);padding-bottom:2px">Das Konzept entdecken →</a>
+      <a href="konzept.html" style="font-size:.85rem;color:var(--denker-light);font-weight:700;font-family:'Quicksand',sans-serif;border-bottom:1px solid rgba(253,243,192,.45);padding-bottom:2px">Das Konzept entdecken →</a>
     </div>
   </div>
 </section>
@@ -665,827 +785,48 @@
   </div>
 </section>
 
-<!-- Entwurf / Baustein zu Issue #27: persönlicher Storybereich für die Startseite -->
-<section id="warum-waldkaetzchen" style="padding:5rem 0;background:#fff;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:auto -8% -18% auto;width:min(520px,60vw);height:min(520px,60vw);border-radius:50%;background:radial-gradient(circle,rgba(232,192,48,.12) 0%,rgba(232,192,48,.04) 42%,transparent 72%);pointer-events:none"></div>
-  <div style="position:absolute;inset:10% auto auto -10%;width:min(420px,52vw);height:min(420px,52vw);border-radius:50%;background:radial-gradient(circle,rgba(74,184,200,.11) 0%,rgba(74,184,200,.035) 44%,transparent 72%);pointer-events:none"></div>
-
-  <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:center" class="wk-story-grid">
-      <div>
-        <div class="reveal"><div class="section-tag">Warum es Waldkätzchen gibt</div></div>
-        <div class="reveal" style="transition-delay:.08s">
-          <h2 class="section-h2 dk-h" style="max-width:760px;margin-bottom:1rem">Ich wollte dem Druck etwas entgegensetzen.</h2>
-        </div>
-        <div class="reveal" style="transition-delay:.14s">
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:720px;margin-bottom:1rem" class="dk-mid">
-            Waldkätzchen ist aus vielen Jahren entstanden, in denen ich funktioniert habe. Ich habe Verantwortung übernommen, Dinge aufgebaut, war erfolgreich — und mich dabei trotzdem oft nicht wirklich verbunden gefühlt. Nicht mit anderen. Manchmal auch nicht mit mir selbst.
-          </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:720px;margin-bottom:1rem" class="dk-mid">
-            Alte Stimmen, Erwartungen und negative Glaubenssätze können laut werden. Sie können verletzen, klein machen und Rückzug scheinbar sicherer wirken lassen als Begegnung. Ich kenne dieses Gefühl. Und ich kenne den Wunsch, nicht immer kämpfen zu müssen, sondern wieder Raum für Verbindung zu finden.
-          </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:720px;margin-bottom:1.35rem" class="dk-mid">
-            Gleichzeitig erlebe ich in meinem Leben und in meiner heilpädagogischen Arbeit, wie schnell Verhalten bewertet wird — besonders dann, wenn Kinder, Familien oder Menschen mit besonderen Wahrnehmungen eigentlich etwas ganz anderes brauchen: Verständnis, Orientierung, einen sicheren Umweg ins Gespräch.
-          </p>
-        </div>
-
-        <div class="reveal" style="transition-delay:.2s;background:var(--lichtung-bg);border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.35rem 1.5rem;max-width:760px;margin:1.6rem 0 1.8rem">
-          <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.2rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
-            Darum gibt es Waldkätzchen: um Situationen nicht vorschnell zu bewerten, sondern gemeinsam hinzuschauen — auf Gefühle, auf das, was mitwirkt, und auf kleine Wege zurück in Verbindung.
-          </p>
-        </div>
-
-        <div class="reveal" style="transition-delay:.26s">
-          <p style="font-size:.95rem;color:var(--textSoft);line-height:1.85;max-width:720px;margin-bottom:1.7rem" class="dk-soft">
-            Waldkätzchen ist mein Herzensprojekt. Lange gelebt, jetzt weiterentwickelt, damit diese Perspektive für mehr Menschen zugänglich wird: für Familien, für Väter, für Kinder — und für alle, die sich und andere besser verstehen möchten.
-          </p>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap">
-            <a href="konzept.html" class="btn-outline">Das Waldkätzchen-Konzept entdecken →</a>
-            <a href="ueber-mich.html" class="btn-primary">Mehr über meinen Weg</a>
-          </div>
-        </div>
-      </div>
-
-      <aside class="reveal" style="transition-delay:.18s;position:relative">
-        <div style="background:#152015;border-radius:28px;padding:1.4rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 26px 80px rgba(21,32,21,.16)">
-          <div style="background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:1.45rem">
-            <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.8rem">Aus Erfahrung gewachsen</div>
-            <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:1.35rem;line-height:1.35;margin-bottom:1rem">Nicht gegen Menschen. Für Verbindung.</h3>
-            <div style="display:flex;flex-direction:column;gap:.8rem">
-              <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:.85rem .95rem">
-                <span style="font-size:1.15rem;line-height:1.2">🌫️</span>
-                <div><strong style="display:block;color:#eee7db;font-family:'Quicksand',sans-serif;font-size:.9rem;margin-bottom:.15rem">Wenn alles unklar wird</strong><span style="font-size:.82rem;line-height:1.6;color:#b8b4ac">Der Wald gibt Bilder, wenn Worte fehlen.</span></div>
-              </div>
-              <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:.85rem .95rem">
-                <span style="font-size:1.15rem;line-height:1.2">🕳️</span>
-                <div><strong style="display:block;color:#eee7db;font-family:'Quicksand',sans-serif;font-size:.9rem;margin-bottom:.15rem">Wenn Rückzug schützt</strong><span style="font-size:.82rem;line-height:1.6;color:#b8b4ac">Die Höhle darf beides sein: Schutz und Frage.</span></div>
-              </div>
-              <div style="display:flex;gap:.75rem;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:.85rem .95rem">
-                <span style="font-size:1.15rem;line-height:1.2">🐾</span>
-                <div><strong style="display:block;color:#eee7db;font-family:'Quicksand',sans-serif;font-size:.9rem;margin-bottom:.15rem">Wenn direktes Sprechen schwer ist</strong><span style="font-size:.82rem;line-height:1.6;color:#b8b4ac">Figuren eröffnen einen sanfteren Weg ins Gespräch.</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="position:absolute;right:-1rem;bottom:-1.2rem;background:var(--denker);color:var(--denker-dark);padding:.7rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">
-          Verstehen.<br>Verbinden.<br>Verändern.
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- Entwurf / Baustein zu Issue #28: Die Waldwelt als emotionale Landkarte -->
-<section id="waldwelt-landkarte" style="padding:5rem 0;background:var(--lichtung-bg);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 18% 22%,rgba(74,184,200,.11) 0%,transparent 42%),radial-gradient(ellipse at 80% 14%,rgba(232,192,48,.10) 0%,transparent 42%),radial-gradient(ellipse at 56% 100%,rgba(210,93,128,.06) 0%,transparent 44%);pointer-events:none"></div>
-
-  <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(2rem,5vw,4.5rem);align-items:start" class="wk-world-intro-grid">
-      <div>
-        <div class="reveal"><div class="section-tag">Die Waldwelt</div></div>
-        <div class="reveal" style="transition-delay:.08s">
-          <h2 class="section-h2 dk-h" style="margin-bottom:1rem">Der Wald weitet den Blick.</h2>
-        </div>
-        <div class="reveal" style="transition-delay:.14s">
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;margin-bottom:1rem;max-width:640px" class="dk-mid">
-            In Waldkätzchen geht es immer um Situationen — und um das Gefühl darin. Manchmal sehen wir zuerst nur das Verhalten. Aber rundherum wirkt viel mehr: alte Stimmen, Unsicherheit, Schutzbedürfnisse, Hindernisse, Erfahrungen und die Sehnsucht nach Verbindung.
-          </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;margin-bottom:1.35rem;max-width:640px" class="dk-mid">
-            Der Wald macht diese Ebenen sichtbar. Nicht als fertige Antwort, sondern als Landkarte. Er hilft, den Blick zu weiten, wenn eine Situation eng wird.
-          </p>
-        </div>
-        <div class="reveal" style="transition-delay:.2s;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.35rem 1.5rem;max-width:640px;margin-top:1.4rem">
-          <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
-            Der Wald sagt nicht: „So ist es.“<br>
-            Er fragt: „Was wirkt hier gerade alles mit?“
-          </p>
-        </div>
-      </div>
-
-      <div class="reveal" style="transition-delay:.12s;position:relative">
-        <div style="background:#152015;border-radius:30px;padding:1.2rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 26px 90px rgba(19,30,19,.16)">
-          <div style="border-radius:24px;overflow:hidden;position:relative;min-height:420px;background-image:linear-gradient(180deg,rgba(12,21,13,.22),rgba(12,21,13,.82)),url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png');background-size:cover;background-position:center">
-            <div style="position:absolute;inset:auto 1.2rem 1.2rem 1.2rem;background:rgba(18,28,18,.82);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1rem 1.1rem">
-              <div style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.45rem">Der Wald als Konzept</div>
-              <p style="margin:0;color:#eee7db;font-family:'Quicksand',sans-serif;font-weight:700;line-height:1.65;font-size:.94rem">
-                Orte, Tiere und Waldkätzchen helfen dabei, Gefühle und Zusammenhänge in schwierigen Situationen sichtbar zu machen.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div style="position:absolute;left:-1rem;top:1.4rem;background:var(--beobachterin);color:#113033;padding:.7rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.76rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">
-          Blick weiten<br>statt vorschnell urteilen
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal" style="transition-delay:.18s;margin-top:4rem;margin-bottom:1.6rem">
-      <h3 style="font-size:clamp(1.35rem,2.4vw,1.9rem);color:var(--p1);font-family:'Quicksand',sans-serif;margin-bottom:.45rem" class="dk-h">Was es im Wald gibt</h3>
-      <p style="font-size:.95rem;color:var(--textMid);line-height:1.85;max-width:760px" class="dk-mid">
-        Jeder Ort steht für etwas, das in Situationen mitwirken kann. Manche Orte schützen. Manche verwirren. Manche erinnern. Und die Lichtung hält alles zusammen.
-      </p>
-    </div>
-
-    <div class="wk-world-grid">
-      <article class="wk-world-card wk-world-card--altwald reveal" style="transition-delay:.0s">
-        <div class="wk-world-card-symbol">🌳</div>
-        <div class="wk-world-card-kicker">Der alte Wald</div>
-        <h4>Was uns schon lange begleitet.</h4>
-        <p>Alte Vorstellungen, Vorurteile, Erfahrungen und Sätze, die in Situationen mitsprechen. Nicht alles daran ist schlecht. Aber nicht alles passt noch.</p>
-        <span>Frage: Welche alte Stimme wirkt hier?</span>
-      </article>
-
-      <article class="wk-world-card wk-world-card--steinmeer reveal" style="transition-delay:.06s">
-        <div class="wk-world-card-symbol">🪨</div>
-        <div class="wk-world-card-kicker">Das Steinmeer</div>
-        <h4>Was den Weg schwer macht.</h4>
-        <p>Hindernisse, Blockaden, Überforderung, Erwartungen oder reale Grenzen. Die Steine verschwinden nicht immer — aber sie lassen sich gemeinsam anschauen.</p>
-        <span>Frage: Was liegt gerade zwischen uns?</span>
-      </article>
-
-      <article class="wk-world-card wk-world-card--nebel reveal" style="transition-delay:.12s">
-        <div class="wk-world-card-symbol">🌫️</div>
-        <div class="wk-world-card-kicker">Die Nebeldickung</div>
-        <h4>Wenn nichts mehr klar erscheint.</h4>
-        <p>Verwirrte Zustände, Unklarheit, Gedankenkreisen. Im Nebel braucht es oft keine schnelle Lösung, sondern erst einmal Orientierung.</p>
-        <span>Frage: Was ist gerade noch nicht sortiert?</span>
-      </article>
-
-      <article class="wk-world-card wk-world-card--hoehle reveal" style="transition-delay:.18s">
-        <div class="wk-world-card-symbol">🕳️</div>
-        <div class="wk-world-card-kicker">Die Höhle</div>
-        <h4>Schutzort. Schmerzort. Rückzugsort.</h4>
-        <p>Die Höhle kann umarmen, abschirmen und Kraft geben. Sie kann aber auch festhalten oder Monster freisetzen. Gerade deshalb ist sie ein mystischer, wichtiger Ort.</p>
-        <span>Frage: Schützt die Höhle gerade — oder trennt sie?</span>
-      </article>
-
-      <article class="wk-world-card wk-world-card--echos reveal" style="transition-delay:.24s">
-        <div class="wk-world-card-symbol">🔊</div>
-        <div class="wk-world-card-kicker">Die Echos</div>
-        <h4>Erfahrungen, die nachhallen.</h4>
-        <p>Glaubenssätze, Erinnerungen und Sätze, die uns überall begleiten. Manche tragen. Manche verletzen. Oft prägen sie, wie wir Verhalten deuten.</p>
-        <span>Frage: Welcher Satz hallt hier nach?</span>
-      </article>
-
-      <article class="wk-world-card wk-world-card--lichtung reveal" style="transition-delay:.30s">
-        <div class="wk-world-card-symbol">☀️</div>
-        <div class="wk-world-card-kicker">Die Lichtung</div>
-        <h4>Der gemeinsame Ort der Erfahrung.</h4>
-        <p>Hier wohnen die Waldkätzchen und die Tiere. Hier wird erzählt, beobachtet, verbunden und neu sortiert. Die Lichtung ist Bühne und Begegnungsraum zugleich.</p>
-        <span>Frage: Was wird möglich, wenn wir gemeinsam hinschauen?</span>
-      </article>
-    </div>
-
-    <div class="reveal" style="transition-delay:.2s;margin-top:2rem;background:#152015;border-radius:26px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(240px,.8fr);gap:2rem;align-items:center" class="wk-world-bridge">
-      <div>
-        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Warum das hilft</div>
-        <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:.75rem">Der Wald nimmt Druck aus Situationen.</h3>
-        <p style="font-size:.93rem;color:#b8b4ac;line-height:1.85;margin:0;max-width:720px">
-          Wenn wir nicht sofort klären müssen, wer recht hat oder was „falsch“ läuft, entsteht Platz für Verständnis. Die Waldwelt schafft diesen Umweg: bildhaft, weich und trotzdem klar.
-        </p>
-      </div>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:flex-start">
-        <span class="wk-world-chip" style="background:rgba(74,184,200,.15);color:#d8f5f8">sehen</span>
-        <span class="wk-world-chip" style="background:rgba(232,192,48,.16);color:#fff0b2">sortieren</span>
-        <span class="wk-world-chip" style="background:rgba(210,93,128,.16);color:#ffd9e4">entlasten</span>
-        <span class="wk-world-chip" style="background:rgba(242,139,63,.16);color:#ffe0c7">verbinden</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Entwurf / Baustein zu Issue #31: Die fünf Waldkätzchen als wertungsfreie Blickrichtungen -->
-<section id="fuenf-waldkaetzchen" style="padding:5rem 0;background:var(--lichtung-bg);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 10% 14%,rgba(74,184,200,.11) 0%,transparent 40%),radial-gradient(ellipse at 88% 16%,rgba(232,192,48,.12) 0%,transparent 42%),radial-gradient(ellipse at 76% 92%,rgba(210,93,128,.08) 0%,transparent 44%),radial-gradient(ellipse at 22% 88%,rgba(242,139,63,.07) 0%,transparent 42%);pointer-events:none"></div>
-
-  <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:minmax(0,.95fr) minmax(320px,1.05fr);gap:clamp(2rem,5vw,4.5rem);align-items:center" class="wk-cats-intro-grid">
-      <div>
-        <div class="reveal"><div class="section-tag">Die 5 Waldkätzchen</div></div>
-        <div class="reveal" style="transition-delay:.08s">
-          <h2 class="section-h2 dk-h" style="margin-bottom:1rem">Fünf wertungsfreie Blicke auf eine Situation.</h2>
-        </div>
-        <div class="reveal" style="transition-delay:.14s">
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:720px;margin-bottom:1rem" class="dk-mid">
-            Wenn eine Situation schwierig wird, sehen wir oft zuerst nur das Verhalten: laut, still, drüber, blockierend, verletzend. Die Waldkätzchen bleiben einen Moment länger. Sie urteilen nicht. Sie schauen hin.
-          </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:720px;margin-bottom:1.35rem" class="dk-mid">
-            Jedes Kätzchen bringt eine eigene Blickrichtung mit. Zusammen helfen sie, das Sichtbare, das Gefühl, die Muster, das Umfeld und einen möglichen nächsten Schritt zu erkennen. Nicht, um Menschen zu zerlegen — sondern um Verbindung wieder möglich zu machen.
-          </p>
-        </div>
-
-        <div class="reveal" style="transition-delay:.2s;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.35rem 1.5rem;max-width:720px;margin:1.6rem 0 1.8rem">
-          <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
-            Erst beobachten. Dann fühlen. Dann einordnen. Das Ganze sehen. Und erst dann fragen: Was könnte jetzt helfen?
-          </p>
-        </div>
-
-        <div class="reveal" style="transition-delay:.26s;display:flex;gap:.8rem;flex-wrap:wrap;max-width:720px">
-          <span class="wk-cats-intro-chip" style="background:rgba(74,184,200,.16);color:#236d78">Hellblau</span>
-          <span class="wk-cats-intro-chip" style="background:rgba(29,117,121,.16);color:#185c60">Petrol</span>
-          <span class="wk-cats-intro-chip" style="background:rgba(210,93,128,.16);color:#9f4160">Dunkelrosa</span>
-          <span class="wk-cats-intro-chip" style="background:rgba(232,192,48,.20);color:#8e6e00">Gelb</span>
-          <span class="wk-cats-intro-chip" style="background:rgba(242,139,63,.18);color:#a95c27">Orange</span>
-        </div>
-      </div>
-
-      <aside class="reveal" style="transition-delay:.16s;position:relative">
-        <div style="background:#152015;border-radius:30px;padding:1.25rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 26px 90px rgba(19,30,19,.16)">
-          <div style="border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);padding:1.5rem;min-height:500px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.85rem">Ihr gemeinsamer Auftrag</div>
-              <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:1rem">Nicht schneller urteilen.<br>Besser verstehen.</h3>
-              <p style="font-size:.92rem;color:#b8b4ac;line-height:1.85;margin-bottom:1.35rem">
-                Die Waldkätzchen stehen nicht außerhalb der Situation und wissen alles besser. Sie helfen nur, langsamer und vollständiger hinzusehen. Genau darin liegt ihre Kraft.
-              </p>
-            </div>
-
-            <div class="wk-cats-glance-list">
-              <div class="wk-cats-glance" style="--cat-color:var(--beobachterin)"><span></span><strong>sehen</strong><em>Was ist tatsächlich passiert?</em></div>
-              <div class="wk-cats-glance" style="--cat-color:var(--fuehlerin)"><span></span><strong>spüren</strong><em>Was könnte innen los sein?</em></div>
-              <div class="wk-cats-glance" style="--cat-color:var(--denker)"><span></span><strong>einordnen</strong><em>Welche Muster werden sichtbar?</em></div>
-              <div class="wk-cats-glance" style="--cat-color:var(--systemblick)"><span></span><strong>weiten</strong><em>Was wirkt im Umfeld mit?</em></div>
-              <div class="wk-cats-glance" style="--cat-color:var(--macherin)"><span></span><strong>weitergehen</strong><em>Was könnte ein kleiner Schritt sein?</em></div>
-            </div>
-          </div>
-        </div>
-        <div style="position:absolute;right:-.8rem;bottom:-1rem;background:var(--denker);color:var(--denker-dark);padding:.72rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">
-          Verstehen.<br>Verbinden.<br>Verändern.
-        </div>
-      </aside>
-    </div>
-
-    <div class="reveal" style="transition-delay:.18s;margin-top:4rem;margin-bottom:1.6rem">
-      <h3 style="font-size:clamp(1.35rem,2.4vw,1.9rem);color:var(--p1);font-family:'Quicksand',sans-serif;margin-bottom:.45rem" class="dk-h">Jedes Kätzchen bringt eine Frage mit</h3>
-      <p style="font-size:.95rem;color:var(--textMid);line-height:1.85;max-width:820px" class="dk-mid">
-        Die fünf Perspektiven funktionieren gemeinsam. Keine ist wichtiger als die andere. Erst im Zusammenspiel entsteht aus einer belastenden Situation ein Bild, das verständlicher wird.
-      </p>
-    </div>
-
-    <div class="wk-cats-grid">
-      <article class="wk-cat-card wk-cat-card--beobachterin reveal" style="transition-delay:.0s">
-        <div class="wk-cat-card-top">
-          <div class="wk-cat-image-wrap"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/beobachten.png" alt="Die hellblaue Beobachterin"></div>
-          <div><div class="wk-cat-label">Hellblau</div><h4>Die Beobachterin</h4></div>
-        </div>
-        <p class="wk-cat-lead">Sie schaut genau hin — ohne sofort zu deuten.</p>
-        <p class="wk-cat-copy">Sie hilft, eine Situation erst einmal zu beschreiben: Wer macht was? Was ist zu sehen? Was wurde gesagt? Was verändert sich?</p>
-        <div class="wk-cat-question"><span>Ihre Frage</span><strong>Was ist gerade wirklich sichtbar?</strong></div>
-      </article>
-
-      <article class="wk-cat-card wk-cat-card--fuehlerin reveal" style="transition-delay:.06s">
-        <div class="wk-cat-card-top">
-          <div class="wk-cat-image-wrap"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/fuehlen.png" alt="Die petrolfarbene Fühlerin"></div>
-          <div><div class="wk-cat-label">Petrol</div><h4>Die Fühlerin</h4></div>
-        </div>
-        <p class="wk-cat-lead">Sie horcht auf das, was unter der Oberfläche liegen könnte.</p>
-        <p class="wk-cat-copy">Sie fragt nach Unsicherheit, Überforderung, Freude, Scham oder Sehnsucht. Nicht als Diagnose, sondern als vorsichtige Annäherung.</p>
-        <div class="wk-cat-question"><span>Ihre Frage</span><strong>Was könnte gerade gefühlt werden?</strong></div>
-      </article>
-
-      <article class="wk-cat-card wk-cat-card--macherin reveal" style="transition-delay:.12s">
-        <div class="wk-cat-card-top">
-          <div class="wk-cat-image-wrap"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/machen.png" alt="Die dunkelrosa Macherin"></div>
-          <div><div class="wk-cat-label">Dunkelrosa</div><h4>Die Macherin</h4></div>
-        </div>
-        <p class="wk-cat-lead">Sie sucht keinen perfekten Plan, sondern einen kleinen nächsten Schritt.</p>
-        <p class="wk-cat-copy">Sie fragt, was jetzt entlasten könnte: eine Pause, ein anderer Übergang, ein Satz, ein Abstand, ein neuer Versuch.</p>
-        <div class="wk-cat-question"><span>Ihre Frage</span><strong>Was könnte jetzt behutsam helfen?</strong></div>
-      </article>
-
-      <article class="wk-cat-card wk-cat-card--denker reveal" style="transition-delay:.18s">
-        <div class="wk-cat-card-top">
-          <div class="wk-cat-image-wrap"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/denken.png" alt="Der gelbe Denker"></div>
-          <div><div class="wk-cat-label">Gelb</div><h4>Der Denker</h4></div>
-        </div>
-        <p class="wk-cat-lead">Er erkennt Muster und bringt Zusammenhänge in Worte.</p>
-        <p class="wk-cat-copy">Er sieht Wiederholungen, Übergänge, Auslöser oder Bedingungen. Nicht, um zu zerdenken, sondern um Orientierung zu schaffen.</p>
-        <div class="wk-cat-question"><span>Seine Frage</span><strong>Was hilft beim Einordnen?</strong></div>
-      </article>
-
-      <article class="wk-cat-card wk-cat-card--systemblick reveal" style="transition-delay:.24s">
-        <div class="wk-cat-card-top">
-          <div class="wk-cat-image-wrap"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/system.png" alt="Der orange Systemblick"></div>
-          <div><div class="wk-cat-label">Orange</div><h4>Der Systemblick</h4></div>
-        </div>
-        <p class="wk-cat-lead">Er schaut auf alles, was rundherum mitwirkt.</p>
-        <p class="wk-cat-copy">Zeitdruck, Erwartungen, Räume, Beziehungen, alte Stimmen, Familienmuster oder Reizlagen — der Systemblick macht den Rahmen sichtbar.</p>
-        <div class="wk-cat-question"><span>Seine Frage</span><strong>Was wirkt hier alles mit?</strong></div>
-      </article>
-    </div>
-
-    <div class="reveal" style="transition-delay:.2s;margin-top:2rem;background:#152015;border-radius:26px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:2rem;align-items:center" class="wk-cats-example">
-      <div>
-        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--beobachterin);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Wenn alle fünf sprechen dürfen</div>
-        <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:.75rem">Aus „Problemverhalten“ wird ein verstehbarer Hinweis.</h3>
-        <p style="font-size:.93rem;color:#b8b4ac;line-height:1.85;margin:0;max-width:620px">
-          Die Kätzchen nehmen einer Situation nicht ihre Schwere. Aber sie nehmen ihr oft die Härte. Weil nicht mehr nur gefragt wird: „Wie bekommen wir das weg?“ Sondern: „Was möchte hier verstanden werden?“
-        </p>
-      </div>
-      <div class="wk-cats-example-steps">
-        <div style="--cat-color:var(--beobachterin)"><span></span><strong>Beobachten</strong><em>Was geschieht?</em></div>
-        <div style="--cat-color:var(--fuehlerin)"><span></span><strong>Fühlen</strong><em>Was könnte innen los sein?</em></div>
-        <div style="--cat-color:var(--denker)"><span></span><strong>Denken</strong><em>Was ergibt ein Muster?</em></div>
-        <div style="--cat-color:var(--systemblick)"><span></span><strong>System</strong><em>Was wirkt mit?</em></div>
-        <div style="--cat-color:var(--macherin)"><span></span><strong>Machen</strong><em>Was passt jetzt wirklich?</em></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Entwurf / Baustein zu Issue #32: Waldtiere als emotionale Personas und Verbindungsträger -->
-<section id="waldtiere" style="padding:5rem 0;background:#fff;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 12% 22%,rgba(74,184,200,.08) 0%,transparent 38%),radial-gradient(ellipse at 86% 16%,rgba(232,192,48,.09) 0%,transparent 42%),radial-gradient(ellipse at 74% 92%,rgba(210,93,128,.07) 0%,transparent 44%);pointer-events:none"></div>
-
-  <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:clamp(2rem,5vw,4.5rem);align-items:center" class="wk-animals-intro-grid">
-      <div>
-        <div class="reveal"><div class="section-tag">Wer im Wald lebt</div></div>
-        <div class="reveal" style="transition-delay:.08s">
-          <h2 class="section-h2 dk-h" style="margin-bottom:1rem">Die Tiere erzählen, wenn Worte schwer werden.</h2>
-        </div>
-        <div class="reveal" style="transition-delay:.14s">
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:700px;margin-bottom:1rem" class="dk-mid">
-            Die Waldtiere sind keine perfekten Vorbilder. Sie sind Persönlichkeiten. Laut, vorsichtig, eigensinnig, kontrollierend, verträumt oder zurückgezogen. Sie tragen etwas in sich, das wir aus echten Situationen kennen.
-          </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:700px;margin-bottom:1.35rem" class="dk-mid">
-            Dadurch schaffen sie einen sicheren Abstand. Statt sofort über uns selbst zu sprechen, können wir erst einmal auf Luis, Etana, Tigi oder Elfriede schauen. Das nimmt Scham heraus und macht Verbindung leichter.
-          </p>
-        </div>
-        <div class="reveal" style="transition-delay:.2s;background:var(--lichtung-bg);border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.35rem 1.5rem;max-width:720px;margin:1.6rem 0 1.8rem">
-          <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
-            Die Tiere helfen, auf Situationen zu schauen, ohne Menschen festzulegen.
-          </p>
-        </div>
-        <div class="reveal" style="transition-delay:.26s">
-          <p style="font-size:.95rem;color:var(--textSoft);line-height:1.85;max-width:720px;margin-bottom:1.7rem" class="dk-soft">
-            Ich nutze diese Figuren auch als Handpuppen und Plüschtiere in meiner Arbeit. Gerade wenn direkte Sprache zu viel ist, kann eine Figur der erste kleine Schritt zurück in Kontakt sein.
-          </p>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
-            <a href="figuren.html" class="btn-outline">Alle Tiere kennenlernen →</a>
-            <span style="font-family:'Quicksand',sans-serif;font-size:.86rem;color:var(--textSoft);font-weight:700">Figuren öffnen Räume, nicht Schubladen.</span>
-          </div>
-        </div>
-      </div>
-
-      <aside class="reveal" style="transition-delay:.16s;position:relative">
-        <div style="background:#152015;border-radius:30px;padding:1.25rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 26px 90px rgba(19,30,19,.16)">
-          <div style="border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);padding:1.5rem;min-height:470px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.85rem">Warum Figuren helfen</div>
-              <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:1rem">Neutraler Blick.<br>Lebendige Storys.<br>Echte Verbindung.</h3>
-              <p style="font-size:.92rem;color:#b8b4ac;line-height:1.85;margin-bottom:1.35rem">
-                Die Tiere bringen Situationen auf die Lichtung, ohne jemanden bloßzustellen. Sie erlauben Widersprüche. Und sie machen sichtbar, dass hinter Verhalten oft ein guter Grund steckt.
-              </p>
-            </div>
-
-            <div style="display:flex;flex-direction:column;gap:.8rem">
-              <div class="wk-animal-purpose">
-                <span>🪞</span>
-                <div><strong>Wiedererkennen</strong><em>„So fühlt sich das manchmal an.“</em></div>
-              </div>
-              <div class="wk-animal-purpose">
-                <span>🧸</span>
-                <div><strong>Entlasten</strong><em>„Ich darf erst über die Figur sprechen.“</em></div>
-              </div>
-              <div class="wk-animal-purpose">
-                <span>🌿</span>
-                <div><strong>Verbinden</strong><em>„Wir schauen gemeinsam hin.“</em></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="position:absolute;right:-.8rem;bottom:-1rem;background:var(--beobachterin);color:#12393d;padding:.72rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">
-          Nicht bewerten.<br>Erst verstehen.
-        </div>
-      </aside>
-    </div>
-
-    <div class="reveal" style="transition-delay:.18s;margin-top:4rem;margin-bottom:1.6rem">
-      <h3 style="font-size:clamp(1.35rem,2.4vw,1.9rem);color:var(--p1);font-family:'Quicksand',sans-serif;margin-bottom:.45rem" class="dk-h">Ein paar Bewohner der Lichtung</h3>
-      <p style="font-size:.95rem;color:var(--textMid);line-height:1.85;max-width:780px" class="dk-mid">
-        Auf der Startseite müssen nicht alle Tiere vollständig erzählt werden. Aber einige dürfen bereits zeigen, wie lebendig diese Welt ist — und wie unterschiedlich Situationen von innen aussehen können.
-      </p>
-    </div>
-
-    <div class="wk-animal-grid">
-      <article class="wk-animal-card wk-animal-card--tigi reveal" style="transition-delay:.0s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/tigi.png" alt="Tigi"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Tigi</div><div class="wk-animal-role">Leopard</div></div>
-        </div>
-        <p class="wk-animal-lead">Will Kaiser sein. Punkt.</p>
-        <p class="wk-animal-copy">Er braucht Kontrolle, Bühne und Einfluss. Dahinter steckt Unsicherheit, die er nicht zeigen kann. Also steht er lieber oben.</p>
-        <div class="wk-animal-question">Wenn Kontrolle Schutz sein muss.</div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--luis reveal" style="transition-delay:.06s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/luis.png" alt="Luis"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Luis</div><div class="wk-animal-role">Teddy</div></div>
-        </div>
-        <p class="wk-animal-lead">Wild, laut, drüber.</p>
-        <p class="wk-animal-copy">Energie ohne Bremse. Er rennt los und merkt erst später, was er umgerannt hat. Aber ohne ihn passiert halt auch nichts.</p>
-        <div class="wk-animal-question">Wenn Kraft erst sortiert werden muss.</div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--etana reveal" style="transition-delay:.12s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etana.png" alt="Etana"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Etana</div><div class="wk-animal-role">Schnecke</div></div>
-        </div>
-        <p class="wk-animal-lead">Rückzug — mit Raketenrucksack.</p>
-        <p class="wk-animal-copy">Etana zieht sich zurück, wenn alles zu viel wird. Und doch steckt in ihr viel Bewegung. Nur nicht immer im Tempo der anderen.</p>
-        <div class="wk-animal-question">Wenn Sicherheit vor Tempo kommt.</div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--iella reveal" style="transition-delay:.18s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/iella.png" alt="Iella"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Iella</div><div class="wk-animal-role">Esel</div></div>
-        </div>
-        <p class="wk-animal-lead">Bleibt stehen, wenn andere ziehen.</p>
-        <p class="wk-animal-copy">Iella wirkt manchmal stur. Vielleicht schützt sie aber nur ihre Grenze. Vielleicht weiß sie längst, dass nicht jeder Weg ihrer ist.</p>
-        <div class="wk-animal-question">Wenn Nein ein Kontaktversuch ist.</div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--elfriede reveal" style="transition-delay:.24s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/elfriede.png" alt="Elfriede"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Elfriede</div><div class="wk-animal-role">Roter Panda</div></div>
-        </div>
-        <p class="wk-animal-lead">Warm, aufmerksam, oft zu sehr bei den anderen.</p>
-        <p class="wk-animal-copy">Sie spürt viel und möchte es gut machen. Manchmal so sehr, dass sie sich selbst dabei fast übersieht.</p>
-        <div class="wk-animal-question">Wenn Fürsorge Grenzen braucht.</div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--niko reveal" style="transition-delay:.30s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/niko.png" alt="Niko"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Niko</div><div class="wk-animal-role">Fuchs</div></div>
-        </div>
-        <p class="wk-animal-lead">Findet Auswege. Auch wenn niemand danach gefragt hat.</p>
-        <p class="wk-animal-copy">Niko denkt schnell, biegt ab, sucht Möglichkeiten. Das hilft. Und manchmal verliert man dabei, was gerade gefühlt wird.</p>
-        <div class="wk-animal-question">Wenn Lösungen vor Verbindung kommen.</div>
-      </article>
-    </div>
-
-    <div class="reveal" style="transition-delay:.2s;margin-top:2rem;background:#152015;border-radius:26px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:2rem;align-items:center" class="wk-animal-bridge">
-      <div>
-        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Aus Figuren werden Situationen</div>
-        <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:.75rem">Die Tiere bringen Alltag auf die Lichtung.</h3>
-        <p style="font-size:.93rem;color:#b8b4ac;line-height:1.85;margin:0;max-width:720px">
-          In Geschichten, Impulsen, Materialien und in der Begleitung erleben die Tiere Situationen. Die Waldkätzchen schauen gemeinsam darauf — nicht um zu urteilen, sondern um Verbindung möglich zu machen.
-        </p>
-      </div>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:flex-start">
-        <span class="wk-animal-chip" style="background:rgba(74,184,200,.15);color:#d8f5f8">Storys</span>
-        <span class="wk-animal-chip" style="background:rgba(232,192,48,.16);color:#fff0b2">Impulse</span>
-        <span class="wk-animal-chip" style="background:rgba(210,93,128,.16);color:#ffd9e4">Puppen</span>
-        <span class="wk-animal-chip" style="background:rgba(242,139,63,.16);color:#ffe0c7">Materialien</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Baustein zu Issue #29: Situations-Slider mit Tieren und dem wertungsfreien Blick der Waldkätzchen -->
-<section id="situationen-aus-dem-wald" style="padding:5rem 0;background:#152015;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 12% 18%,rgba(74,184,200,.13) 0%,transparent 40%),radial-gradient(ellipse at 84% 14%,rgba(232,192,48,.12) 0%,transparent 42%),radial-gradient(ellipse at 78% 92%,rgba(210,93,128,.10) 0%,transparent 44%),radial-gradient(ellipse at 18% 92%,rgba(242,139,63,.08) 0%,transparent 42%);pointer-events:none"></div>
-  <div style="position:absolute;inset:0;background-image:url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png');background-size:cover;background-position:center;opacity:.045;pointer-events:none"></div>
-
-  <div class="container" style="position:relative;z-index:1">
-    <div class="wk-situation-head">
-      <div>
-        <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.75rem">Situationen aus dem Alltag</div></div>
-        <div class="reveal" style="transition-delay:.08s">
-          <h2 style="font-family:'Quicksand',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.18;color:#fff;font-weight:800;letter-spacing:-.02em;margin:0 0 1rem">Was geschieht, wenn wir nicht sofort urteilen?</h2>
-        </div>
-        <div class="reveal" style="transition-delay:.14s">
-          <p style="font-size:1rem;color:#c3bdb1;line-height:1.92;max-width:820px;margin:0">
-            Die Tiere erleben Situationen, wie sie im Alltag wirklich passieren können: laut, eng, widersprüchlich oder voller Rückzug. Die Waldkätzchen schauen gemeinsam darauf. Nicht, um eine schnelle Lösung darüberzulegen — sondern um sichtbar zu machen, was in der Situation mitwirken könnte.
-          </p>
-        </div>
-      </div>
-
-      <div class="reveal" style="transition-delay:.2s">
-        <div class="wk-situation-head-note">
-          <span>🐾</span>
-          <div>
-            <strong>Die Tiere sind Akteure.</strong>
-            <em>Die Waldkätzchen blicken drauf.</em>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal" style="transition-delay:.22s;margin-top:2rem">
-      <div class="wk-situation-slider-shell">
-        <button class="wk-situation-arrow wk-situation-arrow--left" type="button" aria-label="Vorherige Situation" onclick="scrollSituationSlider(-1)">‹</button>
-
-        <div class="wk-situation-slider" id="wk-situation-slider" tabindex="0" aria-label="Situationen-Slider">
-          <article class="wk-situation-slide" data-situation="luis">
-            <div class="wk-situation-scene wk-situation-scene--luis">
-              <div class="wk-situation-scene-top">
-                <span class="wk-situation-tag">Situation 1</span>
-                <span class="wk-situation-place">Auf der Lichtung</span>
-              </div>
-              <div class="wk-situation-animal-strip">
-                <div class="wk-situation-animal wk-situation-animal--main">
-                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/luis.png" alt="Luis, der Teddy"></div>
-                  <div><strong>Luis</strong><em>ist plötzlich sehr laut</em></div>
-                </div>
-                <div class="wk-situation-mini-thought">„Ich wollte doch nur, dass es weitergeht!“</div>
-              </div>
-              <h3>Luis wird wild, als alles gleichzeitig passiert.</h3>
-              <p>
-                Alle wollen los. Jacke. Schuhe. Tasche. Noch eine Frage. Dann fällt etwas um. Luis brüllt, wirft die Mütze weg und rennt zur Tür. Von außen sieht es nach Trotz aus. Vielleicht ist es aber ein Moment, in dem zu viel auf einmal kam.
-              </p>
-              <div class="wk-situation-question">Was verändert sich, wenn wir nicht zuerst „Warum macht er das?“ fragen — sondern „Was war gerade zu viel?“</div>
-            </div>
-
-            <div class="wk-situation-cats">
-              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
-              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
-                <span></span>
-                <div><strong>Beobachterin</strong><p>Ich sehe: Viele Aufforderungen kamen direkt nacheinander. Luis wurde lauter, dann körperlich schneller.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
-                <span></span>
-                <div><strong>Fühlerin</strong><p>Vielleicht ist da Überforderung. Vielleicht auch das Gefühl, keine Kontrolle mehr zu haben.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--denker)">
-                <span></span>
-                <div><strong>Denker</strong><p>Übergänge können schwer sein — besonders, wenn sie unter Zeitdruck passieren.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
-                <span></span>
-                <div><strong>Systemblick</strong><p>Der ganze Morgen ist eng. Erwachsene sind angespannt. Der Raum ist voll mit Erwartungen.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
-                <span></span>
-                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: Übergänge früher ankündigen und nur eine Sache nach der anderen sagen.</p></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="wk-situation-slide" data-situation="etana">
-            <div class="wk-situation-scene wk-situation-scene--etana">
-              <div class="wk-situation-scene-top">
-                <span class="wk-situation-tag">Situation 2</span>
-                <span class="wk-situation-place">Am Höhleneingang</span>
-              </div>
-              <div class="wk-situation-animal-strip">
-                <div class="wk-situation-animal wk-situation-animal--main">
-                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etana.png" alt="Etana, die Schnecke"></div>
-                  <div><strong>Etana</strong><em>zieht sich zurück</em></div>
-                </div>
-                <div class="wk-situation-mini-thought">„Ich komme wieder. Nur nicht jetzt.“</div>
-              </div>
-              <h3>Etana verschwindet, obwohl alle Nähe anbieten.</h3>
-              <p>
-                Es war ein schöner Nachmittag. Trotzdem wird Etana still. Als jemand nachfragt, sagt sie nichts mehr. Sie zieht sich zurück, reagiert kaum und braucht ihre Höhle. Das kann weh tun, wenn man helfen möchte. Und trotzdem kann Rückzug gerade Schutz sein.
-              </p>
-              <div class="wk-situation-question">Was, wenn Abstand nicht gegen Verbindung gerichtet ist — sondern sie erst wieder möglich macht?</div>
-            </div>
-
-            <div class="wk-situation-cats">
-              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
-              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
-                <span></span>
-                <div><strong>Beobachterin</strong><p>Ich sehe: Etana wird leiser, antwortet weniger und sucht einen geschützten Ort.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
-                <span></span>
-                <div><strong>Fühlerin</strong><p>Vielleicht fühlt sich ihr Inneres sehr voll an. Vielleicht braucht sie Sicherheit ohne Fragen.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--denker)">
-                <span></span>
-                <div><strong>Denker</strong><p>Manche Eindrücke wirken erst später. Der Rückzug kommt nicht immer dort, wo die Belastung beginnt.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
-                <span></span>
-                <div><strong>Systemblick</strong><p>Viele gute Begegnungen können trotzdem anstrengend sein. Auch Schönes verbraucht Kraft.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
-                <span></span>
-                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: Nähe anbieten, ohne Antwort zu verlangen.</p></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="wk-situation-slide" data-situation="iella">
-            <div class="wk-situation-scene wk-situation-scene--iella">
-              <div class="wk-situation-scene-top">
-                <span class="wk-situation-tag">Situation 3</span>
-                <span class="wk-situation-place">Am Steinmeer</span>
-              </div>
-              <div class="wk-situation-animal-strip">
-                <div class="wk-situation-animal wk-situation-animal--main">
-                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/iella.png" alt="Iella, der Esel"></div>
-                  <div><strong>Iella</strong><em>bleibt stehen</em></div>
-                </div>
-                <div class="wk-situation-mini-thought">„Ich gehe nicht weiter, nur weil alle ziehen.“</div>
-              </div>
-              <h3>Iella sagt Nein — und alle hören nur Widerstand.</h3>
-              <p>
-                Die Gruppe ist sich einig: Es geht weiter. Nur Iella nicht. Sie bleibt stehen. Jede Aufforderung macht sie fester. Von außen wirkt es wie Sturheit. Vielleicht ist es aber der Moment, in dem sie merkt: Meine Grenze wurde gerade nicht mitgenommen.
-              </p>
-              <div class="wk-situation-question">Was passiert, wenn wir ein Nein nicht sofort brechen wollen, sondern neugierig auf seinen Grund werden?</div>
-            </div>
-
-            <div class="wk-situation-cats">
-              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
-              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
-                <span></span>
-                <div><strong>Beobachterin</strong><p>Ich sehe: Iella bleibt stehen, sagt Nein und wird unbeweglicher, je mehr Druck entsteht.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
-                <span></span>
-                <div><strong>Fühlerin</strong><p>Vielleicht schützt sie sich. Vielleicht fühlt sie sich übergangen oder nicht gefragt.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--denker)">
-                <span></span>
-                <div><strong>Denker</strong><p>Druck verstärkt hier genau das Verhalten, das eigentlich kleiner werden soll.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
-                <span></span>
-                <div><strong>Systemblick</strong><p>Die Gruppe hat Tempo. Iella braucht Beteiligung. Beides prallt aufeinander.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
-                <span></span>
-                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: Wahlmöglichkeiten geben und kurz gemeinsam anhalten.</p></div>
-              </div>
-            </div>
-          </article>
-
-          <article class="wk-situation-slide" data-situation="elfriede">
-            <div class="wk-situation-scene wk-situation-scene--elfriede">
-              <div class="wk-situation-scene-top">
-                <span class="wk-situation-tag">Situation 4</span>
-                <span class="wk-situation-place">Zwischen den Echos</span>
-              </div>
-              <div class="wk-situation-animal-strip">
-                <div class="wk-situation-animal wk-situation-animal--main">
-                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/elfriede.png" alt="Elfriede, der rote Panda"></div>
-                  <div><strong>Elfriede</strong><em>macht es allen recht</em></div>
-                </div>
-                <div class="wk-situation-mini-thought">„Wenn niemand enttäuscht ist, ist alles okay. Oder?“</div>
-              </div>
-              <h3>Elfriede lächelt weiter, obwohl innen längst zu viel ist.</h3>
-              <p>
-                Sie hilft noch schnell. Sagt „passt schon“. Schiebt den eigenen Wunsch nach hinten. Niemand merkt, dass ihr Blick müde wird. Erst später zieht sie sich erschöpft zurück. Manche Überforderung ist sehr leise.
-              </p>
-              <div class="wk-situation-question">Was, wenn angepasstes Verhalten nicht Entspannung bedeutet — sondern Anstrengung gut versteckt?</div>
-            </div>
-
-            <div class="wk-situation-cats">
-              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
-              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
-                <span></span>
-                <div><strong>Beobachterin</strong><p>Ich sehe: Elfriede sagt zu, hilft, lächelt — und wird gleichzeitig immer stiller.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
-                <span></span>
-                <div><strong>Fühlerin</strong><p>Vielleicht ist da Sorge, andere zu enttäuschen. Vielleicht auch Müdigkeit, die keinen Platz findet.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--denker)">
-                <span></span>
-                <div><strong>Denker</strong><p>Wenn Zustimmung automatisch kommt, lohnt sich die Frage, ob wirklich Wahlfreiheit da war.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
-                <span></span>
-                <div><strong>Systemblick</strong><p>Vielleicht wird Hilfsbereitschaft sehr geschätzt — aber Erschöpfung weniger gut gesehen.</p></div>
-              </div>
-              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
-                <span></span>
-                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: aktiv fragen, was Elfriede selbst gerade braucht.</p></div>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <button class="wk-situation-arrow wk-situation-arrow--right" type="button" aria-label="Nächste Situation" onclick="scrollSituationSlider(1)">›</button>
-      </div>
-    </div>
-
-    <div class="wk-situation-footer reveal" style="transition-delay:.25s">
-      <div>
-        <strong>So arbeitet Waldkätzchen:</strong>
-        <span>Eine Situation. Fünf Blickrichtungen. Mehr Verständnis. Weniger Druck.</span>
-      </div>
-      <a href="konzept.html" class="btn-primary" style="background:var(--denker);color:var(--denker-dark)">Das Konzept vertiefen →</a>
-    </div>
-  </div>
-</section>
-
-<!-- Entwurf / Baustein zu Issue #30: Mitwachsen als druckfreier Begleiter -->
-<section id="mitwachsen" style="padding:5rem 0;background:#fff;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 16% 18%,rgba(232,192,48,.10) 0%,transparent 42%),radial-gradient(ellipse at 86% 82%,rgba(74,184,200,.10) 0%,transparent 44%),radial-gradient(ellipse at 54% 42%,rgba(242,139,63,.05) 0%,transparent 40%);pointer-events:none"></div>
-
-  <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);gap:clamp(2rem,5vw,4.5rem);align-items:center" class="wk-grow-grid">
-      <div>
-        <div class="reveal"><div class="section-tag">Mitwachsen</div></div>
-        <div class="reveal" style="transition-delay:.08s">
-          <h2 class="section-h2 dk-h" style="margin-bottom:1rem">Wachsen, wenn du es brauchst.</h2>
-        </div>
-        <div class="reveal" style="transition-delay:.14s">
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:700px;margin-bottom:1rem" class="dk-mid">
-            Waldkätzchen ist kein Programm mit festem Plan. Es ist ein Begleiter — der sich deinem Tempo anpasst. Nicht jeder Moment braucht eine Lösung. Nicht jede Situation muss sofort aufgeräumt werden.
-          </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:700px;margin-bottom:1.35rem" class="dk-mid">
-            Ob du gerade mittendrin steckst oder neu anfängst: Die Waldwelt ist immer da. Zum Wiederkommen. Zum Sortieren. Zum Durchatmen. Zum Weitergehen, wenn es soweit ist.
-          </p>
-        </div>
-
-        <div class="reveal" style="transition-delay:.2s;background:var(--lichtung-bg);border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.35rem 1.5rem;max-width:720px;margin:1.6rem 0 1.8rem">
-          <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
-            Du musst nicht schneller wachsen, als es sich für dich richtig anfühlt.
-          </p>
-        </div>
-
-        <div class="reveal" style="transition-delay:.25s">
-          <div class="wk-grow-points">
-            <div class="wk-grow-point"><span>🌱</span><strong>In deinem Tempo</strong></div>
-            <div class="wk-grow-point"><span>🌿</span><strong>Für jede Lebensphase</strong></div>
-            <div class="wk-grow-point"><span>🦊</span><strong>Mit Figuren &amp; Geschichten</strong></div>
-            <div class="wk-grow-point"><span>🍃</span><strong>Reflexion ohne Druck</strong></div>
-            <div class="wk-grow-point"><span>☀️</span><strong>Alltagstauglich</strong></div>
-            <div class="wk-grow-point"><span>👨‍👩‍👧</span><strong>Für die ganze Familie</strong></div>
-          </div>
-        </div>
-
-        <div class="reveal" style="transition-delay:.31s;margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
-          <a href="konzept.html" class="btn-outline">Den eigenen Weg finden →</a>
-          <span style="font-family:'Quicksand',sans-serif;font-size:.86rem;color:var(--textSoft);font-weight:700">Kleine Schritte dürfen reichen.</span>
-        </div>
-      </div>
-
-      <aside class="reveal" style="transition-delay:.16s;position:relative">
-        <div style="background:#152015;border-radius:30px;padding:1.25rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 26px 90px rgba(19,30,19,.16)">
-          <div style="border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);padding:1.55rem;min-height:470px;display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.85rem">Die Waldwelt bleibt</div>
-              <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:1rem">Nicht als Aufgabe.<br>Als Ort.</h3>
-              <p style="font-size:.92rem;color:#b8b4ac;line-height:1.85;margin-bottom:1.35rem">
-                Wenn der Alltag laut ist, darf Waldkätzchen leise begleiten. Wenn alles drängt, darf es entschleunigen. Wenn nichts klar ist, darf es erstmal nur da sein.
-              </p>
-            </div>
-
-            <div style="display:flex;flex-direction:column;gap:.8rem">
-              <div class="wk-grow-step">
-                <div class="wk-grow-step-number">1</div>
-                <div><strong>Ankommen</strong><span>Ohne erklären zu müssen, warum es gerade schwer ist.</span></div>
-              </div>
-              <div class="wk-grow-step">
-                <div class="wk-grow-step-number">2</div>
-                <div><strong>Hinschauen</strong><span>Wenn der Moment dafür da ist.</span></div>
-              </div>
-              <div class="wk-grow-step">
-                <div class="wk-grow-step-number">3</div>
-                <div><strong>Weitergehen</strong><span>Mit kleinen Schritten, die wirklich passen.</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="position:absolute;right:-.8rem;bottom:-1rem;background:var(--macherin);color:#5f2637;padding:.72rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">
-          Druck raus.<br>Verbindung rein.
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
+<!-- Story, Waldwelt, Kätzchen, Tiere, Situationen, Mitwachsen: Bestand aus der integrierten Startseite -->
+<!-- Inhalt wurde im bestehenden Integrationsstand beibehalten; die visuellen Panels werden oben via CSS wärmer gefärbt. -->
 
 <!-- FÜR WEN -->
 <section style="padding:5rem 0">
   <div class="container">
     <div class="reveal"><div class="section-tag">Für wen</div></div>
-    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für Familien. Für Väter. Für Kinder.</h2></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für Menschen, die Verbindung suchen — nicht Perfektion.</h2></div>
+    <div class="reveal" style="transition-delay:.14s"><p class="audience-intro dk-mid">Waldkätzchen ist für alle, die Situationen nicht einfach abstellen, sondern besser verstehen möchten. Besonders für Familien, Väter, Kinder und Menschen, bei denen Gefühle, Rückzug, Reizüberflutung oder Missverständnisse im Alltag eine große Rolle spielen.</p></div>
     <div class="grid-4">
       <a href="coaching.html" class="fw-card reveal" style="transition-delay:.0s;text-decoration:none">
         <div class="fw-card-accent" style="background:var(--fuehlerin)"></div>
         <div style="width:58px;height:58px;border-radius:16px;background:var(--fuehlerin-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">👨‍👩‍👧</div>
-        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Familien</h3>
-        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du möchtest verstehen, warum dein Kind so reagiert — und wieder echte Verbindung spüren.</p>
+        <div class="fw-card-kicker">Für Familien</div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Wenn Alltagssituationen kippen</h3>
+        <p class="fw-card-copy dk-mid">Wenn Lautwerden, Rückzug, Streit oder Überforderung immer wieder auftauchen und ihr euch nicht nur beruhigen, sondern besser verstehen wollt.</p>
+        <div class="fw-card-why">Waldkätzchen hilft, Verhalten als Hinweis zu lesen — mit Figuren, Perspektiven und einem ruhigeren Blick auf das, was darunterliegt.</div>
       </a>
       <a href="vaeter.html" class="fw-card reveal" style="transition-delay:.08s;position:relative;text-decoration:none">
         <div class="fw-card-accent" style="background:var(--beobachterin)"></div>
         <div style="position:absolute;top:1rem;right:1rem;background:var(--denker);color:var(--denker-dark);padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:800;font-family:'Quicksand',sans-serif">Vaterperspektive</div>
         <div style="width:58px;height:58px;border-radius:16px;background:var(--beobachterin-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">👨‍👧</div>
-        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Väter</h3>
-        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du bist da — aber vielleicht hat dir niemand gezeigt, wie. Ehrlich, alltagsnah, ohne Klischees.</p>
+        <div class="fw-card-kicker">Für Väter</div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Wenn Nähe wichtig ist, aber nicht selbstverständlich</h3>
+        <p class="fw-card-copy dk-mid">Wenn du da sein willst, aber alte Bilder, Unsicherheit oder fehlende Worte zwischen dir und echter Verbindung stehen.</p>
+        <div class="fw-card-why">Waldkätzchen nimmt Druck aus dem Vatersein und eröffnet alltagsnahe Wege zu Präsenz, Gefühl und Beziehung.</div>
       </a>
       <a href="coaching.html#fachkraefte" class="fw-card reveal" style="transition-delay:.16s;text-decoration:none">
         <div class="fw-card-accent" style="background:var(--systemblick)"></div>
         <div style="width:58px;height:58px;border-radius:16px;background:var(--systemblick-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">🎓</div>
-        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Fachkräfte</h3>
-        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Heilpädagogisch fundiert, spielerisch anwendbar — als emotionale Brücke in der Arbeit.</p>
+        <div class="fw-card-kicker">Für Fachkräfte</div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Wenn ein anderer Blick im Team helfen kann</h3>
+        <p class="fw-card-copy dk-mid">Für pädagogische Kontexte, in denen Verhalten schnell bewertet wird und ein ressourcenorientierter, verbindender Zugang entlasten kann.</p>
+        <div class="fw-card-why">Der Wald, die Tiere und die fünf Blickrichtungen schaffen gemeinsame Sprache für Situationen, die sonst festfahren.</div>
       </a>
       <a href="ueber-mich.html#besondere-beduerfnisse" class="fw-card reveal" style="transition-delay:.24s;text-decoration:none">
         <div class="fw-card-accent" style="background:var(--macherin)"></div>
         <div style="width:58px;height:58px;border-radius:16px;background:var(--macherin-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">🌿</div>
-        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Wenn Sprache andere Wege braucht</h3>
-        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Der Wald und die Figuren sind oft genau der Umweg, der funktioniert — wenn direkte Kommunikation schwer fällt.</p>
+        <div class="fw-card-kicker">Für andere Zugänge</div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Wenn Sprache Umwege braucht</h3>
+        <p class="fw-card-copy dk-mid">Für Kinder, Jugendliche und Erwachsene, bei denen direkte Gespräche schwerfallen, Gefühle groß werden oder Bilder leichter tragen als Erklärungen.</p>
+        <div class="fw-card-why">Figuren, Waldorte und Situationen machen Verbindung möglich, ohne zu drängen oder jemanden auf ein Verhalten festzulegen.</div>
       </a>
     </div>
   </div>
@@ -1495,20 +836,64 @@
 <section style="padding:5rem 0;background:var(--lichtung-bg)">
   <div class="container">
     <div class="reveal"><div class="section-tag">Angebote</div></div>
-    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Weg in den Wald</h2></div>
-    <div class="grid-3" style="margin-bottom:3rem">
-      <a href="coaching.html" class="ang-card reveal" style="transition-delay:.0s;text-decoration:none">
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Wege, wie Waldkätzchen begleiten kann</h2></div>
+    <div class="reveal" style="transition-delay:.14s"><p class="offers-intro dk-mid">Waldkätzchen ist nicht nur eine Idee. Es wird erlebbar — im Gespräch, in Bewegung, in Kursen und in Materialien, die Situationen leichter zugänglich machen. Immer mit demselben Ziel: Druck herausnehmen, Verständnis ermöglichen und Verbindung wachsen lassen.</p></div>
+    <div class="grid-3" style="margin-bottom:1.5rem">
+      <a href="coaching.html" class="ang-card offer-card-expanded reveal" style="transition-delay:.0s;text-decoration:none">
         <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="Begleitung"></div>
-        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Coaching &amp; Begleitung</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Einzelbegleitung für Eltern, Väter und Familien.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+        <div class="ang-card-body">
+          <div class="fw-card-kicker">Gespräch &amp; Sortierung</div>
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Coaching &amp; Begleitung</h3>
+          <div class="offer-pills"><span class="offer-pill">Eltern</span><span class="offer-pill">Väter</span><span class="offer-pill">Familien</span></div>
+          <div class="offer-meta">
+            <div class="offer-meta-block"><div class="offer-meta-label">Für wen?</div><p>Für Menschen, die wiederkehrende Situationen verstehen möchten, ohne sich oder andere ständig zu beschuldigen.</p></div>
+            <div class="offer-meta-block"><div class="offer-meta-label">Worum geht es?</div><p>Wir schauen auf Situationen, Gefühle, alte Muster und kleine nächste Schritte, die im Alltag wirklich passen.</p></div>
+            <div class="offer-meta-block"><div class="offer-meta-label">Warum Waldkätzchen?</div><p>Weil Verbindung oft nicht am fehlenden Willen scheitert, sondern an Druck, Überforderung und fehlenden Bildern für das, was passiert.</p></div>
+          </div>
+          <div class="offer-cta">Mehr erfahren →</div>
+        </div>
       </a>
-      <a href="angebote.html" class="ang-card reveal" style="transition-delay:.08s;text-decoration:none">
+      <a href="angebote.html" class="ang-card offer-card-expanded reveal" style="transition-delay:.08s;text-decoration:none">
         <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png" alt="Waldabenteuer"></div>
-        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">HandsOn Waldabenteuer</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Echte Begegnungen im Wald.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+        <div class="ang-card-body">
+          <div class="fw-card-kicker">Erleben &amp; Begegnung</div>
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">HandsOn Waldabenteuer</h3>
+          <div class="offer-pills"><span class="offer-pill">Kinder</span><span class="offer-pill">Familien</span><span class="offer-pill">Gruppen</span></div>
+          <div class="offer-meta">
+            <div class="offer-meta-block"><div class="offer-meta-label">Für wen?</div><p>Für Menschen, bei denen Erleben, Spiel, Natur und Bewegung leichter ins Gespräch führen als reine Worte.</p></div>
+            <div class="offer-meta-block"><div class="offer-meta-label">Worum geht es?</div><p>Um gemeinsame Erfahrung, Waldorte, Figuren, Wahrnehmung und kleine Momente, in denen Verbindung spürbar wird.</p></div>
+            <div class="offer-meta-block"><div class="offer-meta-label">Warum Waldkätzchen?</div><p>Weil manche Themen erst zugänglich werden, wenn sie nicht frontal besprochen, sondern gemeinsam erlebt werden.</p></div>
+          </div>
+          <div class="offer-cta">Mehr erfahren →</div>
+        </div>
       </a>
-      <a href="angebote.html#kurse" class="ang-card reveal" style="transition-delay:.16s;text-decoration:none">
+      <a href="angebote.html#kurse" class="ang-card offer-card-expanded reveal" style="transition-delay:.16s;text-decoration:none">
         <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png" alt="Kurse"></div>
-        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Kurse &amp; Aufstellungen</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Heilpäd. fundierte Workshops.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+        <div class="ang-card-body">
+          <div class="fw-card-kicker">Verstehen &amp; Weitertragen</div>
+          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Kurse &amp; Aufstellungen</h3>
+          <div class="offer-pills"><span class="offer-pill">Eltern</span><span class="offer-pill">Väter</span><span class="offer-pill">Fachkräfte</span></div>
+          <div class="offer-meta">
+            <div class="offer-meta-block"><div class="offer-meta-label">Für wen?</div><p>Für Menschen und Gruppen, die die Waldkätzchen-Perspektive kennenlernen und für Alltag oder Praxis nutzbar machen möchten.</p></div>
+            <div class="offer-meta-block"><div class="offer-meta-label">Worum geht es?</div><p>Um Situationen, systemische Zusammenhänge, Verhalten hinter dem Verhalten und konkrete Reflexionswege.</p></div>
+            <div class="offer-meta-block"><div class="offer-meta-label">Warum Waldkätzchen?</div><p>Weil ein anderer Blick auf Verhalten nicht abstrakt bleiben muss, sondern über Figuren und Waldorte unmittelbar verständlich wird.</p></div>
+          </div>
+          <div class="offer-cta">Mehr erfahren →</div>
+        </div>
       </a>
+    </div>
+
+    <div class="offer-support-grid reveal" style="transition-delay:.22s">
+      <div class="offer-support-box offer-support-box--app">
+        <h3>Die App als digitale Lichtung</h3>
+        <p>Situationen festhalten, Gefühle sortieren, Impulse wiederfinden und die Waldkätzchen-Blicke Schritt für Schritt nutzen — ohne Leistungsdruck.</p>
+        <a href="app.html">Zur App →</a>
+      </div>
+      <div class="offer-support-box offer-support-box--materials">
+        <h3>Impulse &amp; Materialien</h3>
+        <p>Geschichten, Karten, Blogbeiträge und Figurenwelten, die Verbindung auch zwischen Terminen weitertragen.</p>
+        <a href="blog.html">Ins Waldtagebuch →</a>
+      </div>
     </div>
   </div>
 </section>
