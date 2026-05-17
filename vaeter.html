@@ -212,6 +212,26 @@
         <button class="slider-arrow slider-arrow-r" onclick="scrollSlider('impulse-vaeter',1)">›</button>
       </div>
     </div>
+    <noscript>
+      <p style="text-align:center;color:var(--textSoft);font-size:.88rem;padding:2rem">
+        Impulse und Gedanken findest du im
+        <a href="blog.html" style="color:var(--p2)">Waldtagebuch →</a>
+      </p>
+    </noscript>
+    <script>
+    setTimeout(function() {
+      var track = document.getElementById('impulse-vaeter');
+      if (track && track.children.length === 0) {
+        var parent = track.closest('.card-slider') || track.parentElement;
+        parent.innerHTML =
+          '<p style="text-align:center;color:var(--textSoft);' +
+          'font-size:.88rem;padding:2rem 0">' +
+          'Impulse findest du im <a href="blog.html" ' +
+          'style="color:var(--p2);font-weight:700">Waldtagebuch →</a>' +
+          '</p>';
+      }
+    }, 2000);
+    </script>
     <div style="text-align:center;margin-top:2rem"><a href="blog.html" class="btn-outline">Alle Impulse lesen</a></div>
   </div>
 </section>
