@@ -1,0 +1,148 @@
+/* ═══════════════════════════════════════════════════════
+   WALDKÄTZCHEN — Farbsystem
+   5 Kätzchen-Farben + 6 Waldort-Farben
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Die 5 Waldkätzchen ──────────────────────────── */
+  --beobachterin:       #4AB8C8;
+  --beobachterin-light: #D4F2F6;
+  --beobachterin-dark:  #1A6A78;
+  --beobachterin-mid:   #2E8A98;
+  --beobachterin-bg:    #EAF8FA;
+
+  --fuehlerin:          #2A8A7A;
+  --fuehlerin-light:    #C0E8E0;
+  --fuehlerin-dark:     #124840;
+  --fuehlerin-mid:      #1E6858;
+  --fuehlerin-bg:       #E4F5F2;
+
+  --denker:             #E8C030;
+  --denker-light:       #FDF3C0;
+  --denker-dark:        #8A6C10;
+  --denker-mid:         #A88020;
+  --denker-bg:          #FEFAE8;
+
+  --systemblick:        #E87830;
+  --systemblick-light:  #FCDFC0;
+  --systemblick-dark:   #8A4010;
+  --systemblick-mid:    #B05818;
+  --systemblick-bg:     #FEF2E8;
+
+  --macherin:           #D84878;
+  --macherin-light:     #F8C8D8;
+  --macherin-dark:      #7A1E3E;
+  --macherin-mid:       #A83058;
+  --macherin-bg:        #FDE8F0;
+
+  /* ── Waldorte ────────────────────────────────────── */
+  --lichtung-bg:        #EAF5E8;
+  --lichtung-dark:      #1A4018;
+  --lichtung-mid:       #3A6030;
+
+  --altwald-bg:         #F5F0E8;
+  --altwald-dark:       #3A2E10;
+  --altwald-mid:        #6A5828;
+
+  --hoehle-bg:          #2A2820;
+  --hoehle-glow:        #C87830;
+  --hoehle-dark:        #0E0C08;
+  --hoehle-text:        #C8C4BC;
+
+  --felsen-bg:          #F0EFEC;
+  --felsen-dark:        #3A3830;
+  --felsen-mid:         #6A6858;
+
+  --nebel-bg:           #EEF2F6;
+  --nebel-dark:         #1A2840;
+  --nebel-mid:          #3A4E68;
+  --nebel:              #506888;
+
+  --echos-bg:           #EEF0FA;
+  --echos-dark:         #1A1C38;
+  --echos-mid:          #3A3C68;
+  --echos:              #505488;
+
+  /* ── Rückwärts-Kompatibilität ────────────────────── */
+  --p1:   #183820;
+  --p2:   var(--fuehlerin);
+  --p3:   var(--beobachterin);
+  --s1:   var(--denker);
+  --s2:   var(--systemblick);
+  --s3:   var(--macherin-light);
+  --sage: var(--lichtung-bg);
+}
+
+/* ── Dark-Mode Overrides ─────────────────────────────── */
+body.dark {
+  --lichtung-bg:  rgba(30, 60, 28, 0.85);
+  --altwald-bg:   rgba(40, 32, 16, 0.85);
+  --felsen-bg:    rgba(32, 30, 26, 0.85);
+  --nebel-bg:     rgba(20, 28, 40, 0.85);
+  --echos-bg:     rgba(18, 18, 40, 0.85);
+}
+
+/* ── Kätzchen-Karten (buildWaldkatzenWerkzeuge) ──────── */
+.katze-karte {
+  background: var(--s4, #FFF7E6);
+  border: 1px solid rgba(8,79,63,.08);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .22s, box-shadow .22s;
+}
+.katze-karte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(8,79,63,.12);
+}
+body.dark .katze-karte {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.07);
+}
+.katze-karte-top-bar {
+  height: 5px;
+}
+.katze-karte-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  font-size: 1.4rem;
+  margin: 1.2rem 1.2rem .7rem;
+}
+.katze-karte-name {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0 1.2rem .2rem;
+}
+body.dark .katze-karte-name { color: #d4d0c8 !important; }
+.katze-karte-rolle {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 0 1.2rem .7rem;
+}
+.katze-karte-text {
+  font-size: .82rem;
+  color: var(--textMid, #556);
+  line-height: 1.65;
+  padding: 0 1.2rem .7rem;
+}
+body.dark .katze-karte-text { color: #888680; }
+.katze-karte-stimme {
+  font-family: 'Quicksand', sans-serif;
+  font-size: .83rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--p1, #183820);
+  border-top: 1px solid rgba(8,79,63,.07);
+  margin: 0 1.2rem;
+  padding: .7rem 0 1.2rem;
+}
+body.dark .katze-karte-stimme {
+  color: rgba(255,255,255,.55);
+  border-top-color: rgba(255,255,255,.06);
+}

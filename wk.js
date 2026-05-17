@@ -89,77 +89,183 @@ const MOODS = {
 
 const TIER_CARDS = [
   {
-    id:'luis',
+    id: 'luis',
+    name: 'Luis',
     img: WK_ASSETS+'8635fe4c-40e7-4e5f-8a9f-33530784ac43-removebg-preview.png',
-    name:'Luis', role:'Chaos · Impuls · Überreizung', accent:'#FF7A1A',
-    bgColor:'rgba(255,122,26,.08)', welt:'Lichtung',
-    desc:'Luis platzt raus, wenn es zu viel wird. Nicht aus böser Absicht — er ist schlicht überwältigt. Er zeigt, wie Innen-Chaos nach außen dringt.',
-    quote:'„Wenn alles zu viel wird, platzt es raus.”',
-    tags:['Chaos','Impuls','Überreizung']
+    thema: 'Chaos & Impuls',
+    accent: '#E87830',
+    bgColor: 'rgba(232,120,48,.08)',
+    sichtbar: ['Laut werden', 'Toben', 'Dinge werfen', 'Weglaufen'],
+    darunter: 'Überforderung, Reizüberflutung, echter Wunsch nach Verbindung',
+    quote: '„Wenn alles zu viel wird, wird es laut.”',
+    missverstaendnis: 'Wirkt aggressiv oder unerzogen — zeigt: Ich bin über meinem Limit.',
+    welt: 'Lichtung',
+    katze: 'Fühlerin',
+    tags: ['Chaos', 'Impuls', 'Überreizung'],
   },
   {
-    id:'iella',
-    img: WK_ASSETS+'katze-kissen-ruhe.png',
-    name:'Iella', role:'Stabilität · Klarheit · Selbstwert', accent:'#FFD23F',
-    bgColor:'rgba(255,210,63,.08)', welt:'Lichtung',
-    desc:'Iella weiß, wer sie ist — und das gibt ihr Halt. Ihr Selbstwert hängt nicht von anderen ab. Ihre Klarheit macht ihr Umfeld sicherer.',
-    quote:'„Ich weiß, wer ich bin. Das reicht.”',
-    tags:['Stabilität','Klarheit','Selbstwert']
-  },
-  {
-    id:'etana',
+    id: 'etana',
+    name: 'Etana',
     img: WK_ASSETS+'etanaLogo.png',
-    name:'Etana', role:'Rückzug · Schutz · Verschwinden', accent:'#6BA5CC',
-    bgColor:'rgba(107,165,204,.10)', welt:'Höhle',
-    desc:'Etana zieht sich zurück, wenn die Welt zu viel wird. Nicht aus Gleichgültigkeit — sondern weil Verschwinden ihr einziger bekannter Schutz ist.',
-    quote:'„Wenn ich nicht da bin, kann mich nichts treffen.”',
-    tags:['Rückzug','Schutz','Höhle']
+    thema: 'Rückzug & Stille',
+    accent: '#4AB8C8',
+    bgColor: 'rgba(74,184,200,.08)',
+    sichtbar: ['Schweigen', 'Sich einschließen', 'Nicht antworten', 'Verschwinden'],
+    darunter: 'Schutz, Reizschutz, fehlende Sicherheit für Kontakt',
+    quote: '„Wenn ich nicht da bin, kann mich nichts treffen.”',
+    missverstaendnis: 'Gilt als pflegeleicht — zeigt: Ich habe keinen sicheren Weg mehr, in Kontakt zu bleiben.',
+    welt: 'Höhle',
+    katze: 'Beobachterin',
+    tags: ['Rückzug', 'Schutz', 'Höhle'],
   },
   {
-    id:'elfriede',
+    id: 'elfriede',
+    name: 'Elfriede',
     img: WK_ASSETS+'themen2.png',
-    name:'Elfriede', role:'Anpassung · Spannung · Gefallenwollen', accent:'#008C89',
-    bgColor:'rgba(0,140,137,.08)', welt:'Alter Wald',
-    desc:'Elfriede passt sich an — immer. Sie spürt, was andere brauchen, und stellt sich darauf ein. Die innere Spannung wächst, während die äußere Harmonie bleibt.',
-    quote:'„Hauptsache, alle sind zufrieden.”',
-    tags:['Anpassung','Spannung','Gefallenwollen']
+    thema: 'Anpassung & Spannung',
+    accent: '#2A8A7A',
+    bgColor: 'rgba(42,138,122,.08)',
+    sichtbar: ['Genau hinschauen', 'Wenig sagen', 'Abwarten', 'Struktur suchen'],
+    darunter: 'Sicherheit durch Anpassung, innere Spannung wächst, Gefallenwollen',
+    quote: '„Hauptsache, alle sind zufrieden.”',
+    missverstaendnis: 'Gilt als unkompliziert — zeigt: Ich schlucke viel, damit es keine Reibung gibt.',
+    welt: 'Alter Wald',
+    katze: 'Denkerin',
+    tags: ['Anpassung', 'Spannung', 'Gefallenwollen'],
   },
   {
-    id:'niko',
-    img: WK_ASSETS+'helferNetzwerk.png',
-    name:'Niko', role:'Autonomie · Freiheit · Eigenweg', accent:'#A8D5C2',
-    bgColor:'rgba(168,213,194,.12)', welt:'Lichtung',
-    desc:'Niko geht seinen eigenen Weg — auch wenn andere das nicht verstehen. Er zeigt: Wer sich selbst treu bleibt, braucht keine Erlaubnis.',
-    quote:'„Ich muss nicht in eine Schublade passen.”',
-    tags:['Autonomie','Freiheit','Eigenweg']
-  },
-  {
-    id:'tigi',
+    id: 'tigi',
+    name: 'Tigi',
     img: WK_ASSETS+'reflexion.png',
-    name:'Tigi', role:'Kontrolle · Macht · harte Grenze', accent:'#EF4F7A',
-    bgColor:'rgba(239,79,122,.08)', welt:'Felsenmeer',
-    desc:'Tigi setzt klare Grenzen — manchmal zu klar. Kontrolle gibt ihr Sicherheit, Macht gibt ihr Halt. Was dahinter steckt, lässt sie selten zeigen.',
-    quote:'„Ich bestimme, was hier passiert.”',
-    tags:['Kontrolle','Macht','Grenze']
+    thema: 'Kontrolle & Macht',
+    accent: '#D84878',
+    bgColor: 'rgba(216,72,120,.07)',
+    sichtbar: ['Alles organisieren', 'Laut bestimmen', 'Grenzen setzen', 'Kämpfen'],
+    darunter: 'Angst vor Kontrollverlust, Sicherheit durch Macht',
+    quote: '„Ich bestimme, was hier passiert.”',
+    missverstaendnis: 'Wirkt frech oder respektlos — zeigt: Wenn ich nicht halte, fühle ich mich bedroht.',
+    welt: 'Felsenmeer',
+    katze: 'Systemblick',
+    tags: ['Kontrolle', 'Macht', 'Grenze'],
   },
   {
-    id:'katarina',
+    id: 'katarina',
+    name: 'Kata-Rina',
     img: WK_ASSETS+'besprechungen.png',
-    name:'Kata-Rina', role:'Nähe · Klammern · Bindungsangst', accent:'#9B88C8',
-    bgColor:'rgba(155,136,200,.08)', welt:'Nebel',
-    desc:'Kata-Rina sehnt sich nach Nähe — und hat gleichzeitig Angst davor, sie zu verlieren. Das Klammern ist kein Mangel, es ist ein Hilferuf.',
-    quote:'„Bitte geh nicht weg. Bitte bleib nicht zu nah.”',
-    tags:['Nähe','Klammern','Bindungsangst']
+    thema: 'Nähe & Bindung',
+    accent: '#E8C030',
+    bgColor: 'rgba(232,192,48,.08)',
+    sichtbar: ['Klammern', 'Immer dabei sein wollen', 'Fragen stellen', 'Nachschauen'],
+    darunter: 'Bindungsangst, Angst vor Trennung, Sehnsucht nach Sicherheit',
+    quote: '„Bitte geh nicht weg. Bitte bleib nicht zu nah.”',
+    missverstaendnis: 'Gilt als anstrengend — zeigt: Ich weiß nicht, ob ich sicher bin, wenn ich loslasse.',
+    welt: 'Nebel',
+    katze: 'Fühlerin',
+    tags: ['Nähe', 'Klammern', 'Bindungsangst'],
   },
   {
-    id:'wadda',
+    id: 'niko',
+    name: 'Niko',
+    img: WK_ASSETS+'helferNetzwerk.png',
+    thema: 'Autonomie & Freiheit',
+    accent: '#A8D5C2',
+    bgColor: 'rgba(168,213,194,.12)',
+    sichtbar: ['Alleine machen', 'Ablehnen von Hilfe', 'Eigene Wege gehen', 'Grenzen zeigen'],
+    darunter: 'Selbstbestimmung als Sicherheit, Autonomie als Schutz',
+    quote: '„Ich muss nicht in eine Schublade passen.”',
+    missverstaendnis: 'Gilt als rebellisch — zeigt: Ich brauche Kontrolle über mich, um mich sicher zu fühlen.',
+    welt: 'Lichtung',
+    katze: 'Macherin',
+    tags: ['Autonomie', 'Freiheit', 'Eigenweg'],
+  },
+  {
+    id: 'iella',
+    name: 'Iella',
+    img: WK_ASSETS+'katze-kissen-ruhe.png',
+    thema: 'Stabilität & Selbstwert',
+    accent: '#FFD23F',
+    bgColor: 'rgba(255,210,63,.08)',
+    sichtbar: ['Ruhig bleiben', 'Ausgleichen', 'Verlässlich da sein', 'Wenig Drama'],
+    darunter: 'Innere Stabilität, Selbstwert, Fähigkeit zu regulieren',
+    quote: '„Ich weiß, wer ich bin. Das reicht.”',
+    missverstaendnis: 'Wirkt unberührt — zeigt: Ich bin geerdet und brauche kein Drama für Verbindung.',
+    welt: 'Lichtung',
+    katze: 'Beobachterin',
+    tags: ['Stabilität', 'Klarheit', 'Selbstwert'],
+  },
+  {
+    id: 'wadda',
+    name: 'Wadda',
     img: WK_ASSETS+'uebersicht.png',
-    name:'Wadda', role:'Reduktion · Sprachlosigkeit · Rückzug', accent:'#7A9A4A',
-    bgColor:'rgba(122,154,74,.08)', welt:'Alter Wald',
-    desc:'Wadda hat gelernt, weniger zu sein. Weniger laut, weniger sichtbar, weniger fordernd. Sprachlosigkeit ist ihre Form des Rückzugs aus Verbindung.',
-    quote:'„Ich mach mich einfach kleiner.”',
-    tags:['Reduktion','Stille','Rückzug']
-  }
+    thema: 'Reduktion & Sprachlosigkeit',
+    accent: '#8090A0',
+    bgColor: 'rgba(128,144,160,.07)',
+    sichtbar: ['Schweigen', 'Schulterzucken', 'Abflachen', 'Nicht-Reagieren'],
+    darunter: 'Erschöpfung, fehlender Zugang zu Sprache, tiefer Rückzug',
+    quote: '„Ich mach mich einfach kleiner.”',
+    missverstaendnis: 'Gilt als desinteressiert — zeigt: Ich habe keinen sicheren Zugang mehr zu Kontakt.',
+    welt: 'Alter Wald',
+    katze: 'Beobachterin',
+    tags: ['Reduktion', 'Stille', 'Rückzug'],
+  },
+];
+
+const WALDKATZEN_WERKZEUGE = [
+  {
+    id: 'beobachterin',
+    name: 'Beobachterin',
+    farbe: '#4AB8C8',
+    farbeBg: '#EAF8FA',
+    farbeDark: '#1A6A78',
+    icon: '🔭',
+    rolle: 'Sehen · Beschreiben',
+    stimme: 'Ich sehe …',
+    funktion: 'Trennt Beobachtung von Bewertung. Bringt Ruhe in aufgeladene Situationen. Hilft, aus Drama in Klarheit zu kommen.',
+  },
+  {
+    id: 'fuehlerin',
+    name: 'Fühlerin',
+    farbe: '#2A8A7A',
+    farbeBg: '#E4F5F2',
+    farbeDark: '#124840',
+    icon: '🫀',
+    rolle: 'Spüren · Übersetzen',
+    stimme: 'Ich spüre …',
+    funktion: 'Benennt Gefühle. Übersetzt Verhalten in innere Not, Sehnsucht oder Schutz. Bringt Wärme ohne Weichspülen.',
+  },
+  {
+    id: 'denkerin',
+    name: 'Denkerin',
+    farbe: '#E8C030',
+    farbeBg: '#FEFAE8',
+    farbeDark: '#8A6C10',
+    icon: '🧩',
+    rolle: 'Einordnen · Muster sehen',
+    stimme: 'Ich vermute …',
+    funktion: 'Verbindet Verhalten, Gefühle und mögliche Gründe. Macht Muster sichtbar. Bringt Ordnung ins Durcheinander.',
+  },
+  {
+    id: 'systemblick',
+    name: 'Systemblick',
+    farbe: '#E87830',
+    farbeBg: '#FEF2E8',
+    farbeDark: '#8A4010',
+    icon: '🌐',
+    rolle: 'Weitsicht · Umfeld',
+    stimme: 'Ich sehe im Umfeld …',
+    funktion: 'Holt den Blick weg vom Kind hin zum Umfeld. Ersetzt Schuld durch Zusammenhang. Sieht nie nur das Kind — sieht den ganzen Wald.',
+  },
+  {
+    id: 'macherin',
+    name: 'Macherin',
+    farbe: '#D84878',
+    farbeBg: '#FDE8F0',
+    farbeDark: '#7A1E3E',
+    icon: '👣',
+    rolle: 'Nächster Schritt · Lösungen',
+    stimme: 'Ein möglicher nächster Schritt …',
+    funktion: 'Drängt nicht, bringt aber Bewegung rein. Denkt klein, konkret und machbar. Hilft, aus Ohnmacht in erste Schritte zu kommen.',
+  },
 ];
 
 const METAPHERN = [
@@ -344,22 +450,43 @@ function buildFigurCards(containerId, limit){
   const cards = typeof limit==='number' ? TIER_CARDS.slice(0,limit) : TIER_CARDS.slice(0,4);
   cards.forEach((t,i)=>{
     const a=document.createElement('a');
-    a.href='tiere.html#'+t.id;
+    a.href='figuren.html#'+t.id;
     a.className='figur-card reveal';
     a.style.transitionDelay=(i*.1)+'s';
     a.innerHTML=`
       <div class="figur-card-img">
         <div class="figur-card-img-bg" style="background:${t.bgColor}"></div>
         <img src="${t.img}" alt="${t.name}" loading="lazy" decoding="async">
+        <div style="position:absolute;top:.6rem;right:.6rem;background:${t.accent}22;border:1px solid ${t.accent}44;border-radius:999px;padding:2px 8px;font-size:.6rem;font-family:'Quicksand',sans-serif;font-weight:700;color:${t.accent}">${t.welt}</div>
       </div>
       <div class="figur-card-body">
         <div class="figur-card-name dk-h">${t.name}</div>
-        <div class="figur-card-role" style="color:${t.accent}">${t.role}</div>
-        <p class="figur-card-desc dk-mid">${t.desc}</p>
+        <div class="figur-card-role" style="color:${t.accent}">${t.thema}</div>
+        <p class="figur-card-desc dk-mid">${t.darunter}</p>
         <p class="figur-card-quote dk-soft" style="border-color:${t.accent}">${t.quote}</p>
-        <div style="margin-top:.8rem">${t.tags.map(tag=>`<span class="figur-tag">${tag}</span>`).join('')}</div>
+        <div style="margin-top:.6rem;font-size:.72rem;color:var(--textSoft);padding-top:.5rem;border-top:1px solid rgba(8,79,63,.08)">↳ ${t.missverstaendnis}</div>
       </div>`;
     el.appendChild(a);
+  });
+  refreshReveal(el);
+}
+
+function buildWaldkatzenWerkzeuge(containerId){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML='';
+  WALDKATZEN_WERKZEUGE.forEach((k,i)=>{
+    const card = document.createElement('div');
+    card.className = 'katze-karte reveal';
+    card.style.transitionDelay = (i*.08)+'s';
+    card.innerHTML = `
+      <div class="katze-karte-top-bar" style="background:${k.farbe}"></div>
+      <div class="katze-karte-icon" style="background:${k.farbeBg}">${k.icon}</div>
+      <div class="katze-karte-name" style="color:${k.farbeDark}">${k.name}</div>
+      <div class="katze-karte-rolle" style="color:${k.farbe}">${k.rolle}</div>
+      <div class="katze-karte-text">${k.funktion}</div>
+      <div class="katze-karte-stimme">„${k.stimme}"</div>`;
+    el.appendChild(card);
   });
   refreshReveal(el);
 }
