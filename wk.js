@@ -79,12 +79,14 @@ const WK = {
 };
 
 // ── DATA ─────────────────────────────────────────────────────────
+// Moodfarben folgen nun direkt dem Waldkätzchen-Farbsystem.
+// onAccent sorgt dafür, dass aktive Stimmungsbuttons auch bei Nacht und hellen Akzentfarben lesbar bleiben.
 const MOODS = {
-  verbunden:{accent:'#008C89'},
-  ruhig:{accent:'#084F3F'},
-  neugierig:{accent:'#FFD23F'},
-  mutig:{accent:'#FF7A1A'},
-  wild:{accent:'#EF4F7A'}
+  verbunden:{accent:'#2A8A7A', onAccent:'#FFFFFF'},
+  ruhig:{accent:'#1A4018', onAccent:'#FFFFFF'},
+  neugierig:{accent:'#E8C030', onAccent:'#3A2E10'},
+  mutig:{accent:'#E87830', onAccent:'#3A1C08'},
+  wild:{accent:'#D84878', onAccent:'#FFFFFF'}
 };
 
 const TIER_CARDS = [
@@ -400,6 +402,7 @@ function setTheme(t){
     const active=b.dataset.theme===t;
     b.style.background=active?'#084F3F':'transparent';
     b.style.color=active?'#fff':'';
+    b.style.borderColor=active?'rgba(255,255,255,.24)':'';
   });
 }
 
@@ -407,8 +410,9 @@ function setWeather(w){
   currentWeather=w;
   document.querySelectorAll('[data-weather]').forEach(b=>{
     const active=b.dataset.weather===w;
-    b.style.background=active?'#008C89':'transparent';
+    b.style.background=active?'#2A8A7A':'transparent';
     b.style.color=active?'#fff':'';
+    b.style.borderColor=active?'rgba(255,255,255,.24)':'';
   });
 }
 
@@ -417,18 +421,30 @@ function setMood(m){
   if(currentMood===m){
     currentMood=null;
     if(moodOverlay) moodOverlay.style.background='transparent';
-    document.documentElement.style.setProperty('--mood-accent','#EF4F7A');
-    document.querySelectorAll('[data-mood]').forEach(b=>{b.style.background='transparent';b.style.color='';});
+    document.documentElement.style.setProperty('--mood-accent','#D84878');
+    document.documentElement.style.setProperty('--mood-on-accent','#FFFFFF');
+    document.querySelectorAll('[data-mood]').forEach(b=>{
+      b.style.background='transparent';
+      b.style.color='';
+      b.style.borderColor='';
+      b.style.textShadow='';
+    });
     return;
   }
   currentMood=m;
-  const acc=MOODS[m]?.accent || '#EF4F7A';
+  const mood = MOODS[m] || MOODS.wild;
+  const acc=mood.accent;
+  const onAcc=mood.onAccent || '#FFFFFF';
   if(moodOverlay) moodOverlay.style.background=acc+'18';
   document.documentElement.style.setProperty('--mood-accent',acc);
+  document.documentElement.style.setProperty('--mood-on-accent',onAcc);
   document.querySelectorAll('[data-mood]').forEach(b=>{
     const active=b.dataset.mood===m;
-    b.style.background=active?(MOODS[b.dataset.mood]?.accent || acc):'transparent';
-    b.style.color=active?'#fff':'';
+    const itemMood = MOODS[b.dataset.mood] || mood;
+    b.style.background=active?itemMood.accent:'transparent';
+    b.style.color=active?(itemMood.onAccent || '#FFFFFF'):'';
+    b.style.borderColor=active?'rgba(255,255,255,.3)':'';
+    b.style.textShadow=active && itemMood.onAccent === '#FFFFFF' ? '0 1px 2px rgba(0,0,0,.28)' : '';
   });
 }
 
@@ -516,387 +532,116 @@ function buildImpulse(containerId, count){
   const cards = count ? IMPULSE.slice(0,count) : IMPULSE;
   cards.forEach(c=>{
     const d=document.createElement('div');
-    d.style.cssText='flex-shrink:0;width:280px;scroll-snap-align:start;border-radius:20px;padding:1.5rem;border:1px solid rgba(8,79,63,.08);box-shadow:0 4px 24px rgba(8,79,63,.09);background:var(--s4)';
-    d.innerHTML=`
-      <div class="impulse-img"><img src="${c.img}" alt="" loading="lazy" decoding="async"></div>
-      <div class="impulse-cat">${c.cat}</div>
-      <h4 class="impulse-title">${c.title}</h4>
-      <p class="impulse-text">${c.text}</p>`;
+    d.style.cssText='flex-shrink:0;width:280px;scroll-snap-align:start;border-radius:20px;background:#fff;border:1px solid rgba(8,79,63,.08);padding:1rem;box-shadow:0 4px 24px rgba(8,79,63,.07)';
+    d.innerHTML=`<div class="impulse-img"><img src="${c.img}" alt="${c.title}" loading="lazy"></div><div class="impulse-cat">${c.cat}</div><div class="impulse-title">${c.title}</div><p class="impulse-text">${c.text}</p>`;
     el.appendChild(d);
   });
 }
 
-function buildAccordion(containerId, data){
+function buildAccordion(containerId){
   const el=document.getElementById(containerId);
   if(!el) return;
   el.innerHTML='';
-  const items = data || FAQ;
-  items.forEach((item,i)=>{
-    const d=document.createElement('div');
-    d.className='accordion-item';
-    d.innerHTML=`
-      <button class="accordion-btn" onclick="toggleAcc(${i},'${containerId}')">
-        <span class="accordion-q">${item.q}</span>
-        <span class="accordion-icon" id="acc-icon-${containerId}-${i}">+</span>
-      </button>
-      <div class="accordion-body" id="acc-body-${containerId}-${i}">
-        <div class="accordion-a">${item.a}</div>
-      </div>`;
-    el.appendChild(d);
+  FAQ.forEach((f,i)=>{
+    const item=document.createElement('div');
+    item.className='accordion-item';
+    item.innerHTML=`<button class="accordion-btn" onclick="toggleAcc(${i})"><span class="accordion-q">${f.q}</span><span class="accordion-icon" id="ai-${i}">+</span></button><div class="accordion-body" id="ab-${i}"><p class="accordion-a">${f.a}</p></div>`;
+    el.appendChild(item);
   });
+}
+
+function toggleAcc(i){
+  document.querySelectorAll('.accordion-body').forEach((b,j)=>{if(j!==i){b.classList.remove('open');document.getElementById('ai-'+j)?.classList.remove('open');}});
+  document.getElementById('ab-'+i)?.classList.toggle('open');
+  document.getElementById('ai-'+i)?.classList.toggle('open');
+}
+
+function scrollSlider(id,dir){
+  document.getElementById(id)?.scrollBy({left:dir*320,behavior:'smooth'});
 }
 
 function buildEchos(containerId){
-  const el=document.getElementById(containerId);
+  const el = document.getElementById(containerId);
   if(!el) return;
   el.innerHTML='';
   ECHOS.forEach((e,i)=>{
-    const d=document.createElement('article');
-    d.className='reveal';
-    d.style.transitionDelay=(i*.08)+'s';
-    d.style.cssText+='background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:1.4rem 1.4rem 1.4rem calc(1.4rem + 3px);position:relative;overflow:hidden;transition:background .2s';
-    d.onmouseover=()=>d.style.background='rgba(255,255,255,.07)';
-    d.onmouseout=()=>d.style.background='rgba(255,255,255,.04)';
-    d.innerHTML=`
-      <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:${e.color}"></div>
-      <blockquote style="font-family:'Quicksand',sans-serif;font-size:.92rem;font-style:italic;color:#d4d0c6;line-height:1.65;margin-bottom:.9rem">${e.quote}</blockquote>
-      <p style="font-size:.65rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:${e.labelColor};margin-bottom:.5rem">${e.label}</p>
-      <p style="font-size:.8rem;color:#888680;line-height:1.6;padding-top:.7rem;border-top:1px solid rgba(255,255,255,.06)">${e.response}</p>`;
-    el.appendChild(d);
+    const card = document.createElement('div');
+    card.className = 'reveal';
+    card.style.transitionDelay = (i*.08)+'s';
+    card.style.cssText += `padding:1.35rem;border-radius:20px;background:${e.color}10;border:1px solid ${e.color}30;display:flex;flex-direction:column;gap:.7rem;`;
+    card.innerHTML = `
+      <div style="display:inline-flex;align-self:flex-start;padding:4px 10px;border-radius:999px;background:${e.labelColor}25;color:${e.color};font-size:.65rem;font-family:'Quicksand',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.08em">${e.label}</div>
+      <p style="font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:800;line-height:1.55;color:var(--p1)" class="dk-h">${e.quote}</p>
+      <p style="font-size:.82rem;line-height:1.65;color:var(--textMid)" class="dk-mid">${e.response}</p>`;
+    el.appendChild(card);
   });
   refreshReveal(el);
 }
 
-function buildWeltenStrip(containerId){
-  const el=document.getElementById(containerId);
+function buildWorld(containerId, detailId){
+  const el = document.getElementById(containerId);
   if(!el) return;
-  el.innerHTML='';
-  WELTEN.forEach(w=>{
-    const d=document.createElement('a');
-    d.href=`welt.html#${w.id}`;
-    d.style.cssText=`background:${w.bg};padding:1.2rem;display:flex;flex-direction:column;gap:.3rem;cursor:pointer;transition:opacity .2s;text-decoration:none`;
-    d.onmouseover=()=>d.style.opacity='.82';
-    d.onmouseout=()=>d.style.opacity='1';
-    d.innerHTML=`
-      <div style="font-size:1.4rem;line-height:1;margin-bottom:.3rem">${w.icon}</div>
-      <div style="font-family:'Quicksand',sans-serif;font-size:.82rem;font-weight:700;color:${w.text}">${w.name}</div>
-      <div style="font-size:.68rem;color:${w.sub};line-height:1.4">${w.kw}</div>
-      <span style="display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;margin-top:.4rem;background:${w.tagBg};color:${w.sub}">${w.tag}</span>`;
-    el.appendChild(d);
+  el.innerHTML = '';
+  WORLD_ITEMS.forEach((w,idx)=>{
+    const button = document.createElement('button');
+    button.type='button';
+    button.className='world-item'+(idx===0?' active':'');
+    button.dataset.world=w.key;
+    button.style.setProperty('--world-bg',w.bg);
+    button.style.setProperty('--world-text',w.text);
+    button.style.setProperty('--world-sub',w.sub);
+    button.style.setProperty('--world-tag-bg',w.tagBg);
+    button.innerHTML=`<span class="world-item-icon">${w.icon}</span><span class="world-item-body"><strong>${w.name}</strong><em>${w.desc}</em></span><span class="world-item-tag">${w.tag}</span>`;
+    button.addEventListener('click',()=>selectWorld(w.key, detailId, containerId));
+    el.appendChild(button);
   });
+  renderWorldDetail(WELTEN[0], detailId);
 }
 
-const _openAcc = {};
-function toggleAcc(i, cid){
-  const body = document.getElementById(`acc-body-${cid}-${i}`);
-  const icon = document.getElementById(`acc-icon-${cid}-${i}`);
-  if(!body || !icon) return;
-  if(_openAcc[cid]===i){
-    body.classList.remove('open');
-    icon.classList.remove('open');
-    _openAcc[cid]=null;
-    return;
-  }
-  if(_openAcc[cid]!=null){
-    const openBody = document.getElementById(`acc-body-${cid}-${_openAcc[cid]}`);
-    const openIcon = document.getElementById(`acc-icon-${cid}-${_openAcc[cid]}`);
-    if(openBody) openBody.classList.remove('open');
-    if(openIcon) openIcon.classList.remove('open');
-  }
-  body.classList.add('open');
-  icon.classList.add('open');
-  _openAcc[cid]=i;
+function selectWorld(key, detailId, containerId){
+  const data = WELTEN.find(w=>w.id===key);
+  if(!data) return;
+  document.querySelectorAll(`#${containerId} .world-item`).forEach(item=>item.classList.toggle('active',item.dataset.world===key));
+  renderWorldDetail(data, detailId);
 }
 
-function scrollSlider(id,dir){
-  const slider = document.getElementById(id);
-  if(slider) slider.scrollBy({left:dir*300,behavior:'smooth'});
+function renderWorldDetail(data, detailId){
+  const detail = document.getElementById(detailId);
+  if(!detail) return;
+  detail.style.background = data.bg;
+  detail.style.color = data.text;
+  detail.innerHTML = `<div class="world-detail-top"><div><span class="world-detail-kicker" style="background:${data.tagBg};color:${data.text}">${data.tag}</span><h3>${data.icon} ${data.name}</h3><p style="color:${data.sub}">${data.kw}</p></div></div><p class="world-detail-copy" style="color:${data.text}">${data.desc}</p><div class="world-detail-meta"><div><strong>Begegnet:</strong><span>${data.tiere.join(' · ')}</span></div><div><strong>Hilft:</strong><span>${data.angebote.join(' · ')}</span></div></div>`;
 }
 
-// ── REVEAL ────────────────────────────────────────────────────────
-let revealObserver;
-function initReveal(){
-  revealObserver = new IntersectionObserver(entries=>entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  }),{threshold:.09});
-  document.querySelectorAll('.reveal, .rev').forEach(el=>revealObserver.observe(el));
+// ── INTERSECTION OBSERVER ─────────────────────────────────────────
+function refreshReveal(scope=document){
+  const els=scope.querySelectorAll('.reveal:not([data-observed])');
+  if(!els.length) return;
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});
+  els.forEach(el=>{el.dataset.observed='1';observer.observe(el);});
 }
 
-function refreshReveal(root=document){
-  if(!revealObserver) return;
-  root.querySelectorAll?.('.reveal, .rev').forEach(el=>revealObserver.observe(el));
-}
-
-// ── NAVIGATION ────────────────────────────────────────────────────
-function initRichNavigation(){
-  const trigger=document.getElementById('dd-trigger');
-  const burger=document.getElementById('nav-burger');
-  const nav=document.getElementById('site-nav');
-
-  trigger?.addEventListener('click',()=>WK.toggleDD());
-  burger?.addEventListener('click',()=>WK.toggleMob());
-
-  document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>WK.closeMob()));
-  document.addEventListener('click',event=>{
-    const panel=document.getElementById('dd-panel');
-    const triggerEl=document.getElementById('dd-trigger');
-    if(panel?.classList.contains('open') && !panel.contains(event.target) && !triggerEl?.contains(event.target)) WK.closeDD();
-  });
-  document.addEventListener('keydown',event=>{
-    if(event.key==='Escape'){
-      WK.closeDD();
-      WK.closeMob();
-    }
-  });
-  window.addEventListener('scroll',()=>nav?.classList.toggle('scrolled',window.scrollY>8),{passive:true});
-}
-
-// ── HERO CANVAS ───────────────────────────────────────────────────
+// ── HERO CANVAS ────────────────────────────────────────────────────
 function initHeroCanvas(){
-  const c=document.getElementById('hero-canvas');
-  if(!c) return;
-  const ctx=c.getContext('2d');
-  let W=c.width=c.offsetWidth;
-  let H=c.height=c.offsetHeight;
-  const resize=()=>{W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;};
-  if('ResizeObserver' in window){
-    const ro=new ResizeObserver(resize);
-    ro.observe(c);
-  }else{
-    window.addEventListener('resize',resize);
-  }
-
-  const stars=Array.from({length:110},()=>({x:Math.random()*2000,y:Math.random()*Math.max(H*.7,200),r:Math.random()*1.5+.3,a:Math.random(),da:(Math.random()-.5)*.014,hue:200+Math.random()*60}));
-  const rays=Array.from({length:7},(_,i)=>({angle:(i/7)*Math.PI*.7-Math.PI*.35,w:55+Math.random()*65,a:.022+Math.random()*.028,t:Math.random()*Math.PI*2,sp:.0007+Math.random()*.0005}));
-  const butterflies=Array.from({length:7},()=>({x:Math.random()*2000,y:100+Math.random()*Math.max(H*.7,200),vx:(Math.random()-.5)*1.1,vy:(Math.random()-.5)*.7,wt:0,ws:.07+Math.random()*.055,sz:7+Math.random()*9,hue:Math.random()*360,t:Math.random()*Math.PI*2}));
-  const rain=Array.from({length:120},()=>({x:Math.random()*2000,y:Math.random()*Math.max(H,300),len:9+Math.random()*11,spd:9+Math.random()*6,a:.28+Math.random()*.38}));
-  const mist=Array.from({length:10},()=>({x:Math.random()*2000,y:80+Math.random()*Math.max(H*.6,200),r:90+Math.random()*150,a:0,ta:.045+Math.random()*.07,vx:(Math.random()-.5)*.22,t:Math.random()*Math.PI*2}));
-
-  function drawButterfly(x,y,sz,wt,hue){
-    const flap=Math.sin(wt);
-    ctx.save();
-    [-1,1].forEach(side=>{
-      ctx.beginPath();
-      ctx.moveTo(x,y);
-      ctx.bezierCurveTo(x+flap*sz*.9*side,y-sz*.6,x+flap*sz*.9*side+side*sz*.4,y+sz*.4,x,y+sz*.3);
-      ctx.fillStyle=`hsla(${hue},80%,65%,.8)`;
-      ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(x,y);
-      ctx.bezierCurveTo(x+flap*sz*1.1*side,y-sz*1.2,x+flap*sz*1.3*side+side*sz*.3,y-sz*.5,x,y);
-      ctx.fillStyle=`hsla(${hue},70%,72%,.7)`;
-      ctx.fill();
-    });
-    ctx.fillStyle=`hsla(${hue},50%,30%,.9)`;
-    ctx.beginPath();
-    ctx.ellipse(x,y+sz*.15,sz*.1,sz*.4,0,0,Math.PI*2);
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    const isDay=currentTheme==='day'||currentTheme==='morning';
-    const isNight=currentTheme==='night'||currentTheme==='dusk';
-    const isRain=currentWeather==='rain';
-    const isMist=currentWeather==='mist';
-
-    if(isNight&&!isRain){
-      stars.forEach(s=>{
-        s.a+=s.da;
-        if(s.a>1||s.a<0)s.da*=-1;
-        const x=s.x%Math.max(W,1);
-        ctx.save();
-        ctx.globalAlpha=Math.max(0,s.a*.85);
-        ctx.fillStyle=`hsl(${s.hue},80%,92%)`;
-        ctx.beginPath();
-        ctx.arc(x,s.y,s.r,0,Math.PI*2);
-        ctx.fill();
-        ctx.restore();
-      });
-    }
-
-    if(isDay&&!isRain){
-      const sx=W*.75,sy=-H*.08;
-      rays.forEach(r=>{
-        r.t+=r.sp;
-        const angle=r.angle+Math.sin(r.t)*.03;
-        const col=currentTheme==='morning'?'rgba(255,200,100,':'rgba(255,240,180,';
-        const g=ctx.createLinearGradient(sx,sy,sx+Math.cos(angle)*H*1.6,sy+Math.sin(angle)*H*1.6);
-        g.addColorStop(0,col+(r.a*1.5)+')');
-        g.addColorStop(.5,col+r.a+')');
-        g.addColorStop(1,col+'0)');
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(sx,sy);
-        ctx.lineTo(sx+Math.cos(angle-r.w*.0007)*H*1.7,sy+Math.sin(angle-r.w*.0007)*H*1.7);
-        ctx.lineTo(sx+Math.cos(angle+r.w*.0007)*H*1.7,sy+Math.sin(angle+r.w*.0007)*H*1.7);
-        ctx.fillStyle=g;
-        ctx.fill();
-        ctx.restore();
-      });
-      butterflies.forEach(b=>{
-        b.wt+=b.ws;
-        b.t+=.012;
-        b.x+=b.vx+Math.sin(b.t)*.6;
-        b.y+=b.vy+Math.cos(b.t*.7)*.4;
-        if(b.x<-50)b.x=W+50;
-        if(b.x>W+50)b.x=-50;
-        if(b.y<H*.04||b.y>H*.96)b.vy*=-1;
-        drawButterfly(b.x,b.y,b.sz,b.wt,b.hue);
-      });
-    }
-
-    if(isRain){
-      ctx.save();
-      ctx.strokeStyle='rgba(180,210,255,.45)';
-      ctx.lineWidth=1;
-      rain.forEach(r=>{
-        r.y+=r.spd;
-        if(r.y>H+20){r.y=-20;r.x=Math.random()*W;}
-        ctx.save();
-        ctx.globalAlpha=r.a;
-        ctx.beginPath();
-        ctx.moveTo(r.x%Math.max(W,1),r.y);
-        ctx.lineTo(r.x%Math.max(W,1)-2,r.y+r.len);
-        ctx.stroke();
-        ctx.restore();
-      });
-      ctx.restore();
-    }
-
-    if(isMist){
-      mist.forEach(m=>{
-        m.t+=.005;
-        m.x+=m.vx+Math.sin(m.t)*.2;
-        if(m.x<-m.r*2)m.x=W+m.r;
-        if(m.x>W+m.r*2)m.x=-m.r;
-        m.a=.03+Math.abs(Math.sin(m.t))*m.ta;
-        const g=ctx.createRadialGradient(m.x,m.y,0,m.x,m.y,m.r);
-        g.addColorStop(0,`rgba(220,235,220,${m.a})`);
-        g.addColorStop(1,'rgba(220,235,220,0)');
-        ctx.beginPath();
-        ctx.arc(m.x,m.y,m.r,0,Math.PI*2);
-        ctx.fillStyle=g;
-        ctx.fill();
-      });
-    }
+  const canvas=document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  let particles=[];
+  const resize=()=>{canvas.width=innerWidth;canvas.height=innerHeight;};
+  resize();
+  addEventListener('resize',resize);
+  for(let i=0;i<20;i++) particles.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2+1,s:Math.random()*.4+.1});
+  (function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='rgba(255,255,255,.32)';
+    particles.forEach(p=>{p.y-=p.s;if(p.y<-4)p.y=canvas.height+4;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();});
     requestAnimationFrame(draw);
-  }
-  draw();
+  })();
 }
 
-// ── HEADER/FOOTER HTML ────────────────────────────────────────────
-function worldDropdownMarkup(){
-  return WORLD_ITEMS.map(item=>`
-    <button class="dd-welt" style="background:${item.bg};" onclick="WK.goWelt('${item.key}')" role="menuitem" type="button">
-      <div class="dd-icon">${item.icon}</div>
-      <div class="dd-name" style="color:${item.text};">${item.name}</div>
-      <div class="dd-desc" style="color:${item.sub};">${item.desc}</div>
-      <span class="dd-tag" style="background:${item.tagBg};color:${item.text};">${item.tag}</span>
-    </button>`).join('');
-}
-
-function mobileWorldMarkup(){
-  return WORLD_ITEMS.map(item=>`
-    <button class="mob-welt" style="background:${item.bg};" onclick="WK.goWelt('${item.key}')" type="button">
-      <div>${item.icon}</div>
-      <div class="mob-welt-name" style="color:${item.text};">${item.name}</div>
-      <div class="mob-welt-tag" style="color:${item.sub};">${item.tag}</div>
-    </button>`).join('');
-}
-
-function renderHeader(activePage){
-  const active = href => href===activePage ? ' active' : '';
-  return `
-<div id="night-bg"></div>
-<div id="mood-overlay"></div>
-<div id="controls">
-  <button id="controls-btn" onclick="toggleControls()">🌿 Stimmung</button>
-  <div id="controls-panel">
-    <div class="ctrl-label">Tageszeit</div>
-    <div class="ctrl-grid ctrl-grid-4">
-      <button class="ctrl-btn" data-theme="morning" onclick="setTheme('morning')"><span class="ic">🌅</span><span class="lb">Morning</span></button>
-      <button class="ctrl-btn" data-theme="day" onclick="setTheme('day')"><span class="ic">☀️</span><span class="lb">Day</span></button>
-      <button class="ctrl-btn" data-theme="dusk" onclick="setTheme('dusk')"><span class="ic">🌇</span><span class="lb">Dusk</span></button>
-      <button class="ctrl-btn" data-theme="night" onclick="setTheme('night')"><span class="ic">🌙</span><span class="lb">Night</span></button>
-    </div>
-    <div class="ctrl-label">Wetter</div>
-    <div class="ctrl-grid ctrl-grid-3">
-      <button class="ctrl-btn" data-weather="clear" onclick="setWeather('clear')"><span class="ic">☀️</span><span class="lb">Klar</span></button>
-      <button class="ctrl-btn" data-weather="rain" onclick="setWeather('rain')"><span class="ic">🌧</span><span class="lb">Regen</span></button>
-      <button class="ctrl-btn" data-weather="mist" onclick="setWeather('mist')"><span class="ic">🌫</span><span class="lb">Nebel</span></button>
-    </div>
-    <div class="ctrl-label">Stimmung</div>
-    <div class="ctrl-grid ctrl-grid-3">
-      <button class="ctrl-btn" data-mood="verbunden" onclick="setMood('verbunden')"><span class="ic">🤝</span><span class="lb">Verbunden</span></button>
-      <button class="ctrl-btn" data-mood="ruhig" onclick="setMood('ruhig')"><span class="ic">🌿</span><span class="lb">Ruhig</span></button>
-      <button class="ctrl-btn" data-mood="neugierig" onclick="setMood('neugierig')"><span class="ic">🦋</span><span class="lb">Neugierig</span></button>
-      <button class="ctrl-btn" data-mood="mutig" onclick="setMood('mutig')"><span class="ic">🔥</span><span class="lb">Mutig</span></button>
-      <button class="ctrl-btn" data-mood="wild" onclick="setMood('wild')"><span class="ic">🐾</span><span class="lb">Wild</span></button>
-    </div>
-  </div>
-</div>
-<nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html" aria-label="Waldkätzchen Startseite"><span class="logo-mark" aria-hidden="true">🌿</span>waldkätzchen</a>
-    <div class="nav-links" role="menubar">
-      <a class="nav-link${active('index.html')}" href="index.html" role="menuitem">Die Lichtung</a>
-      <button class="nav-link" id="dd-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="dd-panel" type="button">Die Welten <span class="dd-caret" aria-hidden="true">▾</span></button>
-      <a class="nav-link${active('tiere.html')}" href="tiere.html" role="menuitem">Die Tiere</a>
-      <a class="nav-link nl-vaeter${active('vaeter.html')}" href="vaeter.html" role="menuitem">Für Väter</a>
-      <a class="nav-link${active('blog.html')}" href="blog.html" role="menuitem">Impulse</a>
-    </div>
-    <a class="nav-cta" href="kontakt.html">Erstgespräch</a>
-    <button class="nav-burger" id="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu" type="button"><span></span><span></span><span></span></button>
-  </div>
-  <div class="nav-dd" id="dd-panel" role="menu" aria-label="Die fünf Waldwelten">
-    <div class="dd-inner"><div class="dd-grid">${worldDropdownMarkup()}</div></div>
-    <div class="dd-footer"><span class="dd-hint">Finde heraus, wo du gerade im Wald stehst.</span><button class="dd-more" onclick="WK.closeDD()" type="button">Zur Welten-Übersicht →</button></div>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-  <a class="mob-link" href="index.html" data-close>Die Lichtung <span class="caret">→</span></a>
-  <div class="mob-welten">${mobileWorldMarkup()}</div>
-  <a class="mob-link" href="tiere.html" data-close>Die Tiere <span class="caret">→</span></a>
-  <a class="mob-link ml-vaeter" href="vaeter.html" data-close>Für Väter <span class="caret">→</span></a>
-  <a class="mob-link" href="blog.html" data-close>Impulse <span class="caret">→</span></a>
-  <a class="btn-primary mob-cta" href="kontakt.html">Erstgespräch anfragen</a>
-</div>`;
-}
-
-function renderFooter(){
-  return `
-<section style="background:var(--p1);padding:5rem 0">
-  <div class="container grid-2">
-    <div>
-      <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Waldpost</div></div>
-      <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:.9rem;line-height:1.3">Kleine Briefe<br>aus dem Wald</h2></div>
-      <div class="reveal" style="transition-delay:.15s"><p style="color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.8;margin-bottom:1.5rem">Unregelmäßig, dafür ehrlich: Impulse, Geschichten und Gedanken — direkt in deinen Posteingang.</p></div>
-      <div class="reveal" style="transition-delay:.2s"><div style="display:flex;flex-direction:column;gap:.75rem"><input type="email" placeholder="Deine E-Mail-Adresse" class="nl-input"><button class="btn-primary" style="width:100%;justify-content:center">🌿 Dabei sein</button><p style="font-size:.72rem;color:rgba(255,255,255,.4)">🔒 Kein Spam. Jederzeit abmeldbar.</p></div></div>
-    </div>
-    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center"><img src="${WK_ASSETS}katze-kissen-ruhe.png" alt="" style="width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.25));animation:breathe 4s ease-in-out infinite"></div>
-  </div>
-</section>
-<footer>
-  <div class="footer-grid">
-    <div><a href="index.html" style="display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-family:'Quicksand',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:.6rem"><span aria-hidden="true">🌿</span>waldkätzchen</a><div style="font-size:.7rem;opacity:.4;letter-spacing:.07em;font-family:'Quicksand',sans-serif;text-transform:uppercase;margin-bottom:.6rem">Wild und verbunden.</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;text-transform:uppercase">Verstehen · Verbinden · Verändern</div><div style="display:flex;gap:.7rem"><a href="#" class="social-btn">📷</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">💬</a></div></div>
-    <div><h4 class="footer-h">Der Wald</h4><a href="welt.html" class="footer-link">Die Welt</a><a href="index.html#die-echos" class="footer-link">Der alte Wald</a><a href="tiere.html" class="footer-link">Die Figuren</a><a href="metaphern.html" class="footer-link">Die Metaphern</a></div>
-    <div><h4 class="footer-h">Angebote</h4><a href="coaching.html" class="footer-link">Coaching</a><a href="angebote.html" class="footer-link">Waldabenteuer</a><a href="angebote.html#kurse" class="footer-link">Kurse</a><a href="app.html" class="footer-link">Die App</a></div>
-    <div><h4 class="footer-h">Mehr</h4><a href="vaeter.html" class="footer-link">Für Väter</a><a href="blog.html" class="footer-link">Impulse</a><a href="ueber-mich.html" class="footer-link">Über mich</a><a href="kontakt.html" class="footer-link">Kontakt</a></div>
-  </div>
-  <div class="footer-bottom"><div style="font-size:.75rem;color:rgba(255,255,255,.35)">© 2026 Waldkätzchen. Wild und verbunden.</div><div style="display:flex;gap:1.5rem"><a href="#" class="footer-link" style="font-size:.75rem;margin:0">Impressum</a><a href="#" class="footer-link" style="font-size:.75rem;margin:0">Datenschutz</a></div></div>
-</footer>`;
-}
-
-// ── PAGE INIT ─────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded',()=>{
+// ── INIT ───────────────────────────────────────────────────────────
+addEventListener('DOMContentLoaded',()=>{
   setTheme(currentTheme);
-  setWeather(currentWeather);
-  initReveal();
+  refreshReveal();
   initHeroCanvas();
-  initRichNavigation();
 });
