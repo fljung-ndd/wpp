@@ -719,9 +719,8 @@ function renderHeader(activePage){
     <div class="nav-links" role="menubar">
       <a class="nav-link${active('index.html')}" href="index.html" role="menuitem">Die Lichtung</a>
       <button class="nav-link" id="dd-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="dd-panel" type="button">Die Welten <span class="dd-caret" aria-hidden="true">▾</span></button>
+      <a class="nav-link${active('tiere.html')}" href="tiere.html" role="menuitem">Die Tiere</a>
       <a class="nav-link nl-vaeter${active('vaeter.html')}" href="vaeter.html" role="menuitem">Für Väter</a>
-      <a class="nav-link" href="index.html#begleitung" role="menuitem">Begleitung</a>
-      <a class="nav-link" href="index.html#katzen" role="menuitem">Die Waldkätzchen</a>
       <a class="nav-link${active('blog.html')}" href="blog.html" role="menuitem">Impulse</a>
     </div>
     <a class="nav-cta" href="kontakt.html">Erstgespräch</a>
@@ -734,10 +733,9 @@ function renderHeader(activePage){
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a class="mob-link" href="index.html" data-close>Die Lichtung <span class="caret">→</span></a>
-  <button class="mob-link" onclick="WK.scrollTo('katzen');WK.closeMob()" type="button">Die Waldkätzchen <span class="caret">→</span></button>
   <div class="mob-welten">${mobileWorldMarkup()}</div>
+  <a class="mob-link" href="tiere.html" data-close>Die Tiere <span class="caret">→</span></a>
   <a class="mob-link ml-vaeter" href="vaeter.html" data-close>Für Väter <span class="caret">→</span></a>
-  <a class="mob-link" href="index.html#begleitung" data-close>Begleitung <span class="caret">→</span></a>
   <a class="mob-link" href="blog.html" data-close>Impulse <span class="caret">→</span></a>
   <a class="btn-primary mob-cta" href="kontakt.html">Erstgespräch anfragen</a>
 </div>`;
