@@ -1,0 +1,445 @@
+<!-- Baustein zu Issue #29: Situations-Slider mit Tieren und dem wertungsfreien Blick der Waldkätzchen -->
+<section id="situationen-aus-dem-wald" style="padding:5rem 0;background:#152015;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 12% 18%,rgba(74,184,200,.13) 0%,transparent 40%),radial-gradient(ellipse at 84% 14%,rgba(232,192,48,.12) 0%,transparent 42%),radial-gradient(ellipse at 78% 92%,rgba(210,93,128,.10) 0%,transparent 44%),radial-gradient(ellipse at 18% 92%,rgba(242,139,63,.08) 0%,transparent 42%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background-image:url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png');background-size:cover;background-position:center;opacity:.045;pointer-events:none"></div>
+
+  <div class="container" style="position:relative;z-index:1">
+    <div class="wk-situation-head">
+      <div>
+        <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.75rem">Situationen aus dem Alltag</div></div>
+        <div class="reveal" style="transition-delay:.08s">
+          <h2 style="font-family:'Quicksand',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.18;color:#fff;font-weight:800;letter-spacing:-.02em;margin:0 0 1rem">Was geschieht, wenn wir nicht sofort urteilen?</h2>
+        </div>
+        <div class="reveal" style="transition-delay:.14s">
+          <p style="font-size:1rem;color:#c3bdb1;line-height:1.92;max-width:820px;margin:0">
+            Die Tiere erleben Situationen, wie sie im Alltag wirklich passieren können: laut, eng, widersprüchlich oder voller Rückzug. Die Waldkätzchen schauen gemeinsam darauf. Nicht, um eine schnelle Lösung darüberzulegen — sondern um sichtbar zu machen, was in der Situation mitwirken könnte.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="wk-situation-head-note">
+          <span>🐾</span>
+          <div>
+            <strong>Die Tiere sind Akteure.</strong>
+            <em>Die Waldkätzchen blicken drauf.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:.22s;margin-top:2rem">
+      <div class="wk-situation-slider-shell">
+        <button class="wk-situation-arrow wk-situation-arrow--left" type="button" aria-label="Vorherige Situation" onclick="scrollSituationSlider(-1)">‹</button>
+
+        <div class="wk-situation-slider" id="wk-situation-slider" tabindex="0" aria-label="Situationen-Slider">
+          <article class="wk-situation-slide" data-situation="luis">
+            <div class="wk-situation-scene wk-situation-scene--luis">
+              <div class="wk-situation-scene-top">
+                <span class="wk-situation-tag">Situation 1</span>
+                <span class="wk-situation-place">Auf der Lichtung</span>
+              </div>
+              <div class="wk-situation-animal-strip">
+                <div class="wk-situation-animal wk-situation-animal--main">
+                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/luis.png" alt="Luis, der Teddy"></div>
+                  <div><strong>Luis</strong><em>ist plötzlich sehr laut</em></div>
+                </div>
+                <div class="wk-situation-mini-thought">„Ich wollte doch nur, dass es weitergeht!“</div>
+              </div>
+              <h3>Luis wird wild, als alles gleichzeitig passiert.</h3>
+              <p>
+                Alle wollen los. Jacke. Schuhe. Tasche. Noch eine Frage. Dann fällt etwas um. Luis brüllt, wirft die Mütze weg und rennt zur Tür. Von außen sieht es nach Trotz aus. Vielleicht ist es aber ein Moment, in dem zu viel auf einmal kam.
+              </p>
+              <div class="wk-situation-question">Was verändert sich, wenn wir nicht zuerst „Warum macht er das?“ fragen — sondern „Was war gerade zu viel?“</div>
+            </div>
+
+            <div class="wk-situation-cats">
+              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
+              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
+                <span></span>
+                <div><strong>Beobachterin</strong><p>Ich sehe: Viele Aufforderungen kamen direkt nacheinander. Luis wurde lauter, dann körperlich schneller.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
+                <span></span>
+                <div><strong>Fühlerin</strong><p>Vielleicht ist da Überforderung. Vielleicht auch das Gefühl, keine Kontrolle mehr zu haben.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--denker)">
+                <span></span>
+                <div><strong>Denker</strong><p>Übergänge können schwer sein — besonders, wenn sie unter Zeitdruck passieren.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
+                <span></span>
+                <div><strong>Systemblick</strong><p>Der ganze Morgen ist eng. Erwachsene sind angespannt. Der Raum ist voll mit Erwartungen.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
+                <span></span>
+                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: Übergänge früher ankündigen und nur eine Sache nach der anderen sagen.</p></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="wk-situation-slide" data-situation="etana">
+            <div class="wk-situation-scene wk-situation-scene--etana">
+              <div class="wk-situation-scene-top">
+                <span class="wk-situation-tag">Situation 2</span>
+                <span class="wk-situation-place">Am Höhleneingang</span>
+              </div>
+              <div class="wk-situation-animal-strip">
+                <div class="wk-situation-animal wk-situation-animal--main">
+                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etana.png" alt="Etana, die Schnecke"></div>
+                  <div><strong>Etana</strong><em>zieht sich zurück</em></div>
+                </div>
+                <div class="wk-situation-mini-thought">„Ich komme wieder. Nur nicht jetzt.“</div>
+              </div>
+              <h3>Etana verschwindet, obwohl alle Nähe anbieten.</h3>
+              <p>
+                Es war ein schöner Nachmittag. Trotzdem wird Etana still. Als jemand nachfragt, sagt sie nichts mehr. Sie zieht sich zurück, reagiert kaum und braucht ihre Höhle. Das kann weh tun, wenn man helfen möchte. Und trotzdem kann Rückzug gerade Schutz sein.
+              </p>
+              <div class="wk-situation-question">Was, wenn Abstand nicht gegen Verbindung gerichtet ist — sondern sie erst wieder möglich macht?</div>
+            </div>
+
+            <div class="wk-situation-cats">
+              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
+              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
+                <span></span>
+                <div><strong>Beobachterin</strong><p>Ich sehe: Etana wird leiser, antwortet weniger und sucht einen geschützten Ort.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
+                <span></span>
+                <div><strong>Fühlerin</strong><p>Vielleicht fühlt sich ihr Inneres sehr voll an. Vielleicht braucht sie Sicherheit ohne Fragen.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--denker)">
+                <span></span>
+                <div><strong>Denker</strong><p>Manche Eindrücke wirken erst später. Der Rückzug kommt nicht immer dort, wo die Belastung beginnt.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
+                <span></span>
+                <div><strong>Systemblick</strong><p>Viele gute Begegnungen können trotzdem anstrengend sein. Auch Schönes verbraucht Kraft.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
+                <span></span>
+                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: Nähe anbieten, ohne Antwort zu verlangen.</p></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="wk-situation-slide" data-situation="iella">
+            <div class="wk-situation-scene wk-situation-scene--iella">
+              <div class="wk-situation-scene-top">
+                <span class="wk-situation-tag">Situation 3</span>
+                <span class="wk-situation-place">Am Steinmeer</span>
+              </div>
+              <div class="wk-situation-animal-strip">
+                <div class="wk-situation-animal wk-situation-animal--main">
+                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/iella.png" alt="Iella, der Esel"></div>
+                  <div><strong>Iella</strong><em>bleibt stehen</em></div>
+                </div>
+                <div class="wk-situation-mini-thought">„Ich gehe nicht weiter, nur weil alle ziehen.“</div>
+              </div>
+              <h3>Iella sagt Nein — und alle hören nur Widerstand.</h3>
+              <p>
+                Die Gruppe ist sich einig: Es geht weiter. Nur Iella nicht. Sie bleibt stehen. Jede Aufforderung macht sie fester. Von außen wirkt es wie Sturheit. Vielleicht ist es aber der Moment, in dem sie merkt: Meine Grenze wurde gerade nicht mitgenommen.
+              </p>
+              <div class="wk-situation-question">Was passiert, wenn wir ein Nein nicht sofort brechen wollen, sondern neugierig auf seinen Grund werden?</div>
+            </div>
+
+            <div class="wk-situation-cats">
+              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
+              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
+                <span></span>
+                <div><strong>Beobachterin</strong><p>Ich sehe: Iella bleibt stehen, sagt Nein und wird unbeweglicher, je mehr Druck entsteht.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
+                <span></span>
+                <div><strong>Fühlerin</strong><p>Vielleicht schützt sie sich. Vielleicht fühlt sie sich übergangen oder nicht gefragt.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--denker)">
+                <span></span>
+                <div><strong>Denker</strong><p>Druck verstärkt hier genau das Verhalten, das eigentlich kleiner werden soll.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
+                <span></span>
+                <div><strong>Systemblick</strong><p>Die Gruppe hat Tempo. Iella braucht Beteiligung. Beides prallt aufeinander.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
+                <span></span>
+                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: Wahlmöglichkeiten geben und kurz gemeinsam anhalten.</p></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="wk-situation-slide" data-situation="elfriede">
+            <div class="wk-situation-scene wk-situation-scene--elfriede">
+              <div class="wk-situation-scene-top">
+                <span class="wk-situation-tag">Situation 4</span>
+                <span class="wk-situation-place">Zwischen den Echos</span>
+              </div>
+              <div class="wk-situation-animal-strip">
+                <div class="wk-situation-animal wk-situation-animal--main">
+                  <div class="wk-situation-animal-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/elfriede.png" alt="Elfriede, der rote Panda"></div>
+                  <div><strong>Elfriede</strong><em>macht es allen recht</em></div>
+                </div>
+                <div class="wk-situation-mini-thought">„Wenn niemand enttäuscht ist, ist alles okay. Oder?“</div>
+              </div>
+              <h3>Elfriede lächelt weiter, obwohl innen längst zu viel ist.</h3>
+              <p>
+                Sie hilft noch schnell. Sagt „passt schon“. Schiebt den eigenen Wunsch nach hinten. Niemand merkt, dass ihr Blick müde wird. Erst später zieht sie sich erschöpft zurück. Manche Überforderung ist sehr leise.
+              </p>
+              <div class="wk-situation-question">Was, wenn angepasstes Verhalten nicht Entspannung bedeutet — sondern Anstrengung gut versteckt?</div>
+            </div>
+
+            <div class="wk-situation-cats">
+              <div class="wk-situation-cats-title">Die Waldkätzchen schauen hin</div>
+              <div class="wk-cat-look" style="--cat-color:var(--beobachterin)">
+                <span></span>
+                <div><strong>Beobachterin</strong><p>Ich sehe: Elfriede sagt zu, hilft, lächelt — und wird gleichzeitig immer stiller.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--fuehlerin)">
+                <span></span>
+                <div><strong>Fühlerin</strong><p>Vielleicht ist da Sorge, andere zu enttäuschen. Vielleicht auch Müdigkeit, die keinen Platz findet.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--denker)">
+                <span></span>
+                <div><strong>Denker</strong><p>Wenn Zustimmung automatisch kommt, lohnt sich die Frage, ob wirklich Wahlfreiheit da war.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--systemblick)">
+                <span></span>
+                <div><strong>Systemblick</strong><p>Vielleicht wird Hilfsbereitschaft sehr geschätzt — aber Erschöpfung weniger gut gesehen.</p></div>
+              </div>
+              <div class="wk-cat-look" style="--cat-color:var(--macherin)">
+                <span></span>
+                <div><strong>Macherin</strong><p>Ein kleiner Schritt könnte sein: aktiv fragen, was Elfriede selbst gerade braucht.</p></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <button class="wk-situation-arrow wk-situation-arrow--right" type="button" aria-label="Nächste Situation" onclick="scrollSituationSlider(1)">›</button>
+      </div>
+    </div>
+
+    <div class="wk-situation-footer reveal" style="transition-delay:.25s">
+      <div>
+        <strong>So arbeitet Waldkätzchen:</strong>
+        <span>Eine Situation. Fünf Blickrichtungen. Mehr Verständnis. Weniger Druck.</span>
+      </div>
+      <a href="konzept.html" class="btn-primary" style="background:var(--denker);color:var(--denker-dark)">Das Konzept vertiefen →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.wk-situation-head{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:clamp(1.5rem,4vw,3rem);
+  align-items:end;
+}
+.wk-situation-head-note{
+  display:flex;
+  gap:.9rem;
+  align-items:flex-start;
+  padding:1rem 1.1rem;
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+.wk-situation-head-note > span{font-size:1.35rem;line-height:1.1;flex:0 0 auto}
+.wk-situation-head-note strong{display:block;color:#fff;font-family:'Quicksand',sans-serif;font-size:.95rem;line-height:1.45;margin-bottom:.12rem}
+.wk-situation-head-note em{display:block;color:#c3bdb1;font-style:normal;font-size:.86rem;line-height:1.6}
+.wk-situation-slider-shell{position:relative}
+.wk-situation-slider{
+  display:flex;
+  gap:1.3rem;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  padding:.35rem .15rem .9rem;
+  outline:none;
+}
+.wk-situation-slider::-webkit-scrollbar{display:none}
+.wk-situation-slide{
+  scroll-snap-align:center;
+  flex:0 0 min(1040px,calc(100vw - 4rem));
+  min-height:660px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);
+  gap:1.2rem;
+  border-radius:32px;
+}
+.wk-situation-scene,
+.wk-situation-cats{
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 26px 80px rgba(0,0,0,.16);
+}
+.wk-situation-scene{
+  padding:1.55rem;
+  display:flex;
+  flex-direction:column;
+  min-height:660px;
+  background:#fff;
+  color:var(--p1);
+}
+.wk-situation-scene--luis{background:linear-gradient(180deg,#fff8dd 0%,#fff1dc 100%)}
+.wk-situation-scene--etana{background:linear-gradient(180deg,#edf9fb 0%,#e6f5f6 100%)}
+.wk-situation-scene--iella{background:linear-gradient(180deg,#f8efe8 0%,#f3e6db 100%)}
+.wk-situation-scene--elfriede{background:linear-gradient(180deg,#fdebf1 0%,#fae4ea 100%)}
+.wk-situation-scene-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.wk-situation-tag,.wk-situation-place{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:30px;padding:.35rem .8rem;border-radius:999px;
+  font-family:'Quicksand',sans-serif;font-size:.7rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+}
+.wk-situation-tag{background:rgba(21,32,21,.1);color:#334135}
+.wk-situation-place{background:rgba(255,255,255,.72);border:1px solid rgba(0,0,0,.06);color:var(--textMid)}
+.wk-situation-animal-strip{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.wk-situation-animal{display:flex;align-items:center;gap:.85rem}
+.wk-situation-animal-img{
+  width:82px;height:82px;flex:0 0 82px;border-radius:26px;
+  background:rgba(255,255,255,.76);border:1px solid rgba(0,0,0,.06);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.wk-situation-animal-img img{width:100%;height:100%;object-fit:contain}
+.wk-situation-animal strong{display:block;font-family:'Quicksand',sans-serif;font-size:1.18rem;line-height:1.2;color:var(--p1)}
+.wk-situation-animal em{display:block;font-style:normal;font-family:'Quicksand',sans-serif;font-size:.84rem;font-weight:800;line-height:1.5;color:var(--textMid);margin-top:.15rem}
+.wk-situation-mini-thought{
+  max-width:270px;
+  padding:.72rem .9rem;
+  border-radius:18px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(0,0,0,.06);
+  font-family:'Quicksand',sans-serif;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.55;
+  color:var(--p1);
+}
+.wk-situation-scene h3{font-family:'Quicksand',sans-serif;font-size:clamp(1.35rem,2.5vw,1.8rem);line-height:1.32;color:var(--p1);margin:.3rem 0 .85rem}
+.wk-situation-scene > p{font-size:.97rem;line-height:1.92;color:var(--textMid);margin:0;flex:1}
+.wk-situation-question{
+  margin-top:1.35rem;
+  padding:1rem 1.05rem;
+  border-radius:20px;
+  background:rgba(21,32,21,.09);
+  border:1px solid rgba(0,0,0,.06);
+  font-family:'Quicksand',sans-serif;
+  font-size:.93rem;
+  font-weight:800;
+  line-height:1.7;
+  color:var(--p1);
+}
+.wk-situation-cats{
+  min-height:660px;
+  padding:1.35rem;
+  background:rgba(255,255,255,.055);
+  backdrop-filter:blur(10px);
+  display:flex;
+  flex-direction:column;
+  gap:.72rem;
+}
+.wk-situation-cats-title{
+  color:#fff;
+  font-family:'Quicksand',sans-serif;
+  font-size:1.05rem;
+  font-weight:900;
+  letter-spacing:-.01em;
+  margin-bottom:.15rem;
+}
+.wk-cat-look{
+  display:grid;
+  grid-template-columns:12px 1fr;
+  gap:.8rem;
+  align-items:start;
+  padding:.82rem .9rem;
+  border-radius:18px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.08);
+  flex:1;
+}
+.wk-cat-look > span{width:10px;height:10px;border-radius:999px;background:var(--cat-color);margin-top:.45rem}
+.wk-cat-look strong{display:block;color:#f5efe4;font-family:'Quicksand',sans-serif;font-size:.86rem;font-weight:900;line-height:1.45;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.18rem}
+.wk-cat-look p{font-size:.82rem;line-height:1.65;color:#c3bdb1;margin:0}
+.wk-situation-arrow{
+  position:absolute;
+  z-index:3;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:48px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(21,32,21,.88);
+  color:#fff;
+  font-size:2rem;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 14px 40px rgba(0,0,0,.22);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.wk-situation-arrow--left{left:-1rem}
+.wk-situation-arrow--right{right:-1rem}
+.wk-situation-footer{
+  margin-top:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.25rem;
+  flex-wrap:wrap;
+  padding:1.2rem 1.35rem;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+}
+.wk-situation-footer strong{display:block;color:#fff;font-family:'Quicksand',sans-serif;font-size:1rem;line-height:1.45;margin-bottom:.15rem}
+.wk-situation-footer span{display:block;color:#c3bdb1;font-size:.92rem;line-height:1.65}
+@media(max-width:1120px){
+  .wk-situation-slide{flex-basis:min(980px,calc(100vw - 3rem));grid-template-columns:1fr;min-height:auto}
+  .wk-situation-scene,.wk-situation-cats{min-height:auto}
+  .wk-cat-look{flex:auto}
+}
+@media(max-width:920px){
+  .wk-situation-head{grid-template-columns:1fr}
+  .wk-situation-arrow{display:none}
+  .wk-situation-slide{flex-basis:calc(100vw - 2.5rem)}
+}
+@media(max-width:680px){
+  #situationen-aus-dem-wald{padding:4rem 0!important}
+  .wk-situation-slider{padding-inline:0}
+  .wk-situation-slide{flex-basis:calc(100vw - 2rem);gap:1rem}
+  .wk-situation-scene,.wk-situation-cats{padding:1.05rem;border-radius:22px}
+  .wk-situation-animal-img{width:70px;height:70px;flex-basis:70px;border-radius:22px}
+  .wk-situation-mini-thought{max-width:none;width:100%}
+  .wk-cat-look{padding:.75rem .78rem}
+  .wk-situation-footer{padding:1rem}
+}
+</style>
+
+<script>
+function scrollSituationSlider(direction){
+  const slider = document.getElementById('wk-situation-slider');
+  if(!slider) return;
+  const slide = slider.querySelector('.wk-situation-slide');
+  const gap = 21;
+  const amount = slide ? slide.getBoundingClientRect().width + gap : slider.clientWidth * 0.9;
+  slider.scrollBy({left: direction * amount, behavior:'smooth'});
+}
+
+(function(){
+  const slider = document.getElementById('wk-situation-slider');
+  if(!slider) return;
+  slider.addEventListener('keydown', function(event){
+    if(event.key === 'ArrowRight'){
+      event.preventDefault();
+      scrollSituationSlider(1);
+    }
+    if(event.key === 'ArrowLeft'){
+      event.preventDefault();
+      scrollSituationSlider(-1);
+    }
+  });
+})();
+</script>
