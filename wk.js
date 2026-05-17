@@ -79,8 +79,6 @@ const WK = {
 };
 
 // ── DATA ─────────────────────────────────────────────────────────
-// Moodfarben folgen nun direkt dem Waldkätzchen-Farbsystem.
-// onAccent sorgt dafür, dass aktive Stimmungsbuttons auch bei Nacht und hellen Akzentfarben lesbar bleiben.
 const MOODS = {
   verbunden:{accent:'#2A8A7A', onAccent:'#FFFFFF'},
   ruhig:{accent:'#1A4018', onAccent:'#FFFFFF'},
@@ -639,9 +637,136 @@ function initHeroCanvas(){
   })();
 }
 
+// ── HEADER / FOOTER ────────────────────────────────────────────────
+function worldDropdownMarkup(){
+  return WORLD_ITEMS.map(item=>`
+    <button class="dd-welt" style="background:${item.bg};" onclick="WK.goWelt('${item.key}')" role="menuitem" type="button">
+      <div class="dd-icon">${item.icon}</div>
+      <div class="dd-name" style="color:${item.text};">${item.name}</div>
+      <div class="dd-desc" style="color:${item.sub};">${item.desc}</div>
+      <span class="dd-tag" style="background:${item.tagBg};color:${item.text};">${item.tag}</span>
+    </button>`).join('');
+}
+
+function mobileWorldMarkup(){
+  return WORLD_ITEMS.map(item=>`
+    <button class="mob-welt" style="background:${item.bg};" onclick="WK.goWelt('${item.key}')" type="button">
+      <div>${item.icon}</div>
+      <div class="mob-welt-name" style="color:${item.text};">${item.name}</div>
+      <div class="mob-welt-tag" style="color:${item.sub};">${item.tag}</div>
+    </button>`).join('');
+}
+
+function renderHeader(activePage){
+  const active = href => href===activePage ? ' active' : '';
+  return `
+<div id="night-bg"></div>
+<div id="mood-overlay"></div>
+<div id="controls">
+  <button id="controls-btn" onclick="toggleControls()">🌿 Stimmung</button>
+  <div id="controls-panel">
+    <div class="ctrl-label">Tageszeit</div>
+    <div class="ctrl-grid ctrl-grid-4">
+      <button class="ctrl-btn" data-theme="morning" onclick="setTheme('morning')"><span class="ic">🌅</span><span class="lb">Morning</span></button>
+      <button class="ctrl-btn" data-theme="day" onclick="setTheme('day')"><span class="ic">☀️</span><span class="lb">Day</span></button>
+      <button class="ctrl-btn" data-theme="dusk" onclick="setTheme('dusk')"><span class="ic">🌇</span><span class="lb">Dusk</span></button>
+      <button class="ctrl-btn" data-theme="night" onclick="setTheme('night')"><span class="ic">🌙</span><span class="lb">Night</span></button>
+    </div>
+    <div class="ctrl-label">Wetter</div>
+    <div class="ctrl-grid ctrl-grid-3">
+      <button class="ctrl-btn" data-weather="clear" onclick="setWeather('clear')"><span class="ic">☀️</span><span class="lb">Klar</span></button>
+      <button class="ctrl-btn" data-weather="rain" onclick="setWeather('rain')"><span class="ic">🌧</span><span class="lb">Regen</span></button>
+      <button class="ctrl-btn" data-weather="mist" onclick="setWeather('mist')"><span class="ic">🌫</span><span class="lb">Nebel</span></button>
+    </div>
+    <div class="ctrl-label">Stimmung</div>
+    <div class="ctrl-grid ctrl-grid-3">
+      <button class="ctrl-btn" data-mood="verbunden" onclick="setMood('verbunden')"><span class="ic">🤝</span><span class="lb">Verbunden</span></button>
+      <button class="ctrl-btn" data-mood="ruhig" onclick="setMood('ruhig')"><span class="ic">🌿</span><span class="lb">Ruhig</span></button>
+      <button class="ctrl-btn" data-mood="neugierig" onclick="setMood('neugierig')"><span class="ic">🦋</span><span class="lb">Neugierig</span></button>
+      <button class="ctrl-btn" data-mood="mutig" onclick="setMood('mutig')"><span class="ic">🔥</span><span class="lb">Mutig</span></button>
+      <button class="ctrl-btn" data-mood="wild" onclick="setMood('wild')"><span class="ic">🐾</span><span class="lb">Wild</span></button>
+    </div>
+  </div>
+</div>
+<a class="situation-fab" href="app.html" aria-label="Situation festhalten">📝 <span>Situation</span></a>
+<nav class="site-nav" id="site-nav" role="navigation" aria-label="Hauptnavigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Waldkätzchen Startseite"><span class="logo-mark" aria-hidden="true">🌿</span>waldkätzchen</a>
+    <div class="nav-links" role="menubar">
+      <a class="nav-link${active('index.html')}" href="index.html" role="menuitem">Die Lichtung</a>
+      <button class="nav-link" id="dd-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false" aria-controls="dd-panel" type="button">Die Welten <span class="dd-caret" aria-hidden="true">▾</span></button>
+      <a class="nav-link${active('tiere.html')}" href="tiere.html" role="menuitem">Die Tiere</a>
+      <a class="nav-link nl-vaeter${active('vaeter.html')}" href="vaeter.html" role="menuitem">Für Väter</a>
+      <a class="nav-link${active('blog.html')}" href="blog.html" role="menuitem">Impulse</a>
+    </div>
+    <a class="nav-cta" href="kontakt.html">Erstgespräch</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu" type="button"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-dd" id="dd-panel" role="menu" aria-label="Die fünf Waldwelten">
+    <div class="dd-inner"><div class="dd-grid">${worldDropdownMarkup()}</div></div>
+    <div class="dd-footer"><span class="dd-hint">Finde heraus, wo du gerade im Wald stehst.</span><button class="dd-more" onclick="WK.closeDD()" type="button">Zur Welten-Übersicht →</button></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a class="mob-link" href="index.html" data-close>Die Lichtung <span class="caret">→</span></a>
+  <div class="mob-welten">${mobileWorldMarkup()}</div>
+  <a class="mob-link" href="tiere.html" data-close>Die Tiere <span class="caret">→</span></a>
+  <a class="mob-link ml-vaeter" href="vaeter.html" data-close>Für Väter <span class="caret">→</span></a>
+  <a class="mob-link" href="blog.html" data-close>Impulse <span class="caret">→</span></a>
+  <a class="btn-primary mob-cta" href="kontakt.html">Erstgespräch anfragen</a>
+</div>`;
+}
+
+function renderFooter(){
+  return `
+<section style="background:var(--p1);padding:5rem 0">
+  <div class="container grid-2">
+    <div>
+      <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Waldpost</div></div>
+      <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:.9rem;line-height:1.3">Kleine Briefe<br>aus dem Wald</h2></div>
+      <div class="reveal" style="transition-delay:.15s"><p style="color:rgba(255,255,255,.72);font-size:.92rem;line-height:1.8;margin-bottom:1.5rem">Unregelmäßig, dafür ehrlich: Impulse, Geschichten und Gedanken — direkt in deinen Posteingang.</p></div>
+      <div class="reveal" style="transition-delay:.2s"><div style="display:flex;flex-direction:column;gap:.75rem"><input type="email" placeholder="Deine E-Mail-Adresse" class="nl-input"><button class="btn-primary" style="width:100%;justify-content:center">🌿 Dabei sein</button><p style="font-size:.72rem;color:rgba(255,255,255,.4)">🔒 Kein Spam. Jederzeit abmeldbar.</p></div></div>
+    </div>
+    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center"><img src="${WK_ASSETS}katze-kissen-ruhe.png" alt="" style="width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.25));animation:breathe 4s ease-in-out infinite"></div>
+  </div>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div><a href="index.html" style="display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-family:'Quicksand',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:.6rem"><span aria-hidden="true">🌿</span>waldkätzchen</a><div style="font-size:.7rem;opacity:.4;letter-spacing:.07em;font-family:'Quicksand',sans-serif;text-transform:uppercase;margin-bottom:.6rem">Wild und verbunden.</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;text-transform:uppercase">Verstehen · Verbinden · Verändern</div><div style="display:flex;gap:.7rem"><a href="#" class="social-btn">📷</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">💬</a></div></div>
+    <div><h4 class="footer-h">Der Wald</h4><a href="welt.html" class="footer-link">Die Welt</a><a href="index.html#die-echos" class="footer-link">Der alte Wald</a><a href="tiere.html" class="footer-link">Die Figuren</a><a href="metaphern.html" class="footer-link">Die Metaphern</a></div>
+    <div><h4 class="footer-h">Angebote</h4><a href="coaching.html" class="footer-link">Coaching</a><a href="angebote.html" class="footer-link">Waldabenteuer</a><a href="angebote.html#kurse" class="footer-link">Kurse</a><a href="app.html" class="footer-link">Die App</a></div>
+    <div><h4 class="footer-h">Mehr</h4><a href="vaeter.html" class="footer-link">Für Väter</a><a href="blog.html" class="footer-link">Impulse</a><a href="ueber-mich.html" class="footer-link">Über mich</a><a href="kontakt.html" class="footer-link">Kontakt</a></div>
+  </div>
+  <div class="footer-bottom"><div style="font-size:.75rem;color:rgba(255,255,255,.35)">© 2026 Waldkätzchen. Wild und verbunden.</div><div style="display:flex;gap:1.5rem"><a href="#" class="footer-link" style="font-size:.75rem;margin:0">Impressum</a><a href="#" class="footer-link" style="font-size:.75rem;margin:0">Datenschutz</a></div></div>
+</footer>`;
+}
+
+function initRichNavigation(){
+  const trigger=document.getElementById('dd-trigger');
+  const burger=document.getElementById('nav-burger');
+  const nav=document.getElementById('site-nav');
+  trigger?.addEventListener('click',()=>WK.toggleDD());
+  burger?.addEventListener('click',()=>WK.toggleMob());
+  document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>WK.closeMob()));
+  document.addEventListener('click',event=>{
+    const panel=document.getElementById('dd-panel');
+    const triggerEl=document.getElementById('dd-trigger');
+    if(panel?.classList.contains('open') && !panel.contains(event.target) && !triggerEl?.contains(event.target)) WK.closeDD();
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){
+      WK.closeDD();
+      WK.closeMob();
+    }
+  });
+  window.addEventListener('scroll',()=>nav?.classList.toggle('scrolled',window.scrollY>8),{passive:true});
+}
+
 // ── INIT ───────────────────────────────────────────────────────────
 addEventListener('DOMContentLoaded',()=>{
   setTheme(currentTheme);
+  setWeather(currentWeather);
   refreshReveal();
   initHeroCanvas();
+  initRichNavigation();
 });
