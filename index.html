@@ -6,52 +6,9 @@
 <title>Waldkätzchen – Wild und verbunden</title>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="wk.css">
+<link rel="stylesheet" href="waldkaetzchen_colors.css">
 <style>
-/* ── ECHOS BLOCK (dunkel, wie alter Wald) ─────────────── */
-.echos-section{
-  background:#1a1e16;
-  padding:5rem 0;
-  position:relative;
-  overflow:hidden;
-}
-.echos-section::before{
-  content:'';position:absolute;right:-180px;top:-180px;width:600px;height:600px;
-  border-radius:50%;background:radial-gradient(circle,rgba(83,74,183,.09) 0%,transparent 65%);
-  pointer-events:none;
-}
-.echos-section::after{
-  content:'';position:absolute;left:-80px;bottom:-80px;width:400px;height:400px;
-  border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,.07) 0%,transparent 65%);
-  pointer-events:none;
-}
-.echos-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:1rem;
-  margin-bottom:2.5rem;
-}
-
-/* ── WELTEN STRIP SEKTION ──────────────────────────────── */
-.welten-strip-head{
-  display:flex;align-items:flex-end;
-  justify-content:space-between;
-  margin-bottom:1.4rem;
-  flex-wrap:wrap;gap:.8rem;
-}
-#welten-strip-container{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:1px;
-  background:rgba(8,79,63,.12);
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid rgba(8,79,63,.12);
-}
-@media(max-width:860px){#welten-strip-container{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:520px){#welten-strip-container{grid-template-columns:repeat(2,1fr);}}
-
-/* ── HERO ANPASSUNGEN ─────────────────────────────────── */
-/* Desktop: zentriert. Mobile: von oben, CTA immer sichtbar */
+/* ── HERO ─────────────────────────────────────────────── */
 .hero{align-items:center}
 @media(max-width:768px){
   .hero{align-items:flex-start;min-height:100svh}
@@ -59,6 +16,33 @@
   .hero .hero-inner{max-width:100%}
   .hero-scroll-hint{display:none}
 }
+
+/* ── WALDORTE GRID ────────────────────────────────────── */
+.waldorte-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+@media(max-width:860px){.waldorte-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.waldorte-grid{grid-template-columns:1fr;}}
+
+/* ── ECHOS ────────────────────────────────────────────── */
+.echos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1rem;
+  margin-bottom:2.5rem;
+}
+
+/* ── KATZEN WERKZEUGE ─────────────────────────────────── */
+#katzen-werkzeuge-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1rem;
+  margin-bottom:2.5rem;
+}
+@media(max-width:1000px){#katzen-werkzeuge-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:640px){#katzen-werkzeuge-grid{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 <body>
@@ -74,17 +58,18 @@
   <div class="hero-content">
     <div class="hero-inner">
       <div class="reveal" style="transition-delay:.1s">
-        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">🌿 Wild und verbunden</div>
+        <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.7rem">🌿 Wild und verbunden</div>
       </div>
       <div class="reveal" style="transition-delay:.2s">
-        <h1 style="font-size:clamp(1.65rem,2.6vw,2.5rem);margin-bottom:.6rem;color:#fff;line-height:1.18;text-shadow:0 3px 24px rgba(0,0,0,.38);font-weight:800;letter-spacing:-.02em;font-family:'Quicksand',sans-serif">
-          Manchmal braucht es einen anderen <span style="color:var(--s1)">Blick,</span> um neue Wege zu sehen.
+        <h1 style="font-size:clamp(2rem,4.5vw,3.4rem);margin-bottom:.8rem;color:#fff;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.3);font-weight:800;letter-spacing:-.025em;font-family:'Quicksand',sans-serif">
+          Verstehen statt bewerten.<br>
+          <span style="color:var(--beobachterin)">Verbindung statt Druck.</span>
         </h1>
       </div>
       <div class="reveal" style="transition-delay:.3s">
-        <div style="display:flex;gap:.5rem;align-items:center;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1.2rem;font-family:'Quicksand',sans-serif">
-          Verstehen <span style="color:var(--s3);opacity:.7">·</span> Verbinden <span style="color:var(--s3);opacity:.7">·</span> Verändern
-        </div>
+        <p style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:1.2rem;letter-spacing:.04em">
+          Neue Wege statt alte Muster.
+        </p>
       </div>
       <div class="reveal" style="transition-delay:.38s">
         <p style="font-size:.93rem;color:rgba(255,255,255,.82);max-width:480px;margin-bottom:1.8rem;line-height:1.82;text-shadow:0 1px 8px rgba(0,0,0,.2)">
@@ -92,6 +77,13 @@
         </p>
       </div>
       <div class="reveal" style="transition-delay:.5s">
+        <div style="display:flex;gap:.6rem;align-items:center;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.42);font-family:'Quicksand',sans-serif;margin-bottom:1.6rem">
+          Verstehen
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--beobachterin);display:inline-block;flex-shrink:0"></span>
+          Verbinden
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--macherin);display:inline-block;flex-shrink:0"></span>
+          Verändern
+        </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap">
           <a href="kontakt.html" class="btn-primary" style="animation:float 3s ease-in-out infinite">🌿 Erstgespräch anfragen</a>
           <a href="vaeter.html" class="btn-ghost">Speziell für Väter →</a>
@@ -119,22 +111,22 @@
 
 <!-- ═══ KERN-AUSSAGE ════════════════════════════════════════════════ -->
 <section style="background:#0d1a0f;padding:4rem 0;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(0,140,137,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(255,210,63,.05) 0%,transparent 60%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(74,184,200,.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(232,192,48,.05) 0%,transparent 60%);pointer-events:none"></div>
   <div class="container" style="position:relative;z-index:1;max-width:760px;text-align:center">
     <div class="reveal">
-      <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1.05rem,2.2vw,1.55rem);font-weight:700;line-height:2;color:#e8e4db">
+      <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1.05rem,2.2vw,1.5rem);font-weight:700;line-height:2;color:#e8e4db">
         Verhalten ist kein Feind.<br>
-        <span style="color:#FAC775">Verhalten ist eine Sprache.</span><br>
-        Die Tiere zeigen, was sichtbar ist.<br>
+        <span style="color:var(--denker)">Verhalten ist eine Sprache.</span><br>
+        Die Figuren zeigen, was sichtbar ist.<br>
         Der Wald zeigt, was mitwirkt.<br>
         Die Waldkätzchen helfen, hinzusehen.
       </p>
     </div>
     <div class="reveal" style="transition-delay:.15s">
-      <p style="font-size:.9rem;color:rgba(255,255,255,.38);font-family:'Quicksand',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:1.6rem">Veränderung beginnt nicht mit Druck — sondern mit Verstehen.</p>
+      <p style="font-size:.85rem;color:rgba(255,255,255,.35);font-family:'Quicksand',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:1.6rem">Veränderung beginnt nicht mit Druck — sondern mit Verstehen.</p>
     </div>
     <div class="reveal" style="transition-delay:.25s;margin-top:2rem">
-      <a href="konzept.html" style="font-size:.85rem;color:var(--s1);font-weight:700;font-family:'Quicksand',sans-serif;border-bottom:1px solid rgba(255,210,63,.35);padding-bottom:2px">Das Konzept entdecken →</a>
+      <a href="konzept.html" style="font-size:.85rem;color:var(--denker);font-weight:700;font-family:'Quicksand',sans-serif;border-bottom:1px solid rgba(232,192,48,.35);padding-bottom:2px">Das Konzept entdecken →</a>
     </div>
   </div>
 </section>
@@ -166,316 +158,151 @@
         <p style="font-size:.83rem;color:var(--textMid);line-height:1.65" class="dk-mid">Dein Kind zieht sich zurück oder tobt. Du weißt: da steckt mehr dahinter.</p>
       </div>
     </div>
-    <div class="reveal" style="transition-delay:.32s">
-      <div style="background:var(--sage);border-radius:20px;padding:1.8rem 2.2rem;max-width:680px;border-left:4px solid var(--p2)" class="quote-box">
-        <p style="font-size:1.05rem;font-style:italic;color:var(--p1);font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.7" class="dk-h">
-          „Du musst nicht alles sofort verstehen. Aber du kannst anfangen, hinzuschauen."
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ═══ DIE WELTEN — Wo stehst du gerade? ═════════════════════ -->
-<section style="background:var(--sage);padding:5rem 0" id="die-welten">
+<!-- ═══ DIE WALDORTE ═══════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:var(--lichtung-bg)">
   <div class="container">
-    <div class="welten-strip-head">
-      <div>
-        <div class="reveal"><div class="section-tag">Wo stehst du gerade?</div></div>
-        <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="margin-bottom:.4rem">Die fünf Waldwelten</h2></div>
-        <div class="reveal" style="transition-delay:.15s"><p style="font-size:.9rem;color:var(--textMid);max-width:480px;line-height:1.7" class="dk-mid">Wähle den Ort, der sich gerade vertraut anfühlt — jede Welt führt weiter.</p></div>
-      </div>
-      <div class="reveal" style="transition-delay:.2s">
-        <a href="welt.html" class="btn-outline" style="font-size:.82rem">Alle Welten entdecken →</a>
-      </div>
+    <div class="reveal"><div class="section-tag">Der Wald</div></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Der Wald ist nie nur schön.<br>Er ist das, was mitwirkt.</h2></div>
+    <div class="reveal" style="transition-delay:.15s;margin-bottom:3rem">
+      <p style="font-size:.93rem;color:var(--textMid);max-width:600px;line-height:1.85" class="dk-mid">Bevor wir Verhalten verstehen können, müssen wir sehen, was im Wald alles mitspricht. Jeder Ort hat eine eigene Energie — und oft eine doppelte Bedeutung.</p>
     </div>
-    <div class="reveal" style="transition-delay:.25s" id="welten-strip-container"></div>
-
-    <!-- Welten-Detail-Info (klappt je nach Klick, JS-gesteuert) -->
-    <div style="margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem" id="welten-detail-row">
-      <!-- wird per JS gefüllt -->
+    <div class="waldorte-grid">
+      <div class="reveal" style="transition-delay:.0s;background:var(--altwald-bg);border-radius:18px;padding:1.5rem;border:1px solid rgba(0,0,0,.06)">
+        <div style="font-size:1.8rem;margin-bottom:.7rem">🌳</div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:700;color:var(--altwald-dark);margin-bottom:.4rem">Die alten Bäume</h3>
+        <p style="font-size:.78rem;font-style:italic;color:var(--altwald-mid);line-height:1.55;margin-bottom:.6rem">„Früher war alles besser."</p>
+        <p style="font-size:.78rem;color:var(--altwald-mid);line-height:1.6;opacity:.85">Alte Überzeugungen und Sätze, die noch immer mitreden. Sie meinen es manchmal gut — und erzeugen trotzdem Druck.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.08s;background:var(--felsen-bg);border-radius:18px;padding:1.5rem;border:1px solid rgba(0,0,0,.06)">
+        <div style="font-size:1.8rem;margin-bottom:.7rem">🪨</div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:700;color:var(--felsen-dark);margin-bottom:.4rem">Das Felsenmeer</h3>
+        <p style="font-size:.78rem;font-style:italic;color:var(--felsen-mid);line-height:1.55;margin-bottom:.6rem">„Muss so sein." „So geht das nicht."</p>
+        <p style="font-size:.78rem;color:var(--felsen-mid);line-height:1.6;opacity:.85">Blockaden und starre Regeln. Sie machen den Weg eng. Manches ist echter Fels — kein Erziehungsfehler, sondern eine reale Grenze.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.16s;background:var(--nebel-bg);border-radius:18px;padding:1.5rem;border:1px solid rgba(0,0,0,.06)">
+        <div style="font-size:1.8rem;margin-bottom:.7rem">🌫️</div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:700;color:var(--nebel-mid);margin-bottom:.4rem">Das Nebeldickicht</h3>
+        <p style="font-size:.78rem;font-style:italic;color:var(--nebel);line-height:1.55;margin-bottom:.6rem">„Ich denke und denke und komme nicht weiter."</p>
+        <p style="font-size:.78rem;color:var(--nebel);line-height:1.6;opacity:.85">Gedankenkarussell, Zweifel, Deutungschaos. Im Nebel braucht es zuerst Orientierung — keine Lösungen.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.24s;background:var(--hoehle-bg);border-radius:18px;padding:1.5rem;border:1px solid #504840">
+        <div style="font-size:1.8rem;margin-bottom:.7rem">🕳️</div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:700;color:var(--hoehle-text);margin-bottom:.4rem">Die Höhle</h3>
+        <p style="font-size:.78rem;font-style:italic;color:var(--hoehle-glow);line-height:1.55;margin-bottom:.6rem">„Ich ziehe mich zurück."</p>
+        <p style="font-size:.78rem;color:#A09880;line-height:1.6;opacity:.9">Die Höhle kann dich umarmen. Sie kann dich auch festhalten.<br>Rückzug ist manchmal das Klügste — und manchmal das, was uns am weitesten von Verbindung entfernt.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.32s;background:var(--echos-bg);border-radius:18px;padding:1.5rem;border:1px solid rgba(0,0,0,.06)">
+        <div style="font-size:1.8rem;margin-bottom:.7rem">🔊</div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:700;color:var(--echos-mid);margin-bottom:.4rem">Die Echos</h3>
+        <p style="font-size:.78rem;font-style:italic;color:var(--echos);line-height:1.55;margin-bottom:.6rem">„Du musst stärker sein!"</p>
+        <p style="font-size:.78rem;color:var(--echos);line-height:1.6;opacity:.85">Alte Stimmen, die nachhallen. Sie begleiten uns überall. Sie meinen es manchmal gut — passen aber nicht mehr zur heutigen Situation.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.40s;background:var(--lichtung-bg);border-radius:18px;padding:1.5rem;border:1px solid rgba(0,0,0,.06)">
+        <div style="font-size:1.8rem;margin-bottom:.7rem">☀️</div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:700;color:var(--lichtung-dark);margin-bottom:.4rem">Die Lichtung</h3>
+        <p style="font-size:.78rem;font-style:italic;color:var(--lichtung-mid);line-height:1.55;margin-bottom:.6rem">„Hier ist Raum."</p>
+        <p style="font-size:.78rem;color:var(--lichtung-mid);line-height:1.6;opacity:.85">Heimat der Waldkätzchen und der Figuren. Ein gemeinsamer Ort der Erfahrung — wo Begegnung, Verbindung und Veränderung möglich werden.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ DIE ECHOS ═══════════════════════════════════════════════ -->
-<section class="echos-section" id="die-echos">
+<!-- ═══ DIE ECHOS ═══════════════════════════════════════════════════ -->
+<section style="background:#16190f;padding:5rem 0;position:relative;overflow:hidden" id="die-echos">
+  <div style="position:absolute;inset:0;background-image:url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png');background-size:cover;opacity:.04;pointer-events:none"></div>
   <div class="container" style="position:relative;z-index:2">
     <div class="reveal">
-      <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#FAC775;font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Der alte Wald · Die Echos</div>
+      <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Die Echos</div>
     </div>
     <div class="reveal" style="transition-delay:.1s">
-      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);color:#e8e4db;margin-bottom:.7rem;line-height:1.2">
-        Kennst du diese Stimmen<br><em style="color:#FAC775;font-style:italic">aus deiner Kindheit?</em>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);color:#e8e2d4;margin-bottom:.6rem;line-height:1.2">
+        Alte Stimmen, die nachhallen.
       </h2>
     </div>
-    <div class="reveal" style="transition-delay:.15s">
-      <p style="font-size:.93rem;color:#9a968e;max-width:580px;line-height:1.8;margin-bottom:3rem">
-        Echos sind alte Stimmen — Sätze, die wir gehört haben, als wir klein waren. Sie klingen nach. Manchmal laut, manchmal leise. Sie formen, wie wir heute fühlen, reagieren und erziehen — oft ohne dass wir es merken.
+    <div class="reveal" style="transition-delay:.15s;margin-bottom:2.5rem">
+      <p style="font-size:.92rem;color:#9a9288;max-width:580px;line-height:1.85">
+        Echos sind Sätze, die wir früh gehört haben — und die heute noch wirken. Nicht immer bewusst. Aber stark. Sie färben, wie wir Situationen deuten, wie wir reagieren, wie wir erziehen.
       </p>
     </div>
-
     <div class="echos-grid" id="echos-grid"></div>
-
-    <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07)">
-      <p style="font-family:'Quicksand',sans-serif;font-size:1rem;font-style:italic;color:#9a968e;max-width:420px;line-height:1.65">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.07)" class="reveal">
+      <p style="font-family:'Quicksand',sans-serif;font-size:.98rem;font-style:italic;color:#9a9288;max-width:440px;line-height:1.65">
         Du musst diese Stimmen nicht übernehmen.<br>Aber du musst sie erst hören, um sie wirklich zu erkennen.
       </p>
-      <a href="metaphern.html#echos" class="btn-primary" style="background:#FAC775;color:#412402">Den alten Wald erkunden →</a>
+      <a href="metaphern.html" class="btn-primary" style="background:var(--denker);color:var(--denker-dark)">Die Echos verstehen →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ 4 RÄUME ═══════════════════════════════════════════════════════ -->
-<section style="background:var(--sage);padding:5rem 0">
-  <div class="container">
-    <div class="reveal"><div class="section-tag">Die Welt von Waldkätzchen</div></div>
-    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Vier Räume, die dich begleiten.</h2></div>
-    <div class="reveal" style="transition-delay:.15s;margin-bottom:3rem"><p style="font-size:.93rem;color:var(--textMid);max-width:560px;line-height:1.8" class="dk-mid">Jeder Raum hat eine eigene Energie, einen eigenen Fokus — und alle führen zum selben Ziel: Verstehen, Verbinden, Verändern.</p></div>
-    <div class="grid-4">
-      <a href="welt.html#verstehen" class="raum-card reveal" style="transition-delay:.0s;text-decoration:none">
-        <div class="raum-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt="Verstehen" style="object-fit:contain;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);padding:2rem"></div>
-        <div class="raum-card-body">
-          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Verstehen</h3>
-          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Hinschauen, Gefühle, Muster und Zusammenhänge begreifen.</p>
-          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
-        </div>
-      </a>
-      <a href="welt.html#verbinden" class="raum-card reveal" style="transition-delay:.08s;text-decoration:none">
-        <div class="raum-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-verbinden-quer.png" alt="Verbinden" style="object-fit:cover"></div>
-        <div class="raum-card-body">
-          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Verbinden</h3>
-          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Beziehungen stärken, Halt finden und nicht allein sein.</p>
-          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
-        </div>
-      </a>
-      <a href="welt.html#veraendern" class="raum-card reveal" style="transition-delay:.16s;text-decoration:none">
-        <div class="raum-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png" alt="Verändern" style="object-fit:cover"></div>
-        <div class="raum-card-body">
-          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Verändern</h3>
-          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Kleine Schritte, neue Impulse und mutige Entscheidungen.</p>
-          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
-        </div>
-      </a>
-      <a href="app.html" class="raum-card reveal" style="transition-delay:.24s;text-decoration:none">
-        <div class="raum-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png" alt="Lichtung" style="object-fit:cover"></div>
-        <div class="raum-card-body">
-          <h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.4rem" class="dk-h">Lichtung</h3>
-          <p style="font-size:.82rem;color:var(--textMid);line-height:1.6" class="dk-mid">Dein Startpunkt, dein Feed. Täglich neu, persönlich begleitet.</p>
-          <div style="margin-top:.8rem;font-size:.78rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif" class="dk-mid">Mehr erfahren →</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ WALDWELT / KONZEPT ════════════════════════════════════════════ -->
-<section style="background:var(--p1);padding:5rem 0;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background1.png');background-size:cover;background-position:center;opacity:.08"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="reveal"><div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Das Konzept</div></div>
-    <div class="reveal" style="transition-delay:.1s"><h2 style="color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:1rem">Die <span style="color:var(--s3)">Waldkätzchen-Welt</span></h2></div>
-    <div class="reveal" style="transition-delay:.15s"><p style="font-size:.94rem;color:rgba(255,255,255,.72);max-width:600px;line-height:1.8;margin-bottom:2.5rem">Keine Methode. Keine schnellen Lösungen. Eine Welt, die hilft, Gefühle und Verhalten zu verstehen — durch Figuren, Geschichten und sanfte Reflexion.</p></div>
-    <div class="grid-3" style="margin-bottom:3rem">
-      <div class="reveal ww-card"><div class="ww-num">1</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verstehen</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Warum reagiert mein Kind so? Was steckt hinter dem Verhalten? Wir schauen hin — ohne zu bewerten.</p></div>
-      <div class="reveal ww-card" style="transition-delay:.1s"><div class="ww-num">2</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verbinden</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Gefühle sichtbar machen. Nähe schaffen. Gemeinsam einen Weg durch den Wald finden.</p></div>
-      <div class="reveal ww-card" style="transition-delay:.2s"><div class="ww-num">3</div><h3 style="color:#fff;font-size:1.3rem;margin-bottom:.5rem">Verändern</h3><p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Kleine Impulse. Neue Wege. Nicht perfekt — aber fühlend, lernend, verbunden.</p></div>
-    </div>
-    <div class="reveal" style="transition-delay:.25s">
-      <div class="card-slider">
-        <div class="card-slider-track" id="metaphern-track"></div>
-        <button class="slider-arrow slider-arrow-l" onclick="scrollSlider('metaphern-track',-1)">‹</button>
-        <button class="slider-arrow slider-arrow-r" onclick="scrollSlider('metaphern-track',1)">›</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ MITWACHSEN ════════════════════════════════════════════════════ -->
-<section style="padding:5rem 0">
-  <div class="container grid-2">
-    <div>
-      <div class="reveal"><div class="section-tag">Mitwachsen</div></div>
-      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Wachsen, wenn du es brauchst</h2></div>
-      <div class="reveal" style="transition-delay:.15s">
-        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:.8rem" class="dk-mid">Waldkätzchen ist kein Programm mit festem Plan. Es ist ein Begleiter — der sich deinem Tempo anpasst.</p>
-        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Ob du gerade mittendrin steckst oder neu anfängst: Die Waldwelt ist immer da.</p>
-      </div>
-      <div class="reveal" style="transition-delay:.2s">
-        <div style="margin-bottom:2rem">
-          <div class="grow-item"><span class="grow-icon">🌱</span> In deinem Tempo</div>
-          <div class="grow-item"><span class="grow-icon">🌿</span> Für jede Lebensphase</div>
-          <div class="grow-item"><span class="grow-icon">🦊</span> Mit Figuren &amp; Geschichten</div>
-          <div class="grow-item"><span class="grow-icon">🍃</span> Reflexion ohne Druck</div>
-          <div class="grow-item"><span class="grow-icon">☀️</span> Alltagstauglich</div>
-          <div class="grow-item" style="border:none"><span class="grow-icon">👨‍👩‍👧</span> Für die ganze Familie</div>
-        </div>
-        <a href="welt.html" class="btn-primary">Den eigenen Weg finden</a>
-      </div>
-    </div>
-    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
-      <div style="position:relative;width:100%;max-width:420px">
-        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png" alt="" style="width:100%;border-radius:24px;object-fit:cover;height:460px">
-        <div style="position:absolute;inset:0;border-radius:24px;background:linear-gradient(to top,rgba(8,79,63,.6) 0%,transparent 55%)"></div>
-        <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:14px;padding:1rem 1.2rem;border:1px solid rgba(255,255,255,.2)">
-          <p style="font-size:.82rem;font-style:italic;color:#fff;font-family:'Quicksand',sans-serif;font-weight:600;line-height:1.5">„Wild und verbunden — für Familien, Väter und Kinder."</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ HEILPÄDAGOGISCH FUNDIERT ══════════════════════════════════════ -->
-<section style="padding:5rem 0">
-  <div class="container grid-2">
-    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
-      <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png" alt="Das Konzept" style="width:100%;max-width:420px;border-radius:20px;object-fit:contain">
-    </div>
-    <div>
-      <div class="reveal"><div class="section-tag">Das Fundament</div></div>
-      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Heilpädagogisch fundiert.<br>Menschlich begleitet.</h2></div>
-      <div class="reveal" style="transition-delay:.15s">
-        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Waldkätzchen basiert auf heilpädagogischen Grundlagen — einem tiefen Verständnis davon, wie Kinder fühlen, lernen und sich entwickeln. Nicht als Therapie, sondern als vertrauensvoller Begleiter.</p>
-        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:1.8rem" class="dk-soft">Die Methode verbindet systemisches Denken, Narrative Arbeit mit Figuren, innere Anteile und lösungsorientierte Impulse.</p>
-      </div>
-      <div class="reveal" style="transition-delay:.2s;margin-bottom:1.8rem">
-        <span class="hp-tag">Heilpädagogik</span><span class="hp-tag">Systemisches Denken</span>
-        <span class="hp-tag">Narrative Arbeit</span><span class="hp-tag">Innere Anteile</span>
-        <span class="hp-tag">Lösungsorientiert</span><span class="hp-tag">Bindungsorientiert</span>
-        <span class="hp-tag">Empathie</span><span class="hp-tag">Resilienz</span>
-      </div>
-      <div class="reveal" style="transition-delay:.25s"><a href="welt.html" class="btn-outline">Mehr über den Ansatz</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DIE FIGUREN ══════════════════════════════════════ -->
-<section style="padding:5rem 0">
+<!-- ═══ DIE FIGUREN ══════════════════════════════════════════════════ -->
+<section style="padding:5rem 0" id="die-figuren">
   <div class="container">
     <div class="reveal"><div class="section-tag">Die Figuren</div></div>
-    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="margin-bottom:.6rem">Die Waldkätzchen</h2></div>
+    <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h" style="margin-bottom:.6rem">Die 8 Figuren</h2></div>
     <div class="reveal" style="transition-delay:.15s;margin-bottom:3rem">
-      <p style="font-size:.93rem;color:var(--textMid);max-width:600px;line-height:1.8" class="dk-mid">
-        Sie sind keine Maskottchen. Sie stehen für Gefühle, Perspektiven und innere Stimmen.<br>
-        <em>„Luis war heute wütend." — Manchmal ist es leichter, das über eine Figur zu sagen als über sich selbst.</em>
+      <p style="font-size:.93rem;color:var(--textMid);max-width:640px;line-height:1.8" class="dk-mid">
+        Jede Figur steht für eine Verhaltensweise — eine Strategie, die gerade verfügbar ist.<br>
+        <em>Kein Tier ist gut oder schlecht. Jedes zeigt eine Überlebenslogik.</em>
       </p>
     </div>
     <div class="grid-4" id="tier-grid"></div>
     <div style="text-align:center;margin-top:2.5rem" class="reveal">
-      <a href="tiere.html" class="btn-outline">Alle 8 Figuren kennenlernen →</a>
+      <a href="figuren.html" class="btn-outline">Alle 8 Figuren kennenlernen →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ DIE 5 WALDKÄTZCHEN-WERKZEUGE ══════════════════════════════════ -->
-<section id="waldkaetzchen-werkzeuge" style="background:#1a2e1f;padding:5rem 0;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(0,140,137,.07) 0%,transparent 55%),radial-gradient(ellipse at 20% 80%,rgba(168,213,194,.05) 0%,transparent 55%);pointer-events:none"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="reveal">
-      <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Die Waldkätzchen</div>
-    </div>
+<!-- ═══ DIE 5 WALDKÄTZCHEN ══════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:var(--lichtung-bg)" id="waldkaetzchen-werkzeuge">
+  <div class="container">
+    <div class="reveal"><div class="section-tag">Die 5 Waldkätzchen</div></div>
     <div class="reveal" style="transition-delay:.1s">
-      <h2 style="color:#e8e4db;font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.7rem;line-height:1.2">Fünf Blickwinkel<br><em style="color:var(--s3);font-style:normal">auf dieselbe Situation</em></h2>
+      <h2 class="section-h2 dk-h">Fünf Blickwinkel.<br>Eine Situation.</h2>
     </div>
-    <div class="reveal" style="transition-delay:.15s">
-      <p style="font-size:.93rem;color:#9a968e;max-width:560px;line-height:1.8;margin-bottom:3rem">Sie handeln nicht selbst. Sie schauen. Sie benennen. Sie helfen, anders hinzusehen — gemeinsam ergibt sich ein vollständiges Bild.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2.5rem">
-      <div class="reveal" style="transition-delay:.0s;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden">
-        <div style="height:4px;background:#b0b8c2"></div>
-        <div style="padding:1.4rem">
-          <div style="font-size:1.5rem;margin-bottom:.7rem">👁️</div>
-          <div style="font-family:'Quicksand',sans-serif;font-weight:800;color:#d4d0c8;font-size:.95rem;margin-bottom:.3rem">Beobachter-Kätzchen</div>
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#b0b8c2;margin-bottom:.8rem">„Ich sehe…"</div>
-          <p style="font-size:.8rem;color:#888680;line-height:1.6">Trennt Beobachtung von Bewertung — sieht, was wirklich passiert, ohne zu urteilen.</p>
-        </div>
-      </div>
-      <div class="reveal" style="transition-delay:.08s;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden">
-        <div style="height:4px;background:#e8a09a"></div>
-        <div style="padding:1.4rem">
-          <div style="font-size:1.5rem;margin-bottom:.7rem">🫀</div>
-          <div style="font-family:'Quicksand',sans-serif;font-weight:800;color:#d4d0c8;font-size:.95rem;margin-bottom:.3rem">Fühl-Kätzchen</div>
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#e8a09a;margin-bottom:.8rem">„Ich spüre…"</div>
-          <p style="font-size:.8rem;color:#888680;line-height:1.6">Benennt Gefühle unter dem Verhalten — was hinter dem Ausbruch oder dem Rückzug steckt.</p>
-        </div>
-      </div>
-      <div class="reveal" style="transition-delay:.16s;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden">
-        <div style="height:4px;background:#a09ac0"></div>
-        <div style="padding:1.4rem">
-          <div style="font-size:1.5rem;margin-bottom:.7rem">🧠</div>
-          <div style="font-family:'Quicksand',sans-serif;font-weight:800;color:#d4d0c8;font-size:.95rem;margin-bottom:.3rem">Denk-Kätzchen</div>
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#a09ac0;margin-bottom:.8rem">„Ich vermute…"</div>
-          <p style="font-size:.8rem;color:#888680;line-height:1.6">Sucht Zusammenhänge und macht Muster sichtbar — warum passiert das immer wieder?</p>
-        </div>
-      </div>
-      <div class="reveal" style="transition-delay:.24s;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden">
-        <div style="height:4px;background:#6a9a7a"></div>
-        <div style="padding:1.4rem">
-          <div style="font-size:1.5rem;margin-bottom:.7rem">🌿</div>
-          <div style="font-family:'Quicksand',sans-serif;font-weight:800;color:#d4d0c8;font-size:.95rem;margin-bottom:.3rem">System-Kätzchen</div>
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6a9a7a;margin-bottom:.8rem">„Ich sehe im Umfeld…"</div>
-          <p style="font-size:.8rem;color:#888680;line-height:1.6">Holt den Blick weg vom Kind hin zum Kontext — was in der Umgebung mitwirkt.</p>
-        </div>
-      </div>
-      <div class="reveal" style="transition-delay:.32s;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden">
-        <div style="height:4px;background:#c87840"></div>
-        <div style="padding:1.4rem">
-          <div style="font-size:1.5rem;margin-bottom:.7rem">🛠️</div>
-          <div style="font-family:'Quicksand',sans-serif;font-weight:800;color:#d4d0c8;font-size:.95rem;margin-bottom:.3rem">Macher-Kätzchen</div>
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#c87840;margin-bottom:.8rem">„Ein möglicher nächster Schritt…"</div>
-          <p style="font-size:.8rem;color:#888680;line-height:1.6">Übersetzt Verstehen in Handlung — ohne Druck, aber mit Richtung.</p>
-        </div>
-      </div>
+    <div class="reveal" style="transition-delay:.15s;margin-bottom:3rem">
+      <p style="font-size:.93rem;color:var(--textMid);max-width:640px;line-height:1.85" class="dk-mid">
+        Die Waldkätzchen handeln nicht selbst. Sie schauen. Sie benennen. Sie helfen, anders hinzusehen.<br>
+        Jedes Kätzchen schaut auf dieselbe Situation — aber aus einem anderen Blickwinkel.
+        Die Kraft entsteht, wenn alle nacheinander sprechen dürfen.
+      </p>
     </div>
 
-    <div class="reveal" style="transition-delay:.4s;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:2rem 2.4rem">
-      <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:1rem">So helfen alle fünf zusammen — Beispiel Morgen-Eskalation</div>
-      <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem">
-        <div style="display:flex;align-items:flex-start;gap:.9rem"><div style="width:10px;height:10px;border-radius:50%;background:#b0b8c2;margin-top:.35rem;flex-shrink:0"></div><p style="font-size:.85rem;color:#c8c4bc;line-height:1.55"><strong style="color:#d4d0c8">Beobachter:</strong> „Luis hat seinen Bruder geschlagen und schreit."</p></div>
-        <div style="display:flex;align-items:flex-start;gap:.9rem"><div style="width:10px;height:10px;border-radius:50%;background:#e8a09a;margin-top:.35rem;flex-shrink:0"></div><p style="font-size:.85rem;color:#c8c4bc;line-height:1.55"><strong style="color:#d4d0c8">Fühl:</strong> „Darunter liegt Überwältigung — vielleicht sogar Angst, zu spät zu kommen."</p></div>
-        <div style="display:flex;align-items:flex-start;gap:.9rem"><div style="width:10px;height:10px;border-radius:50%;background:#a09ac0;margin-top:.35rem;flex-shrink:0"></div><p style="font-size:.85rem;color:#c8c4bc;line-height:1.55"><strong style="color:#d4d0c8">Denk:</strong> „Das passiert oft montags — nach dem Wochenende, Übergang ist schwer für ihn."</p></div>
-        <div style="display:flex;align-items:flex-start;gap:.9rem"><div style="width:10px;height:10px;border-radius:50%;background:#6a9a7a;margin-top:.35rem;flex-shrink:0"></div><p style="font-size:.85rem;color:#c8c4bc;line-height:1.55"><strong style="color:#d4d0c8">System:</strong> „Alle sind gestresst, der Morgen war laut, kein Raum zum Ankommen."</p></div>
-        <div style="display:flex;align-items:flex-start;gap:.9rem"><div style="width:10px;height:10px;border-radius:50%;background:#c87840;margin-top:.35rem;flex-shrink:0"></div><p style="font-size:.85rem;color:#c8c4bc;line-height:1.55"><strong style="color:#d4d0c8">Macher:</strong> „Morgen 5 Minuten früher aufstehen. Kein Bildschirm bis nach dem Frühstück."</p></div>
-      </div>
-      <p style="font-size:.88rem;font-style:italic;color:#FAC775;font-family:'Quicksand',sans-serif;font-weight:600">So wird aus „Problemverhalten" ein verstehbarer Hinweis.</p>
-    </div>
-  </div>
-</section>
+    <div id="katzen-werkzeuge-grid"></div>
 
-<!-- ═══ APP ════════════════════════════════════════════════════════════ -->
-<section style="background:var(--sage);padding:5rem 0">
-  <div class="container grid-2">
-    <div>
-      <div class="reveal"><div class="section-tag">Die App</div></div>
-      <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Begleiter im Alltag</h2></div>
-      <div class="reveal" style="transition-delay:.15s"><p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1.8rem" class="dk-mid">Ein ruhiger, warmer Raum, der dich an den schwierigen Momenten des Alltags begleitet — mit den Figuren, die du bereits kennst.</p></div>
-      <div class="reveal" style="transition-delay:.2s;margin-bottom:2rem">
-        <div class="grow-item"><span class="grow-icon">✦</span> Situationen reflektieren</div>
-        <div class="grow-item"><span class="grow-icon">✦</span> Gefühle sichtbar machen</div>
-        <div class="grow-item"><span class="grow-icon">✦</span> Kleine Impulse erhalten</div>
-        <div class="grow-item" style="border:none"><span class="grow-icon">✦</span> Offline verfügbar</div>
-      </div>
-      <div class="reveal" style="transition-delay:.25s">
-        <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1rem">
-          <a href="app.html" class="btn-p1" style="font-size:.82rem;padding:10px 18px;border-radius:12px">🍎 App Store</a>
-          <a href="app.html" class="btn-p1" style="font-size:.82rem;padding:10px 18px;border-radius:12px">▶ Google Play</a>
+    <div style="background:#1a2318;border-radius:20px;padding:2rem 2.5rem;margin-top:2.5rem" class="reveal">
+      <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:2.5rem;align-items:start">
+        <div>
+          <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--beobachterin);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Alle fünf im Zusammenspiel</div>
+          <h3 style="color:#fff;font-size:1.2rem;margin-bottom:.8rem;line-height:1.3">Aus „Problemverhalten" wird ein verstehbarer Hinweis.</h3>
+          <p style="font-size:.82rem;color:#888078;line-height:1.7">Beispiel: Ein Kind eskaliert jeden Morgen beim Anziehen.</p>
         </div>
-        <a href="app.html" style="font-size:.85rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr über die App →</a>
-      </div>
-    </div>
-    <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
-      <div style="background:var(--p1);border-radius:32px;padding:2rem;box-shadow:0 24px 60px rgba(8,79,63,.25);max-width:260px;width:100%">
-        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem">
-          <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="" style="height:30px;filter:brightness(0) invert(1)">
-          <span style="color:rgba(255,255,255,.55);font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:700">waldkätzchen</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:.55rem">
-          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/reflexion.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)"><span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Reflexion</span></div>
-          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)"><span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Gefühle</span></div>
-          <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:.75rem 1rem;display:flex;align-items:center;gap:.7rem"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="" style="width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1) opacity(.8)"><span style="font-size:.78rem;color:rgba(255,255,255,.8);font-family:'Quicksand',sans-serif;font-weight:600">Impulse</span></div>
+        <div style="display:flex;flex-direction:column;gap:.65rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.65rem .9rem">
+            <div style="width:9px;height:9px;border-radius:50%;background:var(--beobachterin);flex-shrink:0;margin-top:5px"></div>
+            <div style="font-size:.8rem;color:#b8b4ac;line-height:1.55"><strong style="color:#d4d0c6">Beobachterin:</strong> „Ich sehe, dass das Kind laut wird, wegrennt und nicht mehr antwortet."</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.65rem .9rem">
+            <div style="width:9px;height:9px;border-radius:50%;background:var(--fuehlerin);flex-shrink:0;margin-top:5px"></div>
+            <div style="font-size:.8rem;color:#b8b4ac;line-height:1.55"><strong style="color:#d4d0c6">Fühlerin:</strong> „Ich spüre große Überforderung — und vielleicht auch Angst."</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.65rem .9rem">
+            <div style="width:9px;height:9px;border-radius:50%;background:var(--denker);flex-shrink:0;margin-top:5px"></div>
+            <div style="font-size:.8rem;color:#b8b4ac;line-height:1.55"><strong style="color:#d4d0c6">Denkerin:</strong> „Ich vermute, der Übergang war zu schnell — das System war schon vorher voll."</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.65rem .9rem">
+            <div style="width:9px;height:9px;border-radius:50%;background:var(--systemblick);flex-shrink:0;margin-top:5px"></div>
+            <div style="font-size:.8rem;color:#b8b4ac;line-height:1.55"><strong style="color:#d4d0c6">Systemblick:</strong> „Ich sehe Zeitdruck, viele Erwartungen und wenig Sicherheit im Umfeld."</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.65rem .9rem">
+            <div style="width:9px;height:9px;border-radius:50%;background:var(--macherin);flex-shrink:0;margin-top:5px"></div>
+            <div style="font-size:.8rem;color:#b8b4ac;line-height:1.55"><strong style="color:#d4d0c6">Macherin:</strong> „Ein möglicher Schritt: Übergänge kleiner und vorhersehbarer machen."</div>
+          </div>
         </div>
       </div>
+      <p style="font-family:'Quicksand',sans-serif;font-size:.88rem;font-style:italic;color:var(--denker);font-weight:600;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.08)">So wird aus „Problemverhalten" ein verstehbarer Hinweis.</p>
     </div>
   </div>
 </section>
@@ -485,47 +312,53 @@
   <div class="container">
     <div class="reveal"><div class="section-tag">Für wen</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für Familien. Für Väter. Für Kinder.</h2></div>
-    <div class="grid-3">
+    <div class="grid-4">
       <a href="coaching.html" class="fw-card reveal" style="transition-delay:.0s;text-decoration:none">
-        <div class="fw-card-accent" style="background:var(--p2)"></div>
-        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/helferNetzwerk.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85"></div>
+        <div class="fw-card-accent" style="background:var(--fuehlerin)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--fuehlerin-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">👨‍👩‍👧</div>
         <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Familien</h3>
         <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du möchtest verstehen, warum dein Kind so reagiert — und wieder echte Verbindung spüren.</p>
       </a>
       <a href="vaeter.html" class="fw-card reveal" style="transition-delay:.08s;position:relative;text-decoration:none">
-        <div class="fw-card-accent" style="background:var(--p3)"></div>
-        <div style="position:absolute;top:1rem;right:1rem;background:var(--s1);color:var(--text);padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:800;font-family:'Quicksand',sans-serif">Vaterperspektive</div>
-        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/besprechungen.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85"></div>
+        <div class="fw-card-accent" style="background:var(--beobachterin)"></div>
+        <div style="position:absolute;top:1rem;right:1rem;background:var(--denker);color:var(--denker-dark);padding:3px 10px;border-radius:999px;font-size:.68rem;font-weight:800;font-family:'Quicksand',sans-serif">Vaterperspektive</div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--beobachterin-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">👨‍👧</div>
         <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Väter</h3>
         <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Du bist da — aber vielleicht hat dir niemand gezeigt, wie. Ehrlich, alltagsnah, ohne Klischees.</p>
       </a>
       <a href="coaching.html#fachkraefte" class="fw-card reveal" style="transition-delay:.16s;text-decoration:none">
-        <div class="fw-card-accent" style="background:var(--s2)"></div>
-        <div style="width:58px;height:58px;border-radius:16px;background:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;overflow:hidden"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" alt="" style="width:36px;height:36px;object-fit:contain;opacity:.85"></div>
+        <div class="fw-card-accent" style="background:var(--systemblick)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--systemblick-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">🎓</div>
         <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Fachkräfte</h3>
         <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Heilpädagogisch fundiert, spielerisch anwendbar — als emotionale Brücke in der Arbeit.</p>
+      </a>
+      <a href="ueber-mich.html#besondere-beduerfnisse" class="fw-card reveal" style="transition-delay:.24s;text-decoration:none">
+        <div class="fw-card-accent" style="background:var(--macherin)"></div>
+        <div style="width:58px;height:58px;border-radius:16px;background:var(--macherin-bg);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.5rem">🌿</div>
+        <h3 style="font-size:1.2rem;color:var(--p1);margin-bottom:.6rem" class="dk-h">Wenn Sprache andere Wege braucht</h3>
+        <p style="font-size:.85rem;color:var(--textMid);line-height:1.7" class="dk-mid">Der Wald und die Figuren sind oft genau der Umweg, der funktioniert — wenn direkte Kommunikation schwer fällt.</p>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ANGEBOTE -->
-<section style="padding:5rem 0">
+<section style="padding:5rem 0;background:var(--lichtung-bg)">
   <div class="container">
     <div class="reveal"><div class="section-tag">Angebote</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Weg in den Wald</h2></div>
     <div class="grid-3" style="margin-bottom:3rem">
       <a href="coaching.html" class="ang-card reveal" style="transition-delay:.0s;text-decoration:none">
         <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/katze-kissen-ruhe.png" alt="Begleitung"></div>
-        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Coaching &amp; Begleitung</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Einzelbegleitung für Eltern, Väter und Familien.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Coaching &amp; Begleitung</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Einzelbegleitung für Eltern, Väter und Familien.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
       </a>
       <a href="angebote.html" class="ang-card reveal" style="transition-delay:.08s;text-decoration:none">
         <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png" alt="Waldabenteuer"></div>
-        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">HandsOn Waldabenteuer</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Echte Begegnungen im Wald.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">HandsOn Waldabenteuer</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Echte Begegnungen im Wald.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
       </a>
       <a href="angebote.html#kurse" class="ang-card reveal" style="transition-delay:.16s;text-decoration:none">
         <div class="ang-card-img"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png" alt="Kurse"></div>
-        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Kurse &amp; Aufstellungen</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Heilpäd. fundierte Workshops.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--p2);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
+        <div class="ang-card-body"><h3 style="font-size:1.1rem;color:var(--p1);margin-bottom:.5rem" class="dk-h">Kurse &amp; Aufstellungen</h3><p style="font-size:.83rem;color:var(--textMid);line-height:1.65;flex:1" class="dk-mid">Heilpäd. fundierte Workshops.</p><div style="margin-top:1rem;font-size:.82rem;color:var(--fuehlerin);font-weight:700;font-family:'Quicksand',sans-serif">Mehr erfahren →</div></div>
       </a>
     </div>
   </div>
@@ -536,7 +369,7 @@
   <div class="container grid-2">
     <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
       <div style="position:relative">
-        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="Über mich" style="width:100%;max-width:360px;border-radius:24px;border:4px solid var(--sage);object-fit:contain">
+        <img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etanaLogo.png" alt="Über mich" style="width:100%;max-width:360px;border-radius:24px;border:4px solid var(--lichtung-bg);object-fit:contain">
         <div style="position:absolute;bottom:-12px;right:-12px;background:var(--p1);color:#fff;padding:.7rem 1.1rem;border-radius:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:.78rem;line-height:1.5;text-align:center">Heilpädagog.<br>fundiert 🌿 persönlich</div>
       </div>
     </div>
@@ -544,8 +377,8 @@
       <div class="reveal"><div class="section-tag">Über mich</div></div>
       <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Ich sehe, was hinter dem Verhalten steckt.</h2></div>
       <div class="reveal" style="transition-delay:.15s">
-        <p style="font-size:.93rem;color:var(--textMid);line-height:1.85;margin-bottom:1rem" class="dk-mid">Ich bin Heilpädagoge, Coach und Vater — und ich weiß, wie es sich anfühlt, wenn man da sein will, aber nicht weiß, wie. Genau deshalb habe ich Waldkätzchen entwickelt.</p>
-        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:2rem" class="dk-soft">Mein Ansatz verbindet heilpädagogisches Fachwissen mit echter Lebensnähe. Keine Theorie ohne Alltag. Keine Methode ohne Herz.</p>
+        <p style="font-size:.93rem;color:var(--textMid);line-height:1.9;margin-bottom:1rem" class="dk-mid">Ich war oft da. Aber ich wusste nicht, wie ich ankommen sollte. Nicht weil ich nicht wollte — sondern weil mir niemand gezeigt hatte, wie echte Verbindung im Alltag aussieht.</p>
+        <p style="font-size:.88rem;color:var(--textSoft);line-height:1.8;margin-bottom:2rem" class="dk-soft">Waldkätzchen ist aus dem gewachsen, was ich selbst gebraucht hätte — und aus dem, was ich in der Arbeit mit Kindern, Familien und Vätern immer wieder vermisst habe.</p>
       </div>
       <div class="reveal" style="transition-delay:.2s"><a href="ueber-mich.html" class="btn-outline">Mehr über mich erfahren</a></div>
     </div>
@@ -553,7 +386,7 @@
 </section>
 
 <!-- IMPULSE -->
-<section style="padding:5rem 0">
+<section style="padding:5rem 0;background:var(--lichtung-bg)">
   <div class="container">
     <div class="reveal"><div class="section-tag">Impulse &amp; Gedanken</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Aus dem Waldtagebuch</h2></div>
@@ -581,39 +414,10 @@
 
 <script>
 buildFigurCards('tier-grid', 4);
-buildMetaphern('metaphern-track');
+buildWaldkatzenWerkzeuge('katzen-werkzeuge-grid');
 buildImpulse('impulse-track');
 buildAccordion('faq-main');
 buildEchos('echos-grid');
-buildWeltenStrip('welten-strip-container');
-
-// Welten-Weiterführung: Unterhalb des Strips 3 Info-Kacheln
-(function(){
-  const row = document.getElementById('welten-detail-row');
-  if(!row || typeof WELTEN === 'undefined') return;
-  const featured = [WELTEN[0], WELTEN[3], WELTEN[4]]; // Höhle, Alter Wald, Lichtung
-  featured.forEach(w=>{
-    const el = document.createElement('a');
-    el.href = 'welt.html#' + w.id;
-    el.style.cssText = `display:block;background:${w.bg};border-radius:18px;padding:1.4rem 1.6rem;text-decoration:none;transition:transform .25s,box-shadow .25s;border:1px solid ${w.tagBg}`;
-    el.onmouseover = ()=>{ el.style.transform='translateY(-4px)'; el.style.boxShadow='0 8px 28px rgba(0,0,0,.12)'; };
-    el.onmouseout  = ()=>{ el.style.transform='translateY(0)';    el.style.boxShadow='none'; };
-    el.innerHTML = `
-      <div style="font-size:1.6rem;margin-bottom:.7rem">${w.icon}</div>
-      <div style="font-family:'Quicksand',sans-serif;font-size:.95rem;font-weight:700;color:${w.text};margin-bottom:.5rem">${w.name}</div>
-      <p style="font-size:.82rem;color:${w.sub};line-height:1.65;margin-bottom:.9rem">${w.desc}</p>
-      <div style="font-size:.72rem;font-weight:700;color:${w.sub};font-family:'Quicksand',sans-serif">Figuren: ${w.tiere.join(' · ')}</div>
-    `;
-    row.appendChild(el);
-  });
-  const link = document.createElement('a');
-  link.href='welt.html';
-  link.style.cssText='display:flex;align-items:center;justify-content:center;border-radius:18px;padding:1.4rem;border:2px dashed rgba(8,79,63,.2);text-decoration:none;color:var(--p1);font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:.88rem;gap:.5rem;transition:background .2s';
-  link.onmouseover=()=>link.style.background='var(--sage)';
-  link.onmouseout=()=>link.style.background='transparent';
-  link.innerHTML='Alle 5 Welten →';
-  row.appendChild(link);
-})();
 </script>
 </body>
 </html>
