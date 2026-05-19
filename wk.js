@@ -714,6 +714,7 @@ function renderHeader(activePage){
   <a class="mob-link ml-vaeter" href="vaeter.html" data-close>Für Väter <span class="caret">→</span></a>
   <a class="mob-link" href="blog.html" data-close>Impulse <span class="caret">→</span></a>
   <a class="btn-primary mob-cta" href="kontakt.html">Erstgespräch anfragen</a>
+  <div style="display:flex;gap:1.5rem;justify-content:center;padding:.75rem 0 .25rem"><a href="impressum.html" style="font-size:.75rem;color:rgba(200,240,220,.55);text-decoration:underline">Impressum</a><a href="impressum.html#datenschutz" style="font-size:.75rem;color:rgba(200,240,220,.55);text-decoration:underline">Datenschutz</a></div>
 </div>`;
 }
 
@@ -735,7 +736,7 @@ function renderFooter(){
     <div><a href="index.html" style="display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-family:'Quicksand',sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:.6rem"><span aria-hidden="true">🌿</span>waldkätzchen</a><div style="font-size:.7rem;opacity:.4;letter-spacing:.07em;font-family:'Quicksand',sans-serif;text-transform:uppercase;margin-bottom:.6rem">Wild und verbunden.</div><div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--s3);font-family:'Quicksand',sans-serif;margin-bottom:1.25rem;text-transform:uppercase">Verstehen · Verbinden · Verändern</div><div style="display:flex;gap:.7rem"><a href="#" class="social-btn">📷</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">💬</a></div></div>
     <div><h4 class="footer-h">Der Wald</h4><a href="welt.html" class="footer-link">Die Welt</a><a href="index.html#die-echos" class="footer-link">Der alte Wald</a><a href="tiere.html" class="footer-link">Die Figuren</a><a href="metaphern.html" class="footer-link">Die Metaphern</a></div>
     <div><h4 class="footer-h">Angebote</h4><a href="coaching.html" class="footer-link">Coaching</a><a href="angebote.html" class="footer-link">Waldabenteuer</a><a href="angebote.html#kurse" class="footer-link">Kurse</a><a href="app.html" class="footer-link">Die App</a></div>
-    <div><h4 class="footer-h">Mehr</h4><a href="vaeter.html" class="footer-link">Für Väter</a><a href="blog.html" class="footer-link">Impulse</a><a href="ueber-mich.html" class="footer-link">Über mich</a><a href="kontakt.html" class="footer-link">Kontakt</a></div>
+    <div><h4 class="footer-h">Mehr</h4><a href="vaeter.html" class="footer-link">Für Väter</a><a href="blog.html" class="footer-link">Impulse</a><a href="ueber-mich.html" class="footer-link">Über mich</a><a href="kontakt.html" class="footer-link">Kontakt</a><a href="impressum.html" class="footer-link">Impressum</a></div>
   </div>
   <div class="footer-bottom"><div style="font-size:.75rem;color:rgba(255,255,255,.35)">© 2026 Waldkätzchen. Wild und verbunden.</div><div style="display:flex;gap:1.5rem"><a href="impressum.html" class="footer-link" style="font-size:.75rem;margin:0">Impressum</a><a href="impressum.html#datenschutz" class="footer-link" style="font-size:.75rem;margin:0">Datenschutz</a></div></div>
 </footer>`;
