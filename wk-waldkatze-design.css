@@ -155,3 +155,72 @@ body.dark section[style*="background:#fff"],
 body.dark section[style*="background: #fff"] {
   background-color: rgba(8,18,38,.92) !important;
 }
+
+/* ── Badges global ───────────────────────────────────────── */
+.wk-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .75rem;
+  border-radius: 9999px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: .72rem;
+}
+
+/* ── Geschwungene Sections ───────────────────────────────── */
+.section-tag {
+  border-radius: 9999px !important;
+}
+
+/* ── Dark Mode — umfassende Textlesbarkeit ───────────────── */
+body.dark .wk-cat-card h4,
+body.dark .wk-cat-card .wk-cat-lead { color: #c8ecd6 !important; }
+body.dark .wk-cat-card .wk-cat-copy { color: rgba(192,232,208,.85) !important; }
+body.dark .wk-cat-card .wk-cat-label { color: rgba(200,240,220,.6) !important; }
+body.dark .wk-cat-question { background: rgba(255,255,255,.08) !important; }
+body.dark .wk-cat-question strong { color: #c0e8d0 !important; }
+body.dark .wk-cat-question span { color: rgba(192,232,208,.65) !important; }
+
+body.dark .tier-card-name,
+body.dark .tier-card-quote { color: #c8ecd6 !important; }
+body.dark .tier-card-copy { color: rgba(180,220,200,.82) !important; }
+body.dark .tier-card-tag { background: rgba(255,255,255,.1) !important; color: rgba(210,240,225,.8) !important; }
+
+body.dark .wk-animal-name,
+body.dark .wk-animal-lead { color: #c0e8d0 !important; }
+body.dark .wk-animal-copy { color: rgba(180,220,200,.82) !important; }
+body.dark .wk-animal-question { color: #c0e8d0 !important; }
+
+body.dark .katze-karte-name { color: #c8ecd6 !important; }
+body.dark .katze-karte-text { color: rgba(180,220,200,.8) !important; }
+body.dark .katze-karte-stimme { color: rgba(200,236,218,.7) !important; border-top-color: rgba(255,255,255,.08) !important; }
+body.dark .katze-karte-rolle { color: rgba(200,236,218,.7) !important; }
+
+/* Night/Dusk: section backgrounds */
+body.night section:not(.hero):not(.hero-sub),
+body.dusk section:not(.hero):not(.hero-sub) {
+  background-color: transparent !important;
+}
+
+/* Quote boxes dark */
+body.dark .quote-box p,
+body.dark .quote-box { color: #c0e8d0 !important; }
+
+/* prob-card, fw-card dark */
+body.dark .prob-card h4,body.dark .prob-card p { color: #c0e8d0 !important; }
+body.dark .fw-card h3,body.dark .fw-card p { color: #c0e8d0 !important; }
+
+/* Tier filter dark */
+body.dark .tier-filter-btn { color: rgba(200,240,220,.8) !important; }
+body.dark .tier-filter-btn.is-active { background: var(--fuehlerin) !important; color: #fff !important; }
+
+/* inner panels dark */
+body.dark .wk-tier-panel { background: rgba(255,255,255,.07) !important; }
+body.dark .wk-tier-panel-label { color: rgba(200,236,218,.6) !important; }
+body.dark .wk-tier-panel-text { color: rgba(200,236,218,.85) !important; }
+
+/* section-tag dark */
+body.dark .section-tag { background: rgba(20,80,50,.85) !important; color: #8dd8b0 !important; }
+
+/* badges dark */
+body.dark .wk-badge { opacity: .85; }
