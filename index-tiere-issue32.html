@@ -1,5 +1,5 @@
 <!-- Entwurf / Baustein zu Issue #32: Waldtiere als emotionale Personas und Verbindungsträger -->
-<section id="waldtiere" style="padding:5rem 0;background:#fff;position:relative;overflow:hidden">
+<section id="waldtiere" style="padding:5rem 0;background:var(--wk-bg,#FFF8E8);position:relative;overflow:hidden">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 12% 22%,rgba(74,184,200,.08) 0%,transparent 38%),radial-gradient(ellipse at 86% 16%,rgba(232,192,48,.09) 0%,transparent 42%),radial-gradient(ellipse at 74% 92%,rgba(210,93,128,.07) 0%,transparent 44%);pointer-events:none"></div>
 
   <div class="container" style="position:relative;z-index:1">
@@ -17,7 +17,7 @@
             Dadurch schaffen sie einen sicheren Abstand. Statt sofort über uns selbst zu sprechen, können wir erst einmal auf Luis, Etana, Tigi oder Elfriede schauen. Das nimmt Scham heraus und macht Verbindung leichter.
           </p>
         </div>
-        <div class="reveal" style="transition-delay:.2s;background:var(--lichtung-bg);border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.35rem 1.5rem;max-width:720px;margin:1.6rem 0 1.8rem">
+        <div class="reveal" style="transition-delay:.2s;background:var(--lichtung-bg);border-radius:22px;padding:1.35rem 1.5rem;max-width:720px;margin:1.6rem 0 1.8rem">
           <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
             Die Tiere helfen, auf Situationen zu schauen, ohne Menschen festzulegen.
           </p>
@@ -47,15 +47,15 @@
             <div style="display:flex;flex-direction:column;gap:.8rem">
               <div class="wk-animal-purpose">
                 <span>🪞</span>
-                <div><strong>Wiedererkennen</strong><em>„So fühlt sich das manchmal an.“</em></div>
+                <div><strong>Wiedererkennen</strong><em>„So fühlt sich das manchmal an."</em></div>
               </div>
               <div class="wk-animal-purpose">
                 <span>🧸</span>
-                <div><strong>Entlasten</strong><em>„Ich darf erst über die Figur sprechen.“</em></div>
+                <div><strong>Entlasten</strong><em>„Ich darf erst über die Figur sprechen."</em></div>
               </div>
               <div class="wk-animal-purpose">
                 <span>🌿</span>
-                <div><strong>Verbinden</strong><em>„Wir schauen gemeinsam hin.“</em></div>
+                <div><strong>Verbinden</strong><em>„Wir schauen gemeinsam hin."</em></div>
               </div>
             </div>
           </div>
@@ -82,6 +82,17 @@
         <p class="wk-animal-lead">Will Kaiser sein. Punkt.</p>
         <p class="wk-animal-copy">Er braucht Kontrolle, Bühne und Einfluss. Dahinter steckt Unsicherheit, die er nicht zeigen kann. Also steht er lieber oben.</p>
         <div class="wk-animal-question">Wenn Kontrolle Schutz sein muss.</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('tigi')">Von außen · Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-tigi">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">Alles organisieren · Laut bestimmen · Grenzen setzen · Kämpfen</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">Angst vor Kontrollverlust, Sicherheit durch Macht</p>
+          </div>
+        </div>
       </article>
 
       <article class="wk-animal-card wk-animal-card--luis reveal" style="transition-delay:.06s">
@@ -92,6 +103,17 @@
         <p class="wk-animal-lead">Wild, laut, drüber.</p>
         <p class="wk-animal-copy">Energie ohne Bremse. Er rennt los und merkt erst später, was er umgerannt hat. Aber ohne ihn passiert halt auch nichts.</p>
         <div class="wk-animal-question">Wenn Kraft erst sortiert werden muss.</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('luis')">Von außen · Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-luis">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">Laut werden · Toben · Dinge werfen · Weglaufen</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">Überforderung, Reizüberflutung, echter Wunsch nach Verbindung</p>
+          </div>
+        </div>
       </article>
 
       <article class="wk-animal-card wk-animal-card--etana reveal" style="transition-delay:.12s">
@@ -102,6 +124,17 @@
         <p class="wk-animal-lead">Rückzug — mit Raketenrucksack.</p>
         <p class="wk-animal-copy">Etana zieht sich zurück, wenn alles zu viel wird. Und doch steckt in ihr viel Bewegung. Nur nicht immer im Tempo der anderen.</p>
         <div class="wk-animal-question">Wenn Sicherheit vor Tempo kommt.</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('etana')">Von außen · Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-etana">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">Schweigen · Sich einschließen · Nicht antworten · Verschwinden</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">Schutz, Reizschutz, fehlende Sicherheit für Kontakt</p>
+          </div>
+        </div>
       </article>
 
       <article class="wk-animal-card wk-animal-card--iella reveal" style="transition-delay:.18s">
@@ -112,6 +145,17 @@
         <p class="wk-animal-lead">Bleibt stehen, wenn andere ziehen.</p>
         <p class="wk-animal-copy">Iella wirkt manchmal stur. Vielleicht schützt sie aber nur ihre Grenze. Vielleicht weiß sie längst, dass nicht jeder Weg ihrer ist.</p>
         <div class="wk-animal-question">Wenn Nein ein Kontaktversuch ist.</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('iella')">Von außen · Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-iella">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">Ruhig bleiben · Ausgleichen · Verlässlich da sein · Wenig Drama</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">Innere Stabilität, Selbstwert, Fähigkeit zu regulieren</p>
+          </div>
+        </div>
       </article>
 
       <article class="wk-animal-card wk-animal-card--elfriede reveal" style="transition-delay:.24s">
@@ -122,6 +166,17 @@
         <p class="wk-animal-lead">Warm, aufmerksam, oft zu sehr bei den anderen.</p>
         <p class="wk-animal-copy">Sie spürt viel und möchte es gut machen. Manchmal so sehr, dass sie sich selbst dabei fast übersieht.</p>
         <div class="wk-animal-question">Wenn Fürsorge Grenzen braucht.</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('elfriede')">Von außen · Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-elfriede">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">Genau hinschauen · Wenig sagen · Abwarten · Struktur suchen</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">Sicherheit durch Anpassung, innere Spannung wächst, Gefallenwollen</p>
+          </div>
+        </div>
       </article>
 
       <article class="wk-animal-card wk-animal-card--niko reveal" style="transition-delay:.30s">
@@ -132,6 +187,17 @@
         <p class="wk-animal-lead">Findet Auswege. Auch wenn niemand danach gefragt hat.</p>
         <p class="wk-animal-copy">Niko denkt schnell, biegt ab, sucht Möglichkeiten. Das hilft. Und manchmal verliert man dabei, was gerade gefühlt wird.</p>
         <div class="wk-animal-question">Wenn Lösungen vor Verbindung kommen.</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('niko')">Von außen · Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-niko">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">Alleine machen · Ablehnen von Hilfe · Eigene Wege gehen · Grenzen zeigen</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">Selbstbestimmung als Sicherheit, Autonomie als Schutz</p>
+          </div>
+        </div>
       </article>
     </div>
 
@@ -175,8 +241,7 @@
   min-height:360px;
   border-radius:24px;
   padding:1.25rem;
-  border:1px solid rgba(0,0,0,.06);
-  box-shadow:0 16px 40px rgba(17,29,18,.05);
+  box-shadow:0 2px 8px rgba(36,49,38,.08);
   display:flex;
   flex-direction:column;
   gap:.7rem;
@@ -188,7 +253,6 @@
   flex:0 0 72px;
   border-radius:22px;
   background:rgba(255,255,255,.7);
-  border:1px solid rgba(0,0,0,.06);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -199,7 +263,7 @@
 .wk-animal-role{font-family:'Quicksand',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;opacity:.72;margin-top:.18rem}
 .wk-animal-lead{font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:800;line-height:1.55;color:var(--p1);margin:.1rem 0 0}
 .wk-animal-copy{font-size:.86rem;line-height:1.8;color:var(--textMid);margin:0;flex:1}
-.wk-animal-question{font-family:'Quicksand',sans-serif;font-size:.78rem;font-weight:800;line-height:1.55;padding:.72rem .8rem;border-radius:15px;background:rgba(255,255,255,.68);border:1px solid rgba(0,0,0,.05)}
+.wk-animal-question{font-family:'Quicksand',sans-serif;font-size:.78rem;font-weight:800;line-height:1.55;padding:.72rem .8rem;border-radius:15px;background:rgba(255,255,255,.60)}
 .wk-animal-card--tigi{background:#fff1df}.wk-animal-card--tigi .wk-animal-role,.wk-animal-card--tigi .wk-animal-question{color:#9b5d10}
 .wk-animal-card--luis{background:#fff6d9}.wk-animal-card--luis .wk-animal-role,.wk-animal-card--luis .wk-animal-question{color:#8d6a00}
 .wk-animal-card--etana{background:#eaf8fa}.wk-animal-card--etana .wk-animal-role,.wk-animal-card--etana .wk-animal-question{color:#267583}
@@ -222,3 +286,13 @@
   #waldtiere aside > div + div{position:static!important;display:inline-block;margin-top:1rem}
 }
 </style>
+
+<script>
+function toggleTier(id) {
+  const expand = document.getElementById('tier-' + id);
+  if (!expand) return;
+  const isOpen = expand.classList.toggle('is-open');
+  const toggle = expand.previousElementSibling;
+  if (toggle) toggle.textContent = isOpen ? 'Schließen ▴' : 'Von außen · Darunter ▾';
+}
+</script>
