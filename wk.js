@@ -493,8 +493,8 @@ function buildWaldkatzenWerkzeuge(containerId){
     const card = document.createElement('div');
     card.className = 'katze-karte reveal';
     card.style.transitionDelay = (i*.08)+'s';
+    card.style.borderLeftColor = k.farbe;
     card.innerHTML = `
-      <div class="katze-karte-top-bar" style="background:${k.farbe}"></div>
       <div class="katze-karte-icon" style="background:${k.farbeBg}">${k.icon}</div>
       <div class="katze-karte-name" style="color:${k.farbeDark}">${k.name}</div>
       <div class="katze-karte-rolle" style="color:${k.farbe}">${k.rolle}</div>
