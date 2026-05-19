@@ -714,7 +714,7 @@ function renderHeader(activePage){
   <a class="mob-link ml-vaeter" href="vaeter.html" data-close>Für Väter <span class="caret">→</span></a>
   <a class="mob-link" href="blog.html" data-close>Impulse <span class="caret">→</span></a>
   <a class="btn-primary mob-cta" href="kontakt.html">Erstgespräch anfragen</a>
-  <div style="display:flex;gap:1.5rem;justify-content:center;padding:.75rem 0 .25rem"><a href="impressum.html" style="font-size:.75rem;color:rgba(200,240,220,.55);text-decoration:underline">Impressum</a><a href="impressum.html#datenschutz" style="font-size:.75rem;color:rgba(200,240,220,.55);text-decoration:underline">Datenschutz</a></div>
+  <div style="display:flex;gap:1.5rem;justify-content:center;padding:.75rem 0 .25rem;border-top:1px solid rgba(255,255,255,.1);margin-top:.5rem"><a href="impressum.html" style="font-size:.82rem;color:rgba(200,240,220,.78);font-weight:700;font-family:'Quicksand',sans-serif">Impressum</a><a href="impressum.html#datenschutz" style="font-size:.82rem;color:rgba(200,240,220,.78);font-weight:700;font-family:'Quicksand',sans-serif">Datenschutz</a></div>
 </div>`;
 }
 

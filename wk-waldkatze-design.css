@@ -55,7 +55,6 @@ section[style*="background: #ffffff"] {
 
 /* ── Waldkätzchen-Karten (Startseiten-Sektion #31) ───────── */
 .wk-cat-card {
-  background: #ffffff !important;
   border: 1px solid var(--wk-card-sand) !important;
   border-left-width: 4px !important;
   box-shadow: var(--wk-shadow-soft) !important;
