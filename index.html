@@ -1171,6 +1171,61 @@ body.dark .offer-support-box a{color:#FDF3C0}
   #mitwachsen aside > div > div{padding:1.15rem!important;min-height:auto!important}
   #mitwachsen aside > div + div{position:static!important;display:inline-block;margin-top:1rem}
 }
+
+/* ── WALDTIERE SLIDER ─────────────────────────────────── */
+.wk-animal-purpose{display:flex;gap:.85rem;align-items:flex-start;padding:.9rem 1rem;background:rgba(255,255,255,.06);border-radius:18px}
+.wk-animal-purpose > span{font-size:1.1rem;flex:0 0 auto;margin-top:.1rem}
+.wk-animal-purpose strong{display:block;color:#eee7db;font-family:'Quicksand',sans-serif;font-size:.9rem;margin-bottom:.15rem}
+.wk-animal-purpose em{display:block;color:#b8b4ac;font-style:normal;font-size:.8rem;line-height:1.55}
+.tier-filter-bar{display:flex;flex-wrap:wrap;gap:.5rem}
+.tier-filter-btn{padding:.35rem .85rem;border-radius:9999px;font-size:.75rem;font-weight:700;font-family:'Quicksand',sans-serif;border:none;cursor:pointer;background:rgba(36,49,38,.08);color:var(--textMid);transition:background .18s,color .18s}
+.tier-filter-btn.is-active,.tier-filter-btn:hover{background:var(--p1);color:#fff}
+body.dark .tier-filter-btn{background:rgba(255,255,255,.1);color:rgba(200,240,220,.8)}
+body.dark .tier-filter-btn.is-active{background:var(--fuehlerin);color:#fff}
+.tier-slider{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:.5rem .25rem 1.5rem;-webkit-overflow-scrolling:touch}
+.tier-slider::-webkit-scrollbar{display:none}
+.tier-card{flex:0 0 300px;scroll-snap-align:start;border-radius:24px;padding:1.25rem;display:flex;flex-direction:column;gap:.65rem;box-shadow:0 2px 8px rgba(36,49,38,.08);transition:transform .2s}
+.tier-card:hover{transform:translateY(-2px)}
+.tier-card[data-hidden]{display:none}
+.tier-card-top{display:flex;align-items:center;gap:.85rem}
+.tier-card-img{width:64px;height:64px;flex:0 0 64px;border-radius:20px;background:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tier-card-img img{width:100%;height:100%;object-fit:contain}
+.tier-card-name{font-family:'Quicksand',sans-serif;font-size:1.1rem;font-weight:800;color:var(--p1);line-height:1.2}
+.tier-card-thema{font-size:.72rem;font-weight:700;margin-top:.2rem}
+.tier-card-quote{font-family:'Quicksand',sans-serif;font-size:.88rem;font-weight:700;font-style:italic;line-height:1.55;color:var(--p1);margin:.1rem 0 0}
+.tier-card-copy{font-size:.82rem;line-height:1.75;color:var(--textMid);margin:0;flex:1}
+.tier-card-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.tier-card-tag{display:inline-block;padding:.2rem .55rem;border-radius:9999px;font-size:.67rem;font-weight:700;font-family:'Quicksand',sans-serif;background:rgba(255,255,255,.55);color:inherit;opacity:.85}
+.tier-card .wk-tier-toggle{opacity:.7}
+.tier-card .wk-tier-panel{margin-left:10px;background:rgba(255,255,255,.62)!important;border-radius:14px!important;padding:.6rem .75rem!important}
+.tier-card .wk-tier-panel-label{opacity:.6;font-size:.72rem;font-weight:700;font-family:'Quicksand',sans-serif;display:block;margin-bottom:.2rem}
+.tier-card .wk-tier-panel-text{color:var(--textMid);font-size:.8rem;line-height:1.65;margin:0}
+body.dark .tier-card{box-shadow:0 2px 8px rgba(0,0,0,.25)}
+body.dark .tier-card-name,body.dark .tier-card-quote{color:#c0e8d0!important}
+body.dark .tier-card-copy{color:rgba(180,220,200,.82)!important}
+body.dark .tier-card .wk-tier-panel{background:rgba(255,255,255,.07)!important}
+body.dark .tier-card .wk-tier-panel-text{color:rgba(200,236,218,.82)!important}
+.tier-slider-nav{display:flex;justify-content:center;gap:.65rem;margin-top:.5rem;align-items:center}
+.tier-nav-btn{width:38px;height:38px;border-radius:50%;border:none;background:var(--p1);color:#fff;font-size:1.15rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .15s;flex-shrink:0}
+.tier-nav-btn:hover{opacity:.8}
+body.dark .tier-nav-btn{background:rgba(255,255,255,.15)}
+.tier-dots{display:flex;gap:.4rem;align-items:center}
+.tier-dot{width:7px;height:7px;border-radius:50%;background:rgba(36,49,38,.18);transition:background .2s,width .2s;cursor:pointer}
+.tier-dot.is-active{background:var(--p1);width:18px;border-radius:4px}
+body.dark .tier-dot{background:rgba(255,255,255,.2)}
+body.dark .tier-dot.is-active{background:var(--fuehlerin)}
+/* Kätzchen scroll dots */
+.wk-cats-dots{display:flex;gap:.4rem;justify-content:center;align-items:center;margin-top:.75rem}
+.wk-cat-dot{width:7px;height:7px;border-radius:50%;background:rgba(36,49,38,.18);transition:background .2s,width .2s;cursor:pointer}
+.wk-cat-dot.is-active{background:var(--p1);width:18px;border-radius:4px}
+body.dark .wk-cat-dot{background:rgba(255,255,255,.2)}
+body.dark .wk-cat-dot.is-active{background:var(--beobachterin)}
+.wk-badge{display:inline-flex;align-items:center;padding:.5rem .9rem;border-radius:9999px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.02em}
+@media(max-width:1020px){.wk-animals-intro-grid{grid-template-columns:1fr!important}}
+@media(max-width:680px){
+  #waldtiere{padding:3.5rem 0!important}
+  .tier-card{flex:0 0 260px}
+}
 </style>
 </head>
 <body>
@@ -1620,6 +1675,13 @@ body.dark .offer-support-box a{color:#FDF3C0}
         <div class="wk-cat-question"><span>Seine Frage</span><strong>Was wirkt hier alles mit?</strong></div>
       </article>
     </div>
+    <div class="wk-cats-dots" id="wk-cats-dots">
+      <div class="wk-cat-dot is-active" data-idx="0" style="--cat-color:var(--beobachterin)"></div>
+      <div class="wk-cat-dot" data-idx="1" style="--cat-color:var(--fuehlerin)"></div>
+      <div class="wk-cat-dot" data-idx="2" style="--cat-color:var(--macherin)"></div>
+      <div class="wk-cat-dot" data-idx="3" style="--cat-color:var(--denker)"></div>
+      <div class="wk-cat-dot" data-idx="4" style="--cat-color:var(--systemblick)"></div>
+    </div>
 
     <div class="reveal" style="transition-delay:.2s;margin-top:2rem;background:#152015;border-radius:26px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:2rem;align-items:center" class="wk-cats-example">
       <div>
@@ -1699,6 +1761,7 @@ body.dark .offer-support-box a{color:#FDF3C0}
         <div class="tier-slider" id="tier-slider"></div>
         <div class="tier-slider-nav">
           <button class="tier-nav-btn" onclick="scrollTierSlider(-1)" aria-label="Zurück">‹</button>
+          <div class="tier-dots" id="tier-dots"></div>
           <button class="tier-nav-btn" onclick="scrollTierSlider(1)" aria-label="Weiter">›</button>
         </div>
       </div>
@@ -1999,6 +2062,29 @@ function scrollSituationSlider(direction){
       slider.appendChild(card);
     });
     if(typeof refreshReveal==='function') refreshReveal(slider);
+
+    /* Build tier dots */
+    const dotsEl = document.getElementById('tier-dots');
+    if(dotsEl && slider){
+      TIER_CARDS.forEach((t, i) => {
+        const d = document.createElement('div');
+        d.className = 'tier-dot' + (i===0?' is-active':'');
+        d.addEventListener('click', () => {
+          const cards = slider.querySelectorAll('.tier-card');
+          if(cards[i]) slider.scrollTo({left: cards[i].offsetLeft - slider.offsetLeft, behavior:'smooth'});
+        });
+        dotsEl.appendChild(d);
+      });
+      slider.addEventListener('scroll', () => {
+        const cards = slider.querySelectorAll('.tier-card');
+        let closest = 0, minDist = Infinity;
+        cards.forEach((c, i) => {
+          const dist = Math.abs(c.offsetLeft - slider.offsetLeft - slider.scrollLeft);
+          if(dist < minDist){ minDist = dist; closest = i; }
+        });
+        dotsEl.querySelectorAll('.tier-dot').forEach((d, i) => d.classList.toggle('is-active', i === closest));
+      }, {passive:true});
+    }
   }
 
   function filterTiere(tag, clickedBtn){
@@ -2028,6 +2114,29 @@ function toggleTier(id){
   const toggle=expand.previousElementSibling;
   if(toggle) toggle.textContent=isOpen?'Weniger ▴':'Von außen / Darunter ▾';
 }
+
+/* Kätzchen scroll dots */
+(function(){
+  const grid = document.querySelector('.wk-cats-grid');
+  const dotsWrap = document.getElementById('wk-cats-dots');
+  if(!grid || !dotsWrap) return;
+  dotsWrap.querySelectorAll('.wk-cat-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.wk-cat-card');
+      const idx = parseInt(dot.dataset.idx);
+      if(cards[idx]) grid.scrollTo({left: cards[idx].offsetLeft - grid.offsetLeft, behavior:'smooth'});
+    });
+  });
+  grid.addEventListener('scroll', () => {
+    const cards = grid.querySelectorAll('.wk-cat-card');
+    let closest = 0, minDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.offsetLeft - grid.offsetLeft - grid.scrollLeft);
+      if(dist < minDist){ minDist = dist; closest = i; }
+    });
+    dotsWrap.querySelectorAll('.wk-cat-dot').forEach((d, i) => d.classList.toggle('is-active', i === closest));
+  }, {passive:true});
+})();
 </script>
 </body>
 </html>
