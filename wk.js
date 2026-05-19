@@ -737,7 +737,7 @@ function renderFooter(){
     <div><h4 class="footer-h">Angebote</h4><a href="coaching.html" class="footer-link">Coaching</a><a href="angebote.html" class="footer-link">Waldabenteuer</a><a href="angebote.html#kurse" class="footer-link">Kurse</a><a href="app.html" class="footer-link">Die App</a></div>
     <div><h4 class="footer-h">Mehr</h4><a href="vaeter.html" class="footer-link">Für Väter</a><a href="blog.html" class="footer-link">Impulse</a><a href="ueber-mich.html" class="footer-link">Über mich</a><a href="kontakt.html" class="footer-link">Kontakt</a></div>
   </div>
-  <div class="footer-bottom"><div style="font-size:.75rem;color:rgba(255,255,255,.35)">© 2026 Waldkätzchen. Wild und verbunden.</div><div style="display:flex;gap:1.5rem"><a href="#" class="footer-link" style="font-size:.75rem;margin:0">Impressum</a><a href="#" class="footer-link" style="font-size:.75rem;margin:0">Datenschutz</a></div></div>
+  <div class="footer-bottom"><div style="font-size:.75rem;color:rgba(255,255,255,.35)">© 2026 Waldkätzchen. Wild und verbunden.</div><div style="display:flex;gap:1.5rem"><a href="impressum.html" class="footer-link" style="font-size:.75rem;margin:0">Impressum</a><a href="impressum.html#datenschutz" class="footer-link" style="font-size:.75rem;margin:0">Datenschutz</a></div></div>
 </footer>`;
 }
 
