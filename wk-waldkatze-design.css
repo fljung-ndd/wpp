@@ -1,0 +1,157 @@
+/* ═══════════════════════════════════════════════════════════
+   WALDKATZE DESIGN — Website-Angleichung
+   Randlose Karten · Warme Farben · Waldkatze-Look
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --wk-bg:              #FFF8E8;
+  --wk-card-sand:       #E8D9B8;
+  --wk-card-sand-light: #F5F0E8;
+  --wk-shadow-soft:     0 1px 3px rgba(36,49,38,.08), 0 1px 2px rgba(36,49,38,.06);
+  --wk-shadow-card:     0 2px 8px rgba(36,49,38,.08);
+  --wk-radius-card:     16px;
+  --wk-radius-pill:     9999px;
+  /* Body-Hintergrund-Token */
+  --s4: #FFF8E8;
+}
+
+/* ── Weiße Abschnitte → warmes Cremeweiß ─────────────────── */
+section[style*="background:#fff"],
+section[style*="background: #fff"],
+section[style*="background:#ffffff"],
+section[style*="background: #ffffff"] {
+  background-color: var(--wk-bg) !important;
+}
+
+/* ── Allgemeine Karten → weichere Ränder ─────────────────── */
+.dk-card, .prob-card, .fw-card, .ang-card,
+.feature-card, .father-process-card, .figur-card {
+  border-color: var(--wk-card-sand) !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+
+.quote-box {
+  border-color: rgba(232,217,184,.7) !important;
+}
+
+.card-slider-track > div {
+  border-color: var(--wk-card-sand) !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+
+/* ── Kätzchen-Werkzeug-Karten (buildWaldkatzenWerkzeuge) ─── */
+.katze-karte {
+  background: #ffffff !important;
+  border: 1px solid var(--wk-card-sand) !important;
+  border-left-width: 4px !important;
+  border-radius: var(--wk-radius-card) !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+.katze-karte:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--wk-shadow-card) !important;
+}
+.katze-karte-top-bar { display: none !important; }
+
+/* ── Waldkätzchen-Karten (Startseiten-Sektion #31) ───────── */
+.wk-cat-card {
+  background: #ffffff !important;
+  border: 1px solid var(--wk-card-sand) !important;
+  border-left-width: 4px !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+.wk-cat-card--beobachterin { border-left-color: var(--beobachterin) !important; }
+.wk-cat-card--fuehlerin    { border-left-color: var(--fuehlerin) !important; }
+.wk-cat-card--macherin     { border-left-color: var(--macherin) !important; }
+.wk-cat-card--denker       { border-left-color: var(--denker) !important; }
+.wk-cat-card--systemblick  { border-left-color: var(--systemblick) !important; }
+
+.wk-cat-image-wrap {
+  background: var(--wk-card-sand-light) !important;
+  border: none !important;
+}
+.wk-cat-question {
+  background: var(--wk-card-sand-light) !important;
+  border: none !important;
+}
+
+/* ── Waldtier-Karten (Startseiten-Sektion #32) ───────────── */
+.wk-animal-card {
+  border: none !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+.wk-animal-image {
+  background: rgba(255,255,255,.70) !important;
+  border: none !important;
+}
+.wk-animal-question {
+  background: rgba(255,255,255,.60) !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+/* ── Tier-Einklapp-Mechanismus ──────────────────────────── */
+.wk-tier-toggle {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: .75;
+  transition: opacity .15s;
+}
+.wk-tier-toggle:hover { opacity: 1; }
+
+.wk-tier-expand {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height .3s ease-out, opacity .25s ease-out;
+}
+.wk-tier-expand.is-open {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: .6rem;
+}
+.wk-tier-panel {
+  background: rgba(255,255,255,.55);
+  border-radius: 12px;
+  padding: .65rem .75rem;
+  margin-bottom: .4rem;
+}
+.wk-tier-panel-label {
+  font-size: .65rem;
+  font-weight: 800;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  opacity: .65;
+  margin: 0 0 .25rem;
+}
+.wk-tier-panel-text {
+  font-size: .82rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Dark Mode ───────────────────────────────────────────── */
+body.dark .wk-cat-card {
+  background: rgba(20,50,35,.85) !important;
+  border-color: rgba(168,213,194,.15) !important;
+}
+body.dark .katze-karte {
+  background: rgba(20,50,35,.75) !important;
+  border-color: rgba(168,213,194,.15) !important;
+}
+body.dark .wk-tier-panel {
+  background: rgba(255,255,255,.08) !important;
+}
+body.dark section[style*="background:#fff"],
+body.dark section[style*="background: #fff"] {
+  background-color: rgba(8,18,38,.92) !important;
+}
