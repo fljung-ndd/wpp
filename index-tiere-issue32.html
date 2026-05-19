@@ -1,4 +1,4 @@
-<!-- Entwurf / Baustein zu Issue #32: Waldtiere als emotionale Personas und Verbindungsträger -->
+<!-- Issue #32: Waldtiere — JS-gerendert, Slider mit Filter -->
 <section id="waldtiere" style="padding:5rem 0;background:var(--wk-bg,#FFF8E8);position:relative;overflow:hidden">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 12% 22%,rgba(74,184,200,.08) 0%,transparent 38%),radial-gradient(ellipse at 86% 16%,rgba(232,192,48,.09) 0%,transparent 42%),radial-gradient(ellipse at 74% 92%,rgba(210,93,128,.07) 0%,transparent 44%);pointer-events:none"></div>
 
@@ -13,9 +13,6 @@
           <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:700px;margin-bottom:1rem" class="dk-mid">
             Die Waldtiere sind keine perfekten Vorbilder. Sie sind Persönlichkeiten. Laut, vorsichtig, eigensinnig, kontrollierend, verträumt oder zurückgezogen. Sie tragen etwas in sich, das wir aus echten Situationen kennen.
           </p>
-          <p style="font-size:1rem;color:var(--textMid);line-height:1.95;max-width:700px;margin-bottom:1.35rem" class="dk-mid">
-            Dadurch schaffen sie einen sicheren Abstand. Statt sofort über uns selbst zu sprechen, können wir erst einmal auf Luis, Etana, Tigi oder Elfriede schauen. Das nimmt Scham heraus und macht Verbindung leichter.
-          </p>
         </div>
         <div class="reveal" style="transition-delay:.2s;background:var(--lichtung-bg);border-radius:22px;padding:1.35rem 1.5rem;max-width:720px;margin:1.6rem 0 1.8rem">
           <p style="font-family:'Quicksand',sans-serif;font-size:clamp(1rem,2vw,1.18rem);font-weight:700;line-height:1.8;color:var(--p1);margin:0">
@@ -23,9 +20,6 @@
           </p>
         </div>
         <div class="reveal" style="transition-delay:.26s">
-          <p style="font-size:.95rem;color:var(--textSoft);line-height:1.85;max-width:720px;margin-bottom:1.7rem" class="dk-soft">
-            Ich nutze diese Figuren auch als Handpuppen und Plüschtiere in meiner Arbeit. Gerade wenn direkte Sprache zu viel ist, kann eine Figur der erste kleine Schritt zurück in Kontakt sein.
-          </p>
           <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center">
             <a href="figuren.html" class="btn-outline">Alle Tiere kennenlernen →</a>
             <span style="font-family:'Quicksand',sans-serif;font-size:.86rem;color:var(--textSoft);font-weight:700">Figuren öffnen Räume, nicht Schubladen.</span>
@@ -35,264 +29,287 @@
 
       <aside class="reveal" style="transition-delay:.16s;position:relative">
         <div style="background:#152015;border-radius:30px;padding:1.25rem;border:1px solid rgba(255,255,255,.08);box-shadow:0 26px 90px rgba(19,30,19,.16)">
-          <div style="border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);padding:1.5rem;min-height:470px;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);padding:1.5rem;min-height:370px;display:flex;flex-direction:column;justify-content:space-between">
             <div>
               <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.85rem">Warum Figuren helfen</div>
-              <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:1rem">Neutraler Blick.<br>Lebendige Storys.<br>Echte Verbindung.</h3>
-              <p style="font-size:.92rem;color:#b8b4ac;line-height:1.85;margin-bottom:1.35rem">
-                Die Tiere bringen Situationen auf die Lichtung, ohne jemanden bloßzustellen. Sie erlauben Widersprüche. Und sie machen sichtbar, dass hinter Verhalten oft ein guter Grund steckt.
-              </p>
+              <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.35;margin-bottom:1rem">Neutraler Blick.<br>Lebendige Storys.<br>Echte Verbindung.</h3>
             </div>
-
-            <div style="display:flex;flex-direction:column;gap:.8rem">
-              <div class="wk-animal-purpose">
-                <span>🪞</span>
-                <div><strong>Wiedererkennen</strong><em>„So fühlt sich das manchmal an."</em></div>
-              </div>
-              <div class="wk-animal-purpose">
-                <span>🧸</span>
-                <div><strong>Entlasten</strong><em>„Ich darf erst über die Figur sprechen."</em></div>
-              </div>
-              <div class="wk-animal-purpose">
-                <span>🌿</span>
-                <div><strong>Verbinden</strong><em>„Wir schauen gemeinsam hin."</em></div>
-              </div>
+            <div style="display:flex;flex-direction:column;gap:.75rem">
+              <div class="wk-animal-purpose"><span>🪞</span><div><strong>Wiedererkennen</strong><em>„So fühlt sich das manchmal an."</em></div></div>
+              <div class="wk-animal-purpose"><span>🧸</span><div><strong>Entlasten</strong><em>„Ich darf erst über die Figur sprechen."</em></div></div>
+              <div class="wk-animal-purpose"><span>🌿</span><div><strong>Verbinden</strong><em>„Wir schauen gemeinsam hin."</em></div></div>
             </div>
           </div>
         </div>
-        <div style="position:absolute;right:-.8rem;bottom:-1rem;background:var(--beobachterin);color:#12393d;padding:.72rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">
-          Nicht bewerten.<br>Erst verstehen.
-        </div>
+        <div style="position:absolute;right:-.8rem;bottom:-1rem;background:var(--beobachterin);color:#12393d;padding:.72rem 1rem;border-radius:16px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;line-height:1.45;box-shadow:0 12px 30px rgba(0,0,0,.12)">Nicht bewerten.<br>Erst verstehen.</div>
       </aside>
     </div>
 
-    <div class="reveal" style="transition-delay:.18s;margin-top:4rem;margin-bottom:1.6rem">
-      <h3 style="font-size:clamp(1.35rem,2.4vw,1.9rem);color:var(--p1);font-family:'Quicksand',sans-serif;margin-bottom:.45rem" class="dk-h">Ein paar Bewohner der Lichtung</h3>
-      <p style="font-size:.95rem;color:var(--textMid);line-height:1.85;max-width:780px" class="dk-mid">
-        Auf der Startseite müssen nicht alle Tiere vollständig erzählt werden. Aber einige dürfen bereits zeigen, wie lebendig diese Welt ist — und wie unterschiedlich Situationen von innen aussehen können.
-      </p>
+    <!-- Filter + Slider -->
+    <div style="margin-top:4rem">
+      <div class="reveal" style="margin-bottom:1.25rem">
+        <h3 style="font-size:clamp(1.2rem,2.4vw,1.7rem);color:var(--p1);font-family:'Quicksand',sans-serif;margin-bottom:.5rem" class="dk-h">Erkennst du jemanden?</h3>
+        <p style="font-size:.9rem;color:var(--textMid);line-height:1.8;max-width:680px;margin-bottom:1.1rem" class="dk-mid">Wähle ein Thema — und schau, welche Figur dazu passt.</p>
+        <div class="tier-filter-bar" id="tier-filter-bar"></div>
+      </div>
+
+      <div style="position:relative">
+        <div class="tier-slider" id="tier-slider"></div>
+        <div class="tier-slider-nav">
+          <button class="tier-nav-btn" onclick="scrollTierSlider(-1)" aria-label="Zurück">‹</button>
+          <button class="tier-nav-btn" onclick="scrollTierSlider(1)" aria-label="Weiter">›</button>
+        </div>
+      </div>
     </div>
 
-    <div class="wk-animal-grid">
-      <article class="wk-animal-card wk-animal-card--tigi reveal" style="transition-delay:.0s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/tigi.png" alt="Tigi"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Tigi</div><div class="wk-animal-role">Leopard</div></div>
-        </div>
-        <p class="wk-animal-lead">Will Kaiser sein. Punkt.</p>
-        <p class="wk-animal-copy">Er braucht Kontrolle, Bühne und Einfluss. Dahinter steckt Unsicherheit, die er nicht zeigen kann. Also steht er lieber oben.</p>
-        <div class="wk-animal-question">Wenn Kontrolle Schutz sein muss.</div>
-        <button class="wk-tier-toggle" onclick="toggleTier('tigi')">Von außen · Darunter ▾</button>
-        <div class="wk-tier-expand" id="tier-tigi">
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Von außen sichtbar</p>
-            <p class="wk-tier-panel-text">Alles organisieren · Laut bestimmen · Grenzen setzen · Kämpfen</p>
-          </div>
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Darunter</p>
-            <p class="wk-tier-panel-text">Angst vor Kontrollverlust, Sicherheit durch Macht</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--luis reveal" style="transition-delay:.06s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/luis.png" alt="Luis"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Luis</div><div class="wk-animal-role">Teddy</div></div>
-        </div>
-        <p class="wk-animal-lead">Wild, laut, drüber.</p>
-        <p class="wk-animal-copy">Energie ohne Bremse. Er rennt los und merkt erst später, was er umgerannt hat. Aber ohne ihn passiert halt auch nichts.</p>
-        <div class="wk-animal-question">Wenn Kraft erst sortiert werden muss.</div>
-        <button class="wk-tier-toggle" onclick="toggleTier('luis')">Von außen · Darunter ▾</button>
-        <div class="wk-tier-expand" id="tier-luis">
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Von außen sichtbar</p>
-            <p class="wk-tier-panel-text">Laut werden · Toben · Dinge werfen · Weglaufen</p>
-          </div>
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Darunter</p>
-            <p class="wk-tier-panel-text">Überforderung, Reizüberflutung, echter Wunsch nach Verbindung</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--etana reveal" style="transition-delay:.12s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/etana.png" alt="Etana"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Etana</div><div class="wk-animal-role">Schnecke</div></div>
-        </div>
-        <p class="wk-animal-lead">Rückzug — mit Raketenrucksack.</p>
-        <p class="wk-animal-copy">Etana zieht sich zurück, wenn alles zu viel wird. Und doch steckt in ihr viel Bewegung. Nur nicht immer im Tempo der anderen.</p>
-        <div class="wk-animal-question">Wenn Sicherheit vor Tempo kommt.</div>
-        <button class="wk-tier-toggle" onclick="toggleTier('etana')">Von außen · Darunter ▾</button>
-        <div class="wk-tier-expand" id="tier-etana">
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Von außen sichtbar</p>
-            <p class="wk-tier-panel-text">Schweigen · Sich einschließen · Nicht antworten · Verschwinden</p>
-          </div>
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Darunter</p>
-            <p class="wk-tier-panel-text">Schutz, Reizschutz, fehlende Sicherheit für Kontakt</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--iella reveal" style="transition-delay:.18s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/iella.png" alt="Iella"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Iella</div><div class="wk-animal-role">Esel</div></div>
-        </div>
-        <p class="wk-animal-lead">Bleibt stehen, wenn andere ziehen.</p>
-        <p class="wk-animal-copy">Iella wirkt manchmal stur. Vielleicht schützt sie aber nur ihre Grenze. Vielleicht weiß sie längst, dass nicht jeder Weg ihrer ist.</p>
-        <div class="wk-animal-question">Wenn Nein ein Kontaktversuch ist.</div>
-        <button class="wk-tier-toggle" onclick="toggleTier('iella')">Von außen · Darunter ▾</button>
-        <div class="wk-tier-expand" id="tier-iella">
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Von außen sichtbar</p>
-            <p class="wk-tier-panel-text">Ruhig bleiben · Ausgleichen · Verlässlich da sein · Wenig Drama</p>
-          </div>
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Darunter</p>
-            <p class="wk-tier-panel-text">Innere Stabilität, Selbstwert, Fähigkeit zu regulieren</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--elfriede reveal" style="transition-delay:.24s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/elfriede.png" alt="Elfriede"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Elfriede</div><div class="wk-animal-role">Roter Panda</div></div>
-        </div>
-        <p class="wk-animal-lead">Warm, aufmerksam, oft zu sehr bei den anderen.</p>
-        <p class="wk-animal-copy">Sie spürt viel und möchte es gut machen. Manchmal so sehr, dass sie sich selbst dabei fast übersieht.</p>
-        <div class="wk-animal-question">Wenn Fürsorge Grenzen braucht.</div>
-        <button class="wk-tier-toggle" onclick="toggleTier('elfriede')">Von außen · Darunter ▾</button>
-        <div class="wk-tier-expand" id="tier-elfriede">
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Von außen sichtbar</p>
-            <p class="wk-tier-panel-text">Genau hinschauen · Wenig sagen · Abwarten · Struktur suchen</p>
-          </div>
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Darunter</p>
-            <p class="wk-tier-panel-text">Sicherheit durch Anpassung, innere Spannung wächst, Gefallenwollen</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="wk-animal-card wk-animal-card--niko reveal" style="transition-delay:.30s">
-        <div class="wk-animal-card-top">
-          <div class="wk-animal-image"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/niko.png" alt="Niko"></div>
-          <div class="wk-animal-meta"><div class="wk-animal-name">Niko</div><div class="wk-animal-role">Fuchs</div></div>
-        </div>
-        <p class="wk-animal-lead">Findet Auswege. Auch wenn niemand danach gefragt hat.</p>
-        <p class="wk-animal-copy">Niko denkt schnell, biegt ab, sucht Möglichkeiten. Das hilft. Und manchmal verliert man dabei, was gerade gefühlt wird.</p>
-        <div class="wk-animal-question">Wenn Lösungen vor Verbindung kommen.</div>
-        <button class="wk-tier-toggle" onclick="toggleTier('niko')">Von außen · Darunter ▾</button>
-        <div class="wk-tier-expand" id="tier-niko">
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Von außen sichtbar</p>
-            <p class="wk-tier-panel-text">Alleine machen · Ablehnen von Hilfe · Eigene Wege gehen · Grenzen zeigen</p>
-          </div>
-          <div class="wk-tier-panel">
-            <p class="wk-tier-panel-label">Darunter</p>
-            <p class="wk-tier-panel-text">Selbstbestimmung als Sicherheit, Autonomie als Schutz</p>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="reveal" style="transition-delay:.2s;margin-top:2rem;background:#152015;border-radius:26px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:2rem;align-items:center" class="wk-animal-bridge">
+    <!-- Bridge -->
+    <div class="reveal" style="transition-delay:.2s;margin-top:2.5rem;background:#152015;border-radius:26px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:2rem;align-items:center">
       <div>
         <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.6rem">Aus Figuren werden Situationen</div>
         <h3 style="color:#fff;font-family:'Quicksand',sans-serif;font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.35;margin-bottom:.75rem">Die Tiere bringen Alltag auf die Lichtung.</h3>
-        <p style="font-size:.93rem;color:#b8b4ac;line-height:1.85;margin:0;max-width:720px">
-          In Geschichten, Impulsen, Materialien und in der Begleitung erleben die Tiere Situationen. Die Waldkätzchen schauen gemeinsam darauf — nicht um zu urteilen, sondern um Verbindung möglich zu machen.
-        </p>
+        <p style="font-size:.93rem;color:#b8b4ac;line-height:1.85;margin:0;max-width:720px">In Geschichten, Impulsen, Materialien und in der Begleitung erleben die Tiere Situationen. Die Waldkätzchen schauen gemeinsam darauf.</p>
       </div>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:flex-start">
-        <span class="wk-animal-chip" style="background:rgba(74,184,200,.15);color:#d8f5f8">Storys</span>
-        <span class="wk-animal-chip" style="background:rgba(232,192,48,.16);color:#fff0b2">Impulse</span>
-        <span class="wk-animal-chip" style="background:rgba(210,93,128,.16);color:#ffd9e4">Puppen</span>
-        <span class="wk-animal-chip" style="background:rgba(242,139,63,.16);color:#ffe0c7">Materialien</span>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+        <span class="wk-badge" style="background:rgba(74,184,200,.2);color:#1a8898">Storys</span>
+        <span class="wk-badge" style="background:rgba(232,192,48,.2);color:#8a6010">Impulse</span>
+        <span class="wk-badge" style="background:rgba(210,93,128,.2);color:#9a2858">Puppen</span>
+        <span class="wk-badge" style="background:rgba(242,139,63,.2);color:#9a4818">Materialien</span>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-.wk-animal-purpose{
+.wk-animal-purpose{display:flex;gap:.85rem;align-items:flex-start;padding:.9rem 1rem;background:rgba(255,255,255,.06);border-radius:18px}
+.wk-animal-purpose > span{font-size:1.1rem;flex:0 0 auto;margin-top:.1rem}
+.wk-animal-purpose strong{display:block;color:#eee7db;font-family:'Quicksand',sans-serif;font-size:.9rem;margin-bottom:.15rem}
+.wk-animal-purpose em{display:block;color:#b8b4ac;font-style:normal;font-size:.8rem;line-height:1.55}
+
+/* Filter Bar */
+.tier-filter-bar{display:flex;flex-wrap:wrap;gap:.5rem}
+.tier-filter-btn{
+  padding:.35rem .85rem;
+  border-radius:9999px;
+  font-size:.75rem;
+  font-weight:700;
+  font-family:'Quicksand',sans-serif;
+  border:none;
+  cursor:pointer;
+  background:rgba(36,49,38,.08);
+  color:var(--textMid);
+  transition:background .18s,color .18s;
+}
+.tier-filter-btn.is-active,
+.tier-filter-btn:hover{
+  background:var(--p1);
+  color:#fff;
+}
+body.dark .tier-filter-btn{background:rgba(255,255,255,.1);color:rgba(200,240,220,.8)}
+body.dark .tier-filter-btn.is-active{background:var(--fuehlerin);color:#fff}
+
+/* Slider */
+.tier-slider{
   display:flex;
-  gap:.85rem;
-  align-items:flex-start;
-  padding:.95rem 1rem;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:18px;
+  gap:1rem;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  padding:.5rem .25rem 1.5rem;
+  -webkit-overflow-scrolling:touch;
 }
-.wk-animal-purpose > span{font-size:1.15rem;line-height:1.2;flex:0 0 auto}
-.wk-animal-purpose strong{display:block;color:#eee7db;font-family:'Quicksand',sans-serif;font-size:.94rem;margin-bottom:.18rem}
-.wk-animal-purpose em{display:block;color:#b8b4ac;font-style:normal;font-size:.82rem;line-height:1.6}
-.wk-animal-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:1.15rem;
-}
-.wk-animal-card{
-  min-height:360px;
+.tier-slider::-webkit-scrollbar{display:none}
+
+/* Tier Card */
+.tier-card{
+  flex:0 0 300px;
+  scroll-snap-align:start;
   border-radius:24px;
   padding:1.25rem;
-  box-shadow:0 2px 8px rgba(36,49,38,.08);
   display:flex;
   flex-direction:column;
-  gap:.7rem;
+  gap:.65rem;
+  box-shadow:0 2px 8px rgba(36,49,38,.08);
+  transition:transform .2s;
 }
-.wk-animal-card-top{display:flex;align-items:center;gap:.85rem;margin-bottom:.15rem}
-.wk-animal-image{
-  width:72px;
-  height:72px;
-  flex:0 0 72px;
-  border-radius:22px;
+.tier-card:hover{transform:translateY(-2px)}
+.tier-card[data-hidden]{display:none}
+.tier-card-top{display:flex;align-items:center;gap:.85rem}
+.tier-card-img{
+  width:64px;height:64px;flex:0 0 64px;
+  border-radius:20px;
   background:rgba(255,255,255,.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
-.wk-animal-image img{width:100%;height:100%;object-fit:contain}
-.wk-animal-name{font-family:'Quicksand',sans-serif;font-size:1.15rem;font-weight:800;color:var(--p1);line-height:1.2}
-.wk-animal-role{font-family:'Quicksand',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em;opacity:.72;margin-top:.18rem}
-.wk-animal-lead{font-family:'Quicksand',sans-serif;font-size:1rem;font-weight:800;line-height:1.55;color:var(--p1);margin:.1rem 0 0}
-.wk-animal-copy{font-size:.86rem;line-height:1.8;color:var(--textMid);margin:0;flex:1}
-.wk-animal-question{font-family:'Quicksand',sans-serif;font-size:.78rem;font-weight:800;line-height:1.55;padding:.72rem .8rem;border-radius:15px;background:rgba(255,255,255,.60)}
-.wk-animal-card--tigi{background:#fff1df}.wk-animal-card--tigi .wk-animal-role,.wk-animal-card--tigi .wk-animal-question{color:#9b5d10}
-.wk-animal-card--luis{background:#fff6d9}.wk-animal-card--luis .wk-animal-role,.wk-animal-card--luis .wk-animal-question{color:#8d6a00}
-.wk-animal-card--etana{background:#eaf8fa}.wk-animal-card--etana .wk-animal-role,.wk-animal-card--etana .wk-animal-question{color:#267583}
-.wk-animal-card--iella{background:#f7ebe4}.wk-animal-card--iella .wk-animal-role,.wk-animal-card--iella .wk-animal-question{color:#8c5942}
-.wk-animal-card--elfriede{background:#fde7ed}.wk-animal-card--elfriede .wk-animal-role,.wk-animal-card--elfriede .wk-animal-question{color:#a74a68}
-.wk-animal-card--niko{background:#fff0e8}.wk-animal-card--niko .wk-animal-role,.wk-animal-card--niko .wk-animal-question{color:#a85b28}
-.wk-animal-chip{display:inline-flex;align-items:center;justify-content:center;padding:.62rem .9rem;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.03em;text-transform:uppercase}
-@media(max-width:1020px){
-  .wk-animals-intro-grid{grid-template-columns:1fr!important}
-  #waldtiere aside{max-width:720px}
-  .wk-animal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .wk-animal-bridge{grid-template-columns:1fr!important}
+.tier-card-img img{width:100%;height:100%;object-fit:contain}
+.tier-card-name{font-family:'Quicksand',sans-serif;font-size:1.1rem;font-weight:800;color:var(--p1);line-height:1.2}
+.tier-card-thema{font-size:.72rem;font-weight:700;margin-top:.2rem}
+.tier-card-quote{
+  font-family:'Quicksand',sans-serif;
+  font-size:.88rem;
+  font-weight:700;
+  font-style:italic;
+  line-height:1.55;
+  color:var(--p1);
+  margin:.1rem 0 0;
 }
+.tier-card-copy{font-size:.82rem;line-height:1.75;color:var(--textMid);margin:0;flex:1}
+.tier-card-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.tier-card-tag{
+  display:inline-block;
+  padding:.2rem .55rem;
+  border-radius:9999px;
+  font-size:.67rem;
+  font-weight:700;
+  font-family:'Quicksand',sans-serif;
+  background:rgba(255,255,255,.55);
+  color:inherit;
+  opacity:.85;
+}
+
+/* Inner expand panels — offset style (like Luis) */
+.tier-card .wk-tier-toggle{opacity:.7}
+.tier-card .wk-tier-panel{
+  margin-left:10px;
+  background:rgba(255,255,255,.62) !important;
+  border-radius:14px !important;
+  padding:.6rem .75rem !important;
+}
+.tier-card .wk-tier-panel-label{opacity:.6}
+.tier-card .wk-tier-panel-text{color:var(--textMid)}
+
+/* Dark mode */
+body.dark .tier-card{box-shadow:0 2px 8px rgba(0,0,0,.25)}
+body.dark .tier-card-name,body.dark .tier-card-quote{color:#c0e8d0!important}
+body.dark .tier-card-copy{color:rgba(180,220,200,.82)!important}
+body.dark .tier-card .wk-tier-panel{background:rgba(255,255,255,.07)!important}
+body.dark .tier-card .wk-tier-panel-text{color:rgba(200,236,218,.82)!important}
+
+/* Nav arrows */
+.tier-slider-nav{
+  display:flex;
+  justify-content:flex-end;
+  gap:.5rem;
+  margin-top:.25rem;
+}
+.tier-nav-btn{
+  width:40px;height:40px;
+  border-radius:50%;
+  border:none;
+  background:var(--p1);
+  color:#fff;
+  font-size:1.1rem;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .15s;
+}
+.tier-nav-btn:hover{opacity:.8}
+body.dark .tier-nav-btn{background:rgba(255,255,255,.15)}
+
+.wk-badge{
+  display:inline-flex;align-items:center;
+  padding:.5rem .9rem;
+  border-radius:9999px;
+  font-family:'Quicksand',sans-serif;
+  font-weight:800;
+  font-size:.78rem;
+  letter-spacing:.02em;
+}
+
+@media(max-width:1020px){.wk-animals-intro-grid{grid-template-columns:1fr!important}}
 @media(max-width:680px){
-  #waldtiere{padding:4rem 0!important}
-  .wk-animal-grid{grid-template-columns:1fr}
-  .wk-animal-card{min-height:auto}
-  #waldtiere aside > div{padding:.95rem!important;border-radius:24px!important}
-  #waldtiere aside > div > div{padding:1.15rem!important;min-height:auto!important}
-  #waldtiere aside > div + div{position:static!important;display:inline-block;margin-top:1rem}
+  #waldtiere{padding:3.5rem 0!important}
+  .tier-card{flex:0 0 260px}
 }
 </style>
 
 <script>
-function toggleTier(id) {
-  const expand = document.getElementById('tier-' + id);
-  if (!expand) return;
-  const isOpen = expand.classList.toggle('is-open');
-  const toggle = expand.previousElementSibling;
-  if (toggle) toggle.textContent = isOpen ? 'Schließen ▴' : 'Von außen · Darunter ▾';
+(function(){
+  /* All unique tags from TIER_CARDS */
+  const allTags = [...new Set(TIER_CARDS.flatMap(t=>t.tags))];
+
+  /* Build filter bar */
+  const bar = document.getElementById('tier-filter-bar');
+  if(bar){
+    const allBtn = document.createElement('button');
+    allBtn.className = 'tier-filter-btn is-active';
+    allBtn.dataset.filter = 'all';
+    allBtn.textContent = 'Alle';
+    allBtn.addEventListener('click', () => filterTiere('all', allBtn));
+    bar.appendChild(allBtn);
+
+    allTags.forEach(tag => {
+      const btn = document.createElement('button');
+      btn.className = 'tier-filter-btn';
+      btn.dataset.filter = tag;
+      btn.textContent = tag;
+      btn.addEventListener('click', () => filterTiere(tag, btn));
+      bar.appendChild(btn);
+    });
+  }
+
+  /* Build slider cards */
+  const slider = document.getElementById('tier-slider');
+  if(slider){
+    TIER_CARDS.forEach((t, i) => {
+      const card = document.createElement('div');
+      card.className = 'tier-card reveal';
+      card.dataset.tags = t.tags.join(',');
+      card.style.background = t.bgColor.replace(/[\d.]+\)$/, m => Math.min(parseFloat(m)*4,.18)+')');
+      card.style.transitionDelay = (i*.06)+'s';
+      const sichtbarStr = Array.isArray(t.sichtbar) ? t.sichtbar.join(' · ') : t.sichtbar;
+      card.innerHTML = `
+        <div class="tier-card-top">
+          <div class="tier-card-img"><img src="${t.img}" alt="${t.name}" loading="lazy"></div>
+          <div>
+            <div class="tier-card-name">${t.name}</div>
+            <div class="tier-card-thema" style="color:${t.accent}">${t.thema}</div>
+          </div>
+        </div>
+        <p class="tier-card-quote">${t.quote}</p>
+        <p class="tier-card-copy">${t.darunter.split(',')[0]}.</p>
+        <div class="tier-card-tags">${t.tags.map(tag=>`<span class="tier-card-tag">${tag}</span>`).join('')}</div>
+        <button class="wk-tier-toggle" onclick="toggleTier('${t.id}')">Von außen / Darunter ▾</button>
+        <div class="wk-tier-expand" id="tier-${t.id}">
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Von außen sichtbar</p>
+            <p class="wk-tier-panel-text">${sichtbarStr}</p>
+          </div>
+          <div class="wk-tier-panel">
+            <p class="wk-tier-panel-label">Darunter</p>
+            <p class="wk-tier-panel-text">${t.darunter}</p>
+          </div>
+        </div>`;
+      slider.appendChild(card);
+    });
+    if(typeof refreshReveal==='function') refreshReveal(slider);
+  }
+
+  function filterTiere(tag, clickedBtn){
+    document.querySelectorAll('.tier-filter-btn').forEach(b=>b.classList.remove('is-active'));
+    clickedBtn.classList.add('is-active');
+    document.querySelectorAll('.tier-card').forEach(card=>{
+      if(tag==='all'||card.dataset.tags.split(',').includes(tag)){
+        card.removeAttribute('data-hidden');
+        card.style.display='';
+      } else {
+        card.setAttribute('data-hidden','1');
+        card.style.display='none';
+      }
+    });
+  }
+})();
+
+function scrollTierSlider(dir){
+  const slider=document.getElementById('tier-slider');
+  if(slider) slider.scrollBy({left:dir*320,behavior:'smooth'});
+}
+
+function toggleTier(id){
+  const expand=document.getElementById('tier-'+id);
+  if(!expand) return;
+  const isOpen=expand.classList.toggle('is-open');
+  const toggle=expand.previousElementSibling;
+  if(toggle) toggle.textContent=isOpen?'Weniger ▴':'Von außen / Darunter ▾';
 }
 </script>
