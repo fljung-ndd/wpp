@@ -166,10 +166,6 @@ body.dark section[style*="background: #fff"] {
   font-size: .72rem;
 }
 
-/* ── Geschwungene Sections ───────────────────────────────── */
-.section-tag {
-  border-radius: 9999px !important;
-}
 
 /* ── Dark Mode — umfassende Textlesbarkeit ───────────────── */
 body.dark .wk-cat-card h4,
@@ -219,7 +215,7 @@ body.dark .wk-tier-panel-label { color: rgba(200,236,218,.6) !important; }
 body.dark .wk-tier-panel-text { color: rgba(200,236,218,.85) !important; }
 
 /* section-tag dark */
-body.dark .section-tag { background: rgba(20,80,50,.85) !important; color: #8dd8b0 !important; }
+body.dark .section-tag { color: #4AB8C8 !important; }
 
 /* badges dark */
 body.dark .wk-badge { opacity: .85; }
