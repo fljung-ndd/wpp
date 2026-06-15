@@ -17,82 +17,82 @@
 <script>document.write(renderHeader('index.html'));</script>
 
 <!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
-<section class="hero">
-  <img class="hero-img" src="https://wp.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png" alt="Die Waldlichtung">
+<section class="hero wk-hero-cinema">
+  <img class="hero-img" src="https://wp.waldkaetzchen.de/wp-content/uploads/2026/05/background-lichtung-quer.png" alt="Die Waldlichtung" style="object-position:center 30%">
   <div class="hero-overlay" id="hero-overlay"></div>
   <canvas id="hero-canvas"></canvas>
-  <div class="hero-content">
-    <div class="hero-inner">
+  <!-- Film-Grain Textur -->
+  <div class="wk-hero-grain" aria-hidden="true"></div>
 
-      <!-- Eyebrow -->
-      <div class="reveal" style="transition-delay:.1s">
-        <div style="display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:1rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:5px 14px;backdrop-filter:blur(8px)">
-          🌿 Wild und verbunden
-        </div>
-      </div>
+  <div class="hero-content wk-hero-cinema-content">
 
-      <!-- H1 mit cycling text -->
-      <div class="reveal" style="transition-delay:.2s">
-        <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:1rem;color:#fff;line-height:1.08;text-shadow:0 2px 24px rgba(0,0,0,.4);font-weight:800;letter-spacing:-.03em;font-family:'Quicksand',sans-serif">
-          Verstehen statt bewerten.<br>
-          <span id="hero-cycling" style="color:var(--beobachterin);display:inline-block;transition:opacity .4s ease,transform .4s ease">Verbindung statt Druck.</span>
-        </h1>
-      </div>
-
-      <!-- Description -->
-      <div class="reveal" style="transition-delay:.35s">
-        <p style="font-size:1rem;color:rgba(255,255,255,.8);max-width:500px;margin-bottom:2rem;line-height:1.85;text-shadow:0 1px 8px rgba(0,0,0,.25);font-family:'Nunito',sans-serif;font-weight:500">
-          Für Eltern, Väter und Fachkräfte — mit Figuren, Geschichten<br>und echtem Verständnis für das, was hinter dem Verhalten steckt.
-        </p>
-      </div>
-
-      <!-- CTAs -->
-      <div class="reveal" style="transition-delay:.5s">
-        <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:1.6rem;align-items:center">
-          <a href="kontakt.html" class="btn-primary" style="animation:float 3s ease-in-out infinite;font-size:.88rem;padding:13px 28px">🌿 Erstgespräch anfragen</a>
-          <a href="vaeter.html" class="btn-ghost" style="font-size:.88rem;padding:13px 24px">Speziell für Väter →</a>
-        </div>
-      </div>
-
-      <!-- Trust badges -->
-      <div class="reveal" style="transition-delay:.62s">
-        <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2.2rem">
-          <span style="font-size:.66rem;font-weight:700;font-family:'Quicksand',sans-serif;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px">✓ Heilpäd. fundiert</span>
-          <span style="font-size:.66rem;font-weight:700;font-family:'Quicksand',sans-serif;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px">✓ Online &amp; vor Ort</span>
-          <span style="font-size:.66rem;font-weight:700;font-family:'Quicksand',sans-serif;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px">✓ Erstgespräch kostenlos</span>
-        </div>
-      </div>
-
-      <!-- Mini stats bar -->
-      <div class="reveal" style="transition-delay:.75s">
-        <div style="display:flex;gap:0;align-items:stretch;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;overflow:hidden;max-width:420px;backdrop-filter:blur(12px)">
-          <div style="flex:1;text-align:center;padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.1)">
-            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">5</div>
-            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Figuren</div>
-          </div>
-          <div style="flex:1;text-align:center;padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.1)">
-            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">6</div>
-            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Waldorte</div>
-          </div>
-          <div style="flex:1;text-align:center;padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.1)">
-            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">12+</div>
-            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Waldtiere</div>
-          </div>
-          <div style="flex:1;text-align:center;padding:.9rem .5rem">
-            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">100%</div>
-            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Online</div>
-          </div>
-        </div>
-      </div>
-
+    <!-- Eyebrow -->
+    <div class="reveal wk-hero-eyebrow-row" style="transition-delay:.05s">
+      <span class="wk-hero-eyebrow-line"></span>
+      <span class="wk-hero-eyebrow-text">Waldkätzchen</span>
+      <span class="wk-hero-eyebrow-line"></span>
     </div>
+
+    <!-- Mega-Headline -->
+    <div class="reveal" style="transition-delay:.18s">
+      <h1 class="wk-hero-mega">
+        <span class="wk-hero-mega-top">Verstehen</span>
+        <span class="wk-hero-mega-bottom">
+          <span class="wk-hero-mega-stroke">statt</span>&nbsp;bewerten.
+        </span>
+      </h1>
+    </div>
+
+    <!-- Separator + Bottom Row -->
+    <div class="reveal wk-hero-bottom" style="transition-delay:.35s">
+      <div class="wk-hero-sep"></div>
+      <div class="wk-hero-bottom-row">
+        <!-- Left: cycling subtitle + description -->
+        <div class="wk-hero-left">
+          <p class="wk-hero-tagline">
+            <span id="hero-cycling" style="color:var(--beobachterin);transition:opacity .4s ease,transform .4s ease;display:inline-block">Verbindung statt Druck.</span>
+          </p>
+          <p class="wk-hero-desc">Für Eltern, Väter und Fachkräfte —<br>mit Figuren, Geschichten und echtem Verständnis<br>für das, was hinter dem Verhalten steckt.</p>
+        </div>
+        <!-- Right: CTA + trust -->
+        <div class="wk-hero-right">
+          <a href="kontakt.html" class="wk-hero-cta">
+            <span>Erstgespräch anfragen</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="vaeter.html" class="wk-hero-ghost">Speziell für Väter →</a>
+          <div class="wk-hero-trust">
+            <span>✓ Heilpäd. fundiert</span>
+            <span>✓ Kostenlos starten</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="reveal wk-hero-stats" style="transition-delay:.52s">
+      <div class="wk-hero-stat">
+        <strong>5</strong><span>Waldkätzchen</span>
+      </div>
+      <div class="wk-hero-stat-div"></div>
+      <div class="wk-hero-stat">
+        <strong>6</strong><span>Waldorte</span>
+      </div>
+      <div class="wk-hero-stat-div"></div>
+      <div class="wk-hero-stat">
+        <strong>12+</strong><span>Waldtiere</span>
+      </div>
+      <div class="wk-hero-stat-div"></div>
+      <div class="wk-hero-stat">
+        <strong>100%</strong><span>Online verfügbar</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- Scroll indicator -->
-  <div class="hero-scroll-hint" style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px">
-    <span style="font-size:.58rem;color:rgba(255,255,255,.4);font-family:'Quicksand',sans-serif;letter-spacing:.18em;text-transform:uppercase">Entdecken</span>
-    <div style="width:1px;height:30px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.4));animation:scrollPulse 2.2s ease-in-out infinite"></div>
-    <div style="width:9px;height:9px;border-right:1.5px solid rgba(255,255,255,.4);border-bottom:1.5px solid rgba(255,255,255,.4);transform:rotate(45deg);margin-top:-4px;animation:chevronBounce 2.2s ease-in-out infinite"></div>
+  <div class="wk-hero-scroll" aria-hidden="true">
+    <div class="wk-hero-scroll-line"></div>
   </div>
 </section>
 
