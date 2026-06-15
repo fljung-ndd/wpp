@@ -22,76 +22,65 @@
   <div class="hero-overlay" id="hero-overlay"></div>
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-two-col">
+    <div class="hero-inner">
 
-      <!-- ── TEXT ── -->
-      <div class="hero-inner">
-        <div class="reveal" style="transition-delay:.1s">
-          <div class="hero-eyebrow">🌿 Wild und verbunden</div>
-        </div>
-        <div class="reveal" style="transition-delay:.2s">
-          <h1 class="hero-h1">
-            Verstehen statt bewerten.<br>
-            <span class="hero-cycling" id="hero-cycling">Verbindung statt Druck.</span>
-          </h1>
-        </div>
-        <div class="reveal" style="transition-delay:.3s">
-          <p class="hero-sub">Verstehen · Verbinden · Verändern</p>
-        </div>
-        <div class="reveal" style="transition-delay:.38s">
-          <p class="hero-body">
-            Für Eltern, Väter und Fachkräfte.<br>
-            Mit Figuren, Geschichten — und echtem Verständnis<br>
-            für das, was hinter dem Verhalten steckt.
-          </p>
-        </div>
-        <div class="reveal" style="transition-delay:.5s">
-          <div class="hero-dots-row">
-            Verstehen
-            <span class="hero-dot" style="background:var(--beobachterin)"></span>
-            Verbinden
-            <span class="hero-dot" style="background:var(--macherin)"></span>
-            Verändern
-          </div>
-          <div class="hero-cta-row">
-            <a href="kontakt.html" class="btn-primary hero-cta-main">🌿 Erstgespräch anfragen</a>
-            <a href="vaeter.html" class="btn-ghost">Speziell für Väter →</a>
-          </div>
-        </div>
-        <div class="reveal hero-trust" style="transition-delay:.65s">
-          <span class="hero-trust-badge">✓ Heilpäd. fundiert</span>
-          <span class="hero-trust-badge">✓ Online &amp; vor Ort</span>
-          <span class="hero-trust-badge">✓ Erstgespräch kostenlos</span>
+      <!-- Eyebrow -->
+      <div class="reveal" style="transition-delay:.1s">
+        <div style="display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:1rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:5px 14px;backdrop-filter:blur(8px)">
+          🌿 Wild und verbunden
         </div>
       </div>
 
-      <!-- ── VISUAL PANEL ── -->
-      <div class="hero-visual reveal" style="transition-delay:.45s">
-        <div class="hero-visual-card">
-          <div class="hero-visual-tag">Die 5 Waldkätzchen</div>
-          <div class="hero-visual-cats">
-            <div class="hero-cat-badge" style="border-color:var(--beobachterin)">🐾 Beobachterin</div>
-            <div class="hero-cat-badge" style="border-color:var(--fuehlerin)">🐾 Fühlerin</div>
-            <div class="hero-cat-badge" style="border-color:var(--denker)">🐾 Denker</div>
-            <div class="hero-cat-badge" style="border-color:var(--systemblick)">🐾 Systemblick</div>
-            <div class="hero-cat-badge" style="border-color:var(--macherin)">🐾 Macherin</div>
+      <!-- H1 mit cycling text -->
+      <div class="reveal" style="transition-delay:.2s">
+        <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:1rem;color:#fff;line-height:1.08;text-shadow:0 2px 24px rgba(0,0,0,.4);font-weight:800;letter-spacing:-.03em;font-family:'Quicksand',sans-serif">
+          Verstehen statt bewerten.<br>
+          <span id="hero-cycling" style="color:var(--beobachterin);display:inline-block;transition:opacity .4s ease,transform .4s ease">Verbindung statt Druck.</span>
+        </h1>
+      </div>
+
+      <!-- Description -->
+      <div class="reveal" style="transition-delay:.35s">
+        <p style="font-size:1rem;color:rgba(255,255,255,.8);max-width:500px;margin-bottom:2rem;line-height:1.85;text-shadow:0 1px 8px rgba(0,0,0,.25);font-family:'Nunito',sans-serif;font-weight:500">
+          Für Eltern, Väter und Fachkräfte — mit Figuren, Geschichten<br>und echtem Verständnis für das, was hinter dem Verhalten steckt.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="reveal" style="transition-delay:.5s">
+        <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:1.6rem;align-items:center">
+          <a href="kontakt.html" class="btn-primary" style="animation:float 3s ease-in-out infinite;font-size:.88rem;padding:13px 28px">🌿 Erstgespräch anfragen</a>
+          <a href="vaeter.html" class="btn-ghost" style="font-size:.88rem;padding:13px 24px">Speziell für Väter →</a>
+        </div>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="reveal" style="transition-delay:.62s">
+        <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:2.2rem">
+          <span style="font-size:.66rem;font-weight:700;font-family:'Quicksand',sans-serif;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px">✓ Heilpäd. fundiert</span>
+          <span style="font-size:.66rem;font-weight:700;font-family:'Quicksand',sans-serif;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px">✓ Online &amp; vor Ort</span>
+          <span style="font-size:.66rem;font-weight:700;font-family:'Quicksand',sans-serif;color:rgba(255,255,255,.6);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px">✓ Erstgespräch kostenlos</span>
+        </div>
+      </div>
+
+      <!-- Mini stats bar -->
+      <div class="reveal" style="transition-delay:.75s">
+        <div style="display:flex;gap:0;align-items:stretch;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;overflow:hidden;max-width:420px;backdrop-filter:blur(12px)">
+          <div style="flex:1;text-align:center;padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.1)">
+            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">5</div>
+            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Figuren</div>
           </div>
-          <div class="hero-visual-quote">
-            „Verhalten ist eine Sprache —<br>lern, sie zu lesen."
+          <div style="flex:1;text-align:center;padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.1)">
+            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">6</div>
+            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Waldorte</div>
           </div>
-          <div class="hero-visual-stats">
-            <div class="hero-vstat">
-              <span class="hero-vstat-n">5</span>
-              <span class="hero-vstat-l">Figuren</span>
-            </div>
-            <div class="hero-vstat">
-              <span class="hero-vstat-n">6</span>
-              <span class="hero-vstat-l">Waldorte</span>
-            </div>
-            <div class="hero-vstat">
-              <span class="hero-vstat-n">12+</span>
-              <span class="hero-vstat-l">Waldtiere</span>
-            </div>
+          <div style="flex:1;text-align:center;padding:.9rem .5rem;border-right:1px solid rgba(255,255,255,.1)">
+            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">12+</div>
+            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Waldtiere</div>
+          </div>
+          <div style="flex:1;text-align:center;padding:.9rem .5rem">
+            <div style="font-size:1.5rem;font-weight:800;color:#fff;font-family:'Quicksand',sans-serif;line-height:1">100%</div>
+            <div style="font-size:.58rem;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:.25rem">Online</div>
           </div>
         </div>
       </div>
@@ -100,10 +89,10 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="hero-scroll-hint">
-    <span class="hero-scroll-label">Entdecken</span>
-    <div class="hero-scroll-line"></div>
-    <div class="hero-scroll-chevron"></div>
+  <div class="hero-scroll-hint" style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px">
+    <span style="font-size:.58rem;color:rgba(255,255,255,.4);font-family:'Quicksand',sans-serif;letter-spacing:.18em;text-transform:uppercase">Entdecken</span>
+    <div style="width:1px;height:30px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.4));animation:scrollPulse 2.2s ease-in-out infinite"></div>
+    <div style="width:9px;height:9px;border-right:1.5px solid rgba(255,255,255,.4);border-bottom:1.5px solid rgba(255,255,255,.4);transform:rotate(45deg);margin-top:-4px;animation:chevronBounce 2.2s ease-in-out infinite"></div>
   </div>
 </section>
 
