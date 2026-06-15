@@ -45,7 +45,7 @@
 #warum-waldkaetzchen aside strong{color:#F7FCFA!important}
 #warum-waldkaetzchen aside span[style*="#b8b4ac"]{color:rgba(232,245,239,.80)!important}
 #waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child{background:var(--wk-deep-panel)!important;border-color:var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.18)!important}
-#waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child > div{background-image:linear-gradient(180deg,rgba(18,72,64,.18),rgba(18,72,64,.78)),url('https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png')!important}
+#waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child > div{background-image:linear-gradient(180deg,rgba(18,72,64,.18),rgba(18,72,64,.78)),url('https://wp.waldkaetzchen.de/wp-content/uploads/2026/05/konzept.png')!important}
 #waldwelt-landkarte .wk-world-intro-grid > div:last-child > div:first-child > div > div{background:rgba(18,72,64,.84)!important;border-color:rgba(255,255,255,.18)!important}
 .wk-world-bridge{background:var(--wk-deep-panel)!important;border:1px solid var(--wk-deep-panel-edge)!important;box-shadow:0 24px 72px rgba(18,72,64,.14)!important}
 .wk-world-bridge p{color:var(--wk-deep-panel-copy)!important}

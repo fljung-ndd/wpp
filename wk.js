@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 // ── BASE URLS ────────────────────────────────────────────────────
-const WK_ASSETS = 'https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/';
+const WK_ASSETS = 'https://wp.waldkaetzchen.de/wp-content/uploads/2026/05/';
 const WK = {
   assets: WK_ASSETS,
 
