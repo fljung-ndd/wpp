@@ -22,44 +22,88 @@
   <div class="hero-overlay" id="hero-overlay"></div>
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-inner">
-      <div class="reveal" style="transition-delay:.1s">
-        <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--denker);font-family:'Quicksand',sans-serif;margin-bottom:.7rem">🌿 Wild und verbunden</div>
-      </div>
-      <div class="reveal" style="transition-delay:.2s">
-        <h1 style="font-size:clamp(2rem,4.5vw,3.4rem);margin-bottom:.8rem;color:#fff;line-height:1.1;text-shadow:0 2px 20px rgba(0,0,0,.3);font-weight:800;letter-spacing:-.025em;font-family:'Quicksand',sans-serif">
-          Verstehen statt bewerten.<br>
-          <span style="color:var(--beobachterin)">Verbindung statt Druck.</span>
-        </h1>
-      </div>
-      <div class="reveal" style="transition-delay:.3s">
-        <p style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:1.2rem;letter-spacing:.04em">
-          Verstehen · Verbinden · Verändern
-        </p>
-      </div>
-      <div class="reveal" style="transition-delay:.38s">
-        <p style="font-size:.93rem;color:rgba(255,255,255,.82);max-width:480px;margin-bottom:1.8rem;line-height:1.82;text-shadow:0 1px 8px rgba(0,0,0,.2)">
-          Für Eltern, Väter und Fachkräfte.<br>Mit Figuren, Geschichten — und echtem Verständnis<br>für das was hinter dem Verhalten steckt.
-        </p>
-      </div>
-      <div class="reveal" style="transition-delay:.5s">
-        <div style="display:flex;gap:.6rem;align-items:center;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.42);font-family:'Quicksand',sans-serif;margin-bottom:1.6rem">
-          Verstehen
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--beobachterin);display:inline-block;flex-shrink:0"></span>
-          Verbinden
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--macherin);display:inline-block;flex-shrink:0"></span>
-          Verändern
+    <div class="hero-two-col">
+
+      <!-- ── TEXT ── -->
+      <div class="hero-inner">
+        <div class="reveal" style="transition-delay:.1s">
+          <div class="hero-eyebrow">🌿 Wild und verbunden</div>
         </div>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap">
-          <a href="kontakt.html" class="btn-primary" style="animation:float 3s ease-in-out infinite">🌿 Erstgespräch anfragen</a>
-          <a href="vaeter.html" class="btn-ghost">Speziell für Väter →</a>
+        <div class="reveal" style="transition-delay:.2s">
+          <h1 class="hero-h1">
+            Verstehen statt bewerten.<br>
+            <span class="hero-cycling" id="hero-cycling">Verbindung statt Druck.</span>
+          </h1>
+        </div>
+        <div class="reveal" style="transition-delay:.3s">
+          <p class="hero-sub">Verstehen · Verbinden · Verändern</p>
+        </div>
+        <div class="reveal" style="transition-delay:.38s">
+          <p class="hero-body">
+            Für Eltern, Väter und Fachkräfte.<br>
+            Mit Figuren, Geschichten — und echtem Verständnis<br>
+            für das, was hinter dem Verhalten steckt.
+          </p>
+        </div>
+        <div class="reveal" style="transition-delay:.5s">
+          <div class="hero-dots-row">
+            Verstehen
+            <span class="hero-dot" style="background:var(--beobachterin)"></span>
+            Verbinden
+            <span class="hero-dot" style="background:var(--macherin)"></span>
+            Verändern
+          </div>
+          <div class="hero-cta-row">
+            <a href="kontakt.html" class="btn-primary hero-cta-main">🌿 Erstgespräch anfragen</a>
+            <a href="vaeter.html" class="btn-ghost">Speziell für Väter →</a>
+          </div>
+        </div>
+        <div class="reveal hero-trust" style="transition-delay:.65s">
+          <span class="hero-trust-badge">✓ Heilpäd. fundiert</span>
+          <span class="hero-trust-badge">✓ Online &amp; vor Ort</span>
+          <span class="hero-trust-badge">✓ Erstgespräch kostenlos</span>
         </div>
       </div>
+
+      <!-- ── VISUAL PANEL ── -->
+      <div class="hero-visual reveal" style="transition-delay:.45s">
+        <div class="hero-visual-card">
+          <div class="hero-visual-tag">Die 5 Waldkätzchen</div>
+          <div class="hero-visual-cats">
+            <div class="hero-cat-badge" style="border-color:var(--beobachterin)">🐾 Beobachterin</div>
+            <div class="hero-cat-badge" style="border-color:var(--fuehlerin)">🐾 Fühlerin</div>
+            <div class="hero-cat-badge" style="border-color:var(--denker)">🐾 Denker</div>
+            <div class="hero-cat-badge" style="border-color:var(--systemblick)">🐾 Systemblick</div>
+            <div class="hero-cat-badge" style="border-color:var(--macherin)">🐾 Macherin</div>
+          </div>
+          <div class="hero-visual-quote">
+            „Verhalten ist eine Sprache —<br>lern, sie zu lesen."
+          </div>
+          <div class="hero-visual-stats">
+            <div class="hero-vstat">
+              <span class="hero-vstat-n">5</span>
+              <span class="hero-vstat-l">Figuren</span>
+            </div>
+            <div class="hero-vstat">
+              <span class="hero-vstat-n">6</span>
+              <span class="hero-vstat-l">Waldorte</span>
+            </div>
+            <div class="hero-vstat">
+              <span class="hero-vstat-n">12+</span>
+              <span class="hero-vstat-l">Waldtiere</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="hero-scroll-hint" style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;animation:float 2s ease-in-out infinite">
-    <span style="font-size:.62rem;color:rgba(255,255,255,.45);font-family:'Quicksand',sans-serif;letter-spacing:.15em;text-transform:uppercase">Scroll</span>
-    <div style="width:1px;height:36px;background:rgba(255,255,255,.25)"></div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll-hint">
+    <span class="hero-scroll-label">Entdecken</span>
+    <div class="hero-scroll-line"></div>
+    <div class="hero-scroll-chevron"></div>
   </div>
 </section>
 
@@ -72,6 +116,31 @@
     <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/inhalte.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Mit Geschichten</span></div>
     <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/uebersicht.png" class="hero-icon-img" alt=""><span class="hero-icon-label">App &amp; Materialien</span></div>
     <div class="hero-icon-item"><img src="https://waldkaetzchen.waldkaetzchen.de/wp-content/uploads/2026/05/themen2.png" class="hero-icon-img" alt=""><span class="hero-icon-label">Für Verbindung</span></div>
+  </div>
+</div>
+
+<!-- COUNTER STRIP -->
+<div class="hero-counter-strip">
+  <div class="hero-counter-inner">
+    <div class="hero-counter-item">
+      <span class="hero-counter-n" data-target="5">5</span>
+      <span class="hero-counter-l">Waldkätzchen</span>
+    </div>
+    <div class="hero-counter-sep"></div>
+    <div class="hero-counter-item">
+      <span class="hero-counter-n" data-target="6">6</span>
+      <span class="hero-counter-l">Waldorte</span>
+    </div>
+    <div class="hero-counter-sep"></div>
+    <div class="hero-counter-item">
+      <span class="hero-counter-n" data-target="12" data-plus="1">12+</span>
+      <span class="hero-counter-l">Waldtiere</span>
+    </div>
+    <div class="hero-counter-sep"></div>
+    <div class="hero-counter-item">
+      <span class="hero-counter-n">100%</span>
+      <span class="hero-counter-l">Online verfügbar</span>
+    </div>
   </div>
 </div>
 
@@ -986,5 +1055,57 @@
 <script>document.write(renderFooter());</script>
 
 <script src="wk-index.js" defer></script>
+<script>
+/* ── Hero cycling text ── */
+(function(){
+  var el=document.getElementById('hero-cycling');
+  if(!el) return;
+  var phrases=[
+    'Verbindung statt Druck.',
+    'Mitgefühl statt Urteilen.',
+    'Sicherheit statt Strenge.',
+    'Verstehen statt Kämpfen.'
+  ];
+  var idx=0;
+  setInterval(function(){
+    el.style.opacity='0';
+    el.style.transform='translateY(-10px)';
+    setTimeout(function(){
+      idx=(idx+1)%phrases.length;
+      el.textContent=phrases[idx];
+      el.style.opacity='1';
+      el.style.transform='translateY(0)';
+    },450);
+  },3800);
+})();
+
+/* ── Counter animation ── */
+(function(){
+  var counters=document.querySelectorAll('.hero-counter-n[data-target]');
+  if(!counters.length) return;
+  var strip=document.querySelector('.hero-counter-strip');
+  if(!strip) return;
+  var done=false;
+  var obs=new IntersectionObserver(function(entries){
+    if(done||!entries[0].isIntersecting) return;
+    done=true;
+    counters.forEach(function(c){
+      var target=parseInt(c.dataset.target)||0;
+      var hasPlus=!!c.dataset.plus;
+      var start=performance.now();
+      var dur=1000;
+      (function tick(now){
+        var p=Math.min((now-start)/dur,1);
+        var ease=1-Math.pow(1-p,3);
+        c.textContent=Math.round(ease*target)+(hasPlus?'+':'');
+        if(p<1) requestAnimationFrame(tick);
+        else c.textContent=target+(hasPlus?'+':'');
+      })(start);
+    });
+    obs.disconnect();
+  },{threshold:.3});
+  obs.observe(strip);
+})();
+</script>
 </body>
 </html>
