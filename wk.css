@@ -437,3 +437,830 @@ footer{background:#051f18;padding:4rem 2rem 2rem;color:rgba(255,255,255,.72)}
   .nav-inner{padding:0 1rem}
   .nav-cta{padding:9px 14px;font-size:.76rem!important}
 }
+
+
+/* ══════════════════════════════════════════════════════════════
+   WALDKÄTZCHEN FARBSYSTEM — merged from waldkaetzchen_colors.css
+   ═══════════════════════════════════════════════════════════ */
+  --beobachterin-light: #D4F2F6;
+  --beobachterin-dark:  #1A6A78;
+  --beobachterin-mid:   #2E8A98;
+  --beobachterin-bg:    #EAF8FA;
+
+  --fuehlerin:          #2A8A7A;
+  --fuehlerin-light:    #C0E8E0;
+  --fuehlerin-dark:     #124840;
+  --fuehlerin-mid:      #1E6858;
+  --fuehlerin-bg:       #E4F5F2;
+
+  --denker:             #E8C030;
+  --denker-light:       #FDF3C0;
+  --denker-dark:        #8A6C10;
+  --denker-mid:         #A88020;
+  --denker-bg:          #FEFAE8;
+
+  --systemblick:        #E87830;
+  --systemblick-light:  #FCDFC0;
+  --systemblick-dark:   #8A4010;
+  --systemblick-mid:    #B05818;
+  --systemblick-bg:     #FEF2E8;
+
+  --macherin:           #D84878;
+  --macherin-light:     #F8C8D8;
+  --macherin-dark:      #7A1E3E;
+  --macherin-mid:       #A83058;
+  --macherin-bg:        #FDE8F0;
+
+  /* ── Waldorte ────────────────────────────────────── */
+  --lichtung-bg:        #EAF5E8;
+  --lichtung-dark:      #1A4018;
+  --lichtung-mid:       #3A6030;
+
+  --altwald-bg:         #F5F0E8;
+  --altwald-dark:       #3A2E10;
+  --altwald-mid:        #6A5828;
+
+  --hoehle-bg:          #2A2820;
+  --hoehle-glow:        #C87830;
+  --hoehle-dark:        #0E0C08;
+  --hoehle-text:        #C8C4BC;
+
+  --felsen-bg:          #F0EFEC;
+  --felsen-dark:        #3A3830;
+  --felsen-mid:         #6A6858;
+
+  --nebel-bg:           #EEF2F6;
+  --nebel-dark:         #1A2840;
+  --nebel-mid:          #3A4E68;
+  --nebel:              #506888;
+
+  --echos-bg:           #EEF0FA;
+  --echos-dark:         #1A1C38;
+  --echos-mid:          #3A3C68;
+  --echos:              #505488;
+
+  /* ── Rückwärts-Kompatibilität ────────────────────── */
+  --p1:   #183820;
+  --p2:   var(--fuehlerin);
+  --p3:   var(--beobachterin);
+  --s1:   var(--denker);
+  --s2:   var(--systemblick);
+  --s3:   var(--macherin-light);
+  --sage: var(--lichtung-bg);
+}
+
+/* ── Dark-Mode Overrides ─────────────────────────────── */
+body.dark {
+  --lichtung-bg:  rgba(30, 60, 28, 0.85);
+  --altwald-bg:   rgba(40, 32, 16, 0.85);
+  --felsen-bg:    rgba(32, 30, 26, 0.85);
+  --nebel-bg:     rgba(20, 28, 40, 0.85);
+  --echos-bg:     rgba(18, 18, 40, 0.85);
+}
+
+/* ── Kätzchen-Karten (buildWaldkatzenWerkzeuge) ──────── */
+.katze-karte {
+  background: var(--s4, #FFF7E6);
+  border: 1px solid rgba(8,79,63,.08);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .22s, box-shadow .22s;
+}
+.katze-karte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(8,79,63,.12);
+}
+body.dark .katze-karte {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.07);
+}
+.katze-karte-top-bar {
+  height: 5px;
+}
+.katze-karte-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  font-size: 1.4rem;
+  margin: 1.2rem 1.2rem .7rem;
+}
+.katze-karte-name {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0 1.2rem .2rem;
+}
+body.dark .katze-karte-name { color: #d4d0c8 !important; }
+.katze-karte-rolle {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: 0 1.2rem .7rem;
+}
+.katze-karte-text {
+  font-size: .82rem;
+  color: var(--textMid, #556);
+  line-height: 1.65;
+  padding: 0 1.2rem .7rem;
+}
+body.dark .katze-karte-text { color: #888680; }
+.katze-karte-stimme {
+  font-family: 'Quicksand', sans-serif;
+  font-size: .83rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--p1, #183820);
+  border-top: 1px solid rgba(8,79,63,.07);
+  margin: 0 1.2rem;
+  padding: .7rem 0 1.2rem;
+}
+body.dark .katze-karte-stimme {
+  color: rgba(255,255,255,.55);
+  border-top-color: rgba(255,255,255,.06);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   WALDKATZE DESIGN — merged from wk-waldkatze-design.css
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --wk-bg:              #FFF8E8;
+  --wk-card-sand:       #E8D9B8;
+  --wk-card-sand-light: #F5F0E8;
+  --wk-shadow-soft:     0 1px 3px rgba(36,49,38,.08), 0 1px 2px rgba(36,49,38,.06);
+  --wk-shadow-card:     0 2px 8px rgba(36,49,38,.08);
+  --wk-radius-card:     16px;
+  --wk-radius-pill:     9999px;
+  /* Body-Hintergrund-Token */
+  --s4: #FFF8E8;
+}
+
+/* ── Weiße Abschnitte → warmes Cremeweiß ─────────────────── */
+section[style*="background:#fff"],
+section[style*="background: #fff"],
+section[style*="background:#ffffff"],
+section[style*="background: #ffffff"] {
+  background-color: var(--wk-bg) !important;
+}
+
+/* ── Allgemeine Karten → weichere Ränder ─────────────────── */
+.dk-card, .prob-card, .fw-card, .ang-card,
+.feature-card, .father-process-card, .figur-card {
+  border-color: var(--wk-card-sand) !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+
+.quote-box {
+  border-color: rgba(232,217,184,.7) !important;
+}
+
+.card-slider-track > div {
+  border-color: var(--wk-card-sand) !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+
+/* ── Kätzchen-Werkzeug-Karten (buildWaldkatzenWerkzeuge) ─── */
+.katze-karte {
+  background: #ffffff !important;
+  border: 1px solid var(--wk-card-sand) !important;
+  border-left-width: 4px !important;
+  border-radius: var(--wk-radius-card) !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+.katze-karte:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--wk-shadow-card) !important;
+}
+.katze-karte-top-bar { display: none !important; }
+
+/* ── Waldkätzchen-Karten (Startseiten-Sektion #31) ───────── */
+.wk-cat-card {
+  border: 1px solid var(--wk-card-sand) !important;
+  border-left-width: 4px !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+.wk-cat-card--beobachterin { border-left-color: var(--beobachterin) !important; }
+.wk-cat-card--fuehlerin    { border-left-color: var(--fuehlerin) !important; }
+.wk-cat-card--macherin     { border-left-color: var(--macherin) !important; }
+.wk-cat-card--denker       { border-left-color: var(--denker) !important; }
+.wk-cat-card--systemblick  { border-left-color: var(--systemblick) !important; }
+
+.wk-cat-image-wrap {
+  background: var(--wk-card-sand-light) !important;
+  border: none !important;
+}
+.wk-cat-question {
+  background: var(--wk-card-sand-light) !important;
+  border: none !important;
+}
+
+/* ── Waldtier-Karten (Startseiten-Sektion #32) ───────────── */
+.wk-animal-card {
+  border: none !important;
+  box-shadow: var(--wk-shadow-soft) !important;
+}
+.wk-animal-image {
+  background: rgba(255,255,255,.70) !important;
+  border: none !important;
+}
+.wk-animal-question {
+  background: rgba(255,255,255,.60) !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+/* ── Tier-Einklapp-Mechanismus ──────────────────────────── */
+.wk-tier-toggle {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .75rem;
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: .75;
+  transition: opacity .15s;
+}
+.wk-tier-toggle:hover { opacity: 1; }
+
+.wk-tier-expand {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height .3s ease-out, opacity .25s ease-out;
+}
+.wk-tier-expand.is-open {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: .6rem;
+}
+.wk-tier-panel {
+  background: rgba(255,255,255,.55);
+  border-radius: 12px;
+  padding: .65rem .75rem;
+  margin-bottom: .4rem;
+}
+.wk-tier-panel-label {
+  font-size: .65rem;
+  font-weight: 800;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  opacity: .65;
+  margin: 0 0 .25rem;
+}
+.wk-tier-panel-text {
+  font-size: .82rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Dark Mode ───────────────────────────────────────────── */
+body.dark .wk-cat-card {
+  background: rgba(20,50,35,.85) !important;
+  border-color: rgba(168,213,194,.15) !important;
+}
+body.dark .katze-karte {
+  background: rgba(20,50,35,.75) !important;
+  border-color: rgba(168,213,194,.15) !important;
+}
+body.dark .wk-tier-panel {
+  background: rgba(255,255,255,.08) !important;
+}
+body.dark section[style*="background:#fff"],
+body.dark section[style*="background: #fff"] {
+  background-color: rgba(8,18,38,.92) !important;
+}
+
+/* ── Badges global ───────────────────────────────────────── */
+.wk-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .3rem .75rem;
+  border-radius: 9999px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: .72rem;
+}
+
+
+/* ── Dark Mode — umfassende Textlesbarkeit ───────────────── */
+body.dark .wk-cat-card h4,
+body.dark .wk-cat-card .wk-cat-lead { color: #c8ecd6 !important; }
+body.dark .wk-cat-card .wk-cat-copy { color: rgba(192,232,208,.85) !important; }
+body.dark .wk-cat-card .wk-cat-label { color: rgba(200,240,220,.6) !important; }
+body.dark .wk-cat-question { background: rgba(255,255,255,.08) !important; }
+body.dark .wk-cat-question strong { color: #c0e8d0 !important; }
+body.dark .wk-cat-question span { color: rgba(192,232,208,.65) !important; }
+
+body.dark .tier-card-name,
+body.dark .tier-card-quote { color: #c8ecd6 !important; }
+body.dark .tier-card-copy { color: rgba(180,220,200,.82) !important; }
+body.dark .tier-card-tag { background: rgba(255,255,255,.1) !important; color: rgba(210,240,225,.8) !important; }
+
+body.dark .wk-animal-name,
+body.dark .wk-animal-lead { color: #c0e8d0 !important; }
+body.dark .wk-animal-copy { color: rgba(180,220,200,.82) !important; }
+body.dark .wk-animal-question { color: #c0e8d0 !important; }
+
+body.dark .katze-karte-name { color: #c8ecd6 !important; }
+body.dark .katze-karte-text { color: rgba(180,220,200,.8) !important; }
+body.dark .katze-karte-stimme { color: rgba(200,236,218,.7) !important; border-top-color: rgba(255,255,255,.08) !important; }
+body.dark .katze-karte-rolle { color: rgba(200,236,218,.7) !important; }
+
+/* Night/Dusk: section backgrounds */
+body.night section:not(.hero):not(.hero-sub),
+body.dusk section:not(.hero):not(.hero-sub) {
+  background-color: transparent !important;
+}
+
+/* Quote boxes dark */
+body.dark .quote-box p,
+body.dark .quote-box { color: #c0e8d0 !important; }
+
+/* prob-card, fw-card dark */
+body.dark .prob-card h4,body.dark .prob-card p { color: #c0e8d0 !important; }
+body.dark .fw-card h3,body.dark .fw-card p { color: #c0e8d0 !important; }
+
+/* Tier filter dark */
+body.dark .tier-filter-btn { color: rgba(200,240,220,.8) !important; }
+body.dark .tier-filter-btn.is-active { background: var(--fuehlerin) !important; color: #fff !important; }
+
+/* inner panels dark */
+body.dark .wk-tier-panel { background: rgba(255,255,255,.07) !important; }
+body.dark .wk-tier-panel-label { color: rgba(200,236,218,.6) !important; }
+body.dark .wk-tier-panel-text { color: rgba(200,236,218,.85) !important; }
+
+/* section-tag dark */
+body.dark .section-tag { color: #4AB8C8 !important; }
+
+/* badges dark */
+body.dark .wk-badge { opacity: .85; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   ZUSATZSECTIONS — merged from wk-sections.css
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --wk-section-paper:#FFF7E6;
+  --wk-section-cream:#FBF1DB;
+  --wk-echo-bg:#13241E;
+  --wk-echo-card:rgba(255,255,255,.075);
+  --wk-echo-border:rgba(255,255,255,.12);
+  --wk-echo-text:#F4EEDC;
+  --wk-echo-soft:rgba(244,238,220,.72);
+  --wk-echo-muted:rgba(244,238,220,.52);
+}
+
+body.menu-lock{overflow:hidden}
+
+/* ── Shared components for new imported sections ─────────────── */
+.c{max-width:1120px;margin:0 auto;padding:0 2rem}
+.eyebrow{font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.17em;margin-bottom:.8rem}
+.h2{font-family:'Quicksand',sans-serif;font-size:clamp(1.8rem,3.7vw,3.25rem);line-height:1.12;font-weight:800;margin-bottom:1rem}
+.h2 em{font-style:normal}
+.lead{font-size:1rem;line-height:1.88;max-width:760px}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.rev.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+.noise{position:relative;overflow:hidden}
+.noise::before{content:"";position:absolute;inset:0;opacity:.15;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px);background-size:5px 5px;mix-blend-mode:soft-light}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:12px 24px;border-radius:999px;font-family:'Quicksand',sans-serif;font-size:.86rem;font-weight:800;border:0;text-decoration:none;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-gh{border:1.5px solid rgba(255,255,255,.36);color:#fff;background:rgba(255,255,255,.08)}
+.btn-gh:hover{background:#fff;color:var(--p1);border-color:#fff}
+
+/* ── Alter Wald / Echos ────────────────────────────────────────── */
+.echos-section{background:linear-gradient(135deg,#0E1E19 0%,#173028 50%,#10221C 100%);color:var(--wk-echo-text);padding:6.4rem 0 6.2rem}
+.echos-inner{position:relative;z-index:1}
+.echos-eyebrow{color:#A8D5C2}
+.echos-headline{color:#fff;max-width:820px;margin-bottom:1.1rem}
+.echos-headline em{color:#EF9F27}
+.echos-lead{color:var(--wk-echo-soft);margin-bottom:3rem}
+.echos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:2.4rem}
+.echo-card{position:relative;min-height:300px;border-radius:24px;padding:1.65rem 1.45rem 1.45rem;background:var(--wk-echo-card);border:1px solid var(--wk-echo-border);box-shadow:0 18px 44px rgba(0,0,0,.18);backdrop-filter:blur(10px)}
+.echo-stripe{position:absolute;top:0;left:0;right:0;height:5px;border-radius:24px 24px 0 0}
+.echo-quote{font-family:'Quicksand',sans-serif;font-size:1.08rem;line-height:1.55;font-weight:800;color:#fff;margin:.6rem 0 1rem}
+.echo-label{font-family:'Quicksand',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;margin-bottom:.8rem}
+.echo-response{font-size:.86rem;line-height:1.75;color:var(--wk-echo-soft)}
+.echos-footer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding:1.5rem 1.7rem;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07)}
+.echos-footer-quote{font-family:'Quicksand',sans-serif;font-size:1rem;line-height:1.75;color:#fff;font-style:italic;font-weight:700}
+
+/* ── Die fünf Waldkätzchen ─────────────────────────────────────── */
+.katzen-section{padding:6.3rem 0;background:linear-gradient(180deg,var(--wk-section-paper) 0%,#FFF 100%)}
+.katzen-header{max-width:820px;margin-bottom:3rem}
+.katzen-eyebrow{color:var(--p2)}
+.katzen-h2{color:var(--p1)}
+.katzen-lead{color:var(--textMid)}
+.katzen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.2rem}
+.katze-card{position:relative;min-height:350px;padding:1.35rem 1.2rem 1.25rem;border-radius:24px;background:#fff;border:1px solid rgba(8,79,63,.09);box-shadow:0 12px 34px rgba(8,79,63,.08);transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease;overflow:hidden}
+.katze-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--katze-accent)}
+.katze-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(8,79,63,.14);border-color:rgba(8,79,63,.18)}
+.katze-avatar{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-family:'Quicksand',sans-serif;font-size:1.45rem;font-weight:900;color:var(--p1);margin:.25rem 0 1rem}
+.katze-name{font-family:'Quicksand',sans-serif;font-size:1.18rem;line-height:1.25;color:var(--p1);margin-bottom:.36rem}
+.katze-role{font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;line-height:1.5;margin-bottom:.95rem}
+.katze-voice{font-family:'Quicksand',sans-serif;font-size:.88rem;line-height:1.65;font-weight:800;color:var(--text);font-style:italic;margin-bottom:.95rem}
+.katze-says{font-size:.84rem;line-height:1.72;color:var(--textMid)}
+.katzen-zusammen{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:2rem;align-items:center;background:var(--p1);border-radius:30px;padding:2.1rem 2.2rem;box-shadow:0 18px 48px rgba(8,79,63,.18)}
+.kz-title{font-family:'Quicksand',sans-serif;font-size:1.55rem;line-height:1.28;color:#fff;margin-bottom:.7rem}
+.kz-text{font-size:.94rem;line-height:1.82;color:rgba(255,255,255,.76)}
+.kz-seq{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:flex-end}
+.kz-step{padding:.62rem .86rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.10);font-family:'Quicksand',sans-serif;font-size:.74rem;font-weight:800;color:#fff}
+
+/* ── Index usability refinements ──────────────────────────────── */
+#begleitung,#echos,#katzen{scroll-margin-top:98px}
+.home-hero-refresh .btn-ghost{white-space:nowrap}
+.home-hero-glass-mark{color:#fff;text-shadow:0 4px 20px rgba(0,0,0,.24)}
+.home-hero-badge{line-height:1.45}
+.raum-card{background:#fff}
+
+/* ── Dark mode ─────────────────────────────────────────────────── */
+body.dark .katzen-section{background:linear-gradient(180deg,#0A1A2E 0%,#0E231E 100%)}
+body.dark .katzen-h2{color:#C0E8D0}
+body.dark .katzen-lead{color:rgba(180,220,200,.82)}
+body.dark .katze-card{background:rgba(20,50,35,.84);border-color:rgba(168,213,194,.14)}
+body.dark .katze-name,body.dark .katze-voice{color:#C0E8D0}
+body.dark .katze-says{color:rgba(180,220,200,.82)}
+body.dark .katze-avatar{color:#C0E8D0}
+body.dark .kz-step{border-color:rgba(168,213,194,.22)}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media(max-width:1100px){
+  .echos-grid{grid-template-columns:repeat(2,1fr)}
+  .katzen-grid{grid-template-columns:repeat(3,1fr)}
+  .katzen-zusammen{grid-template-columns:1fr}
+  .kz-seq{justify-content:flex-start}
+}
+@media(max-width:768px){
+  .c{padding:0 1.25rem}
+  .echos-section,.katzen-section{padding:4.6rem 0}
+  .echos-grid{grid-template-columns:1fr}
+  .echo-card{min-height:auto;padding:1.45rem 1.25rem}
+  .echos-footer{grid-template-columns:1fr;padding:1.3rem}
+  .echos-footer .btn{width:100%}
+  .katzen-grid{grid-template-columns:1fr}
+  .katze-card{min-height:auto;padding:1.35rem}
+  .katzen-zusammen{padding:1.55rem 1.35rem;border-radius:24px}
+  .kz-title{font-size:1.3rem}
+  .home-hero-badge{position:static;margin-top:.65rem;max-width:none}
+  .home-hero-glass-mark{display:flex;flex-direction:column;gap:.35rem;padding:1rem;min-height:unset;font-size:3.6rem}
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   FIXES — merged from wk_fixes.css
+   ═══════════════════════════════════════════════════════════ */
+/* ─── 1. SCROLLBAR GLOBAL AUSBLENDEN ─────────────────────
+   Fix: scrollbar-width:none fehlte auf body + global
+──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-thumb {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+html, body {
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+
+/* ─── 2. DARKMODE NAVIGATION ──────────────────────────────
+   Fix: Nav-Links kaum lesbar, aktiver Zustand fehlt
+──────────────────────────────────────────────────────── */
+body.dark header {
+  background: rgba(6, 18, 14, 0.97) !important;
+  border-bottom: 1px solid rgba(74, 184, 200, 0.18) !important;
+}
+
+body.dark .header-inner nav a,
+body.dark .nav-link {
+  color: rgba(220, 245, 235, 0.90) !important;
+}
+
+body.dark .header-inner nav a:hover,
+body.dark .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Aktiver Nav-Link im Dark Mode mit Beobachterin-Blau */
+body.dark .header-inner nav a.active,
+body.dark .header-inner nav a[style*="font-weight:700"],
+body.dark .header-inner nav a[aria-current="page"] {
+  color: #4AB8C8 !important;
+  border-bottom: 2px solid #4AB8C8;
+}
+
+/* Nav-CTA Button im Dark Mode */
+body.dark .nav-cta {
+  box-shadow: 0 0 0 1px rgba(74, 184, 200, 0.3);
+}
+
+
+/* ─── 3. DARKMODE KARTEN — Kontrast erhöhen ───────────────
+   Fix: Grüne Texte auf grünem Hintergrund, zu blass
+──────────────────────────────────────────────────────── */
+body.dark .dk-h {
+  color: #e8f8ef !important;
+}
+body.dark .dk-mid {
+  color: rgba(210, 240, 225, 0.92) !important;
+}
+body.dark .dk-soft {
+  color: rgba(185, 225, 205, 0.78) !important;
+}
+
+body.dark .prob-card,
+body.dark .fw-card,
+body.dark .ang-card,
+body.dark .raum-card {
+  background: rgba(8, 22, 16, 0.94) !important;
+  border-color: rgba(74, 184, 200, 0.14) !important;
+}
+
+body.dark .prob-card h4,
+body.dark .fw-card h3,
+body.dark .ang-card h3,
+body.dark .raum-card h3 {
+  color: #e8f8ef !important;
+}
+
+body.dark .prob-card p,
+body.dark .fw-card p,
+body.dark .ang-card p {
+  color: rgba(210, 240, 225, 0.85) !important;
+}
+
+/* Accordion im Dark Mode */
+body.dark .accordion-item {
+  background: rgba(8, 22, 16, 0.92) !important;
+  border-color: rgba(74, 184, 200, 0.15) !important;
+}
+body.dark .accordion-q {
+  color: rgba(220, 248, 230, 0.95) !important;
+}
+body.dark .accordion-a {
+  color: rgba(200, 235, 215, 0.85) !important;
+}
+body.dark .accordion-icon {
+  background: rgba(74, 184, 200, 0.12) !important;
+  color: #4AB8C8 !important;
+}
+body.dark .accordion-icon.open {
+  background: #2A8A7A !important;
+  color: #fff !important;
+}
+
+/* figur-card im Dark Mode */
+body.dark .figur-card {
+  background: rgba(8, 22, 16, 0.94) !important;
+  border-color: rgba(74, 184, 200, 0.14) !important;
+}
+body.dark .figur-card-name {
+  color: #e8f8ef !important;
+}
+body.dark .figur-card-desc {
+  color: rgba(200, 235, 215, 0.88) !important;
+}
+body.dark .figur-card-quote {
+  color: rgba(180, 220, 200, 0.72) !important;
+}
+
+
+/* ─── 4. DARKMODE WALDORT-KACHELN ─────────────────────────
+   Fix: Helle Backgrounds werden im Dark Mode nicht überschrieben
+──────────────────────────────────────────────────────── */
+/* Inline-Style-Overrides via Filter auf umschließenden Container */
+body.dark .wald-kachel {
+  filter: brightness(0.65) saturate(0.75);
+}
+
+/* Direkte Color-Variable-Overrides */
+body.dark {
+  --altwald-bg:  rgba(100, 78, 50, 0.28);
+  --felsen-bg:   rgba(80,  78, 70, 0.28);
+  --nebel-bg:    rgba(90, 110, 130, 0.22);
+  --lichtung-bg: rgba(30,  68, 36, 0.28);
+  --echos-bg:    rgba(88, 100, 150, 0.22);
+  --hoehle-bg:   #161410;
+}
+
+/* Texte in Waldort-Kacheln aufhellen */
+body.dark [style*="color:var(--altwald-dark)"],
+body.dark [style*="color:var(--felsen-mid)"],
+body.dark [style*="color:var(--nebel-mid)"],
+body.dark [style*="color:var(--lichtung-dark)"],
+body.dark [style*="color:var(--echos-mid)"] {
+  opacity: 0.9 !important;
+  filter: brightness(1.4);
+}
+
+
+/* ─── 5. DARKMODE CONTROLS-PANEL ──────────────────────────
+   Fix: Panel-Rand und Hover-State fehlen
+──────────────────────────────────────────────────────── */
+body.dark #controls-btn:hover {
+  background: rgba(74, 184, 200, 0.12) !important;
+  border-color: rgba(74, 184, 200, 0.45) !important;
+}
+
+body.dark #controls-panel {
+  background: rgba(4, 14, 10, 0.97) !important;
+  border: 1px solid rgba(74, 184, 200, 0.28) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark .ctrl-label {
+  color: rgba(74, 184, 200, 0.7) !important;
+}
+
+body.dark .ctrl-btn {
+  color: rgba(220, 245, 235, 0.88) !important;
+}
+
+body.dark .ctrl-btn:hover {
+  background: rgba(74, 184, 200, 0.1) !important;
+  border-radius: 8px;
+}
+
+
+/* ─── 6. DARKMODE HERO ICON BAR ───────────────────────────
+   Fix: Weißer Hintergrund im Dark Mode zu grell
+──────────────────────────────────────────────────────── */
+body.dark .hero-icon-bar {
+  background: rgba(6, 18, 14, 0.96) !important;
+  border-bottom: 1px solid rgba(74, 184, 200, 0.14) !important;
+  box-shadow: none !important;
+}
+
+body.dark .hero-icon-label {
+  color: rgba(210, 240, 225, 0.88) !important;
+}
+
+body.dark .hero-icon-img {
+  filter: brightness(0) invert(0.75) !important;
+  opacity: 0.8 !important;
+}
+
+
+/* ─── 7. DARKMODE MOBILE MENU ─────────────────────────────
+   Fix: Mobile Links zu blass
+──────────────────────────────────────────────────────── */
+body.dark #mobile-menu {
+  background: rgba(4, 12, 8, 0.98) !important;
+}
+
+body.dark .mobile-nav-link {
+  color: rgba(220, 245, 235, 0.92) !important;
+  background: rgba(10, 28, 18, 0.95) !important;
+  border-color: rgba(74, 184, 200, 0.14) !important;
+}
+
+body.dark .mobile-nav-link:hover {
+  background: rgba(74, 184, 200, 0.1) !important;
+  color: #fff !important;
+}
+
+
+/* ─── 8. DARKMODE BUTTONS ─────────────────────────────────
+   Fix: btn-outline kaum sichtbar
+──────────────────────────────────────────────────────── */
+body.dark .btn-outline {
+  border-color: rgba(74, 184, 200, 0.55) !important;
+  color: rgba(74, 184, 200, 0.95) !important;
+}
+
+body.dark .btn-outline:hover {
+  background: rgba(74, 184, 200, 0.12) !important;
+  border-color: rgba(74, 184, 200, 0.8) !important;
+  color: #4AB8C8 !important;
+}
+
+/* Ghost-Button im Hero */
+body.dark .btn-ghost {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+
+/* ─── 9. DARKMODE SECTION-TAG & EYEBROW ───────────────────
+   Fix: Zu blasses Petrol-Grün auf dunklem Hintergrund
+──────────────────────────────────────────────────────── */
+body.dark .section-tag {
+  color: #4AB8C8 !important;
+}
+
+body.dark .section-h2 {
+  color: #e8f8ef !important;
+}
+
+
+/* ─── 10. DARKMODE FOOTER ─────────────────────────────────
+   Fix: Footer schon dunkel, aber Links zu blass
+──────────────────────────────────────────────────────── */
+body.dark footer {
+  background: #020e08 !important;
+}
+
+body.dark .footer-link {
+  color: rgba(180, 220, 200, 0.72) !important;
+}
+
+body.dark .footer-link:hover {
+  color: #e8f8ef !important;
+}
+
+body.dark .footer-h {
+  color: rgba(74, 184, 200, 0.55) !important;
+}
+
+
+/* ─── 11. NIGHT MODE — spezielle Anpassungen ──────────────
+   Für den tief-dunklen Night-Modus zusätzliche Optimierungen
+──────────────────────────────────────────────────────── */
+body.night header {
+  background: rgba(4, 8, 20, 0.98) !important;
+}
+
+body.night .hero-icon-bar {
+  background: rgba(4, 10, 24, 0.98) !important;
+}
+
+body.night .prob-card,
+body.night .fw-card,
+body.night .ang-card {
+  background: rgba(4, 12, 26, 0.95) !important;
+  border-color: rgba(74, 184, 200, 0.12) !important;
+}
+
+/* Sterne/Canvas-Sektion — Texte bleiben hell */
+body.night .section-h2,
+body.night .dk-h {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ─── 12. DUSK MODE — warme Anpassungen ───────────────────
+──────────────────────────────────────────────────────── */
+body.dusk header {
+  background: rgba(22, 10, 4, 0.97) !important;
+  border-bottom-color: rgba(232, 120, 48, 0.2) !important;
+}
+
+body.dusk .section-tag {
+  color: #E87830 !important;
+}
+
+body.dusk header .nav-link:hover,
+body.dusk .header-inner nav a:hover {
+  color: #E87830 !important;
+}
+
+
+/* ─── 13. TRANSITION SMOOTHING ────────────────────────────
+   Fix: Moduswechsel erzeugt harte Farbsprünge
+──────────────────────────────────────────────────────── */
+header,
+.hero-icon-bar,
+.prob-card,
+.fw-card,
+.ang-card,
+.figur-card,
+.accordion-item,
+#mobile-menu,
+#controls-panel,
+.section-tag,
+.section-h2,
+body {
+  transition: background 0.6s ease,
+              color 0.4s ease,
+              border-color 0.4s ease !important;
+}
+
+
+/* ─── 14. HÖHLE FEATURE + WALD-ORTE GRID — Responsive ─────
+   Fix: FIX-C responsive Übergangsregeln
+──────────────────────────────────────────────────────── */
+@media(max-width:768px) {
+  .hoehle-feature { grid-template-columns: 1fr !important; }
+  .hoehle-feature .hoehle-img { height: 180px; }
+  .wald-orte-grid { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media(max-width:480px) {
+  .wald-orte-grid { grid-template-columns: 1fr !important; }
+}
