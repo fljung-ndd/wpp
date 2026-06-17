@@ -104,6 +104,45 @@
   </div>
 </section>
 
+<!-- ═══ PAGE NAV (right-side section jumper) ═════════════════════ -->
+<nav class="page-nav" id="page-nav" aria-label="Zu Abschnitt springen">
+  <a class="page-nav-item" href="#" data-section="hero">
+    <span class="page-nav-label">Start</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#warum-waldkaetzchen" data-section="warum-waldkaetzchen">
+    <span class="page-nav-label">Warum WK</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#waldwelt-landkarte" data-section="waldwelt-landkarte">
+    <span class="page-nav-label">Waldwelt</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#fuenf-waldkaetzchen" data-section="fuenf-waldkaetzchen">
+    <span class="page-nav-label">Waldkätzchen</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#waldtiere" data-section="waldtiere">
+    <span class="page-nav-label">Waldtiere</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#situationen-aus-dem-wald" data-section="situationen-aus-dem-wald">
+    <span class="page-nav-label">Situationen</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#fuer-wen" data-section="fuer-wen">
+    <span class="page-nav-label">Für wen</span>
+    <span class="page-nav-dot"></span>
+  </a>
+  <a class="page-nav-item" href="#angebote-section" data-section="angebote-section">
+    <span class="page-nav-label">Angebote</span>
+    <span class="page-nav-dot"></span>
+  </a>
+</nav>
+
+<!-- ═══ BACK TO TOP ══════════════════════════════════════════════════ -->
+<button class="back-to-top" id="back-to-top" aria-label="Nach oben springen" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
 <!-- ICON BAR -->
 <div class="hero-icon-bar">
   <div class="hero-icon-bar-inner">
@@ -164,7 +203,7 @@
 </section>
 
 <!-- ═══ KENNST DU DAS GEFÜHL ═══════════════════════════════════════ -->
-<section style="padding:5rem 0">
+<section id="kennst-du" style="padding:5rem 0">
   <div class="container">
     <div class="reveal"><div class="section-tag">Der Anfang</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Kennst du<br>das Gefühl?</h2></div>
@@ -864,7 +903,7 @@
 </section>
 
 <!-- FÜR WEN -->
-<section style="padding:5rem 0">
+<section id="fuer-wen" style="padding:5rem 0">
   <div class="container">
     <div class="reveal"><div class="section-tag">Für wen</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Für Menschen, die Verbindung suchen — nicht Perfektion.</h2></div>
@@ -908,7 +947,7 @@
 </section>
 
 <!-- ANGEBOTE -->
-<section style="padding:5rem 0;background:var(--lichtung-bg)">
+<section id="angebote-section" style="padding:5rem 0;background:var(--lichtung-bg)">
   <div class="container">
     <div class="reveal"><div class="section-tag">Angebote</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Dein Weg in den Wald</h2></div>
@@ -974,7 +1013,7 @@
 </section>
 
 <!-- ÜBER MICH -->
-<section style="padding:5rem 0">
+<section id="ueber-mich-section" style="padding:5rem 0">
   <div class="container grid-2">
     <div class="hide-mobile" style="display:flex;align-items:center;justify-content:center">
       <div style="position:relative;display:flex;justify-content:center">
@@ -1025,7 +1064,7 @@
 </section>
 
 <!-- IMPULSE -->
-<section style="padding:5rem 0;background:var(--lichtung-bg)">
+<section id="impulse-section" style="padding:5rem 0;background:var(--lichtung-bg)">
   <div class="container">
     <div class="reveal"><div class="section-tag">Impulse &amp; Gedanken</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Aus dem Waldtagebuch</h2></div>
@@ -1041,7 +1080,7 @@
 </section>
 
 <!-- FAQ -->
-<section style="background:#fff;padding:5rem 0">
+<section id="faq-section" style="background:#fff;padding:5rem 0">
   <div style="max-width:800px;margin:0 auto;padding:0 2rem">
     <div class="reveal"><div class="section-tag">Häufige Fragen</div></div>
     <div class="reveal" style="transition-delay:.1s"><h2 class="section-h2 dk-h">Was du wissen möchtest</h2></div>
@@ -1056,24 +1095,89 @@
 /* ── Hero cycling text ── */
 (function(){
   var el=document.getElementById('hero-cycling');
+  var subEl=document.querySelector('.hero .hero-sub');
   if(!el) return;
-  var phrases=[
-    'Verbindung statt Druck.',
-    'Mitgefühl statt Urteilen.',
-    'Sicherheit statt Strenge.',
-    'Verstehen statt Kämpfen.'
+
+  var steps=[
+    {phrase:'Verbindung statt Druck.',     sub:'Für Eltern, die mehr wollen als Funktionieren.'},
+    {phrase:'Mitgefühl statt Urteilen.',   sub:'Für alle, die Verhalten wirklich verstehen möchten.'},
+    {phrase:'Sicherheit statt Strenge.',   sub:'Mit Figuren, die Gefühle sichtbar machen.'},
+    {phrase:'Verstehen statt Kämpfen.',    sub:'Der Wald zeigt, was hinter dem Verhalten steckt.'}
   ];
   var idx=0;
-  setInterval(function(){
+
+  function cycle(){
+    /* fade out */
     el.style.opacity='0';
-    el.style.transform='translateY(-10px)';
+    el.style.transform='translateY(-8px)';
+    if(subEl){subEl.style.opacity='0';subEl.style.transform='translateY(4px)';}
+
     setTimeout(function(){
-      idx=(idx+1)%phrases.length;
-      el.textContent=phrases[idx];
+      idx=(idx+1)%steps.length;
+      el.textContent=steps[idx].phrase;
+      if(subEl) subEl.textContent=steps[idx].sub;
+
+      /* fade in */
       el.style.opacity='1';
       el.style.transform='translateY(0)';
-    },450);
-  },3800);
+      setTimeout(function(){
+        if(subEl){subEl.style.opacity='1';subEl.style.transform='translateY(0)';}
+      },120);
+    },440);
+  }
+
+  /* smooth sub transitions */
+  if(subEl){
+    subEl.style.transition='opacity .5s ease,transform .5s ease';
+    subEl.style.opacity='1';
+    subEl.style.transform='translateY(0)';
+  }
+  el.style.transition='opacity .44s ease,transform .44s ease';
+
+  setInterval(cycle,4200);
+})();
+
+/* ── Page nav scroll-spy ── */
+(function(){
+  var nav=document.getElementById('page-nav');
+  var btt=document.getElementById('back-to-top');
+  if(!nav&&!btt) return;
+
+  var sections=[
+    {id:'hero',el:document.querySelector('.hero')},
+    {id:'warum-waldkaetzchen',el:document.getElementById('warum-waldkaetzchen')},
+    {id:'waldwelt-landkarte',el:document.getElementById('waldwelt-landkarte')},
+    {id:'fuenf-waldkaetzchen',el:document.getElementById('fuenf-waldkaetzchen')},
+    {id:'waldtiere',el:document.getElementById('waldtiere')},
+    {id:'situationen-aus-dem-wald',el:document.getElementById('situationen-aus-dem-wald')},
+    {id:'fuer-wen',el:document.getElementById('fuer-wen')},
+    {id:'angebote-section',el:document.getElementById('angebote-section')}
+  ].filter(function(s){return s.el});
+
+  function updateActive(){
+    var scrollY=window.scrollY||window.pageYOffset;
+    var winH=window.innerHeight;
+
+    /* Back-to-top visibility */
+    if(btt){
+      if(scrollY>500) btt.classList.add('is-visible');
+      else btt.classList.remove('is-visible');
+    }
+
+    /* Active section: find the last section whose top is above 40% viewport */
+    if(!nav) return;
+    var active=sections[0];
+    sections.forEach(function(s){
+      var top=s.el.getBoundingClientRect().top+scrollY;
+      if(scrollY+winH*0.38>=top) active=s;
+    });
+    nav.querySelectorAll('.page-nav-item').forEach(function(item){
+      item.classList.toggle('is-active',item.dataset.section===active.id);
+    });
+  }
+
+  window.addEventListener('scroll',updateActive,{passive:true});
+  updateActive();
 })();
 
 /* ── Counter animation ── */
