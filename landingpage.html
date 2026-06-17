@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen — Wenn dein Kind laut wird, wird oft etwas anderes ganz leise.</title>
+<meta name="description" content="Waldkätzchen hilft dir zu verstehen, was hinter dem Verhalten steckt — und wieder in Verbindung zu kommen. Mit deinem Kind. Und mit dir selbst.">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk.css">
+<link rel="stylesheet" href="lp.css">
+</head>
+<body>
+
+<!-- =====================================================
+     1. HEADER
+===================================================== -->
+<header class="lp-header" id="lp-top" role="banner">
+  <a class="lp-header__logo" href="index.html" aria-label="Waldkätzchen Startseite">
+    🌿 Waldkätzchen
+  </a>
+
+  <nav class="lp-header__nav" aria-label="Hauptnavigation">
+    <a class="lp-header__nav-link" href="#lp-lichtung">Lichtung</a>
+    <a class="lp-header__nav-link" href="#lp-nebel">Verstehen</a>
+    <a class="lp-header__nav-link" href="#lp-figuren">Verbinden</a>
+    <a class="lp-header__nav-link" href="#lp-angebote">Angebote</a>
+    <a class="lp-header__nav-link" href="#lp-story">Über mich</a>
+    <a class="lp-btn lp-btn--primary lp-btn--sm lp-header__cta" href="#lp-final-cta">In die Lichtung →</a>
+  </nav>
+
+  <button
+    class="lp-header__burger"
+    aria-label="Menü öffnen"
+    aria-expanded="false"
+    aria-controls="lp-mobile-menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav
+    class="lp-header__mobile-menu"
+    id="lp-mobile-menu"
+    aria-label="Mobile Navigation"
+  >
+    <a href="#lp-lichtung">Lichtung</a>
+    <a href="#lp-nebel">Verstehen</a>
+    <a href="#lp-figuren">Verbinden</a>
+    <a href="#lp-angebote">Angebote</a>
+    <a href="#lp-story">Über mich</a>
+    <a class="lp-btn lp-btn--primary" href="#lp-final-cta">In die Lichtung →</a>
+  </nav>
+</header>
+
+
+<!-- =====================================================
+     2. HERO
+===================================================== -->
+<section class="lp-hero" id="lp-hero" aria-label="Willkommen bei Waldkätzchen">
+  <div class="lp-hero__bg" role="presentation" aria-hidden="true"></div>
+  <div class="lp-hero__overlay" aria-hidden="true"></div>
+
+  <div class="lp-hero__content">
+    <span class="lp-hero__eyebrow lp-reveal">🌿 Wild und verbunden</span>
+
+    <h1 class="lp-hero__h1 lp-reveal" data-delay="1">Wenn dein Kind
+laut wird,
+<em>wird oft etwas anderes
+ganz leise.</em></h1>
+
+    <p class="lp-hero__body lp-reveal" data-delay="2">
+      Waldkätzchen hilft dir zu verstehen, was hinter dem Verhalten steckt — und wieder in Verbindung zu kommen. Mit deinem Kind. Und mit dir selbst.
+    </p>
+
+    <div class="lp-hero__ctas lp-reveal" data-delay="3">
+      <a class="lp-btn lp-btn--primary" href="#lp-final-cta">In die Lichtung gehen →</a>
+      <a class="lp-btn lp-btn--ghost" href="#lp-nebel">Kennst du das?</a>
+    </div>
+  </div>
+
+  <div class="lp-hero__scroll-hint" aria-hidden="true">Scroll</div>
+</section>
+
+
+<!-- =====================================================
+     3. MARQUEE — Waldspuren
+===================================================== -->
+<div class="lp-marquee" aria-hidden="true">
+  <div class="lp-marquee__track">
+    <span class="lp-marquee__item">🌿 mag Worte, die weich landen</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">glaubt nicht an „trotzige Kinder"</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">denkt in Situationen, nicht in Schuld</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">hat Tigi nicht erfunden, sondern eher gefunden</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">braucht selbst manchmal eine Lichtung</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">glaubt an kleine Rituale</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">liebt Esel, Katzen, Wald und klare Sprache</span>
+    <span class="lp-marquee__item"> &nbsp;&nbsp;&nbsp; </span>
+    <!-- duplicate for seamless loop -->
+    <span class="lp-marquee__item">🌿 mag Worte, die weich landen</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">glaubt nicht an „trotzige Kinder"</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">denkt in Situationen, nicht in Schuld</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">hat Tigi nicht erfunden, sondern eher gefunden</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">braucht selbst manchmal eine Lichtung</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">glaubt an kleine Rituale</span>
+    <span class="lp-marquee__item"> · </span>
+    <span class="lp-marquee__item">liebt Esel, Katzen, Wald und klare Sprache</span>
+    <span class="lp-marquee__item"> &nbsp;&nbsp;&nbsp; </span>
+  </div>
+</div>
+
+
+<!-- =====================================================
+     4. NEBEL — Kapitel 1, Schmerzpunkte
+===================================================== -->
+<section class="lp-nebel" id="lp-nebel">
+  <div class="lp-container">
+    <span class="lp-kicker lp-reveal">Kapitel 1 — Der Nebel</span>
+    <h2 class="lp-h2 lp-reveal" data-delay="1">Kennst du das?</h2>
+    <p class="lp-nebel__intro-text lp-reveal" data-delay="2">
+      Diese Momente, in denen du weißt, dass da mehr dahintersteckt — aber nicht weißt, wie du rankommst.
+    </p>
+
+    <div class="lp-nebel__grid">
+      <div class="lp-nebel__card lp-reveal" data-delay="1">
+        <div class="lp-nebel__card-num">01</div>
+        <p class="lp-nebel__card-text">Dein Kind explodiert wegen einer Kleinigkeit.</p>
+      </div>
+      <div class="lp-nebel__card lp-reveal" data-delay="2">
+        <div class="lp-nebel__card-num">02</div>
+        <p class="lp-nebel__card-text">Du erklärst ruhig — und kommst trotzdem nicht durch.</p>
+      </div>
+      <div class="lp-nebel__card lp-reveal" data-delay="3">
+        <div class="lp-nebel__card-num">03</div>
+        <p class="lp-nebel__card-text">Du willst liebevoll bleiben, aber innerlich wird es eng.</p>
+      </div>
+      <div class="lp-nebel__card lp-reveal" data-delay="4">
+        <div class="lp-nebel__card-num">04</div>
+        <p class="lp-nebel__card-text">Danach kommt Scham. Bei deinem Kind. Und bei dir.</p>
+      </div>
+      <div class="lp-nebel__card lp-reveal" data-delay="5">
+        <div class="lp-nebel__card-num">05</div>
+        <p class="lp-nebel__card-text">Alle reden über Konsequenzen, aber niemand über das, was darunterliegt.</p>
+      </div>
+      <div class="lp-nebel__card lp-nebel__card--highlight lp-reveal" data-delay="6">
+        <div class="lp-nebel__card-num">06</div>
+        <p class="lp-nebel__card-text">Du willst nicht härter werden. Du willst klarer werden.</p>
+      </div>
+    </div>
+
+    <div class="lp-nebel__cta lp-reveal">
+      <a class="lp-btn lp-btn--primary" href="#lp-lichtung">Ja. Genau da bin ich gerade. →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     5. LICHTUNG CHAPTER — Kapitel 2
+===================================================== -->
+<section class="lp-lichtung-chapter" id="lp-lichtung">
+  <div class="lp-container">
+    <span class="lp-kicker lp-kicker--light lp-reveal">Kapitel 2 — Die Lichtung</span>
+
+    <blockquote class="lp-lichtung-chapter__quote lp-reveal" data-delay="1">„Manchmal ist ein Kind
+nicht schwierig.
+<em>Manchmal ist es im Nebel."</em></blockquote>
+
+    <p class="lp-lichtung-chapter__body lp-reveal" data-delay="2">
+      Die Lichtung ist ein Ort, an dem du Situationen anschauen kannst — ohne Bewertung, ohne Schubladen. Wo Verhalten Sprache wird und Verbindung wieder möglich ist.
+    </p>
+
+    <div class="lp-lichtung-chapter__pillars lp-reveal" data-delay="3">
+      <div class="lp-lichtung-chapter__pillar">
+        <div class="lp-lichtung-chapter__pillar-title">Verstehen</div>
+        <div class="lp-lichtung-chapter__pillar-sub">Was hinter dem Verhalten liegt</div>
+      </div>
+      <div class="lp-lichtung-chapter__pillar">
+        <div class="lp-lichtung-chapter__pillar-title">Verbinden</div>
+        <div class="lp-lichtung-chapter__pillar-sub">Kleine Brücken zurück</div>
+      </div>
+      <div class="lp-lichtung-chapter__pillar">
+        <div class="lp-lichtung-chapter__pillar-title">Verändern</div>
+        <div class="lp-lichtung-chapter__pillar-sub">Nicht alles. Den nächsten Schritt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     6. JOURNEY — Kapitel 3, Der Waldprozess
+===================================================== -->
+<section class="lp-journey" id="lp-journey">
+  <div class="lp-container">
+    <span class="lp-kicker lp-reveal">Kapitel 3 — Der Weg</span>
+    <h2 class="lp-h2 lp-reveal" data-delay="1" style="margin-bottom:2.5rem;">So sieht der Waldprozess aus.</h2>
+
+    <div class="lp-journey__inner">
+      <!-- Sidebar (desktop only) -->
+      <aside class="lp-journey__sidebar" aria-label="Prozess-Navigation">
+        <div class="lp-journey__progress-bar">
+          <div class="lp-journey__progress-fill"></div>
+        </div>
+        <nav class="lp-journey__nav">
+          <button class="lp-journey__nav-btn is-active" data-step="0">
+            <span class="lp-journey__nav-num">01</span>
+            Ankommen
+          </button>
+          <button class="lp-journey__nav-btn" data-step="1">
+            <span class="lp-journey__nav-num">02</span>
+            Durch den Nebel
+          </button>
+          <button class="lp-journey__nav-btn" data-step="2">
+            <span class="lp-journey__nav-num">03</span>
+            Verbinden
+          </button>
+          <button class="lp-journey__nav-btn" data-step="3">
+            <span class="lp-journey__nav-num">04</span>
+            Schritt wählen
+          </button>
+          <button class="lp-journey__nav-btn" data-step="4">
+            <span class="lp-journey__nav-num">05</span>
+            Waldtruhe
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Steps -->
+      <div class="lp-journey__steps">
+
+        <article class="lp-journey__step lp-reveal" id="lp-step-0">
+          <div class="lp-journey__step-header">
+            <div class="lp-journey__step-icon" aria-hidden="true">🌲</div>
+            <div>
+              <div class="lp-journey__step-num">Schritt 01</div>
+              <h3 class="lp-journey__step-title">Ankommen in der Lichtung</h3>
+            </div>
+          </div>
+          <p class="lp-journey__step-body">
+            Die Situation darf erst einmal da sein. Ohne sofort gelöst werden zu müssen. Hier ist Raum für das, was wirklich passiert ist — nicht für die Version, die nach außen funktioniert.
+          </p>
+          <p class="lp-journey__step-note">
+            „Die Lichtung ist kein Ort der Bewertung. Sondern ein Ort des Schauens."
+          </p>
+        </article>
+
+        <article class="lp-journey__step lp-reveal" id="lp-step-1">
+          <div class="lp-journey__step-header">
+            <div class="lp-journey__step-icon" aria-hidden="true">🌫️</div>
+            <div>
+              <div class="lp-journey__step-num">Schritt 02</div>
+              <h3 class="lp-journey__step-title">Durch den Nebel schauen</h3>
+            </div>
+          </div>
+          <p class="lp-journey__step-body">
+            Was ist sichtbar? Was ist vielleicht darunter? Gemeinsam schauen wir, was das Verhalten erzählt — und was es vielleicht eigentlich braucht.
+          </p>
+          <p class="lp-journey__step-note">
+            „Hinter jedem lauten Moment steckt oft ein leises Bedürfnis."
+          </p>
+        </article>
+
+        <article class="lp-journey__step lp-reveal" id="lp-step-2">
+          <div class="lp-journey__step-header">
+            <div class="lp-journey__step-icon" aria-hidden="true">🌿</div>
+            <div>
+              <div class="lp-journey__step-num">Schritt 03</div>
+              <h3 class="lp-journey__step-title">Mit dem Kind verbinden</h3>
+            </div>
+          </div>
+          <p class="lp-journey__step-body">
+            Welche Brücke ist jetzt möglich? Was kann Verbindung wieder entstehen lassen — nicht als Methode, sondern als echter Moment zwischen dir und deinem Kind.
+          </p>
+          <p class="lp-journey__step-note">
+            „Verbindung entsteht nicht durch Perfektion. Sondern durch Versuche."
+          </p>
+        </article>
+
+        <article class="lp-journey__step lp-reveal" id="lp-step-3">
+          <div class="lp-journey__step-header">
+            <div class="lp-journey__step-icon" aria-hidden="true">🦶</div>
+            <div>
+              <div class="lp-journey__step-num">Schritt 04</div>
+              <h3 class="lp-journey__step-title">Einen kleinen Schritt wählen</h3>
+            </div>
+          </div>
+          <p class="lp-journey__step-body">
+            Nicht alles lösen. Nur den nächsten Schritt finden. Einen, der zu dir passt — zu deinem Kind, zu dieser Situation, zu diesem Moment.
+          </p>
+          <p class="lp-journey__step-note">
+            „Kleine Schritte, die wirklich passen, wirken stärker als große Pläne."
+          </p>
+        </article>
+
+        <article class="lp-journey__step lp-reveal" id="lp-step-4">
+          <div class="lp-journey__step-header">
+            <div class="lp-journey__step-icon" aria-hidden="true">🧺</div>
+            <div>
+              <div class="lp-journey__step-num">Schritt 05</div>
+              <h3 class="lp-journey__step-title">In die Waldtruhe legen</h3>
+            </div>
+          </div>
+          <p class="lp-journey__step-body">
+            Was hilft, darf bleiben. In der Waldtruhe sammelst du, was gut tut, was wirkt — und was du beim nächsten Mal wieder hervornehmen möchtest.
+          </p>
+          <p class="lp-journey__step-note">
+            „Was gut tut, darf wiederkommen."
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     7. NUMBERS
+===================================================== -->
+<section class="lp-numbers" aria-label="Waldkätzchen in Zahlen">
+  <div class="lp-container">
+    <div class="lp-numbers__grid">
+      <div class="lp-numbers__item lp-reveal">
+        <div class="lp-numbers__value">3</div>
+        <div class="lp-numbers__label">Wege</div>
+        <div class="lp-numbers__sub">Für Eltern, Väter &amp; Fachkräfte</div>
+      </div>
+      <div class="lp-numbers__item lp-reveal" data-delay="1">
+        <div class="lp-numbers__value">5</div>
+        <div class="lp-numbers__label">Waldkätzchen</div>
+        <div class="lp-numbers__sub">Fünf Blickrichtungen &amp; Gefühlsräume</div>
+      </div>
+      <div class="lp-numbers__item lp-reveal" data-delay="2">
+        <div class="lp-numbers__value">12+</div>
+        <div class="lp-numbers__label">Waldtiere</div>
+        <div class="lp-numbers__sub">Begleiter durch den Wald</div>
+      </div>
+      <div class="lp-numbers__item lp-reveal" data-delay="3">
+        <div class="lp-numbers__value">100%</div>
+        <div class="lp-numbers__label">Ohne Druck</div>
+        <div class="lp-numbers__sub">Kein Sofort-Angebot, nur Verbindung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     8. FIGUREN — Die 5 Waldkätzchen
+===================================================== -->
+<section class="lp-figuren-chapter" id="lp-figuren">
+  <div class="lp-container">
+    <span class="lp-kicker lp-reveal">Kapitel 4 — Die Figuren</span>
+    <h2 class="lp-h2 lp-reveal" data-delay="1">Fünf Blickrichtungen. Fünf Gefühlsräume.</h2>
+    <p class="lp-figuren-chapter__intro lp-reveal" data-delay="2">
+      Sie zeigen nicht, was du falsch machst. Sie zeigen, was möglich ist.
+    </p>
+
+    <div class="lp-figuren-chapter__grid">
+
+      <div class="lp-figur-card lp-figur-card--beobachterin lp-reveal" data-delay="1">
+        <div class="lp-figur-card__icon">🐾</div>
+        <div class="lp-figur-card__name">Beobachterin</div>
+        <p class="lp-figur-card__desc">Ruhig. Wachsam. Sieht, was andere übersehen.</p>
+        <span class="lp-figur-card__tag">Sehen ohne Werten</span>
+      </div>
+
+      <div class="lp-figur-card lp-figur-card--fuehlerin lp-reveal" data-delay="2">
+        <div class="lp-figur-card__icon">🐾</div>
+        <div class="lp-figur-card__name">Fühlerin</div>
+        <p class="lp-figur-card__desc">Empathisch. Tief. Trägt vieles mit sich.</p>
+        <span class="lp-figur-card__tag">Gefühle als Sprache</span>
+      </div>
+
+      <div class="lp-figur-card lp-figur-card--denker lp-reveal" data-delay="3">
+        <div class="lp-figur-card__icon">🐾</div>
+        <div class="lp-figur-card__name">Denker</div>
+        <p class="lp-figur-card__desc">Strukturiert. Analysierend. Braucht Sinn.</p>
+        <span class="lp-figur-card__tag">Verstehen als Weg</span>
+      </div>
+
+      <div class="lp-figur-card lp-figur-card--systemblick lp-reveal" data-delay="4">
+        <div class="lp-figur-card__icon">🐾</div>
+        <div class="lp-figur-card__name">Systemblick</div>
+        <p class="lp-figur-card__desc">Weitblickend. Verbindend. Sieht das große Ganze.</p>
+        <span class="lp-figur-card__tag">Zusammenhänge erkennen</span>
+      </div>
+
+      <div class="lp-figur-card lp-figur-card--macherin lp-reveal" data-delay="5">
+        <div class="lp-figur-card__icon">🐾</div>
+        <div class="lp-figur-card__name">Macherin</div>
+        <p class="lp-figur-card__desc">Mutig. Direkt. Macht den nächsten Schritt.</p>
+        <span class="lp-figur-card__tag">Handlung ermöglichen</span>
+      </div>
+
+    </div>
+
+    <div class="lp-figuren-chapter__cta lp-reveal">
+      <a class="lp-btn lp-btn--primary" href="waldkaetzchen.html">Alle Figuren kennenlernen</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     9. ANGEBOTE — Wege in den Wald
+===================================================== -->
+<section class="lp-angebote-chapter" id="lp-angebote">
+  <div class="lp-container">
+    <span class="lp-kicker lp-reveal">Kapitel 5 — Die Wege</span>
+    <h2 class="lp-h2 lp-reveal" data-delay="1" style="margin-bottom:2.5rem;">Wo findest du deinen Weg?</h2>
+
+    <div class="lp-angebote-chapter__grid">
+
+      <div class="lp-angebot-card lp-reveal" data-delay="1">
+        <div class="lp-angebot-card__icon">👨‍👩‍👦</div>
+        <div class="lp-angebot-card__kicker">Für Eltern</div>
+        <h3 class="lp-angebot-card__title">Familienbegleitung</h3>
+        <p class="lp-angebot-card__body">
+          Wenn zu Hause immer wieder dieselben Schleifen entstehen.
+        </p>
+        <a class="lp-angebot-card__cta" href="coaching.html">Begleitung entdecken →</a>
+      </div>
+
+      <div class="lp-angebot-card lp-reveal" data-delay="2">
+        <div class="lp-angebot-card__icon">👨‍👧</div>
+        <div class="lp-angebot-card__kicker">Für Väter</div>
+        <h3 class="lp-angebot-card__title">Väterweg</h3>
+        <p class="lp-angebot-card__body">
+          Wenn Nähe wichtig ist, aber nicht selbstverständlich kommt.
+        </p>
+        <a class="lp-angebot-card__cta" href="vaeter.html">Väterweg entdecken →</a>
+      </div>
+
+      <div class="lp-angebot-card lp-reveal" data-delay="3">
+        <div class="lp-angebot-card__icon">🎓</div>
+        <div class="lp-angebot-card__kicker">Für Fachkräfte</div>
+        <h3 class="lp-angebot-card__title">Fachkräfte-Begleitung</h3>
+        <p class="lp-angebot-card__body">
+          Wenn Verhalten verstanden werden will, bevor daran gearbeitet wird.
+        </p>
+        <a class="lp-angebot-card__cta" href="coaching.html#fachkraefte">Fachkräfte-Begleitung →</a>
+      </div>
+
+      <div class="lp-angebot-card lp-reveal" data-delay="4">
+        <div class="lp-angebot-card__icon">📱</div>
+        <div class="lp-angebot-card__kicker">Die App</div>
+        <h3 class="lp-angebot-card__title">Waldkätzchen App</h3>
+        <p class="lp-angebot-card__body">
+          Dein persönlicher Ort für Situationen, Impulse und kleine Schritte.
+        </p>
+        <a class="lp-angebot-card__cta" href="app.html">App entdecken →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     10. STORY — Über mich
+===================================================== -->
+<section class="lp-story-chapter" id="lp-story">
+  <div class="lp-container">
+    <div class="lp-story-chapter__inner">
+      <div>
+        <span class="lp-kicker lp-reveal">Kapitel 6 — Über mich</span>
+        <h2 class="lp-story-chapter__h2 lp-reveal" data-delay="1">Ich habe einen Jungen gekannt,
+bei dem alle dachten:
+<em>muss der so sein?</em></h2>
+
+        <p class="lp-story-chapter__para lp-reveal" data-delay="2">
+          Er war nicht schwierig. Er war im Nebel. Er brauchte jemanden, der nicht fragt „Warum verhältst du dich so?" — sondern „Was brauchst du gerade?" Das hat mich zu dem gemacht, was ich heute tue.
+        </p>
+        <p class="lp-story-chapter__para lp-reveal" data-delay="3">
+          Ich bin Heilpädagogin, arbeite mit Elementen der Gewaltfreien Kommunikation und bringe Naturpädagogik in meine Arbeit ein. Waldkätzchen ist kein Konzept, das ich entwickelt habe. Es ist etwas, das sich ergeben hat — aus vielen Momenten mit Kindern und Eltern, die einfach mehr Raum gebraucht haben.
+        </p>
+        <p class="lp-story-chapter__para lp-reveal" data-delay="4">
+          Was ich glaube: Kein Kind ist von Natur aus schwierig. Und kein Elternteil, das sich Hilfe holt, ist gescheitert. Ganz im Gegenteil.
+        </p>
+
+        <p class="lp-story-chapter__footer lp-reveal" data-delay="5">
+          Heilpädagogik · GFK · Naturpädagogik · Inklusion
+        </p>
+      </div>
+
+      <div class="lp-story-card lp-reveal" data-delay="2">
+        <div class="lp-story-card__title">Waldspuren über mich</div>
+        <ul class="lp-story-card__list">
+          <li>🌿 mag Worte, die weich landen</li>
+          <li>🌿 glaubt nicht an „trotzige Kinder"</li>
+          <li>🌿 denkt in Situationen, nicht in Schuld</li>
+          <li>🌿 hat Tigi nicht erfunden, sondern eher gefunden</li>
+          <li>🌿 braucht selbst manchmal eine Lichtung</li>
+          <li>🌿 glaubt an kleine Rituale</li>
+          <li>🌿 liebt Esel, Katzen, Wald und klare Sprache</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     11. FAQ
+===================================================== -->
+<section class="lp-faq-chapter" id="lp-faq">
+  <div class="lp-container">
+    <div class="lp-faq-chapter__inner">
+
+      <!-- Left: Standard FAQ -->
+      <div>
+        <span class="lp-kicker lp-reveal">Häufige Fragen</span>
+        <h2 class="lp-faq-chapter__col-title lp-reveal" data-delay="1">Was du wissen möchtest.</h2>
+        <p class="lp-faq-chapter__col-sub lp-reveal" data-delay="2">Die sachlichen Antworten.</p>
+
+        <div class="lp-accordion lp-reveal" data-delay="3">
+
+          <div class="lp-accordion__item">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Ist Waldkätzchen Therapie?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Nein. Waldkätzchen ist heilpädagogische Begleitung — keine Psychotherapie. Es geht um Verstehen, Verbinden und den nächsten kleinen Schritt. Wenn therapeutische Unterstützung gebraucht wird, sage ich das klar.
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-accordion__item">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Für wen ist das Angebot?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Für Eltern, die spüren, dass hinter dem Verhalten ihres Kindes mehr steckt. Für Väter, die Nähe wollen, aber nicht wissen wie. Für Fachkräfte, die Verhalten verstehen wollen, bevor sie handeln.
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-accordion__item">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Was passiert in einer Beratung?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Wir schauen gemeinsam auf eine konkrete Situation — ohne Bewertung. Du erzählst, ich frage nach, wir suchen zusammen, was darunterliegt. Am Ende gehst du mit etwas Konkretem — nicht mit einem Plan, der dich überfordert.
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-accordion__item">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Was kostet das?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Das Erstgespräch ist kostenlos und unverbindlich. Weitere Informationen zu Preisen und Paketen findest du auf der jeweiligen Angebotsseite — oder du fragst einfach direkt.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: Waldfragen -->
+      <div>
+        <span class="lp-kicker lp-reveal">Waldfragen</span>
+        <h2 class="lp-faq-chapter__col-title lp-reveal" data-delay="1">Die anderen Fragen.</h2>
+        <p class="lp-faq-chapter__col-sub lp-reveal" data-delay="2">Die, die sich niemand traut zu stellen.</p>
+
+        <div class="lp-accordion lp-reveal" data-delay="3">
+
+          <div class="lp-accordion__item lp-accordion__item--forest">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Was wenn ich selbst im Nebel stehe?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Dann fangen wir da an. Die Lichtung ist für dich genauso wie für dein Kind. Du musst nicht alles klar sehen, um anzufangen.
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-accordion__item lp-accordion__item--forest">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Muss ich immer ruhig bleiben?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Nein. Ruhe ist kein Leistungskriterium. Es geht nicht darum, nie laut zu werden. Es geht darum, zu verstehen, was passiert — und danach wieder in Verbindung zu kommen.
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-accordion__item lp-accordion__item--forest">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Warum Tiere?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Weil Tiere nicht urteilen. Weil Figuren Abstand schaffen — und Abstand macht manchmal Platz für etwas, das direkt nicht möglich gewesen wäre. Und weil Kinder mit Tieren meistens einfach ehrlicher sind.
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-accordion__item lp-accordion__item--forest">
+            <button class="lp-accordion__trigger" aria-expanded="false">
+              Darf ich einfach nur müde sein?
+              <span class="lp-accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="lp-accordion__body" role="region">
+              <div class="lp-accordion__content">
+                Ja. Müdigkeit ist kein Versagen. Manchmal ist das Ehrlichste, was du mitbringen kannst. Ich bin nicht hier, um dich zu motivieren. Ich bin hier, um mit dir zu schauen.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     12. FINAL CTA
+===================================================== -->
+<section class="lp-final-cta" id="lp-final-cta">
+  <div class="lp-container">
+    <h2 class="lp-final-cta__h2 lp-reveal">Lass uns gemeinsam auf die Situation schauen.</h2>
+    <p class="lp-final-cta__body lp-reveal" data-delay="1">
+      Kein Formular-Stress. Kein Sofort-Angebot. Nur ein erstes Gespräch — kostenlos und ohne Druck.
+    </p>
+    <div class="lp-final-cta__btns lp-reveal" data-delay="2">
+      <a class="lp-btn lp-btn--teal" href="coaching.html#kontakt">🌿 Erstgespräch anfragen</a>
+      <a class="lp-btn lp-btn--ghost-light" href="index.html">Zur Hauptseite →</a>
+    </div>
+    <div class="lp-final-cta__trust lp-reveal" data-delay="3">
+      <span class="lp-final-cta__trust-item">Erstgespräch kostenlos</span>
+      <span class="lp-final-cta__trust-item">Heilpäd. fundiert</span>
+      <span class="lp-final-cta__trust-item">Online &amp; vor Ort</span>
+      <span class="lp-final-cta__trust-item">Kein Druck, nur Verbindung</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+     13. FOOTER
+===================================================== -->
+<footer class="lp-footer" role="contentinfo">
+  <div class="lp-footer__inner">
+    <a class="lp-footer__logo" href="index.html">🌿 Waldkätzchen</a>
+
+    <nav class="lp-footer__links" aria-label="Footer-Navigation">
+      <a href="impressum.html">Impressum</a>
+      <a href="coaching.html#kontakt">Kontakt</a>
+      <a href="index.html">Hauptseite</a>
+    </nav>
+
+    <p class="lp-footer__copy">
+      &copy; <span id="lp-year"></span> Waldkätzchen — Heilpädagogische Begleitung. Alle Rechte vorbehalten.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Inline year so no extra request
+  document.getElementById('lp-year').textContent = new Date().getFullYear();
+</script>
+<script src="lp.js"></script>
+</body>
+</html>
