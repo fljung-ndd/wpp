@@ -1,29 +1,74 @@
 /* =========================================================
    lp.js — Waldkätzchen Landing Page Interactions
-   No dependencies on wk.js or any external libraries.
+   No dependencies on wk.js or external libraries.
    ========================================================= */
 
 (function () {
   'use strict';
 
   /* -------------------------------------------------------
-     1. Header: transparent → scrolled class
+     1. Header: scroll class + auto-hide on scroll direction
   ------------------------------------------------------- */
   const header = document.querySelector('.lp-header');
   if (header) {
+    let lastScrollY = window.scrollY;
+    let headerHidden = false;
+    let ticking = false;
+
+    const showHeader = () => {
+      if (headerHidden) {
+        header.classList.remove('lp-header--hidden');
+        headerHidden = false;
+      }
+    };
+    const hideHeader = () => {
+      if (!headerHidden) {
+        header.classList.add('lp-header--hidden');
+        headerHidden = true;
+      }
+    };
+
     const onScroll = () => {
-      if (window.scrollY > 40) {
+      const currentY = window.scrollY;
+
+      // Scrolled background class
+      if (currentY > 40) {
         header.classList.add('lp-header--scrolled');
       } else {
         header.classList.remove('lp-header--scrolled');
       }
+
+      // Auto-hide direction logic
+      if (currentY < 80) {
+        showHeader();
+      } else if (currentY > lastScrollY + 8) {
+        hideHeader();
+      } else if (currentY < lastScrollY - 8) {
+        showHeader();
+      }
+
+      lastScrollY = currentY;
+      ticking = false;
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // run once on load
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Show on mouse near top
+    document.addEventListener('mousemove', (e) => {
+      if (e.clientY < 80) showHeader();
+    });
+
+    // Run once on load
+    onScroll();
   }
 
   /* -------------------------------------------------------
-     2. Mobile burger menu toggle
+     2. Mobile burger menu
   ------------------------------------------------------- */
   const burger = document.querySelector('.lp-header__burger');
   const mobileMenu = document.querySelector('.lp-header__mobile-menu');
@@ -33,7 +78,6 @@
       burger.classList.toggle('is-open', isOpen);
       burger.setAttribute('aria-expanded', String(isOpen));
     });
-    // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('is-open');
@@ -57,16 +101,15 @@
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.1, rootMargin: '-30px 0px' }
     );
     revealEls.forEach(el => revealObserver.observe(el));
   } else {
-    // Fallback: show all
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
   /* -------------------------------------------------------
-     4. Journey scroll-spy + sidebar nav + progress bar
+     4. Journey scroll-spy + sidebar + progress bar
   ------------------------------------------------------- */
   const journeySteps = document.querySelectorAll('.lp-journey__step');
   const navBtns = document.querySelectorAll('.lp-journey__nav-btn');
@@ -76,12 +119,11 @@
     let activeIndex = 0;
 
     const updateSidebar = (index) => {
-      if (index === activeIndex) return;
+      if (index === activeIndex && index !== 0) return;
       activeIndex = index;
       navBtns.forEach((btn, i) => btn.classList.toggle('is-active', i === index));
       if (progressFill) {
-        const pct = ((index + 1) / journeySteps.length) * 100;
-        progressFill.style.width = pct + '%';
+        progressFill.style.width = ((index + 1) / journeySteps.length * 100) + '%';
       }
     };
 
@@ -100,7 +142,6 @@
       journeySteps.forEach(step => spyObserver.observe(step));
     }
 
-    // Sidebar nav button click → smooth scroll to step
     navBtns.forEach((btn, i) => {
       btn.addEventListener('click', () => {
         const target = journeySteps[i];
@@ -111,20 +152,17 @@
       });
     });
 
-    // Init first step active
     updateSidebar(0);
   }
 
   /* -------------------------------------------------------
      5. Accordion toggle
   ------------------------------------------------------- */
-  const accordionTriggers = document.querySelectorAll('.lp-accordion__trigger');
-  accordionTriggers.forEach(trigger => {
+  document.querySelectorAll('.lp-accordion__trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
       const item = trigger.closest('.lp-accordion__item');
       if (!item) return;
       const isOpen = item.classList.contains('is-open');
-      // Close siblings in same accordion group
       const accordion = item.closest('.lp-accordion');
       if (accordion) {
         accordion.querySelectorAll('.lp-accordion__item.is-open').forEach(openItem => {
@@ -136,7 +174,7 @@
   });
 
   /* -------------------------------------------------------
-     6. Smooth anchor scroll with 80px header offset
+     6. Smooth anchor scroll with header offset
   ------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
