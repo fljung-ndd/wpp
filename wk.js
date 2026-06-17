@@ -393,7 +393,12 @@ function setTheme(t){
   ['morning','day','dusk','night','dark'].forEach(c=>document.body.classList.remove(c));
   if(t==='night'||t==='dusk') document.body.classList.add('dark');
   document.body.classList.add(t);
-  const overlays={morning:'rgba(140,80,20,.52)',day:'rgba(8,79,63,.64)',dusk:'rgba(60,20,5,.72)',night:'rgba(4,13,30,.78)'};
+  const overlays={
+    morning:'radial-gradient(circle at 42% 26%,rgba(253,243,192,.18),transparent 36%),linear-gradient(90deg,rgba(50,28,8,.58),rgba(8,79,63,.38) 48%,rgba(8,38,30,.58))',
+    day:'radial-gradient(circle at 46% 30%,rgba(253,243,192,.12),transparent 34%),linear-gradient(90deg,rgba(8,79,63,.70),rgba(8,79,63,.34) 50%,rgba(8,79,63,.62))',
+    dusk:'radial-gradient(circle at 70% 22%,rgba(232,120,48,.18),transparent 34%),linear-gradient(90deg,rgba(42,14,5,.76),rgba(60,20,5,.48) 48%,rgba(11,26,22,.72))',
+    night:'radial-gradient(circle at 50% 22%,rgba(74,184,200,.12),transparent 34%),linear-gradient(90deg,rgba(4,13,30,.82),rgba(4,13,30,.58) 48%,rgba(3,10,20,.86))'
+  };
   const ho = document.getElementById('hero-overlay');
   if(ho) ho.style.background = overlays[t];
   document.querySelectorAll('[data-theme]').forEach(b=>{

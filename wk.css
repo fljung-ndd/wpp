@@ -442,6 +442,8 @@ footer{background:#051f18;padding:4rem 2rem 2rem;color:rgba(255,255,255,.72)}
 /* ══════════════════════════════════════════════════════════════
    WALDKÄTZCHEN FARBSYSTEM — merged from waldkaetzchen_colors.css
    ═══════════════════════════════════════════════════════════ */
+:root{
+  --beobachterin:       #4AB8C8;
   --beobachterin-light: #D4F2F6;
   --beobachterin-dark:  #1A6A78;
   --beobachterin-mid:   #2E8A98;
