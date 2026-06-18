@@ -235,23 +235,57 @@ h2 span, h1 span { color: var(--acc); }
 
 /* ─── Hero ────────────────────────────────── */
 .wk2-hero {
-  display: grid; grid-template-columns: 1fr auto;
-  align-items: center; min-height: 100svh;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  grid-template-rows: 1fr auto;
+  align-items: stretch;
+  min-height: 100svh;
   padding-top: clamp(5rem, 10vw, 9rem);
+  padding-right: 0; /* image bleeds to viewport edge */
+  gap: 0;
 }
 .wk2-hero::before { display: none; }
-.wk2-hero-content { grid-column: 1; grid-row: 1; }
+.wk2-hero-content {
+  grid-column: 1; grid-row: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-bottom: var(--pad-y);
+}
 .wk2-hero-media {
   grid-column: 2; grid-row: 1;
-  display: flex; flex-direction: column;
-  align-items: flex-end; gap: 1.2rem; padding-left: 2rem;
+  position: relative; overflow: hidden;
+}
+/* Hero image: fills full height of its column */
+.wk2-hero-media .wk2-img-block {
+  position: absolute; inset: 0;
+  width: 100% !important; height: 100% !important;
+  aspect-ratio: unset !important;
+  transform: none !important;
+  border-radius: 0 !important;
+}
+.wk2-hero-media .wk2-img-block img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+/* Gradient: section bg fades into the image */
+.wk2-hero-media::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to right,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 65%, transparent) 28%,
+    transparent 60%);
+  pointer-events: none;
 }
 .wk2-hero-badge {
   font-family: var(--display); font-weight: 900;
   font-size: clamp(.9rem, 1.6vw, 1.5rem); text-transform: uppercase;
   line-height: .95; color: var(--acc); text-align: center;
   padding: .9rem 1rem; border: 3px solid var(--acc);
-  border-radius: var(--r-md); transform: rotate(5deg);
+  border-radius: var(--r-md);
+  position: absolute;
+  bottom: clamp(3rem, 6vw, 5rem);
+  right: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 2; transform: rotate(5deg);
 }
 
 /* ─── Buttons / Actions ───────────────────── */
@@ -320,8 +354,8 @@ h2 span, h1 span { color: var(--acc); }
 }
 .wk2-animal .wk2-img-block img {
   object-fit: contain;
-  padding: .5rem;
-  background: rgba(255,255,255,.12);
+  padding: 0;
+  background: transparent;
 }
 
 /* ─── Waldwelt Lichtung visual ──────────────── */
@@ -329,7 +363,7 @@ h2 span, h1 span { color: var(--acc); }
   margin-top: 2.5rem;
   border-radius: var(--r-md);
   overflow: hidden;
-  max-height: 28rem;
+  max-height: 42rem;
   border: 2px solid rgba(255,255,255,.2);
 }
 .wk2-waldwelt-img img {
@@ -421,9 +455,9 @@ h2 span, h1 span { color: var(--acc); }
 .wk2-polaroid {
   background: white;
   padding: .65rem .65rem 2.8rem;
-  box-shadow: 0 6px 24px rgba(0,0,0,.22);
+  box-shadow: 0 8px 32px rgba(0,0,0,.28);
   border-radius: 3px;
-  width: clamp(9rem, 16vw, 15rem);
+  width: clamp(12rem, 22vw, 20rem);
   transform: rotate(-3deg);
 }
 .wk2-polaroid--tilt { transform: rotate(4.5deg); }
@@ -685,7 +719,7 @@ h2 span, h1 span { color: var(--acc); }
   line-height: .92; letter-spacing: -.03em; max-width: 22ch;
 }
 .wk2-animal .wk2-img-block {
-  width: min(16rem, 38%); aspect-ratio: 4/3; margin-bottom: 1.25rem;
+  width: min(22rem, 48%); aspect-ratio: 2/3; margin-bottom: 1.25rem;
 }
 .wk2-animal:nth-child(even) .wk2-img-block { transform: rotate(1.5deg); }
 
@@ -820,7 +854,7 @@ h2 span, h1 span { color: var(--acc); }
   .wk2-angled, .wk2-angled-inv {
     clip-path: none; margin: 0; padding-top: 4rem; padding-bottom: 4rem;
   }
-  .wk2-hero { grid-template-columns: 1fr; }
+  .wk2-hero { grid-template-columns: 1fr; grid-template-rows: 1fr auto; padding-right: var(--pad-x); }
   .wk2-hero-media { display: none; }
   .wk2-split, .wk2-torsten-grid, .wk2-waldmomente, .wk2-offer-grid, .wk2-places {
     grid-template-columns: 1fr;
