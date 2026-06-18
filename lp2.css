@@ -305,6 +305,73 @@ h2 span, h1 span { color: var(--acc); }
 .wk2-img-block--tilt { transform: rotate(-2deg); }
 .wk2-img-block--portrait { aspect-ratio: 3/4; width: min(16rem, 45vw); }
 
+/* ─── Real images in placeholder blocks ────── */
+.wk2-img-block:has(img) {
+  border: none;
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+}
+.wk2-img-block img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+.wk2-animal .wk2-img-block img {
+  object-fit: contain;
+  padding: .5rem;
+  background: rgba(255,255,255,.12);
+}
+
+/* ─── Waldwelt Lichtung visual ──────────────── */
+.wk2-waldwelt-img {
+  margin-top: 2.5rem;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  max-height: 28rem;
+  border: 2px solid rgba(255,255,255,.2);
+}
+.wk2-waldwelt-img img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Footer ────────────────────────────────── */
+.wk2-footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.65);
+  padding: 3rem var(--pad-x) 2.5rem;
+}
+.wk2-footer-inner {
+  max-width: 64rem; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem; text-align: center;
+}
+.wk2-footer-logo {
+  height: 4.5rem; width: auto;
+  border-radius: 50%;
+  opacity: .9;
+}
+.wk2-footer-tagline {
+  font-family: var(--display); font-weight: 700;
+  font-size: .85rem; text-transform: uppercase; letter-spacing: .2em;
+  opacity: .6;
+}
+.wk2-footer-links {
+  display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;
+  font-family: var(--display); font-weight: 700;
+  font-size: .8rem; text-transform: uppercase; letter-spacing: .14em;
+  margin-top: .5rem;
+}
+.wk2-footer-links a { opacity: .5; transition: opacity .2s; }
+.wk2-footer-links a:hover { opacity: 1; }
+.wk2-footer-copy {
+  font-size: .72rem; opacity: .28; margin-top: .5rem;
+  font-family: var(--display); letter-spacing: .08em;
+}
+
 /* ─── Marquee ─────────────────────────────── */
 .wk2-marquee {
   background: var(--bg, var(--yellow)); color: var(--fg, var(--ink));
