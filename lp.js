@@ -170,6 +170,12 @@
         });
       }
       item.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+      if (accordion) {
+        accordion.querySelectorAll('.lp-accordion__trigger').forEach(otherTrigger => {
+          if (otherTrigger !== trigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
   });
 
@@ -187,5 +193,86 @@
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+
+  /* -------------------------------------------------------
+     7. Editorial scroll: parallax, light path + vertical-to-horizontal rails
+  ------------------------------------------------------- */
+  const root = document.documentElement;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+  const updateEditorialScroll = () => {
+    const maxScroll = Math.max(1, document.body.scrollHeight - window.innerHeight);
+    const progress = clamp(window.scrollY / maxScroll, 0, 1);
+    root.style.setProperty('--lp-scroll-progress', (progress * 100).toFixed(2) + '%');
+    root.style.setProperty('--lp-parallax', Math.round(window.scrollY * 0.12) + 'px');
+  };
+
+  const horizontalStories = Array.from(document.querySelectorAll('[data-horizontal-story]'));
+  const horizontalRailSelector = '.lp-nebel__rail, .lp-figuren-chapter__rail';
+
+  const clearHorizontalStories = () => {
+    horizontalStories.forEach(section => {
+      const rail = section.querySelector(horizontalRailSelector);
+      section.style.minHeight = '';
+      section.style.removeProperty('--lp-rail-distance');
+      if (rail) rail.style.transform = '';
+    });
+  };
+
+  const canUseHorizontalStories = () => !prefersReduced && window.innerWidth > 860;
+
+  const sizeHorizontalStories = () => {
+    if (!canUseHorizontalStories()) {
+      clearHorizontalStories();
+      return;
+    }
+
+    horizontalStories.forEach(section => {
+      const rail = section.querySelector(horizontalRailSelector);
+      if (!rail) return;
+      const distance = Math.max(0, rail.scrollWidth - window.innerWidth + 96);
+      section.style.minHeight = `calc(100vh + ${distance}px + 220px)`;
+      section.style.setProperty('--lp-rail-distance', distance + 'px');
+    });
+  };
+
+  const updateHorizontalStories = () => {
+    if (!canUseHorizontalStories()) return;
+
+    horizontalStories.forEach(section => {
+      const rail = section.querySelector(horizontalRailSelector);
+      if (!rail) return;
+      const distance = parseFloat(section.style.getPropertyValue('--lp-rail-distance')) || 0;
+      const rect = section.getBoundingClientRect();
+      const travel = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = clamp((-rect.top) / travel, 0, 1);
+      rail.style.transform = `translate3d(${-distance * progress}px, 0, 0)`;
+    });
+  };
+
+  let editorialTicking = false;
+  const onEditorialScroll = () => {
+    if (!editorialTicking) {
+      requestAnimationFrame(() => {
+        updateEditorialScroll();
+        updateHorizontalStories();
+        editorialTicking = false;
+      });
+      editorialTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onEditorialScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    sizeHorizontalStories();
+    updateEditorialScroll();
+    updateHorizontalStories();
+  });
+  sizeHorizontalStories();
+  updateEditorialScroll();
+  updateHorizontalStories();
 
 })();

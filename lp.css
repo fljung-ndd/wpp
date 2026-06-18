@@ -909,3 +909,542 @@
   .lp-hero__scroll-hint::after { animation: none; }
   .lp-journey__progress-fill { transition: none; }
 }
+
+/* =========================================================
+   15. Wild editorial layer — Waldkätzchen Haus-of-Words energy
+   ========================================================= */
+:root {
+  --wk-petrol: #084F3F;
+  --wk-sky: #50A6AE;
+  --wk-teal: #50A6AE;
+  --wk-sage: #A8D5C2;
+  --wk-lavender: #C884F0;
+  --wk-bark: #7D6F61;
+  --wk-cream: #FFF7E6;
+  --wk-paper: #F3F8E9;
+  --wk-rose: #EF4F7A;
+  --wk-yellow: #FFD23F;
+  --wk-orange: #FF7A1A;
+  --wk-ink: #062f27;
+  --p2: #50A6AE;
+  --s3: #A8D5C2;
+}
+
+/* Waldkätzchen palette from the brand brief:
+   Primary: petrol #084F3F, yellow #FFD23F, orange #FF7A1A, rose #EF4F7A, sky #50A6AE.
+   Secondary: sage #A8D5C2, paper #F3F8E9, cream #FFF7E6, lavender #C884F0, bark #7D6F61. */
+
+body {
+  background:
+    radial-gradient(circle at 12% 4%, rgba(255, 210, 63, .28), transparent 24rem),
+    radial-gradient(circle at 88% 18%, rgba(239, 79, 122, .16), transparent 25rem),
+    var(--wk-cream);
+}
+
+.lp-scroll-path {
+  position: fixed;
+  right: 1.1rem;
+  top: 20vh;
+  width: 2px;
+  height: 60vh;
+  z-index: 850;
+  background: linear-gradient(to bottom, transparent, var(--wk-teal), var(--wk-yellow), transparent);
+  opacity: .75;
+  pointer-events: none;
+}
+
+.lp-scroll-path__dot {
+  position: absolute;
+  left: 50%;
+  top: var(--lp-scroll-progress, 0%);
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: var(--wk-yellow);
+  box-shadow: 0 0 0 6px rgba(255, 210, 63, .18), 0 0 28px rgba(255, 210, 63, .75);
+  transform: translate(-50%, -50%);
+}
+
+.lp-header--scrolled {
+  background: rgba(255, 247, 230, .88);
+  border-bottom: 1px solid rgba(8, 79, 63, .12);
+  backdrop-filter: blur(18px);
+}
+
+.lp-hero {
+  isolation: isolate;
+  background: var(--wk-petrol);
+}
+
+.lp-hero::before,
+.lp-hero::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lp-hero::before {
+  width: min(42vw, 520px);
+  height: min(42vw, 520px);
+  right: -9vw;
+  top: 12vh;
+  background: var(--wk-yellow);
+  border-radius: 42% 58% 50% 50% / 55% 34% 66% 45%;
+  mix-blend-mode: multiply;
+  opacity: .88;
+  transform: rotate(-12deg) translateY(calc(var(--lp-parallax, 0px) * -.25));
+}
+
+.lp-hero::after {
+  left: -8vw;
+  bottom: 8vh;
+  width: min(35vw, 420px);
+  height: min(22vw, 260px);
+  background: var(--wk-rose);
+  border-radius: 65% 35% 58% 42% / 42% 60% 40% 58%;
+  opacity: .72;
+  transform: rotate(11deg) translateY(calc(var(--lp-parallax, 0px) * .16));
+}
+
+.lp-hero__overlay {
+  background: linear-gradient(110deg, rgba(6, 47, 39, .96), rgba(6, 47, 39, .72) 45%, rgba(255, 122, 26, .18) 72%, rgba(255, 210, 63, .16));
+}
+
+.lp-hero__content { padding-bottom: 7rem; }
+
+.lp-hero__eyebrow {
+  background: rgba(255, 247, 230, .14);
+  border-color: rgba(255, 247, 230, .35);
+  transform: rotate(-2deg);
+}
+
+.lp-hero__h1 {
+  text-transform: uppercase;
+  text-wrap: balance;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, .22);
+}
+
+.lp-hero__h1 em {
+  display: inline;
+  color: var(--wk-yellow);
+  text-shadow: 0 0 30px rgba(255, 210, 63, .22);
+}
+
+.lp-btn {
+  border: 2px solid currentColor;
+  box-shadow: 6px 7px 0 rgba(6, 47, 39, .18);
+}
+
+.lp-btn--primary {
+  background: var(--wk-orange);
+  color: var(--wk-ink);
+  border-color: var(--wk-ink);
+}
+
+.lp-btn--primary:hover,
+.lp-btn--teal {
+  background: var(--wk-yellow);
+  color: var(--wk-ink);
+  border-color: var(--wk-ink);
+}
+
+.lp-marquee {
+  position: relative;
+  z-index: 5;
+  background: var(--wk-yellow);
+  border-block: 4px solid var(--wk-ink);
+  transform: rotate(-.7deg) scaleX(1.02);
+}
+
+.lp-marquee__item {
+  color: var(--wk-ink);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+}
+
+.lp-kicker {
+  background: var(--wk-yellow);
+  color: var(--wk-ink);
+  padding: .35rem .7rem;
+  border: 2px solid var(--wk-ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 rgba(8, 79, 63, .18);
+  transform: rotate(-1.5deg);
+}
+
+.lp-h2,
+.lp-faq-chapter__col-title {
+  color: var(--wk-ink);
+  font-size: clamp(2.4rem, 6.2vw, 5.6rem);
+  line-height: .92;
+  text-transform: uppercase;
+}
+
+.lp-horizontal-story {
+  position: relative;
+  --lp-rail-distance: 0px;
+}
+
+.lp-horizontal-story::after {
+  content: 'Weiter nach unten scrollen – der Wald läuft seitwärts';
+  position: sticky;
+  left: 1.5rem;
+  bottom: 1.1rem;
+  z-index: 3;
+  display: inline-block;
+  margin-left: 1.5rem;
+  padding: .45rem .75rem;
+  border: 2px solid var(--wk-ink);
+  border-radius: 999px;
+  background: var(--wk-yellow);
+  color: var(--wk-ink);
+  font-family: 'Quicksand', sans-serif;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(8, 79, 63, .18);
+}
+
+.lp-nebel {
+  position: relative;
+  background: var(--wk-cream);
+  padding-top: 7rem;
+}
+
+.lp-nebel::before {
+  content: 'NEBEL';
+  position: absolute;
+  left: -.07em;
+  top: .08em;
+  color: rgba(8, 79, 63, .055);
+  font: 800 clamp(6rem, 21vw, 18rem) / 1 'Quicksand', sans-serif;
+  letter-spacing: -.07em;
+  pointer-events: none;
+}
+
+.lp-horizontal-story .lp-nebel__rail-wrap,
+.lp-horizontal-story--figures .lp-figuren-chapter__rail-wrap {
+  position: sticky;
+  top: 106px;
+  z-index: 2;
+  overflow: hidden;
+  padding-block: 1rem;
+}
+
+.lp-horizontal-story .lp-nebel__rail,
+.lp-horizontal-story--figures .lp-figuren-chapter__rail {
+  overflow: visible;
+  will-change: transform;
+}
+
+.lp-nebel__rail-card,
+.lp-figur-card,
+.lp-angebot-card,
+.lp-journey__step {
+  border: 3px solid var(--wk-ink);
+  border-radius: 30px 18px 34px 20px;
+  box-shadow: 8px 10px 0 rgba(8, 79, 63, .16);
+}
+
+.lp-nebel__rail-card:nth-child(odd),
+.lp-angebot-card:nth-child(odd),
+.lp-figur-card:nth-child(odd) { transform: rotate(-1.8deg); }
+
+.lp-nebel__rail-card:nth-child(even),
+.lp-angebot-card:nth-child(even),
+.lp-figur-card:nth-child(even) { transform: rotate(1.4deg); }
+
+.lp-nebel__rail-card:hover,
+.lp-angebot-card:hover,
+.lp-figur-card:hover { transform: rotate(0deg) translateY(-8px); }
+
+.lp-nebel__rail-card:nth-child(2) { background: var(--wk-sage); }
+.lp-nebel__rail-card:nth-child(3) { background: #FFD9E3; }
+.lp-nebel__rail-card:nth-child(4) { background: var(--wk-yellow); }
+.lp-nebel__rail-card:nth-child(5) { background: #DDF3EA; }
+.lp-nebel__rail-card--highlight { background: var(--wk-petrol); }
+
+.lp-lichtung-chapter,
+.lp-numbers,
+.lp-final-cta {
+  background: linear-gradient(135deg, var(--wk-petrol), #062b2a 55%, #123b28);
+  clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 3vw), 0 100%);
+}
+
+.lp-lichtung-chapter__pillar {
+  background: rgba(255, 247, 230, .11);
+  border: 2px solid rgba(255, 247, 230, .28);
+  border-left: 10px solid var(--wk-yellow);
+  border-radius: 28px 16px 30px 18px;
+}
+
+.lp-journey { background: linear-gradient(180deg, var(--wk-cream), var(--wk-paper)); }
+.lp-journey__step:nth-child(2n) { background: #DDF3EA; }
+.lp-journey__step-note { border-left-color: var(--wk-rose); color: var(--wk-petrol); }
+.lp-numbers__value { color: var(--wk-yellow); -webkit-text-stroke: 2px rgba(255, 247, 230, .35); }
+.lp-numbers__label { color: #fff; }
+
+.lp-figuren-chapter {
+  position: relative;
+  background: #DDF3EA;
+}
+
+.lp-figuren-chapter::before {
+  content: 'FIGUREN';
+  position: absolute;
+  right: -.08em;
+  top: .1em;
+  color: rgba(8, 79, 63, .07);
+  font: 800 clamp(5rem, 17vw, 16rem) / 1 'Quicksand', sans-serif;
+  letter-spacing: -.07em;
+}
+
+.lp-figur-card:nth-child(1) { background: #F3F8E9; }
+.lp-figur-card:nth-child(2) { background: #FFD9E3; }
+.lp-figur-card:nth-child(3) { background: #FFF0B3; }
+.lp-figur-card:nth-child(4) { background: #BEE5D3; }
+.lp-figur-card:nth-child(5) { background: var(--wk-lavender); }
+
+.lp-angebote-chapter { background: linear-gradient(180deg, var(--wk-cream), #F3F8E9); }
+.lp-angebot-card:nth-child(1) { background: #DDF3EA; }
+.lp-angebot-card:nth-child(2) { background: #FFF0B3; }
+.lp-angebot-card:nth-child(3) { background: #FFD9E3; }
+.lp-angebot-card:nth-child(4) { background: #BEE5D3; }
+
+.lp-felix {
+  background: var(--wk-yellow);
+  clip-path: polygon(0 0, 100% 4vw, 100% 100%, 0 calc(100% - 2vw));
+}
+
+.lp-felix__bg-word { color: rgba(8, 79, 63, .11); }
+
+.lp-felix__waldspuren {
+  background: var(--wk-petrol);
+  border: 3px solid var(--wk-ink);
+  box-shadow: 10px 10px 0 rgba(8, 79, 63, .18);
+  transform: rotate(1deg);
+}
+
+.lp-faq-chapter { background: var(--wk-cream); }
+
+.lp-accordion__item {
+  background: #fff;
+  border: 2px solid var(--wk-ink);
+  box-shadow: 5px 6px 0 rgba(8, 79, 63, .12);
+}
+
+.lp-accordion__item--forest { background: #DDF3EA; }
+.lp-footer { background: #061c18; }
+
+@media (max-width: 860px) {
+  .lp-horizontal-story::after { display: none; }
+
+  .lp-horizontal-story .lp-nebel__rail-wrap,
+  .lp-horizontal-story--figures .lp-figuren-chapter__rail-wrap {
+    position: relative;
+    top: auto;
+    overflow-x: auto;
+  }
+
+  .lp-horizontal-story .lp-nebel__rail,
+  .lp-horizontal-story--figures .lp-figuren-chapter__rail {
+    overflow-x: auto;
+    transform: none !important;
+  }
+
+  .lp-scroll-path { display: none; }
+  .lp-hero::before { width: 72vw; height: 72vw; right: -32vw; }
+  .lp-hero__h1 { text-transform: none; }
+}
+
+/* =========================================================
+   16. Aggressive section color rhythm — every chapter has a lead color
+   ========================================================= */
+.lp-hero {
+  background: var(--wk-petrol);
+}
+
+.lp-marquee {
+  background: var(--wk-yellow);
+}
+
+.lp-nebel {
+  background:
+    linear-gradient(135deg, rgba(239, 79, 122, .92), rgba(255, 122, 26, .90)),
+    var(--wk-rose);
+  color: var(--wk-ink);
+}
+
+.lp-nebel .lp-kicker,
+.lp-nebel .lp-h2,
+.lp-nebel__intro-text {
+  color: var(--wk-ink);
+}
+
+.lp-nebel__rail-card {
+  background: var(--wk-cream);
+}
+
+.lp-nebel__rail-card:nth-child(2) { background: var(--wk-yellow); }
+.lp-nebel__rail-card:nth-child(3) { background: var(--wk-sage); }
+.lp-nebel__rail-card:nth-child(4) { background: #FFD9E3; }
+.lp-nebel__rail-card:nth-child(5) { background: var(--wk-lavender); }
+.lp-nebel__rail-card--highlight { background: var(--wk-petrol); }
+
+.lp-lichtung-chapter {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 210, 63, .42), transparent 24rem),
+    linear-gradient(135deg, #073a30, var(--wk-petrol) 48%, #031b18);
+}
+
+.lp-journey {
+  background:
+    radial-gradient(circle at 80% 12%, rgba(255, 210, 63, .45), transparent 22rem),
+    linear-gradient(140deg, var(--wk-sage), #F3F8E9 52%, #FFE8C8);
+}
+
+.lp-journey__step:nth-child(1) { background: #FFF7E6; }
+.lp-journey__step:nth-child(2) { background: #FFD9E3; }
+.lp-journey__step:nth-child(3) { background: #DDF3EA; }
+.lp-journey__step:nth-child(4) { background: #FFF0B3; }
+.lp-journey__step:nth-child(5) { background: #FFD7B8; }
+
+.lp-numbers {
+  background:
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, .07) 0 2px, transparent 2px 20px),
+    linear-gradient(135deg, #061c18, var(--wk-teal));
+}
+
+.lp-figuren-chapter {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(255, 210, 63, .48), transparent 22rem),
+    linear-gradient(135deg, var(--wk-sky), var(--wk-sage) 55%, #DDF3EA);
+}
+
+.lp-angebote-chapter {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 210, 63, .55), transparent 24rem),
+    linear-gradient(135deg, var(--wk-orange), #FFD7B8 48%, var(--wk-cream));
+}
+
+.lp-angebote-chapter .lp-h2,
+.lp-angebote-chapter .lp-kicker {
+  color: var(--wk-ink);
+}
+
+.lp-felix {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(239, 79, 122, .42), transparent 22rem),
+    linear-gradient(135deg, var(--wk-yellow), #FFE071 46%, var(--wk-orange));
+}
+
+.lp-faq-chapter {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 210, 63, .42), transparent 18rem),
+    linear-gradient(135deg, #FFD9E3, #FFF7E6 50%, #DDF3EA);
+}
+
+.lp-final-cta {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 210, 63, .33), transparent 26rem),
+    linear-gradient(135deg, var(--wk-bark), var(--wk-rose) 52%, var(--wk-orange));
+}
+
+.lp-footer {
+  background:
+    linear-gradient(135deg, #020f0d, #061c18 45%, #2a0715);
+}
+
+.lp-nebel,
+.lp-journey,
+.lp-figuren-chapter,
+.lp-angebote-chapter,
+.lp-faq-chapter {
+  border-block: 5px solid var(--wk-ink);
+}
+
+.lp-nebel::after,
+.lp-journey::after,
+.lp-figuren-chapter::after,
+.lp-angebote-chapter::after,
+.lp-faq-chapter::after {
+  color: var(--wk-ink);
+}
+
+.lp-nebel__header,
+.lp-figuren-chapter__header,
+.lp-angebote-chapter .lp-container,
+.lp-faq-chapter .lp-container {
+  position: relative;
+  z-index: 2;
+}
+
+.lp-nebel__header::before,
+.lp-figuren-chapter__header::before,
+.lp-angebote-chapter .lp-container::before,
+.lp-faq-chapter .lp-container::before {
+  content: '';
+  position: absolute;
+  inset: -1.2rem auto auto -1rem;
+  width: clamp(5rem, 12vw, 10rem);
+  height: clamp(5rem, 12vw, 10rem);
+  z-index: -1;
+  background: var(--wk-yellow);
+  border: 3px solid var(--wk-ink);
+  border-radius: 42% 58% 48% 52% / 55% 38% 62% 45%;
+  box-shadow: 8px 8px 0 rgba(6, 47, 39, .18);
+  transform: rotate(-10deg);
+}
+
+.lp-angebote-chapter .lp-container::before { background: var(--wk-rose); }
+.lp-figuren-chapter__header::before { background: var(--wk-orange); }
+.lp-faq-chapter .lp-container::before { background: var(--wk-lavender); }
+
+@media (max-width: 700px) {
+  .lp-nebel,
+  .lp-journey,
+  .lp-figuren-chapter,
+  .lp-angebote-chapter,
+  .lp-faq-chapter {
+    border-block-width: 3px;
+  }
+
+  .lp-nebel__header::before,
+  .lp-figuren-chapter__header::before,
+  .lp-angebote-chapter .lp-container::before,
+  .lp-faq-chapter .lp-container::before {
+    opacity: .55;
+  }
+}
+
+/* =========================================================
+   17. Torsten voice + eight forest figures
+   ========================================================= */
+.lp-felix__bg-word {
+  color: rgba(8, 79, 63, .12);
+  font-size: clamp(7rem, 23vw, 20rem);
+}
+
+.lp-figur-card--luis { border-top-color: var(--wk-orange); background: #FFE8C8; }
+.lp-figur-card--iella { border-top-color: var(--wk-yellow); background: #FFF0B3; }
+.lp-figur-card--etana { border-top-color: var(--wk-lavender); background: #F1DCF9; }
+.lp-figur-card--elfriede { border-top-color: var(--wk-bark); background: #E8DFD2; }
+.lp-figur-card--niko { border-top-color: var(--wk-sky); background: #DDF3EA; }
+.lp-figur-card--tigi { border-top-color: var(--wk-rose); background: #FFD9E3; }
+.lp-figur-card--kata-rina { border-top-color: var(--wk-lavender); background: #F3E7FF; }
+.lp-figur-card--wadda { border-top-color: var(--wk-petrol); background: var(--wk-paper); }
+
+.lp-figur-card--luis .lp-figur-card__tag,
+.lp-figur-card--iella .lp-figur-card__tag,
+.lp-figur-card--etana .lp-figur-card__tag,
+.lp-figur-card--elfriede .lp-figur-card__tag,
+.lp-figur-card--niko .lp-figur-card__tag,
+.lp-figur-card--tigi .lp-figur-card__tag,
+.lp-figur-card--kata-rina .lp-figur-card__tag,
+.lp-figur-card--wadda .lp-figur-card__tag {
+  background: var(--wk-petrol);
+  color: var(--wk-cream);
+  white-space: normal;
+}
