@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de" data-mood="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen — Wild. Verbunden. Verstehend.</title>
+<meta name="description" content="Waldkätzchen begleitet Eltern, Väter und Teams dabei, Verhalten zu verstehen — mit Figuren, Metaphern und einem Wald als Sprache.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lp2.css">
+</head>
+<body>
+
+<div class="wk2-progress" aria-hidden="true"><span></span></div>
+
+<!-- Stimmungs-Switcher -->
+<div class="wk2-mood-switcher">
+  <button class="wk2-mood-toggle" aria-expanded="false" aria-label="Stimmung wählen">
+    <span class="wk2-mood-icon" aria-hidden="true">◈</span>
+  </button>
+  <div class="wk2-mood-panel" aria-hidden="true">
+    <p class="wk2-mood-label">Stimmung</p>
+    <button data-mood="auto">Auto</button>
+    <button data-mood="morgen">Morgen</button>
+    <button data-mood="tag">Tag</button>
+    <button data-mood="abend">Abend</button>
+    <button data-mood="nacht">Nacht</button>
+    <button data-mood="waldgeist">Waldgeist</button>
+  </div>
+</div>
+
+<header class="wk2-header" data-wk2-header>
+  <a class="wk2-logo" href="index.html">Waldkätzchen</a>
+  <nav class="wk2-nav" aria-label="Seitennavigation">
+    <a href="#schmerz">Schmerz</a>
+    <a href="#torsten">Torsten</a>
+    <a href="#waldwelt">Waldwelt</a>
+    <a href="#tiere">Figuren</a>
+    <a href="#angebot">Angebot</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <button class="wk2-burger" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="wk2-mobile-nav" aria-hidden="true">
+  <a href="#schmerz">Schmerz</a>
+  <a href="#torsten">Torsten</a>
+  <a href="#waldwelt">Waldwelt</a>
+  <a href="#tiere">Figuren</a>
+  <a href="#angebot">Angebot</a>
+  <a href="#kontakt">Kontakt</a>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════
+     HERO
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-hero wk2-petrol" id="start" data-wk2-section data-parallax="0.25">
+  <div class="wk2-hero-content">
+    <p class="wk2-kicker">Wild · Verbunden · Verstehend</p>
+    <h1>Dein Kind macht<br>dich wahnsinnig.<br><span>Das ergibt Sinn.</span></h1>
+    <p class="wk2-lead">Waldkätzchen ist kein braver Ratgeber. Es ist ein Wald für Momente, in denen Verhalten lauter ist als Worte.</p>
+    <div class="wk2-actions">
+      <a href="#schmerz">Was steckt dahinter?</a>
+      <a href="#tiere" class="wk2-ghost">Die 8 Figuren kennenlernen</a>
+    </div>
+  </div>
+  <div class="wk2-hero-media">
+    <div class="wk2-img-block wk2-img-block--tilt" aria-label="Waldkätzchen Bildwelt">Waldkätzchen<br>im Wald</div>
+    <div class="wk2-hero-badge" aria-hidden="true">Verhalten<br>ist<br>Sprache</div>
+  </div>
+  <p class="wk2-scroll-hint" aria-hidden="true">↓ runter. nicht wegrennen.</p>
+</section>
+
+<!-- Marquee -->
+<div class="wk2-marquee wk2-yellow" aria-hidden="true">
+  <div class="wk2-marquee-track">
+    <span>VERHALTEN IST SPRACHE</span><span>✦</span>
+    <span>WILD UND VERBUNDEN</span><span>✦</span>
+    <span>NICHT HÄRTER. KLARER.</span><span>✦</span>
+    <span>TORSTENS WALD</span><span>✦</span>
+    <span>VERHALTEN IST SPRACHE</span><span>✦</span>
+    <span>WILD UND VERBUNDEN</span><span>✦</span>
+    <span>NICHT HÄRTER. KLARER.</span><span>✦</span>
+    <span>TORSTENS WALD</span><span>✦</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SCHMERZ — Der Schmerz + Was uns bewegt
+     (Pain elaboration — stay near the problem before introducing solution)
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-orange wk2-angled" id="schmerz" data-wk2-section>
+  <div class="wk2-split">
+    <div>
+      <p class="wk2-kicker">Der Schmerz hat einen Namen</p>
+      <h2>Du liebst dein Kind.<br><span>Und bist trotzdem am Limit.</span></h2>
+    </div>
+    <div class="wk2-lines">
+      <p data-wk2-reveal><strong>01</strong> Du erkennst dich selbst im Kind — und erschrickst vor dem, was du siehst.</p>
+      <p data-wk2-reveal><strong>02</strong> Du willst ruhig bleiben. Du bist es nicht. Du schämst dich. Wieder von vorn.</p>
+      <p data-wk2-reveal><strong>03</strong> Du suchst Konsequenzen. Struktur. Ratgeber. Eigentlich suchst du eine Sprache.</p>
+    </div>
+  </div>
+  <blockquote class="wk2-pull-quote" data-wk2-reveal>
+    „Verhalten ist nicht das Problem.<br>Verhalten ist die Nachricht."
+  </blockquote>
+</section>
+
+<!-- Was uns bewegt (moved up — elaborates on pain before introducing solution) -->
+<section class="wk2-section wk2-cream" id="ausmacht" data-wk2-section>
+  <p class="wk2-kicker">Was dahintersteckt</p>
+  <h2>Gefühle waren zu stark.<br><span>Bedürfnisse zu leise.</span></h2>
+  <div class="wk2-lines wk2-lines--wide">
+    <p data-wk2-reveal><strong>01</strong> Strenge ist manchmal keine Härte — manchmal ist sie Not, die sich eine Uniform angezogen hat.</p>
+    <p data-wk2-reveal><strong>02</strong> Achtsamkeit wird nicht immer vergessen. Manchmal wird sie unterbrochen: von Stress, Scham, alten Stimmen.</p>
+    <p data-wk2-reveal><strong>03</strong> Negative Gedanken flüstern: „Du bist zu viel." „Du bist nicht genug." Waldkätzchen macht diese Stimmen sichtbar.</p>
+    <p data-wk2-reveal><strong>04</strong> Wir fragen nicht: Wer ist schuld? Wir fragen: Welches Bedürfnis wurde nicht gesehen?</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     TORSTEN — Wer bin ich
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-yellow" id="torsten" data-wk2-section>
+  <div class="wk2-torsten-grid">
+    <div>
+      <p class="wk2-kicker">Wer steckt hinter Waldkätzchen</p>
+      <h2>Ich bin Torsten.<br><span>Ich lese Verhalten.</span></h2>
+      <div class="wk2-story-blocks">
+        <p data-wk2-reveal>Ich war oft da. Aber ich wusste nicht, wie ich <em>ankommen</em> sollte. Nicht weil ich nicht wollte — sondern weil niemand mir je gezeigt hat, wie Verbindung geht, wenn im Kopf Nebel ist.</p>
+        <p data-wk2-reveal>Jahrelang war ich erfolgreich. Und trotzdem nicht wirklich verbunden. Alte Sätze werden laut. Sie machen klein. Sie machen Rückzug sicherer als Begegnung.</p>
+        <p data-wk2-reveal>Dann kam Tigi. Frech, klein, wach. Plötzlich war ich nicht mehr der Gegner — sondern der, der mit dem Kind <em>hinschaut</em>. Genau diese Haltung ist Waldkätzchen.</p>
+      </div>
+    </div>
+    <div class="wk2-torsten-media">
+      <div class="wk2-img-block wk2-img-block--portrait" aria-label="Torsten mit Tigi">Torsten<br>+ Tigi</div>
+      <div class="wk2-torsten-tag" aria-hidden="true">Heilpäd.<br>Fachkraft<br>& Vater</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     WALDWELT — Die Methode / der Ort
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-sky" id="waldwelt" data-wk2-section data-parallax="0.15">
+  <p class="wk2-kicker">Die Waldwelt</p>
+  <h2>Der Wald sagt nicht:<br><span>So ist es.</span></h2>
+  <div class="wk2-places">
+    <div class="wk2-place" data-wk2-reveal>
+      <span>Die Höhle</span>
+      <p>Ziehst du dich zurück — oder hält dich der Rückzug fest?</p>
+    </div>
+    <div class="wk2-place" data-wk2-reveal>
+      <span>Der alte Wald</span>
+      <p>Welche Stimme spricht hier mit, obwohl sie gar nicht mehr passt?</p>
+    </div>
+    <div class="wk2-place" data-wk2-reveal>
+      <span>Das Steinmeer</span>
+      <p>Was liegt gerade zwischen euch?</p>
+    </div>
+    <div class="wk2-place" data-wk2-reveal>
+      <span>Die Nebeldickung</span>
+      <p>Was ist noch nicht sortiert?</p>
+    </div>
+    <div class="wk2-place" data-wk2-reveal>
+      <span>Die Lichtung</span>
+      <p>Was wird möglich, wenn wir gemeinsam hinschauen?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     TIERE — Echter Sidescroller
+     (Nach Waldwelt, damit die Figuren im Kontext erlebt werden)
+     ══════════════════════════════════ -->
+<section class="wk2-tiere-wrapper wk2-lavender" id="tiere" aria-label="Die Waldkätzchen-Figuren">
+  <div class="wk2-tiere-sticky" data-wk2-tiere>
+    <div class="wk2-tiere-intro">
+      <p class="wk2-kicker">Die Katzen und der Wald</p>
+      <h2>Figuren entdeckt man nicht.<br>Man begegnet ihnen.</h2>
+      <div class="wk2-tiere-dots" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <p class="wk2-tiere-hint" aria-hidden="true">→ scroll</p>
+    </div>
+    <div class="wk2-animal-track">
+
+      <article class="wk2-animal wk2-orange">
+        <p class="wk2-number">01</p>
+        <div class="wk2-img-block wk2-img-block--tilt" aria-label="Luis">Luis</div>
+        <h3>Er platzt nicht aus Bosheit.<br>Er läuft über.</h3>
+        <p>Luis springt zuerst und schaut danach. Wenn innen alles drängelt, wird außen Chaos sichtbar. Er ist kein Fehler — er ist ein Warnlicht.</p>
+        <em>„Wenn alles zu viel wird, platzt es raus."</em>
+      </article>
+
+      <article class="wk2-animal wk2-yellow">
+        <p class="wk2-number">02</p>
+        <div class="wk2-img-block" aria-label="Iella">Iella</div>
+        <h3>Sie muss nichts beweisen.<br>Genau das macht sie stark.</h3>
+        <p>Iella steht in der Lichtung und weiß, wer sie ist. Ihr Selbstwert hängt nicht am Applaus. Sie hält den Raum, wenn andere wackeln.</p>
+        <em>„Ich weiß, wer ich bin. Das reicht."</em>
+      </article>
+
+      <article class="wk2-animal wk2-lavender">
+        <p class="wk2-number">03</p>
+        <div class="wk2-img-block wk2-img-block--tilt" aria-label="Etana">Etana</div>
+        <h3>Sie verschwindet, weil Sichtbarkeit einmal gefährlich war.</h3>
+        <p>Etana braucht niemanden, der sie aus der Höhle zerrt. Sie braucht ein sanftes Klopfen — ohne Druck, ohne Forderung.</p>
+        <em>„Wenn ich nicht da bin, kann mich nichts treffen."</em>
+      </article>
+
+      <article class="wk2-animal wk2-bark">
+        <p class="wk2-number">04</p>
+        <div class="wk2-img-block" aria-label="Elfriede">Elfriede</div>
+        <h3>Alle sind zufrieden.<br>Nur sie nicht.</h3>
+        <p>Elfriede hält Harmonie wie ein Tablett voller Gläser. Nichts darf klirren. Im alten Wald lernt sie, dass Anpassung nicht Verbindung ist.</p>
+        <em>„Hauptsache, alle sind zufrieden."</em>
+      </article>
+
+      <article class="wk2-animal wk2-sky">
+        <p class="wk2-number">05</p>
+        <div class="wk2-img-block wk2-img-block--tilt" aria-label="Niko">Niko</div>
+        <h3>Er passt nicht in die Schublade.<br>Gut so.</h3>
+        <p>Niko läuft los, auch wenn niemand klatscht. Freiheit und Verbindung schließen sich nicht aus — manchmal braucht Verbindung erst einen Eigenweg.</p>
+        <em>„Ich muss nicht in eine Schublade passen."</em>
+      </article>
+
+      <article class="wk2-animal wk2-rose">
+        <p class="wk2-number">06</p>
+        <div class="wk2-img-block" aria-label="Tigi">Tigi</div>
+        <h3>Er setzt Grenzen so hart, dass niemand seine Angst sieht.</h3>
+        <p>Tigi kam zuerst. Torsten danach. Wenn ein Raum knistert, tritt manchmal der Leopard vor — nicht als Trick, sondern als Schutzwall mit Herzklopfen.</p>
+        <em>„Ich bestimme, was hier passiert."</em>
+      </article>
+
+      <article class="wk2-animal wk2-cream">
+        <p class="wk2-number">07</p>
+        <div class="wk2-img-block wk2-img-block--tilt" aria-label="Kata-Rina">Kata-Rina</div>
+        <h3>Sie klammert nicht.<br>Sie kämpft gegen Alleinsein.</h3>
+        <p>Nähe ist Sehnsucht und Gefahr zugleich. Kata-Rina hält fest, weil Loslassen sich anfühlt wie Fallen.</p>
+        <em>„Bitte geh nicht weg. Bitte bleib nicht zu nah."</em>
+      </article>
+
+      <article class="wk2-animal wk2-paper">
+        <p class="wk2-number">08</p>
+        <div class="wk2-img-block" aria-label="Wadda">Wadda</div>
+        <h3>Sie macht sich kleiner, damit niemand schimpft.</h3>
+        <p>Wadda hat Worte. Sie hat nur gelernt, dass sie keinen Platz haben. Im Wald darf Stille wieder Sprache werden.</p>
+        <em>„Ich mach mich einfach kleiner."</em>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ENTSTEHUNG — Jetzt, wo die Figuren bekannt sind,
+     wird klar wie Waldkätzchen entstand
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-petrol wk2-angled-inv" id="entstehung" data-wk2-section>
+  <p class="wk2-kicker">Warum es Waldkätzchen gibt</p>
+  <h2>Es fehlt nicht an<br><span>Ratgebern.</span></h2>
+  <div class="wk2-entstehung-grid">
+    <div class="wk2-entstehung-card" data-wk2-reveal>
+      <span class="wk2-entstehung-num">01</span>
+      <h3>Das Problem</h3>
+      <p>Eltern haben zu viele Tipps — und zu wenig Sprache. Ratgeber erklären. Waldkätzchen übersetzt.</p>
+    </div>
+    <div class="wk2-entstehung-card" data-wk2-reveal>
+      <span class="wk2-entstehung-num">02</span>
+      <h3>Der Auslöser</h3>
+      <p>Tigi kam zuerst. Die Figuren kamen danach. Der Wald entstand, weil Metaphern ankommen, wenn Worte nicht reichen.</p>
+    </div>
+    <div class="wk2-entstehung-card" data-wk2-reveal>
+      <span class="wk2-entstehung-num">03</span>
+      <h3>Die Idee</h3>
+      <p>Heilpädagogik trifft Handpuppen, ehrliche Väterarbeit und eine Waldwelt, die Verhalten lesbar macht — ohne Schuldzuweisung.</p>
+    </div>
+    <div class="wk2-entstehung-card" data-wk2-reveal>
+      <span class="wk2-entstehung-num">04</span>
+      <h3>Die Haltung</h3>
+      <p>Waldkätzchen ist kein Konzept. Es ist eine Haltung: Verhalten verstehen, bevor daran gearbeitet wird.</p>
+    </div>
+  </div>
+  <div class="wk2-nicht-ist" data-wk2-reveal>
+    <p class="wk2-nicht-label">Waldkätzchen ist nicht:</p>
+    <div class="wk2-nicht-tags">
+      <span>Kein Ratgeber</span>
+      <span>Keine Therapie</span>
+      <span>Kein Schuldspruch</span>
+      <span>Kein Schnellkurs</span>
+    </div>
+    <p class="wk2-ist-doch">Aber: Ein Wald. Eine Sprache. Eine Haltung.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ZEICHEN — "Das Haus in Zahlen"
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-yellow" id="zeichen" data-wk2-section>
+  <p class="wk2-kicker">Der Wald in Zeichen</p>
+  <div class="wk2-big-list">
+    <p data-wk2-reveal><strong>8</strong> Figuren, die Verhalten nicht erklären — sondern erlebbar machen.</p>
+    <p data-wk2-reveal><strong>5</strong> Waldkätzchen-Blicke: sehen, fühlen, denken, weiten, weitergehen.</p>
+    <p data-wk2-reveal><strong>1</strong> Satz, der alles dreht: <em>Verhalten ist eine Sprache.</em></p>
+    <p data-wk2-reveal><strong>0</strong> Schuldsprüche. Dafür ehrliche Fragen.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     WALDMOMENTE — Social Proof
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-rose" id="waldmomente" data-wk2-section>
+  <p class="wk2-kicker">Waldmomente</p>
+  <h2>Was Eltern<br><span>danach sagten.</span></h2>
+  <div class="wk2-waldmomente">
+    <blockquote class="wk2-waldmoment" data-wk2-reveal>
+      <p>„Zum ersten Mal habe ich nicht gefragt, was mit meinem Kind falsch läuft — sondern was es gerade braucht."</p>
+      <cite>— Mutter, 2 Kinder</cite>
+    </blockquote>
+    <blockquote class="wk2-waldmoment" data-wk2-reveal>
+      <p>„Ich dachte, ich bin ein schlechter Vater. Waldkätzchen hat mir gezeigt: Ich bin ein Vater, der lernt."</p>
+      <cite>— Vater, Sohn 6 Jahre</cite>
+    </blockquote>
+    <blockquote class="wk2-waldmoment" data-wk2-reveal>
+      <p>„Die Figuren haben mir mehr erklärt als jeder Erziehungsratgeber vorher."</p>
+      <cite>— Pädagogin, Kita-Team</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ANGEBOT — inkl. Väter-Karte (kein eigener Abschnitt mehr)
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-orange wk2-angled" id="angebot" data-wk2-section>
+  <p class="wk2-kicker">Das konkrete Angebot</p>
+  <h2>Keine Methode von oben.<br><span>Ein Waldgang mit Richtung.</span></h2>
+  <div class="wk2-offer-grid">
+    <div class="wk2-offer-card" data-wk2-reveal>
+      <span class="wk2-offer-tag">Für Eltern</span>
+      <p>Wir lesen eine konkrete Situation: Was war sichtbar? Was wurde gefühlt? Was hat gefehlt?</p>
+    </div>
+    <div class="wk2-offer-card" data-wk2-reveal>
+      <span class="wk2-offer-tag">Für Väter</span>
+      <p>Wir suchen den Weg von „ich bin da" zu „ich komme wirklich an" — ohne Schuld, mit Richtung. Vom Funktionieren ins Ankommen.</p>
+    </div>
+    <div class="wk2-offer-card" data-wk2-reveal>
+      <span class="wk2-offer-tag">Mit Figuren</span>
+      <p>Handpuppen und Tiere schaffen Abstand — damit Verbindung wieder möglich wird.</p>
+    </div>
+    <div class="wk2-offer-card" data-wk2-reveal>
+      <span class="wk2-offer-tag">Für Teams</span>
+      <p>Fachlich, klar, ohne Maske: Verhalten verstehen, bevor daran gearbeitet wird.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     REISE — Prozess
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-paper" id="reise" data-wk2-section>
+  <p class="wk2-kicker">Dein Weg durch den Wald</p>
+  <h2>Nicht alles lösen.<br><span>Nur den nächsten echten Schritt.</span></h2>
+  <div class="wk2-steps">
+    <div class="wk2-step" data-wk2-reveal>
+      <span class="wk2-step-n">1</span>
+      <p>Ankommen.<br>Nicht funktionieren.</p>
+    </div>
+    <div class="wk2-step" data-wk2-reveal>
+      <span class="wk2-step-n">2</span>
+      <p>Hinschauen.<br>Nicht sofort urteilen.</p>
+    </div>
+    <div class="wk2-step" data-wk2-reveal>
+      <span class="wk2-step-n">3</span>
+      <p>Benennen.<br>Nicht beschämen.</p>
+    </div>
+    <div class="wk2-step" data-wk2-reveal>
+      <span class="wk2-step-n">4</span>
+      <p>Verbinden.<br>Nicht gewinnen.</p>
+    </div>
+    <div class="wk2-step" data-wk2-reveal>
+      <span class="wk2-step-n">5</span>
+      <p>Weitergehen.<br>Nicht perfekt sein.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FAQ
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-sky" id="fragen" data-wk2-section>
+  <p class="wk2-kicker">Waldfragen</p>
+  <h2>Fragen, die man<br>selten laut stellt.</h2>
+  <div class="wk2-faqs">
+    <div class="wk2-faq" data-wk2-reveal>
+      <button class="wk2-faq-q" aria-expanded="false">Ist Waldkätzchen Therapie?</button>
+      <div class="wk2-faq-a">
+        <p>Nein. Waldkätzchen ist heilpädagogisch fundierte Begleitung und eine Sprache für Situationen. Wenn Therapie nötig ist, wird das klar benannt — und nicht verschwiegen.</p>
+      </div>
+    </div>
+    <div class="wk2-faq" data-wk2-reveal>
+      <button class="wk2-faq-q" aria-expanded="false">Muss ich immer ruhig bleiben?</button>
+      <div class="wk2-faq-a">
+        <p>Nein. Ruhe ist kein Charaktertest. Interessant ist, was passiert, wenn sie weg ist — und was das über unerfüllte Bedürfnisse erzählt.</p>
+      </div>
+    </div>
+    <div class="wk2-faq" data-wk2-reveal>
+      <button class="wk2-faq-q" aria-expanded="false">Darf ich einfach nur müde sein?</button>
+      <div class="wk2-faq-a">
+        <p>Ja. Müdigkeit ist kein Versagen. Manchmal ist sie die ehrlichste Information im Raum — und der erste ehrliche Schritt in den Wald.</p>
+      </div>
+    </div>
+    <div class="wk2-faq" data-wk2-reveal>
+      <button class="wk2-faq-q" aria-expanded="false">Für wen ist Waldkätzchen?</button>
+      <div class="wk2-faq-a">
+        <p>Für Eltern und Väter, die spüren, dass da mehr ist. Für Teams und Fachkräfte, die Verhalten verstehen wollen. Für alle, die nicht mehr suchen wollen — sondern endlich finden.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     KONTAKT
+     ══════════════════════════════════ -->
+<section class="wk2-section wk2-petrol wk2-contact" id="kontakt" data-wk2-section>
+  <p class="wk2-kicker">Ankommen</p>
+  <h2>Du hast bis hier gescrollt.<br><span>Kein Zufall.</span></h2>
+  <p class="wk2-lead">Meld dich nicht für ein Angebot. Meld dich, weil du neugierig bist — was hinter dem Verhalten steckt. Bei deinem Kind. Bei dir. Im ganzen Rudel.</p>
+  <a class="wk2-cta" href="coaching.html#kontakt">Meld dich bei Torsten →</a>
+  <p class="wk2-kontakt-sub">Oder direkt: <a href="mailto:hallo@waldkaetzchen.de">hallo@waldkaetzchen.de</a></p>
+</section>
+
+</main>
+
+<script src="lp2.js"></script>
+</body>
+</html>
