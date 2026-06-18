@@ -880,24 +880,15 @@ h1, h2, h3, h4, p, li, blockquote, span, div {
    ========================================================= */
 :root {
   --wk-petrol: #084F3F;
-  --wk-sky: #50A6AE;
-  --wk-teal: #50A6AE;
+  --wk-teal: #008C89;
   --wk-sage: #A8D5C2;
-  --wk-lavender: #C884F0;
-  --wk-bark: #7D6F61;
   --wk-cream: #FFF7E6;
   --wk-paper: #F3F8E9;
   --wk-rose: #EF4F7A;
   --wk-yellow: #FFD23F;
   --wk-orange: #FF7A1A;
   --wk-ink: #062f27;
-  --p2: #50A6AE;
-  --s3: #A8D5C2;
 }
-
-/* Waldkätzchen palette from the brand brief:
-   Primary: petrol #084F3F, yellow #FFD23F, orange #FF7A1A, rose #EF4F7A, sky #50A6AE.
-   Secondary: sage #A8D5C2, paper #F3F8E9, cream #FFF7E6, lavender #C884F0, bark #7D6F61. */
 
 body {
   background:
@@ -1170,7 +1161,7 @@ body {
 .lp-figur-card:nth-child(2) { background: #FFD9E3; }
 .lp-figur-card:nth-child(3) { background: #FFF0B3; }
 .lp-figur-card:nth-child(4) { background: #BEE5D3; }
-.lp-figur-card:nth-child(5) { background: var(--wk-lavender); }
+.lp-figur-card:nth-child(5) { background: #FFD7B8; }
 
 .lp-angebote-chapter { background: linear-gradient(180deg, var(--wk-cream), #F3F8E9); }
 .lp-angebot-card:nth-child(1) { background: #DDF3EA; }
@@ -1255,7 +1246,7 @@ body {
 .lp-nebel__rail-card:nth-child(2) { background: var(--wk-yellow); }
 .lp-nebel__rail-card:nth-child(3) { background: var(--wk-sage); }
 .lp-nebel__rail-card:nth-child(4) { background: #FFD9E3; }
-.lp-nebel__rail-card:nth-child(5) { background: var(--wk-lavender); }
+.lp-nebel__rail-card:nth-child(5) { background: #FFE8C8; }
 .lp-nebel__rail-card--highlight { background: var(--wk-petrol); }
 
 .lp-lichtung-chapter {
@@ -1285,7 +1276,7 @@ body {
 .lp-figuren-chapter {
   background:
     radial-gradient(circle at 8% 8%, rgba(255, 210, 63, .48), transparent 22rem),
-    linear-gradient(135deg, var(--wk-sky), var(--wk-sage) 55%, #DDF3EA);
+    linear-gradient(135deg, #BEE5D3, var(--wk-sage) 55%, #DDF3EA);
 }
 
 .lp-angebote-chapter {
@@ -1314,7 +1305,7 @@ body {
 .lp-final-cta {
   background:
     radial-gradient(circle at 50% 0%, rgba(255, 210, 63, .33), transparent 26rem),
-    linear-gradient(135deg, var(--wk-bark), var(--wk-rose) 52%, var(--wk-orange));
+    linear-gradient(135deg, #36091b, var(--wk-rose) 52%, var(--wk-orange));
 }
 
 .lp-footer {
@@ -1365,7 +1356,7 @@ body {
 
 .lp-angebote-chapter .lp-container::before { background: var(--wk-rose); }
 .lp-figuren-chapter__header::before { background: var(--wk-orange); }
-.lp-faq-chapter .lp-container::before { background: var(--wk-lavender); }
+.lp-faq-chapter .lp-container::before { background: var(--wk-sage); }
 
 @media (max-width: 700px) {
   .lp-nebel,
@@ -1382,34 +1373,4 @@ body {
   .lp-faq-chapter .lp-container::before {
     opacity: .55;
   }
-}
-
-/* =========================================================
-   17. Torsten voice + eight forest figures
-   ========================================================= */
-.lp-felix__bg-word {
-  color: rgba(8, 79, 63, .12);
-  font-size: clamp(7rem, 23vw, 20rem);
-}
-
-.lp-figur-card--luis { border-top-color: var(--wk-orange); background: #FFE8C8; }
-.lp-figur-card--iella { border-top-color: var(--wk-yellow); background: #FFF0B3; }
-.lp-figur-card--etana { border-top-color: var(--wk-lavender); background: #F1DCF9; }
-.lp-figur-card--elfriede { border-top-color: var(--wk-bark); background: #E8DFD2; }
-.lp-figur-card--niko { border-top-color: var(--wk-sky); background: #DDF3EA; }
-.lp-figur-card--tigi { border-top-color: var(--wk-rose); background: #FFD9E3; }
-.lp-figur-card--kata-rina { border-top-color: var(--wk-lavender); background: #F3E7FF; }
-.lp-figur-card--wadda { border-top-color: var(--wk-petrol); background: var(--wk-paper); }
-
-.lp-figur-card--luis .lp-figur-card__tag,
-.lp-figur-card--iella .lp-figur-card__tag,
-.lp-figur-card--etana .lp-figur-card__tag,
-.lp-figur-card--elfriede .lp-figur-card__tag,
-.lp-figur-card--niko .lp-figur-card__tag,
-.lp-figur-card--tigi .lp-figur-card__tag,
-.lp-figur-card--kata-rina .lp-figur-card__tag,
-.lp-figur-card--wadda .lp-figur-card__tag {
-  background: var(--wk-petrol);
-  color: var(--wk-cream);
-  white-space: normal;
 }
