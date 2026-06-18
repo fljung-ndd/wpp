@@ -861,6 +861,64 @@ h2 span, h1 span { color: var(--acc); }
   .wk2-entstehung-grid { grid-template-columns: 1fr; }
 }
 
+/* ─── Alter Wald Stimmen (LP4) ────────────── */
+.wk2-alter-stimmen {
+  display: grid; gap: .5rem; margin: 2rem 0; max-width: 64rem;
+}
+.wk2-alter-quote {
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 4.5rem); text-transform: uppercase;
+  letter-spacing: -.03em; line-height: .92; padding: .8rem 0;
+  border-bottom: 1.5px solid rgba(255,255,255,.15);
+}
+.wk2-alter-quote:last-child { border-bottom: none; }
+.wk2-stimmen-coda {
+  font-size: clamp(1.1rem, 2vw, 1.7rem); font-weight: 900;
+  font-family: var(--display); text-transform: uppercase;
+  letter-spacing: -.03em; color: var(--acc); max-width: 36rem;
+  margin-top: 2rem; line-height: 1.05;
+}
+.wk2-stimmen-bridge {
+  margin-top: 3rem; padding-top: 2rem;
+  border-top: 2px solid rgba(255,255,255,.18);
+}
+.wk2-stimmen-bridge p {
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(1.3rem, 2.5vw, 2.8rem);
+  text-transform: uppercase; letter-spacing: -.03em;
+  color: var(--acc); line-height: 1.05;
+}
+
+/* ─── Figuren Highlight Grid (LP3/LP4) ────── */
+.wk2-figuren-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: .75rem; margin-top: 2rem;
+}
+.wk2-figuren-card {
+  padding: 2rem 1.75rem;
+  background: rgba(255,255,255,.1);
+  border-top: 3px solid var(--acc);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 1rem; align-items: start;
+}
+.wk2-figuren-card img {
+  width: clamp(3rem, 6vw, 5rem); height: auto;
+}
+.wk2-figuren-card-text h3 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: var(--acc); margin-bottom: .4rem;
+}
+.wk2-figuren-card-text p {
+  font-size: clamp(.88rem, 1.3vw, 1.1rem); font-weight: 700; line-height: 1.4;
+}
+
+/* ─── Mobile additions ───────────────────── */
+@media (max-width: 900px) {
+  .wk2-figuren-grid { grid-template-columns: 1fr; }
+  .wk2-alter-quote { font-size: clamp(1.4rem, 6vw, 2.8rem); }
+}
+
 /* ─── Reduced motion ──────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
