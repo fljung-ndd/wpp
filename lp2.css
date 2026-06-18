@@ -372,6 +372,109 @@ h2 span, h1 span { color: var(--acc); }
   font-family: var(--display); letter-spacing: .08em;
 }
 
+/* ─── Drei Dinge ─────────────────────────── */
+.wk2-drei-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: .75rem; margin-top: 2rem;
+}
+.wk2-drei-card {
+  background: var(--petrol); color: var(--cream);
+  padding: 2rem 1.75rem 3.5rem;
+  border-radius: var(--r-md);
+  position: relative; overflow: hidden;
+}
+.wk2-drei-num {
+  display: block; font-family: var(--display); font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 5rem); color: var(--yellow);
+  line-height: 1; margin-bottom: .4rem;
+}
+.wk2-drei-card h3 {
+  font-size: clamp(1.9rem, 4vw, 5rem); color: var(--yellow);
+  margin-bottom: .75rem; max-width: none;
+}
+.wk2-drei-card > p {
+  font-size: clamp(.95rem, 1.4vw, 1.25rem); font-weight: 700;
+  line-height: 1.45; opacity: .85;
+}
+.wk2-drei-figure {
+  position: absolute; bottom: -1rem; right: -1rem;
+  width: clamp(5rem, 11vw, 8rem); height: auto;
+  opacity: .2; transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* ─── Ich bin Torsten ───────────────────── */
+.wk2-ichbin-grid {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 3.5rem; align-items: center;
+}
+.wk2-ichbin-tags {
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(.9rem, 1.5vw, 1.3rem);
+  text-transform: uppercase; letter-spacing: .06em;
+  color: var(--acc); margin: 1rem 0 1.5rem; line-height: 1.5;
+}
+.wk2-ichbin-photos {
+  display: flex; gap: 1.2rem; align-items: flex-start;
+  flex-shrink: 0;
+}
+.wk2-polaroid {
+  background: white;
+  padding: .65rem .65rem 2.8rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,.22);
+  border-radius: 3px;
+  width: clamp(9rem, 16vw, 15rem);
+  transform: rotate(-3deg);
+}
+.wk2-polaroid--tilt { transform: rotate(4.5deg); }
+.wk2-polaroid img {
+  width: 100%; aspect-ratio: 4/5;
+  object-fit: cover; object-position: top center;
+  display: block; filter: grayscale(1);
+}
+.wk2-ichbin-copy {
+  display: grid; gap: .9rem; max-width: 52rem;
+}
+.wk2-ichbin-copy p {
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 700; line-height: 1.4;
+}
+.wk2-ichbin-copy em { color: var(--acc); }
+
+/* ─── Floating character decorations ───── */
+.wk2-figure-deco {
+  position: absolute; pointer-events: none; z-index: 0;
+}
+.wk2-figure-deco img {
+  width: clamp(4.5rem, 11vw, 9rem); height: auto;
+}
+.wk2-figure-deco--br {
+  bottom: 2rem; right: 2rem;
+  opacity: .18; transform: rotate(10deg);
+}
+.wk2-figure-deco--tr {
+  top: 5rem; right: 3rem;
+  opacity: .14; transform: rotate(-8deg);
+}
+.wk2-figure-deco--bl {
+  bottom: 2rem; left: 2rem;
+  opacity: .14; transform: rotate(-12deg);
+}
+
+/* ─── Waldkatze decoration ──────────────── */
+.wk2-waldkatze {
+  position: absolute; pointer-events: none; z-index: 0;
+  width: clamp(4rem, 9vw, 8rem); height: auto;
+  opacity: .22;
+}
+.wk2-waldkatze--hero {
+  bottom: 3rem; left: calc(var(--pad-x) + 2rem);
+}
+.wk2-waldkatze--kontakt {
+  bottom: 2rem; right: calc(var(--pad-x) + 1rem);
+  opacity: .3;
+}
+
 /* ─── Marquee ─────────────────────────────── */
 .wk2-marquee {
   background: var(--bg, var(--yellow)); color: var(--fg, var(--ink));
@@ -724,6 +827,10 @@ h2 span, h1 span { color: var(--acc); }
   }
   .wk2-entstehung-grid { grid-template-columns: 1fr 1fr; }
   .wk2-lines--wide .wk2-lines { grid-template-columns: 1fr; }
+  .wk2-drei-grid { grid-template-columns: 1fr; }
+  .wk2-ichbin-grid { grid-template-columns: 1fr; }
+  .wk2-ichbin-photos { display: none; }
+  .wk2-figure-deco, .wk2-waldkatze { display: none; }
 
   /* Tiere: no sidescroll on mobile */
   .wk2-tiere-wrapper { height: auto !important; }
@@ -752,6 +859,64 @@ h2 span, h1 span { color: var(--acc); }
 }
 @media (max-width: 480px) {
   .wk2-entstehung-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Alter Wald Stimmen (LP4) ────────────── */
+.wk2-alter-stimmen {
+  display: grid; gap: .5rem; margin: 2rem 0; max-width: 64rem;
+}
+.wk2-alter-quote {
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 4.5rem); text-transform: uppercase;
+  letter-spacing: -.03em; line-height: .92; padding: .8rem 0;
+  border-bottom: 1.5px solid rgba(255,255,255,.15);
+}
+.wk2-alter-quote:last-child { border-bottom: none; }
+.wk2-stimmen-coda {
+  font-size: clamp(1.1rem, 2vw, 1.7rem); font-weight: 900;
+  font-family: var(--display); text-transform: uppercase;
+  letter-spacing: -.03em; color: var(--acc); max-width: 36rem;
+  margin-top: 2rem; line-height: 1.05;
+}
+.wk2-stimmen-bridge {
+  margin-top: 3rem; padding-top: 2rem;
+  border-top: 2px solid rgba(255,255,255,.18);
+}
+.wk2-stimmen-bridge p {
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(1.3rem, 2.5vw, 2.8rem);
+  text-transform: uppercase; letter-spacing: -.03em;
+  color: var(--acc); line-height: 1.05;
+}
+
+/* ─── Figuren Highlight Grid (LP3/LP4) ────── */
+.wk2-figuren-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: .75rem; margin-top: 2rem;
+}
+.wk2-figuren-card {
+  padding: 2rem 1.75rem;
+  background: rgba(255,255,255,.1);
+  border-top: 3px solid var(--acc);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 1rem; align-items: start;
+}
+.wk2-figuren-card img {
+  width: clamp(3rem, 6vw, 5rem); height: auto;
+}
+.wk2-figuren-card-text h3 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: var(--acc); margin-bottom: .4rem;
+}
+.wk2-figuren-card-text p {
+  font-size: clamp(.88rem, 1.3vw, 1.1rem); font-weight: 700; line-height: 1.4;
+}
+
+/* ─── Mobile additions ───────────────────── */
+@media (max-width: 900px) {
+  .wk2-figuren-grid { grid-template-columns: 1fr; }
+  .wk2-alter-quote { font-size: clamp(1.4rem, 6vw, 2.8rem); }
 }
 
 /* ─── Reduced motion ──────────────────────── */
