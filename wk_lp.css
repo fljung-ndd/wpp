@@ -382,6 +382,7 @@ h2 span, h1 span { color: var(--acc); }
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(16rem,.85fr);
   gap: 3.5rem; align-items: start;
+  margin-top: 2rem;
 }
 .wkl-lines { display: grid; gap: 1rem; }
 .wkl-lines p {
@@ -454,6 +455,7 @@ h2 span, h1 span { color: var(--acc); }
   font-size: clamp(1rem, 1.6vw, 1.35rem); font-weight: 700;
   line-height: 1.5; opacity: .85;
 }
+.wkl-alter-bridge p + p { margin-top: .8rem; }
 
 /* ─── Nebel / Fog section ─────────────────── */
 .wkl-fog-layer {
@@ -881,6 +883,12 @@ h2 span, h1 span { color: var(--acc); }
 [data-parallax] .wkl-hero-bg img {
   transform: translateY(calc(var(--parallax-y, 0px) * 1.6));
   will-change: transform;
+}
+
+/* ─── Abschluss body paragraph ───────────── */
+.wkl-abschluss-body {
+  font-size: clamp(1rem, 1.6vw, 1.4rem); font-weight: 700;
+  max-width: 44rem; margin-top: 1rem; opacity: .85; line-height: 1.4;
 }
 
 /* ─── Brand close ────────────────────────── */
