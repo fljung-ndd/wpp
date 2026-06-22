@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Waldkaetzchen Preview"
+AuthUserFile /home/user/wpp/.htpasswd
+
+<FilesMatch "^landingpage.*\.html$">
+  Require valid-user
+</FilesMatch>

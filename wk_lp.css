@@ -22,6 +22,7 @@
   --ink:         #18201D;
 
   --display: 'Barlow Condensed', system-ui, sans-serif;
+  --serif:   'DM Serif Display', Georgia, serif;
   --body:    'Nunito', system-ui, sans-serif;
 
   --pad-x: clamp(1.5rem, 6vw, 5rem);
@@ -37,6 +38,18 @@
 [data-mood="abend"]     { --mood-body: #FFF0F0; }
 [data-mood="nacht"]     { --mood-body: #0d3326; --mood-text: var(--cream); }
 [data-mood="waldgeist"] { --mood-body: #160d24; --mood-text: var(--cream); }
+
+/* ─── Mood Veil ───────────────────────────── */
+.wkl-mood-veil {
+  position: fixed; inset: 0; z-index: 5;
+  pointer-events: none;
+  background: transparent;
+  transition: background 1.2s ease;
+}
+[data-mood="morgen"]    .wkl-mood-veil { background: rgba(255,200,55,.09); }
+[data-mood="abend"]     .wkl-mood-veil { background: rgba(200,65,20,.14); }
+[data-mood="nacht"]     .wkl-mood-veil { background: rgba(0,5,25,.44); }
+[data-mood="waldgeist"] .wkl-mood-veil { background: rgba(65,15,95,.34); }
 
 /* ─── Section color tokens ────────────────── */
 .wkl-deep    { --bg: var(--forest-deep);  --fg: var(--cream);  --acc: var(--sun);    }
@@ -230,12 +243,12 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1rem; opacity: .65;
 }
 h1, h2, h3 {
-  font-family: var(--display); font-weight: 900;
-  text-transform: uppercase; letter-spacing: -.03em; line-height: .9;
+  font-family: var(--serif); font-weight: 400;
+  font-style: italic; letter-spacing: -.02em; line-height: 1.08;
 }
-h1 { font-size: clamp(2.8rem, 7.5vw, 6rem); }
-h2 { font-size: clamp(2.2rem, 5.5vw, 5rem); max-width: 15ch; }
-h3 { font-size: clamp(1.7rem, 3.8vw, 3.8rem); max-width: 16ch; }
+h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h2 { font-size: clamp(1.65rem, 3vw, 2.8rem); max-width: 22ch; }
+h3 { font-size: clamp(1.25rem, 2vw, 2rem); max-width: 26ch; }
 h2 span, h1 span { color: var(--acc); }
 
 .wkl-lead {
@@ -243,57 +256,49 @@ h2 span, h1 span { color: var(--acc); }
   line-height: 1.3; max-width: 42rem; margin-top: 1.5rem;
 }
 
-/* ─── Hero ────────────────────────────────── */
-.wkl-hero {
-  display: grid;
-  grid-template-columns: 55fr 45fr;
-  grid-template-rows: 1fr auto;
-  align-items: stretch;
-  min-height: 100svh;
-  padding-top: clamp(5rem, 10vw, 9rem);
-  padding-right: 0;
-  gap: 0;
+/* ─── Hero Full-Bleed ─────────────────────── */
+.wkl-hero-full {
+  justify-content: flex-end;
 }
-.wkl-hero::before { display: none; }
-.wkl-hero-content {
-  grid-column: 1; grid-row: 1;
-  display: flex; flex-direction: column; justify-content: center;
-  padding-bottom: var(--pad-y);
-}
-.wkl-hero-media {
-  grid-column: 2; grid-row: 1;
-  position: relative; overflow: hidden;
-}
-.wkl-hero-media .wkl-img-block {
-  position: absolute; inset: 0;
-  width: 100% !important; height: 100% !important;
-  aspect-ratio: unset !important;
-  transform: none !important;
-  border-radius: 0 !important;
-}
-.wkl-hero-media .wkl-img-block img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-}
-.wkl-hero-media::before {
+.wkl-hero-full::before { display: none; }
+.wkl-hero-full::after {
   content: '';
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(to right,
-    var(--bg, var(--forest-deep)) 0%,
-    color-mix(in srgb, var(--bg, var(--forest-deep)) 65%, transparent) 28%,
-    transparent 60%);
+  background: linear-gradient(to top,
+    rgba(13,33,28,.96) 0%,
+    rgba(13,33,28,.72) 38%,
+    rgba(13,33,28,.22) 72%,
+    rgba(13,33,28,.06) 100%
+  );
   pointer-events: none;
 }
+.wkl-hero-bg {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+}
+.wkl-hero-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 20%;
+  display: block; border-radius: 0;
+}
+.wkl-hero-full .wkl-hero-content {
+  position: relative; z-index: 2; max-width: 58rem;
+}
+.wkl-hero-full .wkl-scroll-hint {
+  position: relative; z-index: 2; margin-top: 1.2rem;
+}
+.wkl-hero-full .wkl-waldkatze { z-index: 2; }
 .wkl-hero-badge {
   font-family: var(--display); font-weight: 900;
-  font-size: clamp(.9rem, 1.6vw, 1.5rem); text-transform: uppercase;
+  font-size: clamp(.85rem, 1.4vw, 1.3rem); text-transform: uppercase;
   line-height: .95; color: var(--acc); text-align: center;
-  padding: .9rem 1rem; border: 3px solid var(--acc);
+  padding: .8rem .95rem; border: 2.5px solid var(--acc);
   border-radius: var(--r-md);
   position: absolute;
-  bottom: clamp(3rem, 6vw, 5rem);
+  top: clamp(5rem, 9vw, 8rem);
   right: clamp(1.5rem, 3vw, 2.5rem);
-  z-index: 2; transform: rotate(5deg);
+  z-index: 3; transform: rotate(5deg);
+  backdrop-filter: blur(4px);
+  background: rgba(13,33,28,.35);
 }
 
 /* ─── Buttons / Actions ───────────────────── */
@@ -457,8 +462,8 @@ h2 span, h1 span { color: var(--acc); }
 .wkl-fog-blob {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255,255,255,.42);
-  filter: blur(4.5rem);
+  background: rgba(210,235,220,.48);
+  filter: blur(5rem);
 }
 .wkl-fog-blob:nth-child(1) {
   width: 55vw; height: 38vw; top: -5%; left: -10%;
@@ -482,6 +487,7 @@ h2 span, h1 span { color: var(--acc); }
 }
 .wkl-nebel-copy p {
   font-size: clamp(1rem, 1.6vw, 1.4rem); font-weight: 800; line-height: 1.35;
+  text-shadow: 0 1px 10px rgba(8,20,14,.65);
 }
 .wkl-nebel-keywords {
   display: flex; flex-wrap: wrap; gap: .7rem 1rem;
@@ -496,6 +502,18 @@ h2 span, h1 span { color: var(--acc); }
 }
 .wkl-nebel-keywords span.wkl-kw-bright { opacity: 1; color: var(--acc); }
 .wkl-nebel-keywords span.wkl-kw-mid   { opacity: .6; }
+
+/* ─── Alter Wald — tree silhouettes ──────── */
+#alterwalt::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: clamp(9rem, 22vw, 16rem);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 160'%3E%3Cg fill='white' opacity='0.07'%3E%3Cpolygon points='40,12 64,72 50,72 70,118 20,118 40,72 26,72'/%3E%3Crect x='40' y='118' width='7' height='22'/%3E%3Cpolygon points='138,4 168,62 153,62 174,112 108,112 129,62 114,62'/%3E%3Crect x='135' y='112' width='9' height='24'/%3E%3Cpolygon points='248,16 270,68 258,68 275,108 228,108 245,68 233,68'/%3E%3Crect x='247' y='108' width='7' height='22'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: bottom;
+  pointer-events: none; z-index: -1;
+}
 
 /* ─── Steinmeer / Stones ──────────────────── */
 .wkl-steine-copy {
@@ -584,7 +602,7 @@ h2 span, h1 span { color: var(--acc); }
   line-height: 1; opacity: .5; margin-bottom: .2rem;
 }
 .wkl-dreiklang-card h3 {
-  font-size: clamp(1.5rem, 3.5vw, 4rem); color: var(--acc); margin-bottom: .6rem;
+  font-size: clamp(1.4rem, 2.8vw, 2.6rem); color: var(--acc); margin-bottom: .6rem;
 }
 .wkl-dreiklang-card p {
   font-size: clamp(.95rem, 1.4vw, 1.25rem); font-weight: 700; line-height: 1.4;
@@ -611,7 +629,7 @@ h2 span, h1 span { color: var(--acc); }
   background: var(--bg); z-index: 2;
   border-right: 2.5px solid color-mix(in srgb, var(--fg) 25%, transparent);
 }
-.wkl-figuren-intro h2 { font-size: clamp(2rem, 4vw, 4.5rem); max-width: none; margin-top: .8rem; }
+.wkl-figuren-intro h2 { font-size: clamp(1.6rem, 3.2vw, 3rem); max-width: none; margin-top: .8rem; }
 .wkl-figuren-dots { display: flex; gap: .45rem; margin-top: 1.8rem; }
 .wkl-figuren-dots span {
   width: 1.8rem; height: 4px;
@@ -642,7 +660,7 @@ h2 span, h1 span { color: var(--acc); }
   font-size: clamp(3rem, 7vw, 7rem); line-height: 1;
   color: var(--acc); opacity: .55; margin-bottom: .15rem;
 }
-.wkl-figur-card h3 { font-size: clamp(1.7rem, 3.8vw, 4rem); max-width: 18ch; margin-bottom: 1rem; }
+.wkl-figur-card h3 { font-size: clamp(1.3rem, 2.5vw, 2.4rem); max-width: 22ch; margin-bottom: 1rem; }
 .wkl-figur-card p:not(.wkl-figur-num) {
   font-size: clamp(.95rem, 1.5vw, 1.35rem); font-weight: 700;
   line-height: 1.4; max-width: 38rem;
@@ -696,7 +714,7 @@ h2 span, h1 span { color: var(--acc); }
   font-size: clamp(2rem, 5vw, 6rem); color: var(--acc);
   line-height: 1;
 }
-.wkl-wirkung-item h3 { font-size: clamp(1.2rem, 2.2vw, 2.6rem); margin-bottom: .35rem; }
+.wkl-wirkung-item h3 { font-size: clamp(1.15rem, 1.8vw, 2rem); margin-bottom: .35rem; }
 .wkl-wirkung-item p { font-size: clamp(.95rem, 1.4vw, 1.2rem); font-weight: 700; line-height: 1.4; }
 
 /* ─── Angebot / Offers ────────────────────── */
@@ -854,6 +872,10 @@ h2 span, h1 span { color: var(--acc); }
   transform: translateY(var(--parallax-y, 0px));
   will-change: transform;
 }
+[data-parallax] .wkl-hero-bg img {
+  transform: translateY(calc(var(--parallax-y, 0px) * 1.6));
+  will-change: transform;
+}
 
 /* ─── Footer ──────────────────────────────── */
 .wkl-footer {
@@ -888,8 +910,8 @@ h2 span, h1 span { color: var(--acc); }
   .wkl-section { min-height: auto; padding-block: 4rem; }
   .wkl-section::before { opacity: .03; }
   .wkl-angled, .wkl-angled-inv { clip-path: none; margin: 0; padding-top: 4rem; padding-bottom: 4rem; }
-  .wkl-hero { grid-template-columns: 1fr; padding-right: var(--pad-x); }
-  .wkl-hero-media { display: none; }
+  .wkl-hero-full { min-height: 88svh; }
+  .wkl-hero-badge { display: none; }
   .wkl-split, .wkl-torsten-grid { grid-template-columns: 1fr; }
   .wkl-dreiklang  { grid-template-columns: 1fr; }
   .wkl-testimonials { grid-template-columns: 1fr; }
@@ -922,9 +944,9 @@ h2 span, h1 span { color: var(--acc); }
   .wkl-fog-blob { filter: blur(3rem); }
   .wkl-steine-field .wkl-stein { font-size: clamp(1.1rem, 4vw, 2rem); }
 
-  h1 { font-size: clamp(2.4rem, 11vw, 4.5rem); }
-  h2 { font-size: clamp(2rem, 10vw, 4rem); }
-  h3 { font-size: clamp(1.6rem, 8vw, 3.2rem); }
+  h1 { font-size: clamp(1.85rem, 8.5vw, 3rem); }
+  h2 { font-size: clamp(1.55rem, 7.5vw, 2.5rem); }
+  h3 { font-size: clamp(1.2rem, 6vw, 2rem); }
 }
 
 @media (max-width: 560px) {
