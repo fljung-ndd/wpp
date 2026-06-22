@@ -1,7 +1,7 @@
 AuthType Basic
 AuthName "Waldkaetzchen Preview"
-AuthUserFile /home/user/wpp/.htpasswd
+AuthUserFile /web/waldkaetzchen.waldkaetzchen.de/waldkatze/.htpasswd
 
-<FilesMatch "^landingpage.*\.html$">
+<Files ~ "^landingpage">
   Require valid-user
-</FilesMatch>
+</Files>
