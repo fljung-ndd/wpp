@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de" data-mood="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waldkätzchen | Comic-Picture-Variante</title>
+<meta name="description" content="Waldkätzchen als illustrierte Comic- und Bilderbuchvariante mit rauen Bildkanten, comicartigen Polaroids und handgemachten Seitenrändern.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wk_lp.css">
+<link rel="stylesheet" href="wk_lp_picture.css">
+<style>
+  .wkp-loader {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background: #F5F0E7;
+    color: #18201D;
+    font-family: 'Nunito', system-ui, sans-serif;
+    text-align: center;
+  }
+  .wkp-loader strong {
+    display: block;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2rem, 7vw, 5rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: .75rem;
+  }
+  .wkp-loader p { max-width: 34rem; }
+</style>
+</head>
+<body class="wkl-comic-picture">
+  <div class="wkp-loader" role="status" aria-live="polite">
+    <div>
+      <strong>Der Wald wird gezeichnet.</strong>
+      <p>Die bestehende Landingpage wird geladen und als handgemachte Comic- und Bilderbuchvariante inszeniert.</p>
+    </div>
+  </div>
+
+<script>
+(async function loadPictureVariant() {
+  try {
+    const response = await fetch('landingpage_wk.html', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Die Ausgangsseite konnte nicht geladen werden.');
+
+    const source = await response.text();
+    const parsed = new DOMParser().parseFromString(source, 'text/html');
+    const sourceScripts = Array.from(parsed.body.querySelectorAll('script'));
+    sourceScripts.forEach(script => script.remove());
+
+    document.documentElement.lang = parsed.documentElement.lang || 'de';
+    document.documentElement.dataset.mood = parsed.documentElement.dataset.mood || 'auto';
+    document.body.innerHTML = parsed.body.innerHTML;
+    document.body.classList.add('wkl-comic-picture');
+
+    const originalScript = document.createElement('script');
+    originalScript.src = 'wk_lp.js';
+    originalScript.defer = false;
+    document.body.appendChild(originalScript);
+
+    const pictureScript = document.createElement('script');
+    pictureScript.src = 'wk_lp_picture.js';
+    pictureScript.defer = false;
+    document.body.appendChild(pictureScript);
+  } catch (error) {
+    document.body.innerHTML = `
+      <div class="wkp-loader">
+        <div>
+          <strong>Der Wald blieb heute weiß.</strong>
+          <p>${error.message}</p>
+          <p><a href="landingpage_wk.html">Zur normalen Landingpage</a></p>
+        </div>
+      </div>`;
+  }
+})();
+</script>
+</body>
+</html>
