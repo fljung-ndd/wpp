@@ -1,82 +1,379 @@
 <!DOCTYPE html>
-<html lang="de" data-mood="auto">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Waldkätzchen | Comic-Picture-Variante</title>
-<meta name="description" content="Waldkätzchen als illustrierte Comic- und Bilderbuchvariante mit rauen Bildkanten, comicartigen Polaroids und handgemachten Seitenrändern.">
+<title>Waldkätzchen | Wild und verbunden</title>
+<meta name="description" content="Waldkätzchen als illustrierte Bilderbuch- und Comic-Landingpage über Verhalten, Verbindung und Veränderung.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="wk_lp.css">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="wk_lp_picture.css">
-<style>
-  .wkp-loader {
-    min-height: 100svh;
-    display: grid;
-    place-items: center;
-    padding: 2rem;
-    background: #F5F0E7;
-    color: #18201D;
-    font-family: 'Nunito', system-ui, sans-serif;
-    text-align: center;
-  }
-  .wkp-loader strong {
-    display: block;
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(2rem, 7vw, 5rem);
-    font-style: italic;
-    font-weight: 400;
-    line-height: 1;
-    margin-bottom: .75rem;
-  }
-  .wkp-loader p { max-width: 34rem; }
-</style>
 </head>
-<body class="wkl-comic-picture">
-  <div class="wkp-loader" role="status" aria-live="polite">
-    <div>
-      <strong>Der Wald wird gezeichnet.</strong>
-      <p>Die bestehende Landingpage wird geladen und als handgemachte Comic- und Bilderbuchvariante inszeniert.</p>
+<body>
+
+<svg class="wkp-svg-defs" aria-hidden="true" width="0" height="0">
+  <defs>
+    <filter id="wkp-comic-photo" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0.82" result="sat"/>
+      <feComponentTransfer in="sat" result="poster">
+        <feFuncR type="discrete" tableValues="0 .18 .36 .58 .78 1"/>
+        <feFuncG type="discrete" tableValues="0 .16 .34 .56 .76 1"/>
+        <feFuncB type="discrete" tableValues="0 .17 .35 .57 .77 1"/>
+      </feComponentTransfer>
+      <feGaussianBlur in="sat" stdDeviation="1" result="blur"/>
+      <feConvolveMatrix in="blur" order="3" kernelMatrix="-1 -1 -1 -1 8 -1 -1 -1 -1" divisor="1" bias="0" result="edges"/>
+      <feColorMatrix in="edges" type="luminanceToAlpha" result="edgeAlpha"/>
+      <feComponentTransfer in="edgeAlpha" result="edgeStrong">
+        <feFuncA type="table" tableValues="0 0 .05 .35 .8 1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#16201d" result="ink"/>
+      <feComposite in="ink" in2="edgeStrong" operator="in" result="inkEdges"/>
+      <feBlend in="poster" in2="inkEdges" mode="multiply"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="wkp-header" data-header>
+  <a class="wkp-brand" href="#start" aria-label="Waldkätzchen Startseite">
+    <img src="images/logo.png" alt="">
+    <span>Waldkätzchen</span>
+  </a>
+  <nav class="wkp-nav" aria-label="Hauptnavigation">
+    <a href="#geschichte">Geschichte</a>
+    <a href="#wald">Der Wald</a>
+    <a href="#figuren">Figuren</a>
+    <a href="#angebote">Angebote</a>
+    <a class="wkp-nav-cta" href="#kontakt">Komm mit</a>
+  </nav>
+  <button class="wkp-menu" type="button" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+  <section class="wkp-hero wkp-book" id="start">
+    <div class="wkp-page wkp-page-night">
+      <div class="wkp-night-photo wkp-photo-ink">
+        <img src="images/hero_optimized-1.webp" alt="Waldlandschaft von Waldkätzchen" loading="eager">
+      </div>
+      <div class="wkp-stars" aria-hidden="true"></div>
+      <div class="wkp-moon" aria-hidden="true"></div>
+      <p class="wkp-night-copy">Am nächsten Morgen geht es dann ganz anders los. Oder vielleicht beginnt es genau hier.</p>
+      <div class="wkp-road" aria-hidden="true"><span></span></div>
+      <p class="wkp-turn">Sie rollen und rollen …</p>
     </div>
+
+    <div class="wkp-page wkp-page-sunrise">
+      <div class="wkp-hero-copy">
+        <p class="wkp-eyebrow">Ein Bilderbuch für echte Beziehungsmomente</p>
+        <h1>Wild.<br>Verbunden.<br><em>Verstehend.</em></h1>
+        <p class="wkp-intro">Ich wollte es anders machen. Und wurde trotzdem laut. Waldkätzchen beginnt nicht bei perfekten Antworten, sondern dort, wo Verbindung kurz abreißt — und wiedergefunden werden kann.</p>
+        <div class="wkp-actions">
+          <a class="wkp-button wkp-button-primary" href="#geschichte">Die Geschichte öffnen</a>
+          <a class="wkp-button wkp-button-paper" href="#angebote">Was hier hilft</a>
+        </div>
+      </div>
+
+      <figure class="wkp-hero-polaroid wkp-photo-card wkp-photo-card-a" data-reveal>
+        <div class="wkp-photo-ink">
+          <img src="images/20260403_135536.jpg" alt="Torsten mit einer Waldkätzchen-Figur">
+        </div>
+        <figcaption>Torsten und Tigi.<br>Kein perfekter Moment. Ein echter.</figcaption>
+      </figure>
+
+      <div class="wkp-signpost" aria-hidden="true">Waldkätzchen →</div>
+      <p class="wkp-page-whisper">Und weiter.<br>Und weiter.<br>Und dann …</p>
+    </div>
+  </section>
+
+  <div class="wkp-chapter-ribbon" aria-hidden="true">
+    <span>VERHALTEN IST SPRACHE</span><b>✦</b><span>NICHT HÄRTER. KLARER.</span><b>✦</b><span>WILD UND VERBUNDEN</span>
   </div>
 
-<script>
-(async function loadPictureVariant() {
-  try {
-    const response = await fetch('landingpage_wk.html', { cache: 'no-store' });
-    if (!response.ok) throw new Error('Die Ausgangsseite konnte nicht geladen werden.');
+  <section class="wkp-spread wkp-story" id="geschichte">
+    <div class="wkp-spread-title" data-reveal>
+      <span class="wkp-chapter">Kapitel 01</span>
+      <h2>Von der Idee<br>zum Wald.</h2>
+      <p>Waldkätzchen ist nicht am Schreibtisch entstanden. Sondern in Familienmomenten, in denen Liebe da war — aber gerade nicht mehr sichtbar.</p>
+    </div>
 
-    const source = await response.text();
-    const parsed = new DOMParser().parseFromString(source, 'text/html');
-    const sourceScripts = Array.from(parsed.body.querySelectorAll('script'));
-    sourceScripts.forEach(script => script.remove());
-
-    document.documentElement.lang = parsed.documentElement.lang || 'de';
-    document.documentElement.dataset.mood = parsed.documentElement.dataset.mood || 'auto';
-    document.body.innerHTML = parsed.body.innerHTML;
-    document.body.classList.add('wkl-comic-picture');
-
-    const originalScript = document.createElement('script');
-    originalScript.src = 'wk_lp.js';
-    originalScript.defer = false;
-    document.body.appendChild(originalScript);
-
-    const pictureScript = document.createElement('script');
-    pictureScript.src = 'wk_lp_picture.js';
-    pictureScript.defer = false;
-    document.body.appendChild(pictureScript);
-  } catch (error) {
-    document.body.innerHTML = `
-      <div class="wkp-loader">
-        <div>
-          <strong>Der Wald blieb heute weiß.</strong>
-          <p>${error.message}</p>
-          <p><a href="landingpage_wk.html">Zur normalen Landingpage</a></p>
+    <div class="wkp-collage" aria-label="Illustrierte Entstehungsgeschichte">
+      <figure class="wkp-photo-card wkp-card-origin wkp-photo-card-b" data-reveal>
+        <div class="wkp-photo-ink">
+          <img src="images/20260308_153756.jpg" alt="Torsten in einem ruhigen Moment">
         </div>
-      </div>`;
-  }
-})();
-</script>
+        <figcaption>Ein Vater, der verbunden sein wollte.</figcaption>
+      </figure>
+
+      <article class="wkp-note wkp-note-main" data-reveal>
+        <h3>Der Moment, der alles änderte</h3>
+        <p>Es war kein großer Zusammenbruch. Es war ein Abend. Zu laut. Zu eng. Zu viel.</p>
+        <p><strong>Ich wurde laut.</strong></p>
+        <p>Danach kamen Scham, Rückzug und der feste Vorsatz, es beim nächsten Mal anders zu machen.</p>
+      </article>
+
+      <figure class="wkp-character-card wkp-character-tigi" data-reveal>
+        <img src="images/tigi.png" alt="Tigi, der Leopard">
+        <figcaption>Dann kam Tigi.<br><span>Schutz, der wie Kontrolle klingt.</span></figcaption>
+      </figure>
+
+      <article class="wkp-caption-slip" data-reveal>
+        <span>Von der Idee zum Buch</span>
+        <p>Plötzlich war nicht mehr einer von uns das Problem. Wir konnten gemeinsam auf das schauen, was zwischen uns passiert.</p>
+      </article>
+
+      <figure class="wkp-photo-card wkp-card-detail wkp-photo-card-c" data-reveal>
+        <div class="wkp-photo-ink">
+          <img src="images/20260403_135536.jpg" alt="Torsten mit Tigi in der Hand">
+        </div>
+        <figcaption>Mit Tigi wachsen.</figcaption>
+      </figure>
+
+      <article class="wkp-note wkp-note-quote" data-reveal>
+        <p>„Nicht einer von uns war das Problem.“</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wkp-journey" id="wald">
+    <div class="wkp-section-heading" data-reveal>
+      <span class="wkp-chapter">Kapitel 02</span>
+      <h2>Eine Reise durch den Wald.</h2>
+      <p>Keine Methode in fünf Schritten. Eher Orte, an denen sichtbar wird, was gerade wirkt.</p>
+    </div>
+
+    <div class="wkp-panel-grid">
+      <article class="wkp-comic-panel wkp-panel-old" data-reveal>
+        <span class="wkp-panel-number">01</span>
+        <div class="wkp-panel-art wkp-art-trees" aria-hidden="true"></div>
+        <div class="wkp-panel-text">
+          <p class="wkp-small-label">Der alte Wald</p>
+          <h3>Wo alte Sätze noch mitsprechen.</h3>
+          <p>„Reiß dich zusammen.“ „Sei nicht so empfindlich.“ Sie verschwinden nicht immer. Manchmal ziehen sie nur in die eigene Stimme um.</p>
+        </div>
+      </article>
+
+      <article class="wkp-comic-panel wkp-panel-fog" data-reveal>
+        <span class="wkp-panel-number">02</span>
+        <div class="wkp-panel-art wkp-art-fog" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="wkp-panel-text">
+          <p class="wkp-small-label">Der Nebel</p>
+          <h3>Wenn du da bist — aber nicht klar.</h3>
+          <p>Du liebst. Und bist trotzdem gereizt. Das ist nicht zu wenig Wille. Im Nebel braucht es Orientierung.</p>
+        </div>
+      </article>
+
+      <article class="wkp-comic-panel wkp-panel-stones" data-reveal>
+        <span class="wkp-panel-number">03</span>
+        <div class="wkp-panel-art wkp-art-stones" aria-hidden="true">
+          <b>Scham</b><b>Angst</b><b>Zeitdruck</b><b>Erschöpfung</b>
+        </div>
+        <div class="wkp-panel-text">
+          <p class="wkp-small-label">Das Steinmeer</p>
+          <h3>Was zwischen euch liegt.</h3>
+          <p>Selten Bosheit. Häufig viele schwere Dinge. Sichtbar werden heißt: nicht mehr alles gleichzeitig tragen.</p>
+        </div>
+      </article>
+
+      <article class="wkp-comic-panel wkp-panel-cave" data-reveal>
+        <span class="wkp-panel-number">04</span>
+        <div class="wkp-panel-art wkp-art-cave" aria-hidden="true"><span>✦</span></div>
+        <div class="wkp-panel-text">
+          <p class="wkp-small-label">Die Höhle</p>
+          <h3>Wo Rückzug einmal klug war.</h3>
+          <p>Waldkätzchen zerrt niemanden heraus. Es setzt sich davor. Leise. Mit Feuer. Mit Zeit.</p>
+        </div>
+      </article>
+
+      <article class="wkp-comic-panel wkp-panel-light" data-reveal>
+        <span class="wkp-panel-number">05</span>
+        <div class="wkp-panel-art wkp-art-light" aria-hidden="true"></div>
+        <div class="wkp-panel-text">
+          <p class="wkp-small-label">Die Lichtung</p>
+          <h3>Hier wird es heller.</h3>
+          <p>Verstehen. Verbinden. Verändern. Nicht alles. Nicht sofort. Aber den nächsten ehrlichen Schritt.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wkp-characters" id="figuren">
+    <div class="wkp-section-heading wkp-section-heading-light" data-reveal>
+      <span class="wkp-chapter">Kapitel 03</span>
+      <h2>Figuren, die etwas sagen können.</h2>
+      <p>Keine Diagnosen. Keine Etiketten. Bilder für das, was sonst nur Streit, Rückzug oder Überforderung heißt.</p>
+    </div>
+
+    <div class="wkp-character-desk">
+      <article class="wkp-character-file wkp-file-tigi" data-reveal>
+        <span class="wkp-paperclip" aria-hidden="true"></span>
+        <img src="images/tigi.png" alt="Tigi, der Leopard">
+        <div>
+          <p class="wkp-small-label">Akte 01 · Tigi</p>
+          <h3>Kontrolle schützt Unsicherheit.</h3>
+          <p>Er setzt Grenzen so hart, dass niemand seine Angst sieht.</p>
+          <blockquote>„Ich bestimme, was hier passiert.“</blockquote>
+        </div>
+      </article>
+
+      <article class="wkp-character-file wkp-file-luis" data-reveal>
+        <span class="wkp-paperclip" aria-hidden="true"></span>
+        <img src="images/luis.png" alt="Luis, der Teddybär">
+        <div>
+          <p class="wkp-small-label">Akte 02 · Luis</p>
+          <h3>Er platzt nicht. Er läuft über.</h3>
+          <p>Wenn innen alles drängelt, wird außen Chaos sichtbar.</p>
+          <blockquote>„Wenn alles zu viel wird, muss es raus.“</blockquote>
+        </div>
+      </article>
+
+      <article class="wkp-character-file wkp-file-etana" data-reveal>
+        <span class="wkp-paperclip" aria-hidden="true"></span>
+        <img src="images/etana.png" alt="Etana, die Schnecke">
+        <div>
+          <p class="wkp-small-label">Akte 03 · Etana</p>
+          <h3>Rückzug ist nicht Ablehnung.</h3>
+          <p>Etana braucht kein Ziehen. Sie braucht ein sanftes Klopfen.</p>
+          <blockquote>„In meinem Haus werde ich wieder sicher.“</blockquote>
+        </div>
+      </article>
+
+      <article class="wkp-character-file wkp-file-iella" data-reveal>
+        <span class="wkp-paperclip" aria-hidden="true"></span>
+        <img src="images/iella.png" alt="Iella, der Esel">
+        <div>
+          <p class="wkp-small-label">Akte 04 · Iella</p>
+          <h3>Ein Nein kann Selbstkontakt sein.</h3>
+          <p>Verbindung bedeutet nicht, sich selbst zu verlassen.</p>
+          <blockquote>„Ich weiß, wer ich bin.“</blockquote>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wkp-about wkp-spread" id="torsten">
+    <div class="wkp-about-collage">
+      <figure class="wkp-photo-card wkp-about-photo wkp-photo-card-a" data-reveal>
+        <div class="wkp-photo-ink"><img src="images/20260403_135536.jpg" alt="Torsten mit Handpuppe"></div>
+        <figcaption>Vater. Heilpädagoge. Mensch im Wald.</figcaption>
+      </figure>
+      <figure class="wkp-character-card wkp-about-cat" data-reveal>
+        <img src="images/blaueKatze.png" alt="Das blaue Waldkätzchen">
+      </figure>
+      <div class="wkp-postmark" aria-hidden="true">WILD<br>&amp;<br>VERBUNDEN</div>
+    </div>
+
+    <div class="wkp-about-copy" data-reveal>
+      <span class="wkp-chapter">Kapitel 04</span>
+      <h2>Hallo.<br>Ich bin Torsten.</h2>
+      <p class="wkp-lead-copy">Ich habe diesen Wald nicht erfunden, um klug zu wirken. Sondern um ehrlich hinschauen zu können.</p>
+      <p>Ich kenne Überforderung nicht nur aus Büchern. Ich kenne Rückzug, Scham, Lautwerden — und die Sehnsucht, es anders zu machen.</p>
+      <p>Waldkätzchen verbindet heilpädagogisches Wissen, eigene Erfahrung und einen Blick auf Menschen, der Verhalten nicht vorschnell zum Fehler erklärt.</p>
+      <div class="wkp-tag-row" aria-label="Über Torsten">
+        <span>Vater</span><span>Heilpädagoge</span><span>technisch denkend</span><span>menschlich arbeitend</span><span>lieber ehrlich als glatt</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wkp-offers" id="angebote">
+    <div class="wkp-section-heading" data-reveal>
+      <span class="wkp-chapter">Kapitel 05</span>
+      <h2>Was du aus dem Wald mitnehmen kannst.</h2>
+      <p>Leicht zugänglich. Klar. Ohne so zu tun, als gäbe es für Beziehung eine Bedienungsanleitung.</p>
+    </div>
+
+    <div class="wkp-ticket-grid">
+      <a class="wkp-ticket wkp-ticket-rose" href="coaching.html" data-reveal>
+        <span class="wkp-ticket-number">01</span>
+        <p class="wkp-small-label">Begleitung</p>
+        <h3>Einzelne Situationen gemeinsam verstehen.</h3>
+        <p>Für Eltern, Erwachsene und Menschen, die merken: So wie bisher soll es nicht bleiben.</p>
+        <b>Mehr erfahren →</b>
+      </a>
+
+      <a class="wkp-ticket wkp-ticket-yellow" href="vaeter.html" data-reveal>
+        <span class="wkp-ticket-number">02</span>
+        <p class="wkp-small-label">Für Väter</p>
+        <h3>Zwischen Verantwortung, Nähe und Überforderung.</h3>
+        <p>Kein Männerkurs. Ein ehrlicher Raum für das, was sonst oft unausgesprochen bleibt.</p>
+        <b>Zur Vater-Seite →</b>
+      </a>
+
+      <a class="wkp-ticket wkp-ticket-sky" href="landingpage3.html" data-reveal>
+        <span class="wkp-ticket-number">03</span>
+        <p class="wkp-small-label">Autismus &amp; ND</p>
+        <h3>Verhalten lesen, ohne Menschen kleiner zu machen.</h3>
+        <p>Neurodivergente Bedürfnisse verstehen und Verbindung jenseits von Anpassungsdruck finden.</p>
+        <b>Zur Themenseite →</b>
+      </a>
+
+      <a class="wkp-ticket wkp-ticket-petrol" href="angebote.html" data-reveal>
+        <span class="wkp-ticket-number">04</span>
+        <p class="wkp-small-label">Fachkräfte &amp; Teams</p>
+        <h3>Fallreflexion, Workshops und neue Blickwinkel.</h3>
+        <p>Für Kitas, Schulen und Teams, die Verhalten nicht nur verwalten, sondern verstehen wollen.</p>
+        <b>Alle Angebote →</b>
+      </a>
+    </div>
+  </section>
+
+  <section class="wkp-faq" id="fragen">
+    <div class="wkp-faq-intro" data-reveal>
+      <span class="wkp-chapter">Randnotizen</span>
+      <h2>Fragen, die man selten laut stellt.</h2>
+      <img src="images/etanaLogo.png" alt="" aria-hidden="true">
+    </div>
+
+    <div class="wkp-faq-list">
+      <article class="wkp-faq-item" data-reveal>
+        <button type="button" aria-expanded="false">Ist Waldkätzchen Therapie?<span>+</span></button>
+        <div><p>Nein. Waldkätzchen ist ein Begleit- und Denkraum — heilpädagogisch fundiert, aber keine medizinische oder psychotherapeutische Behandlung.</p></div>
+      </article>
+      <article class="wkp-faq-item" data-reveal>
+        <button type="button" aria-expanded="false">Muss ich schon genau wissen, worum es geht?<span>+</span></button>
+        <div><p>Nein. „Ich weiß nur, dass etwas nicht stimmt“ ist genug für einen ersten Schritt.</p></div>
+      </article>
+      <article class="wkp-faq-item" data-reveal>
+        <button type="button" aria-expanded="false">Geht es nur um Kinder?<span>+</span></button>
+        <div><p>Nein. Es geht um Situationen, Beziehungen und Muster — in Familien, Partnerschaften, Teams und im eigenen Leben.</p></div>
+      </article>
+      <article class="wkp-faq-item" data-reveal>
+        <button type="button" aria-expanded="false">Ist Waldkätzchen weich oder klar?<span>+</span></button>
+        <div><p>Beides. Es beschönigt nicht. Aber es beschämt auch nicht. Verbindung und Klarheit gehören zusammen.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wkp-final wkp-book" id="kontakt">
+    <div class="wkp-page wkp-final-left">
+      <div class="wkp-final-night" aria-hidden="true"></div>
+      <p class="wkp-final-small">Vielleicht beginnt es nicht mit einer Lösung.</p>
+      <h2>Vielleicht beginnt es<br>mit einem anderen Blick.</h2>
+      <img src="images/waddaLogo.png" alt="" aria-hidden="true">
+    </div>
+    <div class="wkp-page wkp-final-right">
+      <span class="wkp-chapter">Letzte Seite. Erster Schritt.</span>
+      <h2>Du musst nicht<br>perfekt bereit sein.</h2>
+      <p>Es reicht, wenn du gemerkt hast: So wie bisher soll es nicht bleiben.</p>
+      <a class="wkp-button wkp-button-primary" href="coaching.html#kontakt">Mit Torsten sprechen →</a>
+      <a class="wkp-mail" href="mailto:hallo@waldkaetzchen.de">hallo@waldkaetzchen.de</a>
+      <p class="wkp-signature">Wild und verbunden.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="wkp-footer">
+  <img src="images/logo.png" alt="Waldkätzchen">
+  <p>Verstehen · Verbinden · Verändern</p>
+  <nav aria-label="Footer-Navigation">
+    <a href="impressum.html">Impressum</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="angebote.html">Angebote</a>
+  </nav>
+  <small>© 2026 Waldkätzchen</small>
+</footer>
+
+<script src="wk_lp_picture.js"></script>
 </body>
 </html>
